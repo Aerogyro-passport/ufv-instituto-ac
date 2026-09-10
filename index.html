@@ -1,365 +1,51 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Rita© | Instituto de Acompañamiento UFV</title>
+const USUARIOS_INSTITUTO=[
+{codigo:"AML",usuario:"angel",nombre:"Ángel M. de Llaguno",password:"pollo33",rol:"Administrador",administrador:true,permisos:["A1","A2","A3","A4","A5","A6","A7","A8"]},
+{codigo:"LRA",usuario:"luis",nombre:"Luis Ramírez Angulo",password:"pollo33",rol:"Administrador",administrador:true,permisos:["A6","A7","A8"]},
+{codigo:"PRG",usuario:"pilar",nombre:"Pilar Rodríguez Gabriel",password:"pollo33",rol:"Usuario",administrador:false,permisos:["A1","A2","A3","A4","A5","A6"]},
+{codigo:"FRGC",usuario:"felipe",nombre:"Felipe Rodrigo Gutiérrez de la Cámara",password:"pollo33",rol:"Usuario",administrador:false,permisos:["A1","A2","A3","A4","A5","A6","A7","A8"]},
+{codigo:"MEV",usuario:"manuel",nombre:"Manuel Evaluador",password:"pollo33",rol:"Evaluador · DEMO",administrador:false,permisos:["A1","A3","A5"],demo:true},
+{codigo:"APT",usuario:"ana",nombre:"Ana Partes",password:"pollo33",rol:"Partes interesadas · DEMO",administrador:false,permisos:["A5","A6"],demo:true},
+{codigo:"PFO",usuario:"pedro",nombre:"Pedro formador",password:"pollo33",rol:"Formador · DEMO",administrador:false,permisos:["A1","A4"],demo:true}
+];
 
-<style>
-@font-face{font-family:Tecnico;src:url("tecnico_regular.ttf") format("truetype");font-weight:400}
-@font-face{font-family:Tecnico;src:url("tecnico_bold.ttf") format("truetype");font-weight:700}
-@font-face{font-family:Tecnico;src:url("tecnico_regularitalic.ttf") format("truetype");font-weight:400;font-style:italic}
-@font-face{font-family:Tecnico;src:url("tecnico_bolditalic.ttf") format("truetype");font-weight:700;font-style:italic}
-
-*{box-sizing:border-box}
-html,body{margin:0;width:100%;min-height:100%}
-body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial,sans-serif}
-.app{display:flex;width:100%;min-height:100vh}
-
-/* BANDA LATERAL */
-.lateral{
-width:330px;min-width:330px;min-height:100vh;
-background:#003B5C;color:#fff;padding:38px 34px 30px;
-display:flex;flex-direction:column
-}
-.rita{
-position:relative;display:inline-block;width:max-content;
-font-size:82px;line-height:.95;font-weight:400;letter-spacing:-4px
-}
-.copyright{position:absolute;top:-5px;right:-22px;font-family:Arial,sans-serif;font-size:20px}
-.linea-rita{width:92px;height:5px;margin:35px 0 40px;background:#4dd4d0}
-.nombre-sistema{
-width:250px;color:#fff;font-size:25px;line-height:1.28;
-letter-spacing:1.5px;text-transform:uppercase
-}
-.pie-lateral{
-margin-top:auto;width:100%;display:flex;
-align-items:flex-end;justify-content:center;padding-bottom:95px
-}
-.pie-lateral img{display:block;width:382px;max-width:100%;height:auto;object-fit:contain}
-
-/* PRINCIPAL */
-.principal{flex:1;min-width:0;min-height:100vh;display:flex;flex-direction:column}
-
-/* CABECERA */
-.cabecera{
-width:100%;height:185px;min-height:185px;background:#fff;
-display:flex;align-items:center;padding:0 75px
-}
-.cabecera img{display:block;width:844px;max-width:72vw;height:auto;object-fit:contain}
-
-/* ZONA CENTRAL */
-.zona{
-flex:1;width:100%;background:#edf5fb;
-display:flex;flex-direction:column;align-items:center;
-padding:55px 40px 35px
+function normalizar(txt){
+return(txt||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim().toLowerCase();
 }
 
-/* LOGIN */
-.login{
-width:820px;max-width:calc(100% - 50px);
-background:#fff;border:2px solid #d6e0e8;border-radius:11px;
-padding:52px 66px 45px;box-shadow:0 8px 25px rgba(30,70,100,.06)
-}
-.login-mini{
-display:inline-block;margin-bottom:23px;padding-bottom:9px;
-border-bottom:4px solid #4dd4d0;color:#6588a5;
-font-size:20px;letter-spacing:2.5px;text-transform:uppercase
-}
-.login h1{margin:0 0 12px;color:#17344e;font-size:62px;line-height:1;font-weight:400}
-.login-intro{margin:0 0 35px;color:#718ca4;font-size:24px;line-height:1.35}
-
-.campo{margin-bottom:22px}
-.campo label{
-display:block;margin-bottom:9px;color:#65849e;
-font-size:18px;letter-spacing:1.5px;text-transform:uppercase
-}
-.input-wrap{position:relative}
-.campo input{
-width:100%;height:70px;padding:0 21px;
-border:2px solid #c8d7e3;border-radius:6px;outline:none;
-background:#fbfcfd;color:#17344e;
-font-family:Tecnico,Arial,sans-serif;font-size:23px
-}
-.campo input::placeholder{color:#929ca5}
-.campo input:focus{border-color:#3d91bd;box-shadow:0 0 0 3px rgba(61,145,189,.09)}
-.password{padding-right:65px!important}
-
-.ver{
-position:absolute;top:50%;right:20px;transform:translateY(-50%);
-width:30px;height:30px;padding:0;border:0;background:transparent;
-color:#557c98;font-size:23px;cursor:pointer
+function buscarUsuario(usuario,password){
+return USUARIOS_INSTITUTO.find(u=>
+normalizar(u.usuario)===normalizar(usuario)&&u.password===password
+)||null;
 }
 
-.entrar{
-width:100%;height:70px;margin-top:10px;border:0;border-radius:5px;
-background:#09669f;color:#fff;font-family:Tecnico,Arial,sans-serif;
-font-size:21px;letter-spacing:6px;text-transform:uppercase;cursor:pointer
-}
-.entrar:hover{background:#075987}
-
-.aviso{
-margin-top:40px;padding-top:24px;border-top:1px solid #dce5ec;
-color:#718ca4;text-align:center;font-size:17px;line-height:1.4
-}
-
-.error{
-min-height:24px;margin-top:15px;
-color:#a33d3d;text-align:center;font-size:17px
+function iniciarSesion(usuario){
+const sesion={
+codigo:usuario.codigo,
+usuario:usuario.usuario,
+nombre:usuario.nombre,
+rol:usuario.rol,
+administrador:usuario.administrador,
+permisos:[...usuario.permisos],
+demo:!!usuario.demo
+};
+sessionStorage.setItem("rita_instituto_usuario",JSON.stringify(sesion));
+return sesion;
 }
 
-/* PANTALLA DE PERMISOS */
-.panel{
-display:none;width:100%;max-width:1320px
+function usuarioActivo(){
+try{
+return JSON.parse(sessionStorage.getItem("rita_instituto_usuario"))||null;
+}catch(e){
+return null;
 }
-.panel.visible{display:block}
-
-.usuario-barra{
-width:100%;display:flex;align-items:center;justify-content:space-between;
-margin-bottom:30px;padding:0 5px
-}
-.usuario-nombre{
-color:#17344e;font-size:31px;font-weight:700
-}
-.usuario-rol{
-margin-top:5px;color:#718ca4;font-size:19px
-}
-.salir{
-border:2px solid #b9ccda;border-radius:6px;background:#fff;
-color:#315675;padding:13px 21px;font:17px Tecnico,Arial,sans-serif;
-cursor:pointer
-}
-.salir:hover{background:#f7fafc}
-
-/* ICONOS */
-.permisos{
-width:100%;
-display:grid;
-grid-template-columns:repeat(4,minmax(190px,1fr));
-gap:28px;
-align-items:start
-}
-.permiso{
-display:block;border:0;background:transparent;
-padding:0;cursor:pointer;
-transition:transform .15s ease,filter .15s ease
-}
-.permiso:hover{transform:translateY(-5px);filter:brightness(1.03)}
-.permiso img{
-display:block;width:100%;height:auto;
-border-radius:20px
-}
-.permiso.oculto{display:none}
-
-/* RESPONSIVE */
-@media(max-width:1200px){
-.lateral{width:285px;min-width:285px}
-.rita{font-size:72px}
-.nombre-sistema{font-size:21px}
-.pie-lateral{padding-bottom:65px}.pie-lateral img{width:330px}
-.cabecera{height:160px;min-height:160px;padding:0 55px}
-.cabecera img{width:730px}
-.login{width:740px;padding:45px 55px 40px}
-.login h1{font-size:55px}
-.permisos{grid-template-columns:repeat(3,minmax(180px,1fr))}
 }
 
-@media(max-width:800px){
-.permisos{grid-template-columns:repeat(2,minmax(160px,1fr))}
+function tienePermiso(codigo){
+const u=usuarioActivo();
+return!!(u&&Array.isArray(u.permisos)&&u.permisos.includes(codigo));
 }
 
-@media(max-width:700px){
-.app{display:block}
-.lateral{width:100%;min-width:100%;min-height:auto;padding:25px 28px}
-.rita{font-size:58px}.linea-rita{margin:22px 0}
-.nombre-sistema{width:auto;font-size:18px}
-.pie-lateral{justify-content:flex-start;margin-top:30px;padding-bottom:15px}
-.pie-lateral img{width:300px}
-.cabecera{height:125px;min-height:125px;padding:0 25px}
-.cabecera img{width:620px;max-width:100%}
-.zona{padding:30px 15px}
-.login{width:100%;max-width:100%;padding:35px 28px}
-.login h1{font-size:45px}
-.login-intro{font-size:20px}
-.campo input{height:62px;font-size:20px}
-.entrar{height:62px}
-.usuario-barra{align-items:flex-start;gap:15px}
-.usuario-nombre{font-size:24px}
+function cerrarSesion(){
+sessionStorage.removeItem("rita_instituto_usuario");
+location.href="index.html";
 }
-
-@media(max-width:500px){
-.permisos{grid-template-columns:1fr}
-}
-</style>
-</head>
-
-<body>
-<div class="app">
-
-<aside class="lateral">
-<div class="rita">Rita<span class="copyright">©</span></div>
-<div class="linea-rita"></div>
-<div class="nombre-sistema">
-Sistema de Gestión<br>
-del Esquema de<br>
-Certificación<br>
-de Personas
-</div>
-<div class="pie-lateral">
-<img src="pie.png" alt="LifeLearning Consultoría - Powered by Rita">
-</div>
-</aside>
-
-<main class="principal">
-
-<header class="cabecera">
-<img src="cabecera1.png" alt="Universidad Francisco de Vitoria - Instituto de Acompañamiento">
-</header>
-
-<section class="zona">
-
-<!-- ACCESO -->
-<div class="login" id="login">
-
-<div class="login-mini">Acceso al sistema</div>
-<h1>Bienvenido</h1>
-
-<p class="login-intro">
-Identifíquese para acceder al entorno de gestión del Esquema de Certificación de Personas.
-</p>
-
-<form id="loginForm">
-
-<div class="campo">
-<label for="usuario">Usuario</label>
-<input id="usuario" type="text" autocomplete="username" placeholder="Nombre completo">
-</div>
-
-<div class="campo">
-<label for="password">Contraseña</label>
-<div class="input-wrap">
-<input id="password" class="password" type="password" autocomplete="current-password" placeholder="Introduzca su contraseña">
-<button class="ver" id="verPassword" type="button" aria-label="Mostrar contraseña">◉</button>
-</div>
-</div>
-
-<button class="entrar" type="submit">Entrar</button>
-<div class="error" id="error"></div>
-
-</form>
-
-<div class="aviso">
-Acceso restringido a personal autorizado.
-</div>
-
-</div>
-
-<!-- ÁREAS DISPONIBLES -->
-<div class="panel" id="panel">
-
-<div class="usuario-barra">
-<div>
-<div class="usuario-nombre" id="nombreUsuario"></div>
-<div class="usuario-rol" id="rolUsuario"></div>
-</div>
-<button class="salir" type="button" onclick="cerrarSesion()">Cerrar sesión</button>
-</div>
-
-<div class="permisos">
-
-<button class="permiso" data-permiso="A1" onclick="abrirArea('A1')">
-<img src="ICOA1.png" alt="A1 Área Técnica">
-</button>
-
-<button class="permiso" data-permiso="A2" onclick="abrirArea('A2')">
-<img src="ICOA2.png" alt="A2 Área de Gestión">
-</button>
-
-<button class="permiso" data-permiso="A3" onclick="abrirArea('A3')">
-<img src="ICOA3.png" alt="A3 Área de Evaluación">
-</button>
-
-<button class="permiso" data-permiso="A4" onclick="abrirArea('A4')">
-<img src="ICOA4.png" alt="A4 Área de Formación">
-</button>
-
-<button class="permiso" data-permiso="A5" onclick="abrirArea('A5')">
-<img src="ICOA5.png" alt="A5 Área de Decisión">
-</button>
-
-<button class="permiso" data-permiso="A6" onclick="abrirArea('A6')">
-<img src="ICOA6.png" alt="A6 Área de Conflictos">
-</button>
-
-<button class="permiso" data-permiso="A7" onclick="abrirArea('A7')">
-<img src="ICOA7.png" alt="A7 Área de Mejora">
-</button>
-
-<button class="permiso" data-permiso="A8" onclick="abrirArea('A8')">
-<img src="ICOA8.png" alt="A8 Configuración">
-</button>
-
-</div>
-</div>
-
-</section>
-</main>
-</div>
-
-<script src="usuarios.js"></script>
-
-<script>
-const login=document.getElementById("login");
-const panel=document.getElementById("panel");
-const formulario=document.getElementById("loginForm");
-const campoUsuario=document.getElementById("usuario");
-const password=document.getElementById("password");
-const error=document.getElementById("error");
-const botonVer=document.getElementById("verPassword");
-
-function mostrarAreas(u){
-login.style.display="none";
-panel.classList.add("visible");
-
-document.getElementById("nombreUsuario").textContent=u.nombre;
-document.getElementById("rolUsuario").textContent=u.rol||"Usuario";
-
-document.querySelectorAll(".permiso").forEach(b=>{
-const autorizado=tienePermiso(b.dataset.permiso);
-b.classList.toggle("oculto",!autorizado);
-});
-}
-
-botonVer.addEventListener("click",()=>{
-const visible=password.type==="text";
-password.type=visible?"password":"text";
-botonVer.textContent=visible?"◉":"●";
-botonVer.setAttribute("aria-label",visible?"Mostrar contraseña":"Ocultar contraseña");
-});
-
-formulario.addEventListener("submit",e=>{
-e.preventDefault();
-error.textContent="";
-
-const u=buscarUsuario(campoUsuario.value,password.value);
-
-if(!u){
-error.textContent="Usuario o contraseña incorrectos.";
-return;
-}
-
-const sesion=iniciarSesion(u);
-mostrarAreas(sesion);
-});
-
-function abrirArea(codigo){
-if(!tienePermiso(codigo))return;
-alert(codigo+" · Área en preparación");
-}
-
-const sesionActiva=usuarioActivo();
-if(sesionActiva)mostrarAreas(sesionActiva);
-</script>
-
-</body>
-</html>
