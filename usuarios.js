@@ -1,143 +1,48 @@
 const USUARIOS_INSTITUTO=[
-{
-codigo:"AML",
-nombre:"Ángel M. de Llaguno",
-usuario:"AML",
-password:"AML",
-cargo:"ADMINISTRADOR",
-rol:"Administrador",
-verTodo:true,
-administrador:true,
-permisos:[]
-},
-{
-codigo:"LRA",
-nombre:"Luis Ramírez Angulo",
-usuario:"LRA",
-password:"LRA",
-cargo:"ADMINISTRADOR",
-rol:"Administrador",
-verTodo:true,
-administrador:true,
-permisos:[]
-},
-{
-codigo:"ILB",
-nombre:"Irene López Burgo",
-usuario:"ILB",
-password:"ILB",
-cargo:"DIRECCIÓN",
-rol:"Dirección",
-verTodo:true,
-administrador:false,
-permisos:[]
-},
-{
-codigo:"GGV",
-nombre:"Gloria García Valiente",
-usuario:"GGV",
-password:"GGV",
-cargo:"EDITOR PRINCIPAL",
-rol:"Editor principal",
-verTodo:false,
-administrador:false,
-permisos:[]
-},
-{
-codigo:"CP",
-nombre:"Carlos Paniagua",
-usuario:"CP",
-password:"CP",
-cargo:"EDITOR PRINCIPAL",
-rol:"Editor principal",
-verTodo:false,
-administrador:false,
-permisos:[]
-}
+{codigo:"AML",nombre:"Ángel M. de Llaguno",password:"pollo33",rol:"Administrador",administrador:true,permisos:["A1","A2","A3","A4","A5","A6","A7","A8"]},
+{codigo:"LRA",nombre:"Luis Ramírez Angulo",password:"pollo33",rol:"Administrador",administrador:true,permisos:["A6","A7","A8"]},
+{codigo:"PRG",nombre:"Pilar Rodríguez Gabriel",password:"pollo33",rol:"Usuario",administrador:false,permisos:["A1","A2","A3","A4","A5","A6"]},
+{codigo:"FRGC",nombre:"Felipe Rodrigo Gutiérrez de la Cámara",password:"pollo33",rol:"Usuario",administrador:false,permisos:["A1","A2","A3","A4","A5","A6","A7","A8"]},
+{codigo:"MEV",nombre:"Manuel Evaluador",password:"pollo33",rol:"Evaluador · DEMO",administrador:false,permisos:["A1","A3","A5"],demo:true},
+{codigo:"APT",nombre:"Ana Partes",password:"pollo33",rol:"Partes interesadas · DEMO",administrador:false,permisos:["A5","A6"],demo:true},
+{codigo:"PFO",nombre:"Pedro formador",password:"pollo33",rol:"Formador · DEMO",administrador:false,permisos:["A1","A4"],demo:true}
 ];
 
-function buscarUsuario(usuario,password){
-usuario=(usuario||"").trim().toUpperCase();
-password=(password||"").trim();
+function normalizar(txt){
+return(txt||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim().replace(/\s+/g," ").toLowerCase();
+}
 
-return USUARIOS_INSTITUTO.find(u=>
-u.usuario.toUpperCase()===usuario &&
-u.password===password
-)||null;
+function buscarUsuario(nombre,password){
+return USUARIOS_INSTITUTO.find(u=>normalizar(u.nombre)===normalizar(nombre)&&u.password===password)||null;
 }
 
 function iniciarSesion(usuario){
 const sesion={
 codigo:usuario.codigo,
 nombre:usuario.nombre,
-cargo:usuario.cargo,
 rol:usuario.rol,
-verTodo:usuario.verTodo,
 administrador:usuario.administrador,
-permisos:usuario.permisos
+permisos:[...usuario.permisos],
+demo:!!usuario.demo
 };
-
-sessionStorage.setItem(
-"rita_instituto_usuario",
-JSON.stringify(sesion)
-);
-
+sessionStorage.setItem("rita_instituto_usuario",JSON.stringify(sesion));
 return sesion;
 }
 
 function usuarioActivo(){
 try{
-const datos=sessionStorage.getItem("rita_instituto_usuario");
-return datos?JSON.parse(datos):null;
+return JSON.parse(sessionStorage.getItem("rita_instituto_usuario"))||null;
 }catch(e){
 return null;
 }
 }
 
-function haySesion(){
-return usuarioActivo()!==null;
-}
-
-function esAdministrador(){
-const usuario=usuarioActivo();
-return !!(usuario&&usuario.administrador);
-}
-
-function puedeVerTodo(){
-const usuario=usuarioActivo();
-return !!(usuario&&(usuario.verTodo||usuario.administrador));
-}
-
-function tienePermiso(permiso){
-const usuario=usuarioActivo();
-
-if(!usuario)return false;
-if(usuario.administrador)return true;
-
-return Array.isArray(usuario.permisos)&&
-usuario.permisos.includes(permiso);
-}
-
-function exigirSesion(){
-if(!haySesion()){
-window.location.href="index.html";
-return false;
-}
-return true;
-}
-
-function exigirPermiso(permiso){
-if(!exigirSesion())return false;
-
-if(!tienePermiso(permiso)){
-alert("No dispone de permiso para acceder a esta función.");
-return false;
-}
-
-return true;
+function tienePermiso(codigo){
+const u=usuarioActivo();
+return!!(u&&Array.isArray(u.permisos)&&u.permisos.includes(codigo));
 }
 
 function cerrarSesion(){
 sessionStorage.removeItem("rita_instituto_usuario");
-window.location.href="index.html";
+location.href="index.html";
 }
