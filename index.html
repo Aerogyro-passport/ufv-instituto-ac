@@ -8,57 +8,58 @@
 <style>
 @font-face{font-family:Tecnico;src:url("tecnico_regular.ttf")}
 @font-face{font-family:Tecnico;src:url("tecnico_bold.ttf");font-weight:700}
-
 *{box-sizing:border-box}
 html,body{margin:0;width:100%;min-height:100%;font-family:Tecnico,Arial,sans-serif;color:#17324d}
 body{background:#edf4fa}
-
 .app{min-height:100vh;display:flex}
 
 /* LATERAL */
 .lateral{
-width:205px;min-width:205px;min-height:100vh;
+width:245px;min-width:245px;min-height:100vh;
 background:linear-gradient(180deg,#074b7d 0%,#0b5d96 100%);
-color:#fff;padding:27px 16px;
+color:#fff;padding:34px 24px;
 position:fixed;left:0;top:0;bottom:0
 }
-.rita{font-size:48px;line-height:1;font-weight:400;letter-spacing:-2px}
-.copyright{font-size:14px;vertical-align:top;margin-left:3px}
-.linea{width:58px;height:3px;background:#51d7d3;margin:20px 0 22px}
+.rita{font-size:58px;line-height:1;font-weight:400;letter-spacing:-2px}
+.copyright{font-size:16px;vertical-align:top;margin-left:3px}
+.linea{width:68px;height:3px;background:#51d7d3;margin:23px 0 27px}
 .nombre{
-font-size:14px;line-height:20px;letter-spacing:1.4px;
-text-transform:uppercase;max-width:160px
+font-size:17px;line-height:24px;letter-spacing:1.5px;
+text-transform:uppercase;max-width:190px
 }
 
-/* ÁREA PRINCIPAL */
+/* PRINCIPAL */
 .contenido{
-margin-left:205px;
-width:calc(100% - 205px);
-min-height:100vh
+margin-left:245px;
+width:calc(100% - 245px);
+min-height:100vh;
+display:flex;
+flex-direction:column
 }
 
 /* CABECERA */
 .cabecera{
-height:94px;background:#fff;
+height:115px;min-height:115px;background:#fff;
 display:flex;align-items:center;
-padding-left:46px;border:0
+padding-left:55px;border:0
 }
 .cabecera img{
 display:block;width:auto;height:auto;
-max-height:55px;max-width:480px;
+max-height:68px;max-width:590px;
 object-fit:contain
 }
 
-/* ZONA DE ACCESO */
+/* CUERPO */
 .zona{
-min-height:calc(100vh - 94px);
+flex:1;
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:flex-start;
-padding:80px 30px 60px
+padding:65px 30px 30px
 }
 
+/* ACCESO */
 .login{
 width:680px;
 background:#fff;
@@ -67,32 +68,26 @@ border-radius:9px;
 padding:43px 54px 38px;
 box-shadow:0 6px 20px rgba(30,70,100,.05)
 }
-
 .mini{
 font-size:15px;letter-spacing:2px;
 color:#5b83a4;text-transform:uppercase;
 border-bottom:2px solid #41c5cf;
 padding-bottom:7px;display:inline-block
 }
-
 .login h1{
 font-size:52px;font-weight:400;
 margin:22px 0 8px
 }
-
 .intro{
 font-size:20px;color:#718ba4;
 line-height:27px;margin:0 0 28px
 }
-
 .campo{margin-bottom:17px}
-
 .campo label{
 display:block;font-size:14px;
 letter-spacing:1.5px;color:#66829c;
 margin-bottom:6px
 }
-
 .campo input{
 width:100%;height:54px;
 border:1px solid #ccd9e3;
@@ -102,19 +97,15 @@ font-family:Tecnico,Arial,sans-serif;
 font-size:18px;color:#17324d;
 outline:none
 }
-
 .campo input:focus{border-color:#1688b3}
-
 .pass{position:relative}
 .pass input{padding-right:45px}
-
 .ojo{
 position:absolute;right:14px;top:50%;
 transform:translateY(-50%);
 border:0;background:none;color:#52738d;
 cursor:pointer;font-size:17px
 }
-
 .entrar{
 width:100%;height:54px;
 border:0;border-radius:4px;
@@ -123,9 +114,7 @@ font-family:Tecnico,Arial,sans-serif;
 font-size:16px;letter-spacing:5px;
 cursor:pointer;margin-top:6px
 }
-
 .entrar:hover{background:#064c7d}
-
 .pie-login{
 border-top:1px solid #e3e9ee;
 margin-top:35px;padding-top:16px;
@@ -133,26 +122,44 @@ text-align:center;font-size:13px;
 line-height:18px;color:#7990a5
 }
 
-/* RESERVA PARA LOS FUTUROS ICONOS DE PERMISOS */
+/* FUTUROS BOTONES DE PERMISOS */
 .permisos{
 width:680px;
 min-height:150px;
 margin-top:28px
 }
 
-/* RESPONSIVE */
+/* PIE INSTITUCIONAL */
+.pie-institucional{
+width:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:10px 20px 18px
+}
+.pie-institucional img{
+display:block;
+width:auto;
+height:auto;
+max-height:42px;
+max-width:380px;
+object-fit:contain;
+opacity:.92
+}
+
+/* ADAPTACIÓN */
 @media(max-width:900px){
 .login,.permisos{width:90%;max-width:680px}
 }
 
 @media(max-width:750px){
-.lateral{width:155px;min-width:155px;padding:25px 13px}
-.rita{font-size:39px}
-.nombre{font-size:12px}
-.contenido{margin-left:155px;width:calc(100% - 155px)}
-.cabecera{height:82px;padding-left:24px}
-.cabecera img{max-height:45px;max-width:90%}
-.zona{min-height:calc(100vh - 82px);padding:55px 18px}
+.lateral{width:180px;min-width:180px;padding:27px 17px}
+.rita{font-size:45px}
+.nombre{font-size:13px;line-height:19px}
+.contenido{margin-left:180px;width:calc(100% - 180px)}
+.cabecera{height:90px;min-height:90px;padding-left:30px}
+.cabecera img{max-height:52px;max-width:90%}
+.zona{padding:45px 18px 25px}
 .login{padding:35px}
 .login h1{font-size:44px}
 }
@@ -163,17 +170,18 @@ margin-top:28px
 position:relative;width:100%;min-height:auto;
 height:auto;padding:18px 22px
 }
-.rita{font-size:35px}
+.rita{font-size:38px}
 .linea{margin:13px 0}
 .nombre{max-width:none}
 .contenido{margin-left:0;width:100%}
-.cabecera{height:75px;padding:0 20px}
-.cabecera img{max-height:42px;max-width:100%}
-.zona{min-height:calc(100vh - 75px);padding:30px 15px}
+.cabecera{height:78px;min-height:78px;padding:0 20px}
+.cabecera img{max-height:45px;max-width:100%}
+.zona{padding:28px 15px 20px}
 .login,.permisos{width:100%}
 .login{padding:28px 24px}
 .login h1{font-size:38px}
 .intro{font-size:17px;line-height:23px}
+.pie-institucional img{max-width:280px;max-height:35px}
 }
 </style>
 </head>
@@ -233,6 +241,11 @@ Los perfiles y permisos se configurarán individualmente.
 <div class="permisos" id="permisos"></div>
 
 </section>
+
+<footer class="pie-institucional">
+<img src="pie.png" alt="">
+</footer>
+
 </main>
 </div>
 </body>
