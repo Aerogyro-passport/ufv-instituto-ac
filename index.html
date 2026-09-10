@@ -1,1 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Rita© · UFV Instituto</title>
+<style>
+*{box-sizing:border-box}
+:root{--azul:#06477d;--azul2:#0b365a;--azul3:#145f91;--fondo:#f3f6fa;--texto:#17344f;--gris:#73879b;--borde:#d5e0e9;--blanco:#fff;--cian:#46d2d0}
+html,body{margin:0;min-height:100%;font-family:"Avenir Next","Trebuchet MS",Arial,sans-serif;background:var(--fondo);color:var(--texto)}
+body{min-height:100vh}
+.app{min-height:100vh;display:grid;grid-template-columns:360px 1fr}
+.lateral{background:linear-gradient(180deg,#07497f 0%,#073f6e 100%);color:#fff;min-height:100vh;padding:46px 34px 32px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.lateral:after{content:"";position:absolute;width:290px;height:290px;border:1px solid rgba(255,255,255,.06);border-radius:50%;right:-180px;bottom:70px}
+.marca{position:relative;z-index:1}
+.rita{font-size:64px;font-weight:300;letter-spacing:-4px;line-height:1}
+.rita sup{font-size:18px;vertical-align:top;letter-spacing:0;margin-left:4px}
+.ufv{margin-top:22px;font-size:21px;letter-spacing:7px;color:#91abc0}
+.linea{width:82px;height:2px;background:var(--cian);margin:34px 0}
+.producto{font-size:17px;letter-spacing:3px;line-height:1.7;color:#d4e2ed}
+.descripcion{margin-top:42px;padding-top:30px;border-top:1px solid rgba(255,255,255,.18);font-size:15px;line-height:1.8;color:#a9c2d6}
+.pie{margin-top:auto;padding-top:40px;font-size:13px;line-height:1.6;color:#aac3d5;position:relative;z-index:1}
+.pie strong{color:#fff;font-weight:500}
+.principal{min-height:100vh;display:flex;flex-direction:column}
+.cabecera{height:110px;background:#fff;border-bottom:1px solid var(--borde);padding:0 52px;display:flex;align-items:center;justify-content:space-between}
+.ufv-box{display:flex;align-items:center;gap:20px}
+.ufv-sello{width:58px;height:58px;background:var(--azul);display:grid;place-items:center;color:#fff;font-size:25px;font-weight:700;transform:rotate(45deg)}
+.ufv-sello span{transform:rotate(-45deg)}
+.ufv-texto{line-height:1.1}
+.ufv-texto strong{display:block;font-size:19px}
+.ufv-texto span{font-size:14px;color:#6f8295}
+.area{font-size:19px;letter-spacing:1px;text-align:right;color:var(--azul)}
+.contenido{flex:1;display:grid;place-items:center;padding:55px}
+.login{width:min(610px,100%);background:#fff;border:1px solid var(--borde);border-radius:13px;padding:46px 48px 42px;box-shadow:0 8px 30px rgba(24,54,82,.055)}
+.ruta{font-size:14px;letter-spacing:3px;color:#8398aa;margin-bottom:18px}
+.login h1{margin:0;font-size:40px;font-weight:400;letter-spacing:-1px}
+.subtitulo{margin:13px 0 35px;color:#6f8496;font-size:17px;line-height:1.5}
+.campo{margin-bottom:22px}
+.campo label{display:block;margin-bottom:8px;font-size:14px;letter-spacing:1.2px;color:#527087}
+.campo input{width:100%;height:55px;border:1px solid #cbd8e2;border-radius:8px;padding:0 16px;font:inherit;font-size:17px;color:#17344f;background:#fbfcfd;outline:none;transition:.2s}
+.campo input:focus{border-color:#2189b4;box-shadow:0 0 0 3px rgba(33,137,180,.10);background:#fff}
+.entrar{width:100%;height:58px;border:0;border-radius:8px;background:var(--azul);color:#fff;font:inherit;font-size:18px;letter-spacing:2px;cursor:pointer;transition:.18s;margin-top:7px}
+.entrar:hover{background:var(--azul3)}
+.estado{min-height:25px;margin-top:17px;text-align:center;font-size:14px;color:#9a4a4a}
+.nota{margin-top:25px;padding-top:22px;border-top:1px solid #e2e9ef;text-align:center;color:#8295a6;font-size:13px;line-height:1.55}
+.version{position:absolute;right:24px;bottom:16px;color:#93a5b3;font-size:12px}
+@media(max-width:850px){
+.app{display:block}
+.lateral{min-height:auto;padding:28px 28px 25px}
+.rita{font-size:49px}
+.linea,.descripcion{display:none}
+.pie{margin-top:24px;padding-top:18px}
+.cabecera{height:auto;padding:22px 25px;gap:15px}
+.area{font-size:15px}
+.contenido{padding:30px 18px}
+.login{padding:34px 25px}
+}
+</style>
+</head>
+<body>
+<div class="app">
 
+<aside class="lateral">
+<div class="marca">
+<div class="rita">Rita<sup>©</sup></div>
+<div class="ufv">UFV · INSTITUTO</div>
+<div class="linea"></div>
+<div class="producto">ESQUEMA DE<br>CERTIFICACIÓN DE PERSONAS</div>
+<div class="descripcion">
+Sistema de gestión y seguimiento del proceso de acompañamiento, evaluación y certificación de personas.
+</div>
+</div>
+<div class="pie">
+<strong>Elaborado por LifeLearning Consultoría</strong><br>
+Powered by Rita©
+</div>
+</aside>
+
+<main class="principal">
+<header class="cabecera">
+<div class="ufv-box">
+<div class="ufv-sello"><span>UFV</span></div>
+<div class="ufv-texto">
+<strong>Universidad Francisco de Vitoria</strong>
+<span>UFV Madrid</span>
+</div>
+</div>
+<div class="area">INSTITUTO<br><strong>CERTIFICACIÓN DE PERSONAS</strong></div>
+</header>
+
+<section class="contenido">
+<div class="login">
+<div class="ruta">ACCESO / RITA©</div>
+<h1>Acceso al sistema</h1>
+<p class="subtitulo">Identifíquese para acceder al entorno de gestión del Esquema de Certificación de Personas.</p>
+
+<form id="loginForm">
+<div class="campo">
+<label for="usuario">USUARIO</label>
+<input id="usuario" name="usuario" type="text" autocomplete="username" placeholder="Introduzca su usuario">
+</div>
+<div class="campo">
+<label for="clave">CONTRASEÑA</label>
+<input id="clave" name="clave" type="password" autocomplete="current-password" placeholder="Introduzca su contraseña">
+</div>
+<button class="entrar" type="submit">ENTRAR</button>
+<div class="estado" id="estado"></div>
+</form>
+
+<div class="nota">
+Acceso restringido a personal autorizado.<br>
+Los perfiles y permisos se configurarán individualmente.
+</div>
+</div>
+</section>
+</main>
+
+</div>
+
+<script>
+const loginForm=document.getElementById("loginForm");
+const estado=document.getElementById("estado");
+loginForm.addEventListener("submit",e=>{
+e.preventDefault();
+const usuario=document.getElementById("usuario").value.trim();
+const clave=document.getElementById("clave").value;
+if(!usuario||!clave){estado.textContent="Introduzca usuario y contraseña.";return}
+estado.textContent="Acceso todavía no configurado.";
+});
+</script>
+</body>
+</html>
