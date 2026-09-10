@@ -8,181 +8,169 @@
 <style>
 @font-face{font-family:Tecnico;src:url("tecnico_regular.ttf") format("truetype");font-weight:400}
 @font-face{font-family:Tecnico;src:url("tecnico_bold.ttf") format("truetype");font-weight:700}
-@font-face{font-family:Tecnico;src:url("tecnico_regularitalic.ttf") format("truetype");font-weight:400;font-style:italic}
-@font-face{font-family:Tecnico;src:url("tecnico_bolditalic.ttf") format("truetype");font-weight:700;font-style:italic}
+@font-face{font-family:Tecnico;src:url("tecnico_regularitalic.ttf") format("truetype");font-style:italic}
 
 *{box-sizing:border-box}
 html,body{margin:0;width:100%;min-height:100%}
 body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial,sans-serif}
-.app{display:flex;width:100%;min-height:100vh}
+.app{display:flex;min-height:100vh}
 
-/* BANDA LATERAL */
+/* LATERAL */
 .lateral{
-width:330px;min-width:330px;min-height:100vh;
-background:#003B5D;color:#fff;padding:38px 34px 30px;
-display:flex;flex-direction:column
+width:330px;min-width:330px;min-height:100vh;background:#003B5D;
+color:#fff;padding:38px 34px 30px;display:flex;flex-direction:column
 }
-.rita{position:relative;display:inline-block;width:max-content;font-size:82px;line-height:.95;font-weight:400;letter-spacing:-4px}
+.rita{position:relative;width:max-content;font-size:82px;line-height:.95;letter-spacing:-4px}
 .copyright{position:absolute;top:-5px;right:-22px;font:20px Arial}
-.linea-rita{width:92px;height:5px;margin:35px 0 40px;background:#4dd4d0}
+.linea-rita{width:92px;height:5px;background:#4dd4d0;margin:35px 0 40px}
 .nombre-sistema{width:250px;font-size:25px;line-height:1.28;letter-spacing:1.5px;text-transform:uppercase}
 
-.menu-lateral{width:100%;margin-top:28px;padding-top:16px;border-top:1px solid rgba(255,255,255,.22)}
-.boton-lateral{
+.menu{margin-top:28px;padding-top:16px;border-top:1px solid rgba(255,255,255,.22)}
+.menu-btn{
 width:100%;min-height:52px;margin-bottom:8px;padding:8px 11px;
 border:1px solid rgba(255,255,255,.28);border-radius:5px;
-background:rgba(255,255,255,.08);color:#fff;font-family:Tecnico,Arial,sans-serif;
-text-align:left;display:flex;align-items:center;gap:10px
+background:rgba(255,255,255,.08);color:#fff;
+display:flex;align-items:center;gap:10px;text-align:left;
+font-family:Tecnico;cursor:pointer
 }
-.boton-lateral.activo{cursor:pointer}
-.boton-lateral.activo:hover{background:rgba(255,255,255,.16)}
-.boton-lateral.inactivo{opacity:.30;filter:grayscale(1);cursor:not-allowed;background:rgba(255,255,255,.035)}
-.boton-lateral.actual{background:#fff;color:#003B5D;border-color:#fff}
-.boton-lateral.actual .boton-codigo{color:#003B5D}
-.boton-codigo{width:35px;color:#59d8d5;font-size:18px;font-weight:700}
-.boton-texto{font-size:15px;line-height:1.1;text-transform:uppercase}
+.menu-btn.inactivo{opacity:.28;filter:grayscale(1);cursor:not-allowed}
+.menu-btn.actual{background:#fff;color:#003B5D;border-color:#fff}
+.menu-codigo{width:35px;font-size:18px;font-weight:700;color:#59d8d5}
+.menu-btn.actual .menu-codigo{color:#003B5D}
+.menu-texto{font-size:15px;line-height:1.1;text-transform:uppercase}
 
-.pie-lateral{margin-top:auto;width:100%;display:flex;justify-content:center;padding-bottom:95px;padding-top:30px}
-.pie-lateral img{display:block;width:382px;max-width:100%;height:auto;object-fit:contain}
+.pie-lateral{margin-top:auto;padding:30px 0 95px;display:flex;justify-content:center}
+.pie-lateral img{display:block;width:382px;max-width:100%;height:auto}
 
 /* PRINCIPAL */
-.principal{flex:1;min-width:0;min-height:100vh;display:flex;flex-direction:column}
+.principal{flex:1;min-width:0;display:flex;flex-direction:column}
 .cabecera{
-width:100%;height:185px;min-height:185px;background:#fff;
+height:185px;min-height:185px;background:#fff;
 display:flex;align-items:center;padding:0 75px
 }
-.cabecera img{display:block;width:844px;max-width:72vw;height:auto;object-fit:contain}
+.cabecera img{display:block;width:844px;max-width:72vw;height:auto}
+.zona{flex:1;padding:34px 42px 50px;background:#edf5fb}
 
-.zona{flex:1;width:100%;background:#edf5fb;padding:38px 42px 45px}
-
-/* ENCABEZADO A8 */
-.encabezado-area{
-display:flex;align-items:center;justify-content:space-between;
-margin-bottom:24px
+/* CABECERA A8 */
+.area-head{
+display:flex;justify-content:space-between;align-items:flex-start;
+gap:25px;margin-bottom:23px
 }
-.titulo-area{display:flex;align-items:center;gap:18px}
-.ico-area{width:92px;height:92px;object-fit:contain;border-radius:12px}
-.titulo-area h1{margin:0;font-size:44px;font-weight:400;color:#17344e}
-.titulo-area p{margin:4px 0 0;font-size:19px;color:#718ca4}
-.usuario{font-size:16px;color:#5d7890;text-align:right}
-.usuario strong{display:block;color:#17344e;font-size:20px}
+.area-identidad{display:flex;align-items:center;gap:20px}
+.area-icono{width:105px;height:105px;object-fit:contain;border-radius:14px}
+.area-titulo h1{margin:0;font-size:46px;font-weight:400}
+.area-titulo p{margin:6px 0 0;color:#718ca4;font-size:20px}
+.usuario-activo{text-align:right;color:#718ca4;font-size:17px}
+.usuario-activo strong{display:block;color:#17344e;font-size:22px}
 .volver{
-margin-top:8px;border:1px solid #b7cad8;background:#fff;color:#315675;
-padding:9px 14px;border-radius:5px;font:15px Tecnico;cursor:pointer
+margin-top:10px;padding:10px 17px;border:1px solid #b9cbd8;
+border-radius:5px;background:#fff;color:#315675;font:16px Tecnico;cursor:pointer
 }
 
 /* PESTAÑAS */
-.tabs{
-display:flex;flex-wrap:wrap;gap:8px;
-margin-bottom:18px
-}
+.tabs{display:flex;gap:5px;flex-wrap:wrap;border-bottom:1px solid #bacdda}
 .tab{
-border:1px solid #b8cbd9;background:#fff;color:#42637f;
-padding:12px 18px;border-radius:6px;
+padding:14px 19px;border:1px solid #c7d6e0;border-bottom:0;
+border-radius:6px 6px 0 0;background:#f7fafc;color:#4e6b84;
 font:16px Tecnico;cursor:pointer
 }
-.tab:hover{background:#f7fafc}
-.tab.activa{
-background:#0b70aa;color:#fff;border-color:#0b70aa
-}
+.tab.activa{background:#0873ae;color:#fff;border-color:#0873ae}
 
-/* PANEL */
 .panel{
-display:none;background:#fff;border:1px solid #cbd9e3;
-border-radius:8px;padding:28px 30px;
-box-shadow:0 4px 14px rgba(30,70,100,.04)
+display:none;background:#fff;border:1px solid #cddae4;border-top:0;
+padding:26px 28px 32px
 }
 .panel.activo{display:block}
-.panel h2{
-margin:0 0 8px;font-size:31px;font-weight:400;color:#17344e
-}
-.panel .intro{margin:0 0 24px;color:#718ca4;font-size:18px;line-height:1.4}
-
-/* TARJETAS */
-.grid{
-display:grid;
-grid-template-columns:repeat(2,minmax(260px,1fr));
-gap:18px
-}
-.tarjeta{
-border:1px solid #d4e0e8;border-radius:7px;
-padding:20px;background:#fbfdfe
-}
-.tarjeta h3{margin:0 0 7px;font-size:21px;font-weight:400;color:#234764}
-.tarjeta p{margin:0;color:#71879b;font-size:16px;line-height:1.35}
+.panel h2{margin:0 0 5px;font-size:31px;font-weight:400}
+.intro{margin:0 0 22px;color:#718ca4;font-size:18px}
 
 /* FORMULARIOS */
-.form-grid{
-display:grid;
-grid-template-columns:repeat(2,minmax(240px,1fr));
-gap:18px
-}
-.campo{display:flex;flex-direction:column;gap:7px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px 25px}
+.campo{display:flex;flex-direction:column;gap:6px}
 .campo.ancho{grid-column:1/-1}
-.campo label{font-size:14px;letter-spacing:.8px;color:#65849e;text-transform:uppercase}
+.campo label{font-size:15px;font-weight:700;color:#58738c}
 .campo input,.campo select,.campo textarea{
-width:100%;border:1px solid #c5d5e0;border-radius:5px;
-background:#fff;color:#17344e;
-font:17px Tecnico,Arial,sans-serif;padding:11px 13px;outline:none
+width:100%;border:1px solid #bfd0dc;border-radius:5px;
+background:#fff;color:#17344e;font:17px Tecnico;padding:11px 13px;outline:none
 }
 .campo input,.campo select{height:48px}
-.campo textarea{min-height:100px;resize:vertical}
-.campo input:focus,.campo select:focus,.campo textarea:focus{border-color:#2a8cb6}
+.campo textarea{min-height:105px;resize:vertical}
 
-.acciones{display:flex;gap:10px;margin-top:22px}
+.acciones{display:flex;gap:12px;margin-top:20px}
 .btn{
-border:0;border-radius:5px;padding:12px 18px;
+border:0;border-radius:5px;padding:12px 20px;
 font:16px Tecnico;cursor:pointer
 }
-.btn-primario{background:#0b70aa;color:#fff}
-.btn-secundario{background:#e9f0f5;color:#315675}
-.btn-peligro{background:#b64c4c;color:#fff}
+.btn-azul{background:#0873ae;color:#fff}
+.btn-claro{background:#edf3f7;color:#315675}
+
+/* TABLA USUARIOS */
+.filtros{
+display:grid;grid-template-columns:2fr 1fr 1fr;
+gap:14px;margin:24px 0 12px
+}
+.filtros input,.filtros select{
+height:45px;border:1px solid #bfd0dc;border-radius:5px;
+background:#fff;padding:0 13px;font:16px Tecnico;color:#17344e
+}
+
+.tabla-wrap{overflow:auto}
+.tabla{width:100%;border-collapse:collapse;min-width:820px}
+.tabla th,.tabla td{
+padding:10px 12px;border-bottom:1px solid #dce5eb;
+text-align:left;font-size:15px
+}
+.tabla th{background:#eaf0f4;color:#4e6b84;font-weight:700}
+.tabla tbody tr:hover{background:#f7fafc}
+
+.estado{
+display:inline-block;padding:5px 11px;border-radius:14px;
+font-size:13px
+}
+.estado.activo{background:#d9f4e5;color:#26714a}
+.estado.inactivo{background:#eee;color:#737373}
+.demo{font-size:12px;color:#b57b17;margin-left:5px}
+
+.acciones-tabla button{
+border:0;background:transparent;color:#0873ae;
+font:16px Tecnico;cursor:pointer;margin-right:8px
+}
 
 /* PERMISOS */
-.matriz{
-display:grid;
-grid-template-columns:220px repeat(8,52px);
-gap:7px;align-items:center;
-overflow:auto;padding-bottom:8px
+.permisos-tabla-wrap{overflow:auto}
+.permisos-tabla{
+width:100%;border-collapse:collapse;min-width:920px
 }
-.cab-matriz{font-size:13px;color:#668198;text-align:center}
-.usuario-matriz{font-size:16px;color:#17344e}
-.check{
-width:38px;height:38px;border:1px solid #c6d5df;border-radius:5px;
-display:flex;align-items:center;justify-content:center;
-background:#f7fafc
+.permisos-tabla th,.permisos-tabla td{
+border-bottom:1px solid #dce5eb;
+padding:10px 11px;text-align:center;font-size:15px
 }
-.check input{width:20px;height:20px}
+.permisos-tabla th{background:#eaf0f4;color:#4e6b84}
+.permisos-tabla td.usuario-permiso{text-align:left;font-size:17px}
+.permisos-tabla input{width:21px;height:21px;cursor:pointer}
+.permisos-tabla tbody tr:hover{background:#f8fbfd}
 
-/* AUDITORÍA */
-.log{
-width:100%;border-collapse:collapse
+.mensaje{
+display:none;margin-top:16px;padding:11px 14px;border-radius:5px;
+background:#e5f3e9;color:#2b6944;font-size:15px
 }
-.log th,.log td{
-border-bottom:1px solid #dde6ec;
-padding:11px 12px;text-align:left;font-size:15px
-}
-.log th{color:#536f87;background:#f5f8fa;font-weight:400}
+.mensaje.visible{display:block}
 
-/* ESTADO */
-.estado-grid{
-display:grid;
-grid-template-columns:repeat(3,minmax(180px,1fr));
-gap:16px
-}
-.estado{
-background:#f8fbfd;border:1px solid #d2dfe8;
-border-radius:7px;padding:20px
-}
-.estado .valor{font-size:29px;color:#0b70aa}
-.estado .etiqueta{margin-top:4px;font-size:15px;color:#6e8498}
+/* RESTO */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{border:1px solid #d1dee7;border-radius:7px;background:#f9fbfc;padding:20px}
+.card h3{margin:0 0 8px;font-size:21px;font-weight:400}
+.card p{margin:0;color:#71879a;font-size:16px;line-height:1.4}
+.card .dato{font-size:30px;color:#0873ae;margin-bottom:6px}
 
-@media(max-width:1100px){
+.log{width:100%;border-collapse:collapse}
+.log th,.log td{padding:11px 12px;border-bottom:1px solid #dce5eb;text-align:left;font-size:15px}
+.log th{background:#eaf0f4;color:#4e6b84}
+
+@media(max-width:1200px){
 .lateral{width:285px;min-width:285px}
 .cabecera{height:160px;min-height:160px;padding:0 55px}
 .cabecera img{width:730px}
-.grid,.form-grid{grid-template-columns:1fr}
-.estado-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -198,40 +186,42 @@ border-radius:7px;padding:20px
 Sistema de Gestión<br>del Esquema de<br>Certificación<br>de Personas
 </div>
 
-<nav class="menu-lateral" id="menuLateral">
-<button class="boton-lateral" data-permiso="A1"><span class="boton-codigo">A1</span><span class="boton-texto">Área Técnica</span></button>
-<button class="boton-lateral" data-permiso="A2"><span class="boton-codigo">A2</span><span class="boton-texto">Área de Gestión</span></button>
-<button class="boton-lateral" data-permiso="A3"><span class="boton-codigo">A3</span><span class="boton-texto">Área de Evaluación</span></button>
-<button class="boton-lateral" data-permiso="A4"><span class="boton-codigo">A4</span><span class="boton-texto">Área de Formación</span></button>
-<button class="boton-lateral" data-permiso="A5"><span class="boton-codigo">A5</span><span class="boton-texto">Área de Decisión</span></button>
-<button class="boton-lateral" data-permiso="A6"><span class="boton-codigo">A6</span><span class="boton-texto">Área de Conflictos</span></button>
-<button class="boton-lateral" data-permiso="A7"><span class="boton-codigo">A7</span><span class="boton-texto">Área de Mejora</span></button>
-<button class="boton-lateral actual" data-permiso="A8"><span class="boton-codigo">A8</span><span class="boton-texto">Configuración</span></button>
+<nav class="menu">
+<button class="menu-btn" data-area="A1"><span class="menu-codigo">A1</span><span class="menu-texto">Área Técnica</span></button>
+<button class="menu-btn" data-area="A2"><span class="menu-codigo">A2</span><span class="menu-texto">Área de Gestión</span></button>
+<button class="menu-btn" data-area="A3"><span class="menu-codigo">A3</span><span class="menu-texto">Área de Evaluación</span></button>
+<button class="menu-btn" data-area="A4"><span class="menu-codigo">A4</span><span class="menu-texto">Área de Formación</span></button>
+<button class="menu-btn" data-area="A5"><span class="menu-codigo">A5</span><span class="menu-texto">Área de Decisión</span></button>
+<button class="menu-btn" data-area="A6"><span class="menu-codigo">A6</span><span class="menu-texto">Área de Conflictos</span></button>
+<button class="menu-btn" data-area="A7"><span class="menu-codigo">A7</span><span class="menu-texto">Área de Mejora</span></button>
+<button class="menu-btn actual" data-area="A8"><span class="menu-codigo">A8</span><span class="menu-texto">Configuración</span></button>
 </nav>
 
-<div class="pie-lateral"><img src="pie.png" alt=""></div>
+<div class="pie-lateral">
+<img src="pie.png" alt="">
+</div>
 </aside>
 
 <main class="principal">
 
 <header class="cabecera">
-<img src="cabecera1.png" alt="Universidad Francisco de Vitoria - Instituto de Acompañamiento">
+<img src="cabecera1.png" alt="UFV - Instituto de Acompañamiento">
 </header>
 
 <section class="zona">
 
-<div class="encabezado-area">
-<div class="titulo-area">
-<img class="ico-area" src="ICOA8.png" alt="A8 Configuración">
-<div>
+<div class="area-head">
+<div class="area-identidad">
+<img class="area-icono" src="ICOA8.png" alt="A8">
+<div class="area-titulo">
 <h1>A8 · Configuración</h1>
 <p>Administración y parámetros generales de Rita©</p>
 </div>
 </div>
 
-<div class="usuario">
-<strong id="nombreUsuario"></strong>
-<span id="rolUsuario"></span><br>
+<div class="usuario-activo">
+<strong id="usuarioCabecera"></strong>
+<span id="rolCabecera"></span><br>
 <button class="volver" onclick="location.href='index.html'">Volver al inicio</button>
 </div>
 </div>
@@ -253,22 +243,12 @@ Sistema de Gestión<br>del Esquema de<br>Certificación<br>de Personas
 <div class="form-grid">
 <div class="campo">
 <label>Nombre completo</label>
-<input type="text" placeholder="Nombre y apellidos">
-</div>
-
-<div class="campo">
-<label>Usuario</label>
-<input type="text" placeholder="Usuario corto">
-</div>
-
-<div class="campo">
-<label>Contraseña provisional</label>
-<input type="password" placeholder="Contraseña">
+<input id="uNombre" placeholder="Nombre y apellidos">
 </div>
 
 <div class="campo">
 <label>Rol</label>
-<select>
+<select id="uRol">
 <option>Usuario</option>
 <option>Administrador</option>
 <option>Evaluador</option>
@@ -278,165 +258,248 @@ Sistema de Gestión<br>del Esquema de<br>Certificación<br>de Personas
 </div>
 
 <div class="campo">
+<label>Usuario</label>
+<input id="uUsuario" placeholder="Usuario corto">
+</div>
+
+<div class="campo">
 <label>Estado</label>
-<select>
-<option>Activo</option>
-<option>Inactivo</option>
+<select id="uEstado">
+<option value="true">Activo</option>
+<option value="false">Inactivo</option>
 </select>
 </div>
 
 <div class="campo">
+<label>Contraseña provisional</label>
+<input id="uPassword" type="password" placeholder="Contraseña">
+</div>
+
+<div class="campo">
 <label>Código</label>
-<input type="text" placeholder="Ej. AML">
+<input id="uCodigo" placeholder="Ej. AML">
 </div>
 </div>
 
 <div class="acciones">
-<button class="btn btn-primario">Guardar usuario</button>
-<button class="btn btn-secundario">Limpiar</button>
+<button class="btn btn-azul" id="btnGuardarUsuario">Guardar usuario</button>
+<button class="btn btn-claro" onclick="limpiarFormulario()">Limpiar</button>
+</div>
+
+<div class="mensaje" id="mensajeUsuarios"></div>
+
+<div class="filtros">
+<input id="buscar" placeholder="Buscar por nombre o usuario..." oninput="pintarUsuarios()">
+
+<select id="fRol" onchange="pintarUsuarios()">
+<option value="">Todos los roles</option>
+<option>Administrador</option>
+<option>Usuario</option>
+<option>Evaluador</option>
+<option>Formador</option>
+<option>Partes interesadas</option>
+</select>
+
+<select id="fEstado" onchange="pintarUsuarios()">
+<option value="">Todos los estados</option>
+<option value="true">Activo</option>
+<option value="false">Inactivo</option>
+</select>
+</div>
+
+<div class="tabla-wrap">
+<table class="tabla">
+<thead>
+<tr>
+<th>Código</th>
+<th>Nombre</th>
+<th>Usuario</th>
+<th>Rol</th>
+<th>Estado</th>
+<th>Permisos</th>
+<th>Acciones</th>
+</tr>
+</thead>
+<tbody id="tablaUsuarios"></tbody>
+</table>
 </div>
 </div>
 
 <!-- PERMISOS -->
 <div class="panel" id="permisos">
 <h2>Permisos</h2>
-<p class="intro">Asignación de áreas funcionales a cada usuario.</p>
+<p class="intro">Asignación de las áreas funcionales A1–A8 a cada usuario.</p>
 
-<div class="matriz">
-<div></div>
-<div class="cab-matriz">A1</div><div class="cab-matriz">A2</div>
-<div class="cab-matriz">A3</div><div class="cab-matriz">A4</div>
-<div class="cab-matriz">A5</div><div class="cab-matriz">A6</div>
-<div class="cab-matriz">A7</div><div class="cab-matriz">A8</div>
-
-<div class="usuario-matriz">Ángel M. de Llaguno</div>
-<div class="check"><input type="checkbox" checked></div><div class="check"><input type="checkbox" checked></div>
-<div class="check"><input type="checkbox" checked></div><div class="check"><input type="checkbox" checked></div>
-<div class="check"><input type="checkbox" checked></div><div class="check"><input type="checkbox" checked></div>
-<div class="check"><input type="checkbox" checked></div><div class="check"><input type="checkbox" checked></div>
-
-<div class="usuario-matriz">Luis Ramírez Angulo</div>
-<div class="check"><input type="checkbox"></div><div class="check"><input type="checkbox"></div>
-<div class="check"><input type="checkbox"></div><div class="check"><input type="checkbox"></div>
-<div class="check"><input type="checkbox"></div><div class="check"><input type="checkbox" checked></div>
-<div class="check"><input type="checkbox" checked></div><div class="check"><input type="checkbox" checked></div>
+<div class="permisos-tabla-wrap">
+<table class="permisos-tabla">
+<thead>
+<tr>
+<th>Usuario</th>
+<th>A1<br>TECN.</th>
+<th>A2<br>GEST.</th>
+<th>A3<br>EVAL.</th>
+<th>A4<br>FORM.</th>
+<th>A5<br>DEC.</th>
+<th>A6<br>CONF.</th>
+<th>A7<br>MEJ.</th>
+<th>A8<br>CONFIG.</th>
+</tr>
+</thead>
+<tbody id="tablaPermisos"></tbody>
+</table>
 </div>
 
 <div class="acciones">
-<button class="btn btn-primario">Guardar permisos</button>
+<button class="btn btn-azul" id="btnGuardarPermisos">Guardar permisos</button>
 </div>
+
+<div class="mensaje" id="mensajePermisos"></div>
 </div>
 
 <!-- PARÁMETROS -->
 <div class="panel" id="parametros">
 <h2>Parámetros generales</h2>
-<p class="intro">Configuración institucional visible de la aplicación.</p>
+<p class="intro">Configuración institucional y comportamiento general visible de Rita©.</p>
 
 <div class="form-grid">
 <div class="campo ancho">
-<label>Nombre del esquema</label>
-<input type="text" value="Esquema de Certificación de Personas">
+<label>Nombre del sistema</label>
+<input id="cfgNombre">
 </div>
+
 <div class="campo">
 <label>Entidad</label>
-<input type="text" value="Instituto de Acompañamiento">
+<input id="cfgEntidad">
 </div>
+
+<div class="campo">
+<label>Servicio</label>
+<input id="cfgServicio">
+</div>
+
 <div class="campo">
 <label>Versión de la App</label>
-<input type="text" value="1.0">
+<input id="cfgVersion">
 </div>
+
+<div class="campo">
+<label>Idioma principal</label>
+<input id="cfgIdioma">
+</div>
+
 <div class="campo ancho">
-<label>Texto institucional</label>
-<textarea>Servicio de Certificación de Personas</textarea>
+<label>Mensaje de acceso</label>
+<textarea id="cfgMensaje"></textarea>
 </div>
 </div>
 
 <div class="acciones">
-<button class="btn btn-primario">Guardar parámetros</button>
+<button class="btn btn-azul" id="btnGuardarConfig">Guardar parámetros</button>
 </div>
+
+<div class="mensaje" id="mensajeConfig"></div>
 </div>
 
 <!-- SEGURIDAD -->
 <div class="panel" id="seguridad">
 <h2>Seguridad y sesiones</h2>
-<p class="intro">Políticas generales de acceso y comportamiento de las sesiones.</p>
+<p class="intro">Configuración de acceso, contraseñas y sesiones.</p>
 
 <div class="form-grid">
 <div class="campo">
-<label>Duración máxima de sesión</label>
-<select>
-<option>30 minutos</option>
-<option>1 hora</option>
-<option selected>4 horas</option>
-<option>8 horas</option>
-</select>
+<label>Duración máxima de sesión (minutos)</label>
+<input id="segDuracion" type="number">
 </div>
 
 <div class="campo">
 <label>Intentos fallidos antes de bloqueo</label>
-<select>
-<option>3</option>
-<option selected>5</option>
-<option>10</option>
-</select>
+<input id="segIntentos" type="number">
 </div>
 
 <div class="campo">
 <label>Cambio de contraseña inicial</label>
-<select>
-<option selected>Obligatorio</option>
-<option>No obligatorio</option>
+<select id="segCambio">
+<option value="true">Sí</option>
+<option value="false">No</option>
 </select>
 </div>
 
 <div class="campo">
 <label>Sesión persistente</label>
-<select>
-<option>No</option>
-<option>Sí</option>
+<select id="segPersistente">
+<option value="true">Sí</option>
+<option value="false">No</option>
+</select>
+</div>
+
+<div class="campo">
+<label>Bloqueo automático</label>
+<select id="segBloqueo">
+<option value="true">Sí</option>
+<option value="false">No</option>
+</select>
+</div>
+
+<div class="campo">
+<label>Registro de accesos</label>
+<select id="segRegistro">
+<option value="true">Sí</option>
+<option value="false">No</option>
 </select>
 </div>
 </div>
 
 <div class="acciones">
-<button class="btn btn-primario">Guardar seguridad</button>
+<button class="btn btn-azul" id="btnGuardarSeguridad">Guardar seguridad</button>
 </div>
+
+<div class="mensaje" id="mensajeSeguridad"></div>
 </div>
 
 <!-- AUDITORÍA -->
 <div class="panel" id="auditoria">
 <h2>Registro de cambios / auditoría</h2>
-<p class="intro">Historial de operaciones realizadas dentro de Rita©.</p>
+<p class="intro">Trazabilidad de operaciones realizadas dentro de Rita©.</p>
 
+<div class="tabla-wrap">
 <table class="log">
 <thead>
-<tr><th>Fecha</th><th>Usuario</th><th>Área</th><th>Acción</th></tr>
+<tr>
+<th>Fecha</th>
+<th>Hora</th>
+<th>Usuario</th>
+<th>Área</th>
+<th>Acción</th>
+<th>Detalle</th>
+</tr>
 </thead>
-<tbody>
-<tr><td>10/09/2026</td><td>Ángel M. de Llaguno</td><td>A8</td><td>Configuración inicial de la App</td></tr>
-</tbody>
+<tbody id="tablaAuditoria"></tbody>
 </table>
+</div>
 </div>
 
 <!-- ESTADO -->
 <div class="panel" id="estado">
 <h2>Estado de la App</h2>
-<p class="intro">Información general de funcionamiento y versión.</p>
+<p class="intro">Información general del sistema.</p>
 
-<div class="estado-grid">
-<div class="estado">
-<div class="valor">1.0</div>
-<div class="etiqueta">Versión actual</div>
+<div class="cards">
+<div class="card">
+<div class="dato" id="estadoVersion">—</div>
+<h3>Versión actual</h3>
+<p>Versión configurada de Rita©.</p>
 </div>
 
-<div class="estado">
-<div class="valor">OPERATIVA</div>
-<div class="etiqueta">Estado del sistema</div>
+<div class="card">
+<div class="dato" id="estadoSistema">—</div>
+<h3>Estado</h3>
+<p>Situación general de la aplicación.</p>
 </div>
 
-<div class="estado">
-<div class="valor">10/09/2026</div>
-<div class="etiqueta">Última actualización</div>
+<div class="card">
+<div class="dato" id="estadoFecha">—</div>
+<h3>Actualización</h3>
+<p>Fecha de última actualización.</p>
 </div>
 </div>
 </div>
@@ -445,38 +508,343 @@ Sistema de Gestión<br>del Esquema de<br>Certificación<br>de Personas
 </main>
 </div>
 
+<script src="dropbox_config.js"></script>
 <script src="usuarios.js"></script>
 
 <script>
-const u=usuarioActivo();
+const AREAS=["A1","A2","A3","A4","A5","A6","A7","A8"];
 
-if(!u||!tienePermiso("A8")){
+let usuarios=[];
+let configuracion=null;
+let codigoEditando=null;
+
+const sesion=usuarioActivo();
+
+if(!sesion||!tienePermiso("A8")){
 alert("No dispone de autorización para acceder a Configuración.");
 location.href="index.html";
-}else{
-document.getElementById("nombreUsuario").textContent=u.nombre;
-document.getElementById("rolUsuario").textContent=u.rol||"Usuario";
 }
 
-document.querySelectorAll("[data-permiso]").forEach(el=>{
-const permitido=tienePermiso(el.dataset.permiso);
-el.classList.add(permitido?"activo":"inactivo");
-el.disabled=!permitido;
+document.getElementById("usuarioCabecera").textContent=sesion?.nombre||"";
+document.getElementById("rolCabecera").textContent=sesion?.rol||"";
 
-if(permitido&&el.dataset.permiso!=="A8"){
-el.onclick=()=>alert(el.dataset.permiso+" · Área en preparación");
+/* MENÚ */
+document.querySelectorAll(".menu-btn").forEach(b=>{
+const ok=tienePermiso(b.dataset.area);
+
+if(!ok){
+b.classList.add("inactivo");
+b.disabled=true;
+}
+
+if(ok&&b.dataset.area!=="A8"){
+b.onclick=()=>alert(b.dataset.area+" · Área en preparación");
 }
 });
 
+/* PESTAÑAS */
 document.querySelectorAll(".tab").forEach(tab=>{
-tab.addEventListener("click",()=>{
+tab.onclick=()=>{
 document.querySelectorAll(".tab").forEach(t=>t.classList.remove("activa"));
 document.querySelectorAll(".panel").forEach(p=>p.classList.remove("activo"));
 
 tab.classList.add("activa");
 document.getElementById(tab.dataset.panel).classList.add("activo");
+
+if(tab.dataset.panel==="auditoria")cargarAuditoria();
+};
 });
+
+/* CARGA */
+async function cargarA8(){
+try{
+usuarios=await obtenerUsuarios();
+configuracion=await obtenerConfiguracion();
+
+pintarUsuarios();
+pintarPermisos();
+cargarConfiguracionPantalla();
+cargarEstado();
+
+}catch(e){
+console.error(e);
+alert("No se ha podido cargar la configuración desde Dropbox:\n\n"+e.message);
+}
+}
+
+/* USUARIOS */
+function pintarUsuarios(){
+const q=(document.getElementById("buscar").value||"").toLowerCase();
+const rol=document.getElementById("fRol").value;
+const estado=document.getElementById("fEstado").value;
+
+const tbody=document.getElementById("tablaUsuarios");
+tbody.innerHTML="";
+
+usuarios.filter(u=>{
+if(q&&!((u.nombre||"").toLowerCase().includes(q)||(u.usuario||"").toLowerCase().includes(q)))return false;
+if(rol&&u.rol!==rol)return false;
+if(estado!==""&&String(u.activo!==false)!==estado)return false;
+return true;
+}).forEach(u=>{
+const tr=document.createElement("tr");
+
+tr.innerHTML=`
+<td>${u.codigo||""}</td>
+<td>${u.nombre||""}${u.demo?'<span class="demo">DEMO</span>':""}</td>
+<td>${u.usuario||""}</td>
+<td>${u.rol||""}</td>
+<td><span class="estado ${u.activo!==false?"activo":"inactivo"}">${u.activo!==false?"Activo":"Inactivo"}</span></td>
+<td>${(u.permisos||[]).join(", ")}</td>
+<td class="acciones-tabla">
+<button onclick="cargarUsuarioEdicion('${u.codigo}')">Editar</button>
+<button onclick="cambiarEstado('${u.codigo}')">${u.activo!==false?"Desactivar":"Activar"}</button>
+</td>`;
+
+tbody.appendChild(tr);
 });
+}
+
+function cargarUsuarioEdicion(codigo){
+const u=usuarios.find(x=>x.codigo===codigo);
+if(!u)return;
+
+codigoEditando=codigo;
+
+document.getElementById("uNombre").value=u.nombre||"";
+document.getElementById("uUsuario").value=u.usuario||"";
+document.getElementById("uRol").value=u.rol||"Usuario";
+document.getElementById("uEstado").value=String(u.activo!==false);
+document.getElementById("uPassword").value="";
+document.getElementById("uCodigo").value=u.codigo||"";
+
+window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function limpiarFormulario(){
+codigoEditando=null;
+document.getElementById("uNombre").value="";
+document.getElementById("uUsuario").value="";
+document.getElementById("uPassword").value="";
+document.getElementById("uCodigo").value="";
+document.getElementById("uRol").value="Usuario";
+document.getElementById("uEstado").value="true";
+}
+
+document.getElementById("btnGuardarUsuario").onclick=async()=>{
+try{
+const datos={
+nombre:document.getElementById("uNombre").value.trim(),
+usuario:document.getElementById("uUsuario").value.trim(),
+password:document.getElementById("uPassword").value,
+codigo:document.getElementById("uCodigo").value.trim(),
+rol:document.getElementById("uRol").value,
+activo:document.getElementById("uEstado").value==="true"
+};
+
+if(!datos.nombre||!datos.usuario||!datos.codigo){
+alert("Debe indicar nombre, usuario y código.");
+return;
+}
+
+if(codigoEditando){
+await editarUsuario(codigoEditando,datos);
+}else{
+await altaUsuario(datos);
+}
+
+usuarios=await obtenerUsuarios();
+
+limpiarFormulario();
+pintarUsuarios();
+pintarPermisos();
+
+mensaje("mensajeUsuarios","Usuario guardado correctamente.");
+
+}catch(e){
+console.error(e);
+alert(e.message);
+}
+};
+
+async function cambiarEstado(codigo){
+try{
+const u=usuarios.find(x=>x.codigo===codigo);
+if(!u)return;
+
+await cambiarEstadoUsuario(codigo,!(u.activo!==false));
+usuarios=await obtenerUsuarios();
+
+pintarUsuarios();
+pintarPermisos();
+
+}catch(e){
+alert(e.message);
+}
+}
+
+/* PERMISOS */
+function pintarPermisos(){
+const tbody=document.getElementById("tablaPermisos");
+tbody.innerHTML="";
+
+usuarios.forEach(u=>{
+const tr=document.createElement("tr");
+
+let html=`
+<td class="usuario-permiso">
+<strong>${u.nombre}</strong><br>
+<span style="color:#71879a">${u.usuario} · ${u.codigo}</span>
+${u.demo?'<span class="demo">DEMO</span>':""}
+</td>`;
+
+AREAS.forEach(a=>{
+html+=`
+<td>
+<input
+type="checkbox"
+data-codigo="${u.codigo}"
+data-area="${a}"
+${(u.permisos||[]).includes(a)?"checked":""}>
+</td>`;
+});
+
+tr.innerHTML=html;
+tbody.appendChild(tr);
+});
+}
+
+document.getElementById("btnGuardarPermisos").onclick=async()=>{
+try{
+const filas={};
+
+document.querySelectorAll("#tablaPermisos input[type=checkbox]").forEach(c=>{
+if(!filas[c.dataset.codigo])filas[c.dataset.codigo]=[];
+if(c.checked)filas[c.dataset.codigo].push(c.dataset.area);
+});
+
+for(const codigo of Object.keys(filas)){
+const actual=usuarios.find(u=>u.codigo===codigo);
+const nuevos=filas[codigo];
+
+if(JSON.stringify([...(actual.permisos||[])].sort())!==JSON.stringify([...nuevos].sort())){
+await cambiarPermisos(codigo,nuevos);
+}
+}
+
+usuarios=await obtenerUsuarios();
+
+pintarUsuarios();
+pintarPermisos();
+
+mensaje("mensajePermisos","Permisos guardados correctamente.");
+
+}catch(e){
+console.error(e);
+alert("No se han podido guardar los permisos:\n\n"+e.message);
+}
+};
+
+/* CONFIGURACIÓN */
+function cargarConfiguracionPantalla(){
+if(!configuracion)return;
+
+document.getElementById("cfgNombre").value=configuracion.app?.titulo||"";
+document.getElementById("cfgEntidad").value=configuracion.app?.entidad||"";
+document.getElementById("cfgServicio").value=configuracion.app?.servicio||"";
+document.getElementById("cfgVersion").value=configuracion.app?.version||"";
+document.getElementById("cfgIdioma").value=configuracion.app?.idioma||"es";
+document.getElementById("cfgMensaje").value=configuracion.acceso?.mensaje||"";
+
+document.getElementById("segDuracion").value=configuracion.acceso?.duracion_sesion_minutos||240;
+document.getElementById("segIntentos").value=configuracion.acceso?.intentos_fallidos_bloqueo||5;
+document.getElementById("segCambio").value=String(configuracion.acceso?.cambio_password_inicial!==false);
+document.getElementById("segPersistente").value=String(!!configuracion.acceso?.sesion_persistente);
+document.getElementById("segBloqueo").value=String(configuracion.acceso?.bloqueo_automatico!==false);
+document.getElementById("segRegistro").value=String(configuracion.acceso?.registro_accesos!==false);
+}
+
+document.getElementById("btnGuardarConfig").onclick=async()=>{
+try{
+configuracion.app=configuracion.app||{};
+configuracion.acceso=configuracion.acceso||{};
+
+configuracion.app.titulo=document.getElementById("cfgNombre").value;
+configuracion.app.entidad=document.getElementById("cfgEntidad").value;
+configuracion.app.servicio=document.getElementById("cfgServicio").value;
+configuracion.app.version=document.getElementById("cfgVersion").value;
+configuracion.app.idioma=document.getElementById("cfgIdioma").value;
+configuracion.acceso.mensaje=document.getElementById("cfgMensaje").value;
+
+await guardarConfiguracion(configuracion);
+
+mensaje("mensajeConfig","Parámetros guardados correctamente.");
+cargarEstado();
+
+}catch(e){
+alert(e.message);
+}
+};
+
+document.getElementById("btnGuardarSeguridad").onclick=async()=>{
+try{
+configuracion.acceso=configuracion.acceso||{};
+
+configuracion.acceso.duracion_sesion_minutos=Number(document.getElementById("segDuracion").value);
+configuracion.acceso.intentos_fallidos_bloqueo=Number(document.getElementById("segIntentos").value);
+configuracion.acceso.cambio_password_inicial=document.getElementById("segCambio").value==="true";
+configuracion.acceso.sesion_persistente=document.getElementById("segPersistente").value==="true";
+configuracion.acceso.bloqueo_automatico=document.getElementById("segBloqueo").value==="true";
+configuracion.acceso.registro_accesos=document.getElementById("segRegistro").value==="true";
+
+await guardarConfiguracion(configuracion);
+
+mensaje("mensajeSeguridad","Seguridad guardada correctamente.");
+
+}catch(e){
+alert(e.message);
+}
+};
+
+/* AUDITORÍA */
+async function cargarAuditoria(){
+try{
+const datos=await obtenerAuditoria();
+const tbody=document.getElementById("tablaAuditoria");
+tbody.innerHTML="";
+
+[...datos].reverse().forEach(a=>{
+const tr=document.createElement("tr");
+tr.innerHTML=`
+<td>${a.fecha||""}</td>
+<td>${a.hora||""}</td>
+<td>${a.usuario_nombre||""}</td>
+<td>${a.area||""}</td>
+<td>${a.accion||""}</td>
+<td>${a.detalle||""}</td>`;
+tbody.appendChild(tr);
+});
+
+}catch(e){
+console.error(e);
+}
+}
+
+/* ESTADO */
+function cargarEstado(){
+document.getElementById("estadoVersion").textContent=configuracion?.app?.version||"—";
+document.getElementById("estadoSistema").textContent=configuracion?.sistema?.estado||"—";
+document.getElementById("estadoFecha").textContent=configuracion?.sistema?.fecha_ultima_actualizacion||"—";
+}
+
+function mensaje(id,texto){
+const el=document.getElementById(id);
+el.textContent=texto;
+el.classList.add("visible");
+setTimeout(()=>el.classList.remove("visible"),2500);
+}
+
+cargarA8();
 </script>
 
 </body>
