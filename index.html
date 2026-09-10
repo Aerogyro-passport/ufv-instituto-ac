@@ -16,162 +16,182 @@ html,body{margin:0;width:100%;min-height:100%}
 body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial,sans-serif}
 .app{display:flex;width:100%;min-height:100vh}
 
-/* LATERAL */
+/* BANDA LATERAL: PATRÓN FIJO */
 .lateral{
-width:198px;min-width:198px;min-height:100vh;
-background:#034b70;color:#fff;padding:22px 20px 18px;
+width:330px;min-width:330px;min-height:100vh;
+background:#003B5D;color:#fff;padding:38px 34px 30px;
 display:flex;flex-direction:column
 }
 .rita{
 position:relative;display:inline-block;width:max-content;
-font-size:51px;line-height:1;font-weight:400;letter-spacing:-2px
+font-size:82px;line-height:.95;font-weight:400;letter-spacing:-4px
 }
-.copyright{position:absolute;right:-15px;top:-3px;font:13px Arial}
-.linea-rita{width:54px;height:3px;background:#54d8d6;margin:23px 0 25px}
+.copyright{position:absolute;top:-5px;right:-22px;font:20px Arial}
+.linea-rita{width:92px;height:5px;margin:35px 0 40px;background:#4dd4d0}
 .nombre-sistema{
-width:150px;font-size:15px;line-height:1.22;
-letter-spacing:.7px;text-transform:uppercase
+width:250px;font-size:25px;line-height:1.28;
+letter-spacing:1.5px;text-transform:uppercase
 }
 
-/* MENÚ LATERAL */
+/* MENÚ LATERAL: SÓLO DESPUÉS DE IDENTIFICARSE */
 .menu-lateral{
-display:none;width:100%;margin-top:28px;
-border-top:1px solid rgba(255,255,255,.22);
-padding-top:14px
+display:none;width:100%;margin-top:28px;padding-top:16px;
+border-top:1px solid rgba(255,255,255,.22)
 }
 .menu-lateral.visible{display:block}
 
 .boton-lateral{
-width:100%;min-height:48px;margin:0 0 8px;padding:8px 9px;
-border:1px solid rgba(255,255,255,.25);border-radius:5px;
+width:100%;min-height:52px;margin-bottom:8px;padding:8px 11px;
+border:1px solid rgba(255,255,255,.28);border-radius:5px;
 background:rgba(255,255,255,.08);color:#fff;
 font-family:Tecnico,Arial,sans-serif;text-align:left;
-display:flex;align-items:center;gap:9px
+display:flex;align-items:center;gap:10px
 }
 .boton-lateral.activo{cursor:pointer}
-.boton-lateral.activo:hover{background:rgba(255,255,255,.15)}
+.boton-lateral.activo:hover{background:rgba(255,255,255,.16)}
 .boton-lateral.inactivo{
-opacity:.33;
-filter:grayscale(1);
-cursor:not-allowed;
-background:rgba(255,255,255,.04)
+opacity:.30;filter:grayscale(1);cursor:not-allowed;
+background:rgba(255,255,255,.035)
 }
-.boton-codigo{min-width:29px;font-size:15px;color:#65dcda;font-weight:700}
-.boton-lateral.inactivo .boton-codigo{color:#ddd}
-.boton-texto{font-size:13px;line-height:1.12;text-transform:uppercase}
+.boton-codigo{width:35px;color:#59d8d5;font-size:18px;font-weight:700}
+.boton-lateral.inactivo .boton-codigo{color:#fff}
+.boton-texto{font-size:15px;line-height:1.1;text-transform:uppercase}
 
-.pie-lateral{margin-top:auto;width:100%;padding-bottom:25px}
-.pie-lateral img{display:block;width:150px;max-width:100%;height:auto}
+/* PIE: PATRÓN FIJO */
+.pie-lateral{
+margin-top:auto;width:100%;display:flex;
+justify-content:center;padding-bottom:95px;padding-top:30px
+}
+.pie-lateral img{display:block;width:382px;max-width:100%;height:auto;object-fit:contain}
 
 /* PRINCIPAL */
 .principal{flex:1;min-width:0;min-height:100vh;display:flex;flex-direction:column}
-.cabecera{
-height:108px;min-height:108px;background:#fff;
-display:flex;align-items:center;padding:0 43px
-}
-.cabecera img{display:block;width:495px;max-width:55vw;height:auto}
 
+/* CABECERA: PATRÓN FIJO */
+.cabecera{
+width:100%;height:185px;min-height:185px;background:#fff;
+display:flex;align-items:center;padding:0 75px
+}
+.cabecera img{display:block;width:844px;max-width:72vw;height:auto;object-fit:contain}
+
+/* ZONA CENTRAL */
 .zona{
 flex:1;width:100%;background:#edf5fb;
 display:flex;flex-direction:column;align-items:center;
-padding:32px 35px 30px
+padding:55px 40px 35px
 }
 
-/* LOGIN */
+/* ENTRADA: PATRÓN FIJO */
 .login{
-width:620px;max-width:95%;background:#fff;
-border:1px solid #ccdce7;border-radius:7px;
-padding:31px 39px 27px;
-box-shadow:0 4px 14px rgba(30,70,100,.04)
+width:820px;max-width:calc(100% - 50px);margin:0 auto;
+background:#fff;border:2px solid #d6e0e8;border-radius:11px;
+padding:52px 66px 45px;box-shadow:0 8px 25px rgba(30,70,100,.06)
 }
 .login-mini{
-display:inline-block;color:#668aa7;font-size:14px;letter-spacing:1.8px;
-padding-bottom:6px;border-bottom:3px solid #4dd4d0;margin-bottom:15px
+display:inline-block;margin-bottom:23px;padding-bottom:9px;
+border-bottom:4px solid #4dd4d0;color:#6588a5;
+font-size:20px;letter-spacing:2.5px;text-transform:uppercase
 }
-.login h1{margin:0 0 7px;font-size:42px;font-weight:400}
-.login-intro{margin:0 0 22px;color:#718ca4;font-size:17px;line-height:1.3}
-.campo{margin-bottom:15px}
+.login h1{margin:0 0 12px;font-size:62px;line-height:1;font-weight:400}
+.login-intro{margin:0 0 35px;color:#718ca4;font-size:24px;line-height:1.35}
+
+.campo{margin-bottom:22px}
 .campo label{
-display:block;color:#67859e;font-size:13px;
-letter-spacing:1px;margin-bottom:6px;text-transform:uppercase
+display:block;margin-bottom:9px;color:#65849e;
+font-size:18px;letter-spacing:1.5px;text-transform:uppercase
 }
 .input-wrap{position:relative}
 .campo input{
-width:100%;height:51px;padding:0 15px;
-border:1px solid #bfd1df;border-radius:4px;
+width:100%;height:70px;padding:0 21px;
+border:2px solid #c8d7e3;border-radius:6px;outline:none;
 background:#fbfcfd;color:#17344e;
-font:17px Tecnico,Arial,sans-serif;outline:none
+font:23px Tecnico,Arial,sans-serif
 }
-.campo input:focus{border-color:#2389b2}
-.password{padding-right:48px!important}
+.campo input::placeholder{color:#929ca5}
+.campo input:focus{border-color:#3d91bd;box-shadow:0 0 0 3px rgba(61,145,189,.09)}
+.password{padding-right:65px!important}
 .ver{
-position:absolute;right:14px;top:50%;transform:translateY(-50%);
-border:0;background:none;color:#557c98;font-size:17px;cursor:pointer
+position:absolute;top:50%;right:20px;transform:translateY(-50%);
+width:30px;height:30px;border:0;background:transparent;
+color:#557c98;font-size:23px;cursor:pointer
 }
 .entrar{
-width:100%;height:53px;margin-top:5px;border:0;border-radius:4px;
-background:#0b70aa;color:#fff;font:16px Tecnico,Arial,sans-serif;
-letter-spacing:5px;text-transform:uppercase;cursor:pointer
+width:100%;height:70px;margin-top:10px;border:0;border-radius:5px;
+background:#09669f;color:#fff;font:21px Tecnico,Arial,sans-serif;
+letter-spacing:6px;text-transform:uppercase;cursor:pointer
 }
-.entrar:hover{background:#075d91}
+.entrar:hover{background:#075987}
 .aviso{
-margin-top:26px;padding-top:15px;border-top:1px solid #dde6ed;
-text-align:center;color:#7992a7;font-size:12px;line-height:1.4
+margin-top:40px;padding-top:24px;border-top:1px solid #dce5ec;
+color:#718ca4;text-align:center;font-size:17px;line-height:1.4
 }
-.error{min-height:18px;margin-top:10px;color:#a84343;text-align:center;font-size:14px}
+.error{min-height:24px;margin-top:14px;color:#a33d3d;text-align:center;font-size:17px}
 
 /* USUARIO IDENTIFICADO */
 .panel{
-display:none;width:100%;
-background:#fff;border:1px solid #c8d2db;
-padding:14px 18px 16px
+display:none;width:100%;max-width:1320px;
+background:#fff;border:1px solid #c7d4de;
+padding:20px 24px 24px
 }
 .panel.visible{display:block}
+
 .titulo-panel{
-font-size:25px;color:#4c6788;
-border-bottom:2px solid #4c6788;
-padding-bottom:3px;margin-bottom:8px
+font-size:31px;color:#506e8e;
+border-bottom:2px solid #506e8e;
+padding-bottom:4px;margin-bottom:10px
 }
-.datos-usuario{font-size:18px;line-height:1.2;color:#222}
+.datos-usuario{font-size:21px;line-height:1.25;color:#202020}
 .autorizaciones-titulo{
-font-size:25px;color:#4c6788;
-border-bottom:2px solid #4c6788;
-padding-bottom:3px;margin-top:4px;margin-bottom:10px
+font-size:31px;color:#506e8e;
+border-bottom:2px solid #506e8e;
+padding-bottom:4px;margin-top:10px;margin-bottom:14px
 }
 
-/* ICONOS */
+/* ICONOS PEQUEÑOS, SIEMPRE LOS 8 */
 .permisos{
 display:flex;flex-wrap:wrap;
-align-items:flex-start;justify-content:flex-start;
-gap:10px
+justify-content:flex-start;align-items:flex-start;
+gap:12px
 }
 .permiso{
-width:82px;border:0;padding:0;margin:0;
-background:transparent;transition:transform .12s ease,opacity .12s ease
+width:94px;border:0;padding:0;background:transparent;
+transition:transform .12s ease,opacity .12s ease
 }
-.permiso img{display:block;width:82px;height:auto;border-radius:8px}
+.permiso img{display:block;width:94px;height:auto;border-radius:9px}
 .permiso.activo{cursor:pointer}
-.permiso.activo:hover{transform:translateY(-2px)}
-.permiso.inactivo{
-opacity:.28;
-filter:grayscale(1);
-cursor:not-allowed
-}
+.permiso.activo:hover{transform:translateY(-3px)}
+.permiso.inactivo{opacity:.25;filter:grayscale(1);cursor:not-allowed}
 
 .salir{
-margin-top:14px;border:1px solid #b9ccda;
-background:#fff;color:#315675;border-radius:4px;
-padding:7px 12px;font:14px Tecnico;cursor:pointer
+margin-top:18px;border:1px solid #afc3d1;border-radius:5px;
+background:#fff;color:#315675;padding:9px 15px;
+font:16px Tecnico,Arial,sans-serif;cursor:pointer
 }
 
-@media(max-width:760px){
-.lateral{width:165px;min-width:165px;padding:20px 15px}
-.rita{font-size:43px}
-.nombre-sistema{font-size:13px;width:125px}
-.boton-texto{font-size:11px}
-.cabecera{height:90px;min-height:90px;padding:0 25px}
-.cabecera img{width:400px;max-width:90%}
-.permiso,.permiso img{width:72px}
+/* ADAPTACIÓN */
+@media(max-width:1200px){
+.lateral{width:285px;min-width:285px}
+.rita{font-size:72px}.nombre-sistema{font-size:21px}
+.pie-lateral{padding-bottom:65px}.pie-lateral img{width:330px}
+.cabecera{height:160px;min-height:160px;padding:0 55px}
+.cabecera img{width:730px}
+.login{width:740px;padding:45px 55px 40px}
+.login h1{font-size:55px}
+}
+
+@media(max-width:700px){
+.app{display:block}
+.lateral{width:100%;min-width:100%;min-height:auto;padding:25px 28px}
+.rita{font-size:58px}.linea-rita{margin:22px 0}
+.nombre-sistema{width:auto;font-size:18px}
+.pie-lateral{justify-content:flex-start;margin-top:30px;padding-bottom:15px}
+.pie-lateral img{width:300px}
+.cabecera{height:125px;min-height:125px;padding:0 25px}
+.cabecera img{width:620px;max-width:100%}
+.zona{padding:30px 15px}
+.login{width:100%;max-width:100%;padding:35px 28px}
+.login h1{font-size:45px}.login-intro{font-size:20px}
+.campo input{height:62px;font-size:20px}.entrar{height:62px}
 }
 </style>
 </head>
@@ -191,39 +211,14 @@ de Personas
 </div>
 
 <nav class="menu-lateral" id="menuLateral">
-
-<button class="boton-lateral" data-permiso="A1" type="button" onclick="abrirArea('A1',this)">
-<span class="boton-codigo">A1</span><span class="boton-texto">Área Técnica</span>
-</button>
-
-<button class="boton-lateral" data-permiso="A2" type="button" onclick="abrirArea('A2',this)">
-<span class="boton-codigo">A2</span><span class="boton-texto">Área de Gestión</span>
-</button>
-
-<button class="boton-lateral" data-permiso="A3" type="button" onclick="abrirArea('A3',this)">
-<span class="boton-codigo">A3</span><span class="boton-texto">Área de Evaluación</span>
-</button>
-
-<button class="boton-lateral" data-permiso="A4" type="button" onclick="abrirArea('A4',this)">
-<span class="boton-codigo">A4</span><span class="boton-texto">Área de Formación</span>
-</button>
-
-<button class="boton-lateral" data-permiso="A5" type="button" onclick="abrirArea('A5',this)">
-<span class="boton-codigo">A5</span><span class="boton-texto">Área de Decisión</span>
-</button>
-
-<button class="boton-lateral" data-permiso="A6" type="button" onclick="abrirArea('A6',this)">
-<span class="boton-codigo">A6</span><span class="boton-texto">Área de Conflictos</span>
-</button>
-
-<button class="boton-lateral" data-permiso="A7" type="button" onclick="abrirArea('A7',this)">
-<span class="boton-codigo">A7</span><span class="boton-texto">Área de Mejora</span>
-</button>
-
-<button class="boton-lateral" data-permiso="A8" type="button" onclick="abrirArea('A8',this)">
-<span class="boton-codigo">A8</span><span class="boton-texto">Configuración</span>
-</button>
-
+<button class="boton-lateral" data-permiso="A1" type="button"><span class="boton-codigo">A1</span><span class="boton-texto">Área Técnica</span></button>
+<button class="boton-lateral" data-permiso="A2" type="button"><span class="boton-codigo">A2</span><span class="boton-texto">Área de Gestión</span></button>
+<button class="boton-lateral" data-permiso="A3" type="button"><span class="boton-codigo">A3</span><span class="boton-texto">Área de Evaluación</span></button>
+<button class="boton-lateral" data-permiso="A4" type="button"><span class="boton-codigo">A4</span><span class="boton-texto">Área de Formación</span></button>
+<button class="boton-lateral" data-permiso="A5" type="button"><span class="boton-codigo">A5</span><span class="boton-texto">Área de Decisión</span></button>
+<button class="boton-lateral" data-permiso="A6" type="button"><span class="boton-codigo">A6</span><span class="boton-texto">Área de Conflictos</span></button>
+<button class="boton-lateral" data-permiso="A7" type="button"><span class="boton-codigo">A7</span><span class="boton-texto">Área de Mejora</span></button>
+<button class="boton-lateral" data-permiso="A8" type="button"><span class="boton-codigo">A8</span><span class="boton-texto">Configuración</span></button>
 </nav>
 
 <div class="pie-lateral">
@@ -239,6 +234,7 @@ de Personas
 
 <section class="zona">
 
+<!-- ENTRADA -->
 <div class="login" id="login">
 <div class="login-mini">Acceso al sistema</div>
 <h1>Bienvenido</h1>
@@ -248,10 +244,9 @@ Identifíquese para acceder al entorno de gestión del Esquema de Certificación
 </p>
 
 <form id="loginForm">
-
 <div class="campo">
 <label for="usuario">Usuario</label>
-<input id="usuario" type="text" autocomplete="username" placeholder="angel, luis, pilar...">
+<input id="usuario" type="text" autocomplete="username" placeholder="Introduzca su usuario">
 </div>
 
 <div class="campo">
@@ -269,6 +264,7 @@ Identifíquese para acceder al entorno de gestión del Esquema de Certificación
 <div class="aviso">Acceso restringido a personal autorizado.</div>
 </div>
 
+<!-- USUARIO IDENTIFICADO -->
 <div class="panel" id="panel">
 
 <div class="titulo-panel">Usuario identificado</div>
@@ -279,43 +275,17 @@ Identifíquese para acceder al entorno de gestión del Esquema de Certificación
 <div class="autorizaciones-titulo">Autorizaciones</div>
 
 <div class="permisos">
-
-<button class="permiso" data-permiso="A1" type="button" onclick="abrirArea('A1',this)">
-<img src="ICOA1.png" alt="A1 Área Técnica">
-</button>
-
-<button class="permiso" data-permiso="A2" type="button" onclick="abrirArea('A2',this)">
-<img src="ICOA2.png" alt="A2 Área de Gestión">
-</button>
-
-<button class="permiso" data-permiso="A3" type="button" onclick="abrirArea('A3',this)">
-<img src="ICOA3.png" alt="A3 Área de Evaluación">
-</button>
-
-<button class="permiso" data-permiso="A4" type="button" onclick="abrirArea('A4',this)">
-<img src="ICOA4.png" alt="A4 Área de Formación">
-</button>
-
-<button class="permiso" data-permiso="A5" type="button" onclick="abrirArea('A5',this)">
-<img src="ICOA5.png" alt="A5 Área de Decisión">
-</button>
-
-<button class="permiso" data-permiso="A6" type="button" onclick="abrirArea('A6',this)">
-<img src="ICOA6.png" alt="A6 Área de Conflictos">
-</button>
-
-<button class="permiso" data-permiso="A7" type="button" onclick="abrirArea('A7',this)">
-<img src="ICOA7.png" alt="A7 Área de Mejora">
-</button>
-
-<button class="permiso" data-permiso="A8" type="button" onclick="abrirArea('A8',this)">
-<img src="ICOA8.png" alt="A8 Configuración">
-</button>
-
+<button class="permiso" data-permiso="A1" type="button"><img src="ICOA1.png" alt="A1 Área Técnica"></button>
+<button class="permiso" data-permiso="A2" type="button"><img src="ICOA2.png" alt="A2 Área de Gestión"></button>
+<button class="permiso" data-permiso="A3" type="button"><img src="ICOA3.png" alt="A3 Área de Evaluación"></button>
+<button class="permiso" data-permiso="A4" type="button"><img src="ICOA4.png" alt="A4 Área de Formación"></button>
+<button class="permiso" data-permiso="A5" type="button"><img src="ICOA5.png" alt="A5 Área de Decisión"></button>
+<button class="permiso" data-permiso="A6" type="button"><img src="ICOA6.png" alt="A6 Área de Conflictos"></button>
+<button class="permiso" data-permiso="A7" type="button"><img src="ICOA7.png" alt="A7 Área de Mejora"></button>
+<button class="permiso" data-permiso="A8" type="button"><img src="ICOA8.png" alt="A8 Configuración"></button>
 </div>
 
 <button class="salir" type="button" onclick="cerrarSesion()">Cerrar sesión</button>
-
 </div>
 
 </section>
@@ -325,14 +295,10 @@ Identifíquese para acceder al entorno de gestión del Esquema de Certificación
 <script src="usuarios.js"></script>
 
 <script>
-const login=document.getElementById("login");
-const panel=document.getElementById("panel");
-const menu=document.getElementById("menuLateral");
-const formulario=document.getElementById("loginForm");
-const campoUsuario=document.getElementById("usuario");
-const password=document.getElementById("password");
-const error=document.getElementById("error");
-const botonVer=document.getElementById("verPassword");
+const login=document.getElementById("login"),panel=document.getElementById("panel"),
+menu=document.getElementById("menuLateral"),formulario=document.getElementById("loginForm"),
+campoUsuario=document.getElementById("usuario"),password=document.getElementById("password"),
+error=document.getElementById("error"),botonVer=document.getElementById("verPassword");
 
 function aplicarPermisos(){
 document.querySelectorAll("[data-permiso]").forEach(el=>{
@@ -372,12 +338,6 @@ return;
 
 mostrarUsuario(iniciarSesion(u));
 });
-
-function abrirArea(codigo,elemento){
-if(elemento&&elemento.disabled)return;
-if(!tienePermiso(codigo))return;
-alert(codigo+" · Área en preparación");
-}
 
 const sesionActiva=usuarioActivo();
 if(sesionActiva)mostrarUsuario(sesionActiva);
