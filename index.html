@@ -6,24 +6,26 @@
 <title>Rita© | Instituto de Acompañamiento UFV</title>
 
 <style>
+
 @font-face{
     font-family:"Tecnico";
     src:url("tecnico_regular.ttf") format("truetype");
     font-weight:400;
-    font-style:normal;
 }
+
 @font-face{
     font-family:"Tecnico";
     src:url("tecnico_bold.ttf") format("truetype");
     font-weight:700;
-    font-style:normal;
 }
+
 @font-face{
     font-family:"Tecnico";
     src:url("tecnico_regularitalic.ttf") format("truetype");
     font-weight:400;
     font-style:italic;
 }
+
 @font-face{
     font-family:"Tecnico";
     src:url("tecnico_bolditalic.ttf") format("truetype");
@@ -35,193 +37,284 @@
     box-sizing:border-box;
 }
 
-html,body{
+html,
+body{
     margin:0;
-    padding:0;
     width:100%;
     min-height:100%;
-    font-family:"Tecnico",Arial,sans-serif;
-    color:#17344e;
 }
 
 body{
     min-height:100vh;
     background:#edf5fb;
+    color:#17344e;
+    font-family:"Tecnico",Arial,sans-serif;
 }
 
 .app{
-    min-height:100vh;
     display:flex;
+    width:100%;
+    min-height:100vh;
 }
 
-/* =========================
-   BANDA LATERAL AZUL
-   ========================= */
+
+/* =========================================================
+   BANDA LATERAL
+   ========================================================= */
 
 .lateral{
-    width:260px;
-    min-width:260px;
+    width:330px;
+    min-width:330px;
     min-height:100vh;
-    background:linear-gradient(180deg,#075a91 0%,#0d689f 100%);
-    color:#fff;
-    padding:30px 29px 22px;
+
+    background:#064a78;
+
+    color:white;
+
+    padding:38px 34px 30px;
+
     display:flex;
     flex-direction:column;
 }
 
+
+/* RITA */
+
 .rita{
     position:relative;
+
     display:inline-block;
     width:max-content;
-    font-size:66px;
-    line-height:1;
+
+    font-size:82px;
+    line-height:.95;
+
     font-weight:400;
-    letter-spacing:-3px;
+    letter-spacing:-4px;
 }
 
 .copyright{
     position:absolute;
-    right:-18px;
+
     top:-5px;
+    right:-22px;
+
     font-family:Arial,sans-serif;
-    font-size:17px;
+
+    font-size:20px;
     font-weight:400;
 }
 
+
+/* LÍNEA TURQUESA */
+
 .linea-rita{
-    width:72px;
-    height:4px;
-    margin-top:27px;
-    margin-bottom:31px;
+    width:92px;
+    height:5px;
+
+    margin-top:35px;
+    margin-bottom:40px;
+
     background:#4dd4d0;
 }
 
+
+/* NOMBRE DEL SISTEMA */
+
 .nombre-sistema{
-    max-width:185px;
-    font-size:20px;
-    line-height:1.27;
-    letter-spacing:1.2px;
+    width:250px;
+
+    color:#fff;
+
+    font-size:25px;
+    line-height:1.28;
+
+    letter-spacing:1.5px;
+
     text-transform:uppercase;
 }
 
-/* PIE DENTRO DE LA BANDA AZUL */
+
+/* PIE */
 
 .pie-lateral{
     margin-top:auto;
+
     width:100%;
+
     display:flex;
-    justify-content:center;
     align-items:flex-end;
-    padding-top:30px;
+    justify-content:center;
+
+    padding-top:35px;
 }
 
 .pie-lateral img{
     display:block;
-    width:190px;
+
+    width:245px;
     max-width:100%;
+
     height:auto;
+
     object-fit:contain;
 }
 
-/* =========================
-   PARTE DERECHA
-   ========================= */
+
+/* =========================================================
+   PARTE PRINCIPAL
+   ========================================================= */
 
 .principal{
     flex:1;
     min-width:0;
     min-height:100vh;
+
     display:flex;
     flex-direction:column;
 }
 
-/* =========================
+
+/* =========================================================
    CABECERA
-   ========================= */
+   ========================================================= */
 
 .cabecera{
-    height:122px;
-    min-height:122px;
+    width:100%;
+
+    height:155px;
+    min-height:155px;
+
     background:#fff;
+
     display:flex;
     align-items:center;
-    padding:0 58px;
+
+    padding:0 75px;
 }
 
 .cabecera img{
     display:block;
-    width:420px;
-    max-width:48vw;
+
+    width:540px;
+    max-width:55vw;
+
     height:auto;
+
     object-fit:contain;
 }
 
-/* =========================
-   ZONA CENTRAL
-   ========================= */
+
+/* =========================================================
+   FONDO DE LA APLICACIÓN
+   ========================================================= */
 
 .zona{
     flex:1;
+
     width:100%;
+
+    background:#edf5fb;
+
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:flex-start;
-    padding:65px 30px 30px;
-    background:#edf5fb;
+
+    padding:60px 40px 35px;
 }
 
-/* =========================
+
+/* =========================================================
    LOGIN
-   ========================= */
+   ========================================================= */
 
 .login{
-    width:680px;
-    max-width:calc(100% - 60px);
+    width:820px;
+
+    max-width:calc(100% - 50px);
+
     margin:0 auto;
+
     background:#fff;
-    border:1px solid #d6e0e8;
-    border-radius:9px;
-    padding:43px 54px 38px;
-    box-shadow:0 6px 20px rgba(30,70,100,.05);
+
+    border:2px solid #d6e0e8;
+    border-radius:11px;
+
+    padding:52px 66px 45px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(30,70,100,.06);
 }
+
+
+/* ACCESO AL SISTEMA */
 
 .login-mini{
     display:inline-block;
-    margin-bottom:18px;
-    padding-bottom:7px;
-    border-bottom:3px solid #4dd4d0;
-    color:#6d8ca6;
-    font-size:16px;
-    letter-spacing:2px;
+
+    margin-bottom:23px;
+
+    padding-bottom:9px;
+
+    border-bottom:4px solid #4dd4d0;
+
+    color:#6588a5;
+
+    font-size:20px;
+    line-height:1;
+
+    letter-spacing:2.5px;
+
     text-transform:uppercase;
 }
 
+
+/* BIENVENIDO */
+
 .login h1{
-    margin:0 0 8px;
+    margin:0 0 12px;
+
     color:#17344e;
-    font-size:50px;
-    line-height:1.05;
+
+    font-size:62px;
+    line-height:1;
+
     font-weight:400;
 }
 
+
+/* TEXTO INTRODUCTORIO */
+
 .login-intro{
-    margin:0 0 28px;
+    margin:0 0 35px;
+
     color:#718ca4;
-    font-size:20px;
+
+    font-size:24px;
     line-height:1.35;
 }
 
+
+/* =========================================================
+   CAMPOS
+   ========================================================= */
+
 .campo{
-    margin-bottom:17px;
+    margin-bottom:22px;
 }
 
 .campo label{
     display:block;
-    margin-bottom:7px;
-    color:#6d89a2;
-    font-size:14px;
-    letter-spacing:1.4px;
+
+    margin-bottom:9px;
+
+    color:#65849e;
+
+    font-size:18px;
+
+    letter-spacing:1.5px;
+
     text-transform:uppercase;
 }
 
@@ -231,58 +324,94 @@ body{
 
 .campo input{
     width:100%;
-    height:58px;
-    padding:0 17px;
-    border:1px solid #c8d7e3;
-    border-radius:5px;
-    outline:none;
-    background:#fbfcfd;
-    color:#17344e;
-    font-family:"Tecnico",Arial,sans-serif;
-    font-size:19px;
-}
+    height:70px;
 
-.campo input:focus{
-    border-color:#3d91bd;
-    box-shadow:0 0 0 2px rgba(61,145,189,.08);
+    padding:0 21px;
+
+    border:2px solid #c8d7e3;
+    border-radius:6px;
+
+    outline:none;
+
+    background:#fbfcfd;
+
+    color:#17344e;
+
+    font-family:"Tecnico",Arial,sans-serif;
+
+    font-size:23px;
 }
 
 .campo input::placeholder{
     color:#929ca5;
 }
 
+.campo input:focus{
+    border-color:#3d91bd;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(61,145,189,.09);
+}
+
+
+/* CONTRASEÑA */
+
 .password{
-    padding-right:55px !important;
+    padding-right:65px !important;
 }
 
 .ver{
     position:absolute;
+
     top:50%;
-    right:16px;
+    right:20px;
+
     transform:translateY(-50%);
-    width:22px;
-    height:22px;
-    border:0;
+
+    width:28px;
+    height:28px;
+
     padding:0;
+
+    border:0;
+
     background:transparent;
+
     color:#557c98;
-    font-size:18px;
-    line-height:22px;
+
+    font-size:23px;
+    line-height:28px;
+
     cursor:pointer;
 }
 
+
+/* =========================================================
+   BOTÓN ENTRAR
+   ========================================================= */
+
 .entrar{
     width:100%;
-    height:58px;
-    margin-top:7px;
+    height:70px;
+
+    margin-top:10px;
+
     border:0;
-    border-radius:4px;
+    border-radius:5px;
+
     background:#09669f;
+
     color:#fff;
+
     font-family:"Tecnico",Arial,sans-serif;
-    font-size:17px;
-    letter-spacing:5px;
+
+    font-size:21px;
+
+    letter-spacing:6px;
+
     text-transform:uppercase;
+
     cursor:pointer;
 }
 
@@ -290,80 +419,94 @@ body{
     background:#075987;
 }
 
+
+/* =========================================================
+   AVISO
+   ========================================================= */
+
 .aviso{
-    margin-top:35px;
-    padding-top:20px;
+    margin-top:40px;
+
+    padding-top:24px;
+
     border-top:1px solid #dce5ec;
-    color:#7992a7;
+
+    color:#718ca4;
+
     text-align:center;
-    font-size:14px;
-    line-height:1.35;
+
+    font-size:17px;
+    line-height:1.4;
 }
 
-/* =========================
-   FUTURA ZONA DE PERMISOS
-   ========================= */
+
+/* =========================================================
+   ZONA RESERVADA PARA ICONOS DE PERMISOS
+   ========================================================= */
 
 .permisos{
     width:100%;
-    max-width:1050px;
-    min-height:150px;
-    margin:22px auto 0;
+    max-width:1250px;
+
+    min-height:190px;
+
+    margin:28px auto 0;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
+    gap:22px;
 }
 
-/* =========================
-   ADAPTACIÓN
-   ========================= */
 
-@media(max-width:900px){
+/* =========================================================
+   PANTALLAS ALGO MENORES
+   ========================================================= */
+
+@media(max-width:1200px){
 
     .lateral{
-        width:205px;
-        min-width:205px;
-        padding:25px 20px 20px;
+        width:285px;
+        min-width:285px;
     }
 
     .rita{
-        font-size:55px;
+        font-size:72px;
     }
 
     .nombre-sistema{
-        font-size:16px;
-    }
-
-    .pie-lateral img{
-        width:155px;
+        font-size:21px;
     }
 
     .cabecera{
-        height:105px;
-        min-height:105px;
-        padding:0 35px;
+        height:135px;
+        min-height:135px;
+        padding:0 55px;
     }
 
     .cabecera img{
-        width:360px;
-    }
-
-    .zona{
-        padding:45px 20px 25px;
+        width:470px;
     }
 
     .login{
-        width:600px;
-        max-width:calc(100% - 30px);
-        padding:38px 42px 34px;
+        width:740px;
+        padding:45px 55px 40px;
     }
 
     .login h1{
-        font-size:43px;
+        font-size:55px;
     }
+
 }
 
-@media(max-width:650px){
+
+/* =========================================================
+   MÓVIL
+   ========================================================= */
+
+@media(max-width:700px){
 
     .app{
         display:block;
@@ -373,75 +516,87 @@ body{
         width:100%;
         min-width:100%;
         min-height:auto;
-        padding:20px 25px;
+
+        padding:25px 28px;
     }
 
     .rita{
-        font-size:46px;
+        font-size:58px;
     }
 
     .linea-rita{
-        margin-top:18px;
-        margin-bottom:18px;
+        margin-top:22px;
+        margin-bottom:22px;
     }
 
     .nombre-sistema{
-        max-width:none;
+        width:auto;
+        font-size:18px;
     }
 
     .pie-lateral{
         justify-content:flex-start;
-        margin-top:25px;
+        margin-top:30px;
     }
 
     .pie-lateral img{
-        width:170px;
-    }
-
-    .principal{
-        min-height:auto;
+        width:210px;
     }
 
     .cabecera{
-        height:90px;
-        min-height:90px;
-        padding:0 22px;
+        height:110px;
+        min-height:110px;
+
+        padding:0 25px;
     }
 
     .cabecera img{
-        width:340px;
+        width:420px;
         max-width:100%;
     }
 
     .zona{
-        min-height:calc(100vh - 90px);
         padding:30px 15px;
     }
 
     .login{
         width:100%;
         max-width:100%;
-        padding:32px 28px;
+
+        padding:35px 28px;
     }
 
     .login h1{
-        font-size:39px;
+        font-size:45px;
     }
 
     .login-intro{
-        font-size:18px;
+        font-size:20px;
     }
 
-    .permisos{
-        min-height:120px;
+    .campo input{
+        height:62px;
+        font-size:20px;
     }
+
+    .entrar{
+        height:62px;
+    }
+
 }
+
 </style>
 </head>
+
 
 <body>
 
 <div class="app">
+
+
+    <!-- =====================================================
+         BANDA LATERAL
+         ===================================================== -->
 
     <aside class="lateral">
 
@@ -459,36 +614,73 @@ body{
             de Personas
         </div>
 
+
+        <!-- PIE -->
+
         <div class="pie-lateral">
-            <img src="pie.png" alt="LifeLearning Consultoría - Powered by Rita">
+
+            <img
+                src="pie.png"
+                alt="LifeLearning Consultoría - Powered by Rita">
+
         </div>
 
     </aside>
 
+
+
+    <!-- =====================================================
+         PARTE PRINCIPAL
+         ===================================================== -->
+
     <main class="principal">
 
+
+        <!-- CABECERA -->
+
         <header class="cabecera">
+
             <img
                 src="cabecera1.png"
                 alt="Universidad Francisco de Vitoria - Instituto de Acompañamiento">
+
         </header>
+
+
+
+        <!-- =================================================
+             ZONA CENTRAL
+             ================================================= -->
 
         <section class="zona">
 
+
+            <!-- LOGIN -->
+
             <div class="login">
+
 
                 <div class="login-mini">
                     Acceso al sistema
                 </div>
 
-                <h1>Bienvenido</h1>
+
+                <h1>
+                    Bienvenido
+                </h1>
+
 
                 <p class="login-intro">
                     Identifíquese para acceder al entorno de gestión del
                     Esquema de Certificación de Personas.
                 </p>
 
+
+
                 <form id="loginForm">
+
+
+                    <!-- USUARIO -->
 
                     <div class="campo">
 
@@ -504,6 +696,10 @@ body{
                             placeholder="Introduzca su usuario">
 
                     </div>
+
+
+
+                    <!-- CONTRASEÑA -->
 
                     <div class="campo">
 
@@ -533,21 +729,45 @@ body{
 
                     </div>
 
-                    <button class="entrar" type="submit">
+
+
+                    <!-- ENTRAR -->
+
+                    <button
+                        class="entrar"
+                        type="submit">
+
                         Entrar
+
                     </button>
 
                 </form>
 
+
+
+                <!-- AVISO -->
+
                 <div class="aviso">
+
                     Acceso restringido a personal autorizado.<br>
+
                     Los perfiles y permisos se configurarán individualmente.
+
                 </div>
 
             </div>
 
-            <!-- AQUÍ IRÁN LOS ICONOS DE PERMISOS -->
-            <div class="permisos" id="zonaPermisos"></div>
+
+
+            <!-- =================================================
+                 AQUÍ PONDREMOS LOS ICONOS DE PERMISOS
+                 ================================================= -->
+
+            <div
+                class="permisos"
+                id="zonaPermisos">
+            </div>
+
 
         </section>
 
@@ -555,27 +775,60 @@ body{
 
 </div>
 
+
+
 <script>
-const botonVer = document.getElementById("verPassword");
-const password = document.getElementById("password");
 
-botonVer.addEventListener("click",function(){
+const botonVer =
+    document.getElementById("verPassword");
 
-    if(password.type === "password"){
-        password.type = "text";
-        botonVer.textContent = "●";
-        botonVer.setAttribute("aria-label","Ocultar contraseña");
-    }else{
-        password.type = "password";
-        botonVer.textContent = "◉";
-        botonVer.setAttribute("aria-label","Mostrar contraseña");
+const password =
+    document.getElementById("password");
+
+
+botonVer.addEventListener(
+    "click",
+    function(){
+
+        if(password.type === "password"){
+
+            password.type = "text";
+
+            botonVer.textContent = "●";
+
+            botonVer.setAttribute(
+                "aria-label",
+                "Ocultar contraseña"
+            );
+
+        }else{
+
+            password.type = "password";
+
+            botonVer.textContent = "◉";
+
+            botonVer.setAttribute(
+                "aria-label",
+                "Mostrar contraseña"
+            );
+
+        }
+
     }
+);
 
-});
 
-document.getElementById("loginForm").addEventListener("submit",function(e){
-    e.preventDefault();
-});
+document
+    .getElementById("loginForm")
+    .addEventListener(
+        "submit",
+        function(e){
+
+            e.preventDefault();
+
+        }
+    );
+
 </script>
 
 </body>
