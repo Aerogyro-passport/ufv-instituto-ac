@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Rita© | A8 Configuración</title>
+
+<style>
+@font-face{font-family:Tecnico;src:url("tecnico_regular.ttf") format("truetype");font-weight:400}
+@font-face{font-family:Tecnico;src:url("tecnico_bold.ttf") format("truetype");font-weight:700}
+@font-face{font-family:Tecnico;src:url("tecnico_regularitalic.ttf") format("truetype");font-weight:400;font-style:italic}
+@font-face{font-family:Tecnico;src:url("tecnico_bolditalic.ttf") format("truetype");font-weight:700;font-style:italic}
+
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;min-height:100%}
+body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial,sans-serif}
+.app{display:flex;width:100%;min-height:100vh}
+
+/* BANDA LATERAL */
+.lateral{
+width:330px;min-width:330px;min-height:100vh;
+background:#003B5D;color:#fff;padding:38px 34px 30px;
+display:flex;flex-direction:column
+}
+.rita{position:relative;display:inline-block;width:max-content;font-size:82px;line-height:.95;font-weight:400;letter-spacing:-4px}
+.copyright{position:absolute;top:-5px;right:-22px;font:20px Arial}
+.linea-rita{width:92px;height:5px;margin:35px 0 40px;background:#4dd4d0}
+.nombre-sistema{width:250px;font-size:25px;line-height:1.28;letter-spacing:1.5px;text-transform:uppercase}
+
+.menu-lateral{width:100%;margin-top:28px;padding-top:16px;border-top:1px solid rgba(255,255,255,.22)}
+.boton-lateral{
+width:100%;min-height:52px;margin-bottom:8px;padding:8px 11px;
+border:1px solid rgba(255,255,255,.28);border-radius:5px;
+background:rgba(255,255,255,.08);color:#fff;font-family:Tecnico,Arial,sans-serif;
+text-align:left;display:flex;align-items:center;gap:10px
+}
+.boton-lateral.activo{cursor:pointer}
+.boton-lateral.activo:hover{background:rgba(255,255,255,.16)}
+.boton-lateral.inactivo{opacity:.30;filter:grayscale(1);cursor:not-allowed;background:rgba(255,255,255,.035)}
+.boton-lateral.actual{background:#fff;color:#003B5D;border-color:#fff}
+.boton-lateral.actual .boton-codigo{color:#003B5D}
+.boton-codigo{width:35px;color:#59d8d5;font-size:18px;font-weight:700}
+.boton-texto{font-size:15px;line-height:1.1;text-transform:uppercase}
+
+.pie-lateral{margin-top:auto;width:100%;display:flex;justify-content:center;padding-bottom:95px;padding-top:30px}
+.pie-lateral img{display:block;width:382px;max-width:100%;height:auto;object-fit:contain}
+
+/* PRINCIPAL */
+.principal{flex:1;min-width:0;min-height:100vh;display:flex;flex-direction:column}
+.cabecera{
+width:100%;height:185px;min-height:185px;background:#fff;
+display:flex;align-items:center;padding:0 75px
+}
+.cabecera img{display:block;width:844px;max-width:72vw;height:auto;object-fit:contain}
+
+.zona{flex:1;width:100%;background:#edf5fb;padding:38px 42px 45px}
+
+/* ENCABEZADO A8 */
+.encabezado-area{
+display:flex;align-items:center;justify-content:space-between;
+margin-bottom:24px
+}
+.titulo-area{display:flex;align-items:center;gap:18px}
+.ico-area{width:92px;height:92px;object-fit:contain;border-radius:12px}
+.titulo-area h1{margin:0;font-size:44px;font-weight:400;color:#17344e}
+.titulo-area p{margin:4px 0 0;font-size:19px;color:#718ca4}
+.usuario{font-size:16px;color:#5d7890;text-align:right}
+.usuario strong{display:block;color:#17344e;font-size:20px}
+.volver{
+margin-top:8px;border:1px solid #b7cad8;background:#fff;color:#315675;
+padding:9px 14px;border-radius:5px;font:15px Tecnico;cursor:pointer
+}
+
+/* PESTAÑAS */
+.tabs{
+display:flex;flex-wrap:wrap;gap:8px;
+margin-bottom:18px
+}
+.tab{
+border:1px solid #b8cbd9;background:#fff;color:#42637f;
+padding:12px 18px;border-radius:6px;
+font:16px Tecnico;cursor:pointer
+}
+.tab:hover{background:#f7fafc}
+.tab.activa{
+background:#0b70aa;color:#fff;border-color:#0b70aa
+}
+
+/* PANEL */
+.panel{
+display:none;background:#fff;border:1px solid #cbd9e3;
+border-radius:8px;padding:28px 30px;
+box-shadow:0 4px 14px rgba(30,70,100,.04)
+}
+.panel.activo{display:block}
+.panel h2{
+margin:0 0 8px;font-size:31px;font-weight:400;color:#17344e
+}
+.panel .intro{margin:0 0 24px;color:#718ca4;font-size:18px;line-height:1.4}
+
+/* TARJETAS */
+.grid{
+display:grid;
+grid-template-columns:repeat(2,minmax(260px,1fr));
+gap:18px
+}
+.tarjeta{
+border:1px solid #d4e0e8;border-radius:7px;
+padding:20px;background:#fbfdfe
+}
+.tarjeta h3{margin:0 0 7px;font-size:21px;font-weight:400;color:#234764}
+.tarjeta p{margin:0;color:#71879b;font-size:16px;line-height:1.35}
+
+/* FORMULARIOS */
+.form-grid{
+display:grid;
+grid-template-columns:repeat(2,minmax(240px,1fr));
+gap:18px
+}
+.campo{display:flex;flex-direction:column;gap:7px}
+.campo.ancho{grid-column:1/-1}
+.campo label{font-size:14px;letter-spacing:.8px;color:#65849e;text-transform:uppercase}
+.campo input,.campo select,.campo textarea{
+width:100%;border:1px solid #c5d5e0;border-radius:5px;
+background:#fff;color:#17344e;
+font:17px Tecnico,Arial,sans-serif;padding:11px 13px;outline:none
+}
+.campo input,.campo select{height:48px}
+.campo textarea{min-height:100px;resize:vertical}
+.campo input:focus,.campo select:focus,.campo textarea:focus{border-color:#2a8cb6}
+
+.acciones{display:flex;gap:10px;margin-top:22px}
+.btn{
+border:0;border-radius:5px;padding:12px 18px;
+font:16px Tecnico;cursor:pointer
+}
+.btn-primario{background:#0b70aa;color:#fff}
+.btn-secundario{background:#e9f0f5;color:#315675}
+.btn-peligro{background:#b64c4c;color:#fff}
+
+/* PERMISOS */
+.matriz{
+display:grid;
+grid-template-columns:220px repeat(8,52px);
+gap:7px;align-items:center;
+overflow:auto;padding-bottom:8px
+}
+.cab-matriz{font-size:13px;color:#668198;text-align:center}
+.usuario-matriz{font-size:16px;color:#17344e}
+.check{
+width:38px;height:38px;border:1px solid #c6d5df;border-radius:5px;
+display:flex;align-items:center;justify-content:center;
+background:#f7fafc
+}
+.check input{width:20px;height:20px}
+
+/* AUDITORÍA */
+.log{
+width:100%;border-collapse:collapse
+}
+.log th,.log td{
+border-bottom:1px solid #dde6ec;
+padding:11px 12px;text-align:left;font-size:15px
+}
+.log th{color:#536f87;background:#f5f8fa;font-weight:400}
+
+/* ESTADO */
+.estado-grid{
+display:grid;
+grid-template-columns:repeat(3,minmax(180px,1fr));
+gap:16px
+}
+.estado{
+background:#f8fbfd;border:1px solid #d2dfe8;
+border-radius:7px;padding:20px
+}
+.estado .valor{font-size:29px;color:#0b70aa}
+.estado .etiqueta{margin-top:4px;font-size:15px;color:#6e8498}
+
+@media(max-width:1100px){
+.lateral{width:285px;min-width:285px}
+.cabecera{height:160px;min-height:160px;padding:0 55px}
+.cabecera img{width:730px}
+.grid,.form-grid{grid-template-columns:1fr}
+.estado-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<aside class="lateral">
+<div class="rita">Rita<span class="copyright">©</span></div>
+<div class="linea-rita"></div>
+
+<div class="nombre-sistema">
+Sistema de Gestión<br>del Esquema de<br>Certificación<br>de Personas
+</div>
+
+<nav class="menu-lateral" id="menuLateral">
+<button class="boton-lateral" data-permiso="A1"><span class="boton-codigo">A1</span><span class="boton-texto">Área Técnica</span></button>
+<button class="boton-lateral" data-permiso="A2"><span class="boton-codigo">A2</span><span class="boton-texto">Área de Gestión</span></button>
+<button class="boton-lateral" data-permiso="A3"><span class="boton-codigo">A3</span><span class="boton-texto">Área de Evaluación</span></button>
+<button class="boton-lateral" data-permiso="A4"><span class="boton-codigo">A4</span><span class="boton-texto">Área de Formación</span></button>
+<button class="boton-lateral" data-permiso="A5"><span class="boton-codigo">A5</span><span class="boton-texto">Área de Decisión</span></button>
+<button class="boton-lateral" data-permiso="A6"><span class="boton-codigo">A6</span><span class="boton-texto">Área de Conflictos</span></button>
+<button class="boton-lateral" data-permiso="A7"><span class="boton-codigo">A7</span><span class="boton-texto">Área de Mejora</span></button>
+<button class="boton-lateral actual" data-permiso="A8"><span class="boton-codigo">A8</span><span class="boton-texto">Configuración</span></button>
+</nav>
+
+<div class="pie-lateral"><img src="pie.png" alt=""></div>
+</aside>
+
+<main class="principal">
+
+<header class="cabecera">
+<img src="cabecera1.png" alt="Universidad Francisco de Vitoria - Instituto de Acompañamiento">
+</header>
+
+<section class="zona">
+
+<div class="encabezado-area">
+<div class="titulo-area">
+<img class="ico-area" src="ICOA8.png" alt="A8 Configuración">
+<div>
+<h1>A8 · Configuración</h1>
+<p>Administración y parámetros generales de Rita©</p>
+</div>
+</div>
+
+<div class="usuario">
+<strong id="nombreUsuario"></strong>
+<span id="rolUsuario"></span><br>
+<button class="volver" onclick="location.href='index.html'">Volver al inicio</button>
+</div>
+</div>
+
+<div class="tabs">
+<button class="tab activa" data-panel="usuarios">Usuarios de la App</button>
+<button class="tab" data-panel="permisos">Permisos</button>
+<button class="tab" data-panel="parametros">Parámetros generales</button>
+<button class="tab" data-panel="seguridad">Seguridad y sesiones</button>
+<button class="tab" data-panel="auditoria">Registro / auditoría</button>
+<button class="tab" data-panel="estado">Estado de la App</button>
+</div>
+
+<!-- USUARIOS -->
+<div class="panel activo" id="usuarios">
+<h2>Usuarios de la App</h2>
+<p class="intro">Alta, edición y gestión de usuarios autorizados para acceder a Rita©.</p>
+
+<div class="form-grid">
+<div class="campo">
+<label>Nombre completo</label>
+<input type="text" placeholder="Nombre y apellidos">
+</div>
+
+<div class="campo">
+<label>Usuario</label>
+<input type="text" placeholder="Usuario corto">
+</div>
+
+<div class="campo">
+<label>Contraseña provisional</label>
+<input type="password" placeholder="Contraseña">
+</div>
+
+<div class="campo">
+<label>Rol</label>
+<select>
+<option>Usuario</option>
+<option>Administrador</option>
+<option>Evaluador</option>
+<option>Formador</option>
+<option>Partes interesadas</option>
+</select>
+</div>
+
+<div class="campo">
+<label>Estado</label>
+<select>
+<option>Activo</option>
+<option>Inactivo</option>
+</select>
+</div>
+
+<div class="campo">
+<label>Código</label>
+<input type="text" placeholder="Ej. AML">
+</div>
+</div>
+
+<div class="acciones">
+<button class="btn btn-primario">Guardar usuario</button>
+<button class="btn btn-secundario">Limpiar</button>
+</div>
+</div>
+
+<!-- PERMISOS -->
+<div class="panel" id="permisos">
+<h2>Permisos</h2>
+<p class="intro">Asignación de áreas funcionales a cada usuario.</p>
+
+<div class="matriz">
+<div></div>
+<div class="cab-matriz">A1</div><div class="cab-matriz">A2</div>
+<div class="cab-matriz">A3</div><div class="cab-matriz">A4</div>
+<div class="cab-matriz">A5</div><div class="cab-matriz">A6</div>
+<div class="cab-matriz">A7</div><div class="cab-matriz">A8</div>
+
+<div class="usuario-matriz">Ángel M. de Llaguno</div>
+<div class="check"><input type="checkbox" checked></div><div class="check"><input type="checkbox" checked></div>
+<div class="check"><input type="checkbox" checked></div><div class="check"><input type="checkbox" checked></div>
+<div class="check"><input type="checkbox" checked></div><div class="check"><input type="checkbox" checked></div>
+<div class="check"><input type="checkbox" checked></div><div class="check"><input type="checkbox" checked></div>
+
+<div class="usuario-matriz">Luis Ramírez Angulo</div>
+<div class="check"><input type="checkbox"></div><div class="check"><input type="checkbox"></div>
+<div class="check"><input type="checkbox"></div><div class="check"><input type="checkbox"></div>
+<div class="check"><input type="checkbox"></div><div class="check"><input type="checkbox" checked></div>
+<div class="check"><input type="checkbox" checked></div><div class="check"><input type="checkbox" checked></div>
+</div>
+
+<div class="acciones">
+<button class="btn btn-primario">Guardar permisos</button>
+</div>
+</div>
+
+<!-- PARÁMETROS -->
+<div class="panel" id="parametros">
+<h2>Parámetros generales</h2>
+<p class="intro">Configuración institucional visible de la aplicación.</p>
+
+<div class="form-grid">
+<div class="campo ancho">
+<label>Nombre del esquema</label>
+<input type="text" value="Esquema de Certificación de Personas">
+</div>
+<div class="campo">
+<label>Entidad</label>
+<input type="text" value="Instituto de Acompañamiento">
+</div>
+<div class="campo">
+<label>Versión de la App</label>
+<input type="text" value="1.0">
+</div>
+<div class="campo ancho">
+<label>Texto institucional</label>
+<textarea>Servicio de Certificación de Personas</textarea>
+</div>
+</div>
+
+<div class="acciones">
+<button class="btn btn-primario">Guardar parámetros</button>
+</div>
+</div>
+
+<!-- SEGURIDAD -->
+<div class="panel" id="seguridad">
+<h2>Seguridad y sesiones</h2>
+<p class="intro">Políticas generales de acceso y comportamiento de las sesiones.</p>
+
+<div class="form-grid">
+<div class="campo">
+<label>Duración máxima de sesión</label>
+<select>
+<option>30 minutos</option>
+<option>1 hora</option>
+<option selected>4 horas</option>
+<option>8 horas</option>
+</select>
+</div>
+
+<div class="campo">
+<label>Intentos fallidos antes de bloqueo</label>
+<select>
+<option>3</option>
+<option selected>5</option>
+<option>10</option>
+</select>
+</div>
+
+<div class="campo">
+<label>Cambio de contraseña inicial</label>
+<select>
+<option selected>Obligatorio</option>
+<option>No obligatorio</option>
+</select>
+</div>
+
+<div class="campo">
+<label>Sesión persistente</label>
+<select>
+<option>No</option>
+<option>Sí</option>
+</select>
+</div>
+</div>
+
+<div class="acciones">
+<button class="btn btn-primario">Guardar seguridad</button>
+</div>
+</div>
+
+<!-- AUDITORÍA -->
+<div class="panel" id="auditoria">
+<h2>Registro de cambios / auditoría</h2>
+<p class="intro">Historial de operaciones realizadas dentro de Rita©.</p>
+
+<table class="log">
+<thead>
+<tr><th>Fecha</th><th>Usuario</th><th>Área</th><th>Acción</th></tr>
+</thead>
+<tbody>
+<tr><td>10/09/2026</td><td>Ángel M. de Llaguno</td><td>A8</td><td>Configuración inicial de la App</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- ESTADO -->
+<div class="panel" id="estado">
+<h2>Estado de la App</h2>
+<p class="intro">Información general de funcionamiento y versión.</p>
+
+<div class="estado-grid">
+<div class="estado">
+<div class="valor">1.0</div>
+<div class="etiqueta">Versión actual</div>
+</div>
+
+<div class="estado">
+<div class="valor">OPERATIVA</div>
+<div class="etiqueta">Estado del sistema</div>
+</div>
+
+<div class="estado">
+<div class="valor">10/09/2026</div>
+<div class="etiqueta">Última actualización</div>
+</div>
+</div>
+</div>
+
+</section>
+</main>
+</div>
+
+<script src="usuarios.js"></script>
+
+<script>
+const u=usuarioActivo();
+
+if(!u||!tienePermiso("A8")){
+alert("No dispone de autorización para acceder a Configuración.");
+location.href="index.html";
+}else{
+document.getElementById("nombreUsuario").textContent=u.nombre;
+document.getElementById("rolUsuario").textContent=u.rol||"Usuario";
+}
+
+document.querySelectorAll("[data-permiso]").forEach(el=>{
+const permitido=tienePermiso(el.dataset.permiso);
+el.classList.add(permitido?"activo":"inactivo");
+el.disabled=!permitido;
+
+if(permitido&&el.dataset.permiso!=="A8"){
+el.onclick=()=>alert(el.dataset.permiso+" · Área en preparación");
+}
+});
+
+document.querySelectorAll(".tab").forEach(tab=>{
+tab.addEventListener("click",()=>{
+document.querySelectorAll(".tab").forEach(t=>t.classList.remove("activa"));
+document.querySelectorAll(".panel").forEach(p=>p.classList.remove("activo"));
+
+tab.classList.add("activa");
+document.getElementById(tab.dataset.panel).classList.add("activo");
+});
+});
+</script>
+
+</body>
+</html>
