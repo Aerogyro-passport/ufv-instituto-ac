@@ -16,6 +16,7 @@ html,body{margin:0;width:100%;min-height:100%}
 body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial,sans-serif}
 .app{display:flex;width:100%;min-height:100vh}
 
+/* LATERAL */
 .lateral{
 width:330px;min-width:330px;min-height:100vh;
 background:#003B5D;color:#fff;padding:38px 34px 30px;
@@ -61,8 +62,8 @@ justify-content:center;padding-bottom:95px;padding-top:30px
 }
 .pie-lateral img{display:block;width:382px;max-width:100%;height:auto;object-fit:contain}
 
+/* PRINCIPAL */
 .principal{flex:1;min-width:0;min-height:100vh;display:flex;flex-direction:column}
-
 .cabecera{
 width:100%;height:185px;min-height:185px;background:#fff;
 display:flex;align-items:center;padding:0 75px
@@ -75,6 +76,7 @@ display:flex;flex-direction:column;align-items:center;
 padding:55px 40px 35px
 }
 
+/* LOGIN */
 .login{
 width:820px;max-width:calc(100% - 50px);margin:0 auto;
 background:#fff;border:2px solid #d6e0e8;border-radius:11px;
@@ -115,13 +117,13 @@ letter-spacing:6px;text-transform:uppercase;cursor:pointer
 }
 .entrar:hover{background:#075987}
 .entrar:disabled{opacity:.55;cursor:wait}
-
 .aviso{
 margin-top:40px;padding-top:24px;border-top:1px solid #dce5ec;
 color:#718ca4;text-align:center;font-size:17px;line-height:1.4
 }
 .error{min-height:24px;margin-top:14px;color:#a33d3d;text-align:center;font-size:17px}
 
+/* USUARIO IDENTIFICADO */
 .panel{
 display:none;width:100%;max-width:1320px;
 background:#fff;border:1px solid #c7d4de;
@@ -141,6 +143,7 @@ border-bottom:2px solid #506e8e;
 padding-bottom:4px;margin-top:10px;margin-bottom:14px
 }
 
+/* ICONOS */
 .permisos{
 display:flex;flex-wrap:wrap;
 justify-content:flex-start;align-items:flex-start;
@@ -163,8 +166,10 @@ font:16px Tecnico,Arial,sans-serif;cursor:pointer
 
 @media(max-width:1200px){
 .lateral{width:285px;min-width:285px}
-.rita{font-size:72px}.nombre-sistema{font-size:21px}
-.pie-lateral{padding-bottom:65px}.pie-lateral img{width:330px}
+.rita{font-size:72px}
+.nombre-sistema{font-size:21px}
+.pie-lateral{padding-bottom:65px}
+.pie-lateral img{width:330px}
 .cabecera{height:160px;min-height:160px;padding:0 55px}
 .cabecera img{width:730px}
 .login{width:740px;padding:45px 55px 40px}
@@ -281,18 +286,24 @@ const error=document.getElementById("error");
 const botonVer=document.getElementById("verPassword");
 const btnEntrar=document.getElementById("btnEntrar");
 
+function abrirArea(codigo){
+if(codigo==="A1"){location.href="A1.html";return}
+if(codigo==="A8"){location.href="A8.html";return}
+alert(codigo+" · Área en preparación");
+}
+
 function aplicarPermisos(){
 document.querySelectorAll("[data-permiso]").forEach(el=>{
 const permitido=tienePermiso(el.dataset.permiso);
+
 el.classList.remove("activo","inactivo");
 el.classList.add(permitido?"activo":"inactivo");
 el.disabled=!permitido;
 
 if(permitido){
-el.onclick=()=>{
-if(el.dataset.permiso==="A8")location.href="A8.html";
-else alert(el.dataset.permiso+" · Área en preparación");
-};
+el.onclick=()=>abrirArea(el.dataset.permiso);
+}else{
+el.onclick=null;
 }
 });
 }
@@ -345,8 +356,12 @@ btnEntrar.textContent="ENTRAR";
 };
 
 const sesionActiva=usuarioActivo();
-if(sesionActiva)mostrarUsuario(sesionActiva);
+
+if(sesionActiva){
+mostrarUsuario(sesionActiva);
+}
 </script>
 
 </body>
 </html>
+
