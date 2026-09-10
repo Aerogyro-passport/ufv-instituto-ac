@@ -2,251 +2,581 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Rita© · UFV Instituto</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Rita© | Instituto de Acompañamiento UFV</title>
 
 <style>
-@font-face{font-family:Tecnico;src:url("tecnico_regular.ttf")}
-@font-face{font-family:Tecnico;src:url("tecnico_bold.ttf");font-weight:700}
-*{box-sizing:border-box}
-html,body{margin:0;width:100%;min-height:100%;font-family:Tecnico,Arial,sans-serif;color:#17324d}
-body{background:#edf4fa}
-.app{min-height:100vh;display:flex}
+@font-face{
+    font-family:"Tecnico";
+    src:url("tecnico_regular.ttf") format("truetype");
+    font-weight:400;
+    font-style:normal;
+}
+@font-face{
+    font-family:"Tecnico";
+    src:url("tecnico_bold.ttf") format("truetype");
+    font-weight:700;
+    font-style:normal;
+}
+@font-face{
+    font-family:"Tecnico";
+    src:url("tecnico_regularitalic.ttf") format("truetype");
+    font-weight:400;
+    font-style:italic;
+}
+@font-face{
+    font-family:"Tecnico";
+    src:url("tecnico_bolditalic.ttf") format("truetype");
+    font-weight:700;
+    font-style:italic;
+}
 
-/* LATERAL */
+*{
+    box-sizing:border-box;
+}
+
+html,body{
+    margin:0;
+    padding:0;
+    width:100%;
+    min-height:100%;
+    font-family:"Tecnico",Arial,sans-serif;
+    color:#17344e;
+}
+
+body{
+    min-height:100vh;
+    background:#edf5fb;
+}
+
+.app{
+    min-height:100vh;
+    display:flex;
+}
+
+/* =========================
+   BANDA LATERAL AZUL
+   ========================= */
+
 .lateral{
-width:245px;min-width:245px;min-height:100vh;
-background:linear-gradient(180deg,#074b7d 0%,#0b5d96 100%);
-color:#fff;padding:34px 24px;
-position:fixed;left:0;top:0;bottom:0
-}
-.rita{font-size:58px;line-height:1;font-weight:400;letter-spacing:-2px}
-.copyright{font-size:16px;vertical-align:top;margin-left:3px}
-.linea{width:68px;height:3px;background:#51d7d3;margin:23px 0 27px}
-.nombre{
-font-size:17px;line-height:24px;letter-spacing:1.5px;
-text-transform:uppercase;max-width:190px
+    width:260px;
+    min-width:260px;
+    min-height:100vh;
+    background:linear-gradient(180deg,#075a91 0%,#0d689f 100%);
+    color:#fff;
+    padding:30px 29px 22px;
+    display:flex;
+    flex-direction:column;
 }
 
-/* PRINCIPAL */
-.contenido{
-margin-left:245px;
-width:calc(100% - 245px);
-min-height:100vh;
-display:flex;
-flex-direction:column
+.rita{
+    position:relative;
+    display:inline-block;
+    width:max-content;
+    font-size:66px;
+    line-height:1;
+    font-weight:400;
+    letter-spacing:-3px;
 }
 
-/* CABECERA */
+.copyright{
+    position:absolute;
+    right:-18px;
+    top:-5px;
+    font-family:Arial,sans-serif;
+    font-size:17px;
+    font-weight:400;
+}
+
+.linea-rita{
+    width:72px;
+    height:4px;
+    margin-top:27px;
+    margin-bottom:31px;
+    background:#4dd4d0;
+}
+
+.nombre-sistema{
+    max-width:185px;
+    font-size:20px;
+    line-height:1.27;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+}
+
+/* PIE DENTRO DE LA BANDA AZUL */
+
+.pie-lateral{
+    margin-top:auto;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    padding-top:30px;
+}
+
+.pie-lateral img{
+    display:block;
+    width:190px;
+    max-width:100%;
+    height:auto;
+    object-fit:contain;
+}
+
+/* =========================
+   PARTE DERECHA
+   ========================= */
+
+.principal{
+    flex:1;
+    min-width:0;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+/* =========================
+   CABECERA
+   ========================= */
+
 .cabecera{
-height:115px;min-height:115px;background:#fff;
-display:flex;align-items:center;
-padding-left:55px;border:0
+    height:122px;
+    min-height:122px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    padding:0 58px;
 }
+
 .cabecera img{
-display:block;width:auto;height:auto;
-max-height:68px;max-width:590px;
-object-fit:contain
+    display:block;
+    width:420px;
+    max-width:48vw;
+    height:auto;
+    object-fit:contain;
 }
 
-/* CUERPO */
+/* =========================
+   ZONA CENTRAL
+   ========================= */
+
 .zona{
-flex:1;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:flex-start;
-padding:65px 30px 30px
+    flex:1;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    padding:65px 30px 30px;
+    background:#edf5fb;
 }
 
-/* ACCESO */
+/* =========================
+   LOGIN
+   ========================= */
+
 .login{
-width:680px;
-background:#fff;
-border:1px solid #d6e0e8;
-border-radius:9px;
-padding:43px 54px 38px;
-box-shadow:0 6px 20px rgba(30,70,100,.05)
+    width:680px;
+    max-width:calc(100% - 60px);
+    margin:0 auto;
+    background:#fff;
+    border:1px solid #d6e0e8;
+    border-radius:9px;
+    padding:43px 54px 38px;
+    box-shadow:0 6px 20px rgba(30,70,100,.05);
 }
-.mini{
-font-size:15px;letter-spacing:2px;
-color:#5b83a4;text-transform:uppercase;
-border-bottom:2px solid #41c5cf;
-padding-bottom:7px;display:inline-block
+
+.login-mini{
+    display:inline-block;
+    margin-bottom:18px;
+    padding-bottom:7px;
+    border-bottom:3px solid #4dd4d0;
+    color:#6d8ca6;
+    font-size:16px;
+    letter-spacing:2px;
+    text-transform:uppercase;
 }
+
 .login h1{
-font-size:52px;font-weight:400;
-margin:22px 0 8px
+    margin:0 0 8px;
+    color:#17344e;
+    font-size:50px;
+    line-height:1.05;
+    font-weight:400;
 }
-.intro{
-font-size:20px;color:#718ba4;
-line-height:27px;margin:0 0 28px
+
+.login-intro{
+    margin:0 0 28px;
+    color:#718ca4;
+    font-size:20px;
+    line-height:1.35;
 }
-.campo{margin-bottom:17px}
+
+.campo{
+    margin-bottom:17px;
+}
+
 .campo label{
-display:block;font-size:14px;
-letter-spacing:1.5px;color:#66829c;
-margin-bottom:6px
+    display:block;
+    margin-bottom:7px;
+    color:#6d89a2;
+    font-size:14px;
+    letter-spacing:1.4px;
+    text-transform:uppercase;
 }
+
+.input-wrap{
+    position:relative;
+}
+
 .campo input{
-width:100%;height:54px;
-border:1px solid #ccd9e3;
-border-radius:5px;background:#fbfcfd;
-padding:0 15px;
-font-family:Tecnico,Arial,sans-serif;
-font-size:18px;color:#17324d;
-outline:none
+    width:100%;
+    height:58px;
+    padding:0 17px;
+    border:1px solid #c8d7e3;
+    border-radius:5px;
+    outline:none;
+    background:#fbfcfd;
+    color:#17344e;
+    font-family:"Tecnico",Arial,sans-serif;
+    font-size:19px;
 }
-.campo input:focus{border-color:#1688b3}
-.pass{position:relative}
-.pass input{padding-right:45px}
-.ojo{
-position:absolute;right:14px;top:50%;
-transform:translateY(-50%);
-border:0;background:none;color:#52738d;
-cursor:pointer;font-size:17px
+
+.campo input:focus{
+    border-color:#3d91bd;
+    box-shadow:0 0 0 2px rgba(61,145,189,.08);
 }
+
+.campo input::placeholder{
+    color:#929ca5;
+}
+
+.password{
+    padding-right:55px !important;
+}
+
+.ver{
+    position:absolute;
+    top:50%;
+    right:16px;
+    transform:translateY(-50%);
+    width:22px;
+    height:22px;
+    border:0;
+    padding:0;
+    background:transparent;
+    color:#557c98;
+    font-size:18px;
+    line-height:22px;
+    cursor:pointer;
+}
+
 .entrar{
-width:100%;height:54px;
-border:0;border-radius:4px;
-background:#075b96;color:#fff;
-font-family:Tecnico,Arial,sans-serif;
-font-size:16px;letter-spacing:5px;
-cursor:pointer;margin-top:6px
-}
-.entrar:hover{background:#064c7d}
-.pie-login{
-border-top:1px solid #e3e9ee;
-margin-top:35px;padding-top:16px;
-text-align:center;font-size:13px;
-line-height:18px;color:#7990a5
+    width:100%;
+    height:58px;
+    margin-top:7px;
+    border:0;
+    border-radius:4px;
+    background:#09669f;
+    color:#fff;
+    font-family:"Tecnico",Arial,sans-serif;
+    font-size:17px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    cursor:pointer;
 }
 
-/* FUTUROS BOTONES DE PERMISOS */
+.entrar:hover{
+    background:#075987;
+}
+
+.aviso{
+    margin-top:35px;
+    padding-top:20px;
+    border-top:1px solid #dce5ec;
+    color:#7992a7;
+    text-align:center;
+    font-size:14px;
+    line-height:1.35;
+}
+
+/* =========================
+   FUTURA ZONA DE PERMISOS
+   ========================= */
+
 .permisos{
-width:680px;
-min-height:150px;
-margin-top:28px
+    width:100%;
+    max-width:1050px;
+    min-height:150px;
+    margin:22px auto 0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-/* PIE INSTITUCIONAL */
-.pie-institucional{
-width:100%;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:10px 20px 18px
-}
-.pie-institucional img{
-display:block;
-width:auto;
-height:auto;
-max-height:42px;
-max-width:380px;
-object-fit:contain;
-opacity:.92
-}
+/* =========================
+   ADAPTACIÓN
+   ========================= */
 
-/* ADAPTACIÓN */
 @media(max-width:900px){
-.login,.permisos{width:90%;max-width:680px}
+
+    .lateral{
+        width:205px;
+        min-width:205px;
+        padding:25px 20px 20px;
+    }
+
+    .rita{
+        font-size:55px;
+    }
+
+    .nombre-sistema{
+        font-size:16px;
+    }
+
+    .pie-lateral img{
+        width:155px;
+    }
+
+    .cabecera{
+        height:105px;
+        min-height:105px;
+        padding:0 35px;
+    }
+
+    .cabecera img{
+        width:360px;
+    }
+
+    .zona{
+        padding:45px 20px 25px;
+    }
+
+    .login{
+        width:600px;
+        max-width:calc(100% - 30px);
+        padding:38px 42px 34px;
+    }
+
+    .login h1{
+        font-size:43px;
+    }
 }
 
-@media(max-width:750px){
-.lateral{width:180px;min-width:180px;padding:27px 17px}
-.rita{font-size:45px}
-.nombre{font-size:13px;line-height:19px}
-.contenido{margin-left:180px;width:calc(100% - 180px)}
-.cabecera{height:90px;min-height:90px;padding-left:30px}
-.cabecera img{max-height:52px;max-width:90%}
-.zona{padding:45px 18px 25px}
-.login{padding:35px}
-.login h1{font-size:44px}
-}
+@media(max-width:650px){
 
-@media(max-width:520px){
-.app{display:block}
-.lateral{
-position:relative;width:100%;min-height:auto;
-height:auto;padding:18px 22px
-}
-.rita{font-size:38px}
-.linea{margin:13px 0}
-.nombre{max-width:none}
-.contenido{margin-left:0;width:100%}
-.cabecera{height:78px;min-height:78px;padding:0 20px}
-.cabecera img{max-height:45px;max-width:100%}
-.zona{padding:28px 15px 20px}
-.login,.permisos{width:100%}
-.login{padding:28px 24px}
-.login h1{font-size:38px}
-.intro{font-size:17px;line-height:23px}
-.pie-institucional img{max-width:280px;max-height:35px}
+    .app{
+        display:block;
+    }
+
+    .lateral{
+        width:100%;
+        min-width:100%;
+        min-height:auto;
+        padding:20px 25px;
+    }
+
+    .rita{
+        font-size:46px;
+    }
+
+    .linea-rita{
+        margin-top:18px;
+        margin-bottom:18px;
+    }
+
+    .nombre-sistema{
+        max-width:none;
+    }
+
+    .pie-lateral{
+        justify-content:flex-start;
+        margin-top:25px;
+    }
+
+    .pie-lateral img{
+        width:170px;
+    }
+
+    .principal{
+        min-height:auto;
+    }
+
+    .cabecera{
+        height:90px;
+        min-height:90px;
+        padding:0 22px;
+    }
+
+    .cabecera img{
+        width:340px;
+        max-width:100%;
+    }
+
+    .zona{
+        min-height:calc(100vh - 90px);
+        padding:30px 15px;
+    }
+
+    .login{
+        width:100%;
+        max-width:100%;
+        padding:32px 28px;
+    }
+
+    .login h1{
+        font-size:39px;
+    }
+
+    .login-intro{
+        font-size:18px;
+    }
+
+    .permisos{
+        min-height:120px;
+    }
 }
 </style>
 </head>
 
 <body>
+
 <div class="app">
 
-<aside class="lateral">
-<div class="rita">Rita<span class="copyright">©</span></div>
-<div class="linea"></div>
-<div class="nombre">
-Sistema de Gestión<br>
-del Esquema de<br>
-Certificación<br>
-de Personas
+    <aside class="lateral">
+
+        <div class="rita">
+            Rita
+            <span class="copyright">©</span>
+        </div>
+
+        <div class="linea-rita"></div>
+
+        <div class="nombre-sistema">
+            Sistema de Gestión<br>
+            del Esquema de<br>
+            Certificación<br>
+            de Personas
+        </div>
+
+        <div class="pie-lateral">
+            <img src="pie.png" alt="LifeLearning Consultoría - Powered by Rita">
+        </div>
+
+    </aside>
+
+    <main class="principal">
+
+        <header class="cabecera">
+            <img
+                src="cabecera1.png"
+                alt="Universidad Francisco de Vitoria - Instituto de Acompañamiento">
+        </header>
+
+        <section class="zona">
+
+            <div class="login">
+
+                <div class="login-mini">
+                    Acceso al sistema
+                </div>
+
+                <h1>Bienvenido</h1>
+
+                <p class="login-intro">
+                    Identifíquese para acceder al entorno de gestión del
+                    Esquema de Certificación de Personas.
+                </p>
+
+                <form id="loginForm">
+
+                    <div class="campo">
+
+                        <label for="usuario">
+                            Usuario
+                        </label>
+
+                        <input
+                            id="usuario"
+                            name="usuario"
+                            type="text"
+                            autocomplete="username"
+                            placeholder="Introduzca su usuario">
+
+                    </div>
+
+                    <div class="campo">
+
+                        <label for="password">
+                            Contraseña
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <input
+                                id="password"
+                                name="password"
+                                class="password"
+                                type="password"
+                                autocomplete="current-password"
+                                placeholder="Introduzca su contraseña">
+
+                            <button
+                                class="ver"
+                                id="verPassword"
+                                type="button"
+                                aria-label="Mostrar contraseña">
+                                ◉
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <button class="entrar" type="submit">
+                        Entrar
+                    </button>
+
+                </form>
+
+                <div class="aviso">
+                    Acceso restringido a personal autorizado.<br>
+                    Los perfiles y permisos se configurarán individualmente.
+                </div>
+
+            </div>
+
+            <!-- AQUÍ IRÁN LOS ICONOS DE PERMISOS -->
+            <div class="permisos" id="zonaPermisos"></div>
+
+        </section>
+
+    </main>
+
 </div>
-</aside>
 
-<main class="contenido">
+<script>
+const botonVer = document.getElementById("verPassword");
+const password = document.getElementById("password");
 
-<header class="cabecera">
-<img src="cabecera1.png" alt="Universidad Francisco de Vitoria · Instituto de Acompañamiento · Servicio de Certificación de Personas">
-</header>
+botonVer.addEventListener("click",function(){
 
-<section class="zona">
+    if(password.type === "password"){
+        password.type = "text";
+        botonVer.textContent = "●";
+        botonVer.setAttribute("aria-label","Ocultar contraseña");
+    }else{
+        password.type = "password";
+        botonVer.textContent = "◉";
+        botonVer.setAttribute("aria-label","Mostrar contraseña");
+    }
 
-<div class="login">
-<div class="mini">Acceso al sistema</div>
+});
 
-<h1>Bienvenido</h1>
+document.getElementById("loginForm").addEventListener("submit",function(e){
+    e.preventDefault();
+});
+</script>
 
-<p class="intro">
-Identifíquese para acceder al entorno de gestión del Esquema de Certificación de Personas.
-</p>
-
-<div class="campo">
-<label>USUARIO</label>
-<input type="text" placeholder="Introduzca su usuario" autocomplete="username">
-</div>
-
-<div class="campo">
-<label>CONTRASEÑA</label>
-<div class="pass">
-<input id="clave" type="password" placeholder="Introduzca su contraseña" autocomplete="current-password">
-<button class="ojo" type="button" onclick="var x=document.getElementById('clave');x.type=x.type==='password'?'text':'password'">◉</button>
-</div>
-</div>
-
-<button class="entrar" type="button">ENTRAR</button>
-
-<div class="pie-login">
-Acceso restringido a personal autorizado.<br>
-Los perfiles y permisos se configurarán individualmente.
-</div>
-</div>
-
-<div class="permisos" id="permisos"></div>
-
-</section>
-
-<footer class="pie-institucional">
-<img src="pie.png" alt="">
-</footer>
-
-</main>
-</div>
 </body>
 </html>
