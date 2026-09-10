@@ -10,68 +10,88 @@
 @font-face{font-family:Tecnico;src:url("tecnico_bold.ttf");font-weight:700}
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%}
-body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial,sans-serif;font-size:19px}
+body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial,sans-serif;font-size:26px}
 .app{display:flex;min-height:100vh}
-.lateral{width:330px;min-width:330px;background:#003B5D;color:#fff;padding:38px 34px 30px;display:flex;flex-direction:column}
-.rita{position:relative;width:max-content;font-size:82px;line-height:.95;letter-spacing:-4px}
+
+.lateral{width:350px;min-width:350px;background:#003B5D;color:#fff;padding:38px 34px 30px;display:flex;flex-direction:column}
+.rita{position:relative;width:max-content;font-size:84px;line-height:.95;letter-spacing:-4px}
 .copyright{position:absolute;top:-5px;right:-22px;font:20px Arial}
-.linea-rita{width:92px;height:5px;background:#4dd4d0;margin:35px 0 40px}
-.nombre-sistema{width:250px;font-size:25px;line-height:1.28;letter-spacing:1.5px;text-transform:uppercase}
+.linea-rita{width:95px;height:5px;background:#4dd4d0;margin:35px 0 40px}
+.nombre-sistema{width:280px;font-size:27px;line-height:1.28;letter-spacing:1.3px;text-transform:uppercase}
 .menu{margin-top:28px;padding-top:16px;border-top:1px solid #ffffff38}
-.menu-btn{width:100%;min-height:58px;margin-bottom:9px;padding:9px 12px;border:1px solid #ffffff47;border-radius:5px;background:#ffffff14;color:#fff;display:flex;align-items:center;gap:10px;text-align:left;font-family:Tecnico;cursor:pointer}
+.menu-btn{width:100%;min-height:64px;margin-bottom:9px;padding:10px 12px;border:1px solid #ffffff47;border-radius:5px;background:#ffffff14;color:#fff;display:flex;align-items:center;gap:11px;text-align:left;font-family:Tecnico;cursor:pointer}
 .menu-btn.inactivo{opacity:.28;filter:grayscale(1);cursor:not-allowed}
 .menu-btn.actual{background:#fff;color:#003B5D;border-color:#fff}
-.menu-codigo{width:38px;font-size:20px;font-weight:700;color:#59d8d5}
+.menu-codigo{width:42px;font-size:24px;font-weight:700;color:#59d8d5}
 .menu-btn.actual .menu-codigo{color:#003B5D}
-.menu-texto{font-size:18px;text-transform:uppercase}
-.pie-lateral{margin-top:auto;padding:30px 0 95px;display:flex;justify-content:center}
-.pie-lateral img{width:382px;max-width:100%}
+.menu-texto{font-size:21px;text-transform:uppercase}
+.pie-lateral{margin-top:auto;padding:30px 0 80px;display:flex;justify-content:center}
+.pie-lateral img{width:400px;max-width:100%}
+
 .principal{flex:1;min-width:0;display:flex;flex-direction:column}
-.cabecera{height:185px;min-height:185px;background:#fff;display:flex;align-items:center;padding:0 75px}
-.cabecera img{width:844px;max-width:72vw}
-.zona{flex:1;padding:28px 34px 45px}
-.area-head{display:flex;justify-content:space-between;gap:25px;margin-bottom:22px}
-.area-identidad{display:flex;align-items:center;gap:20px}
-.area-icono{width:110px;height:110px;object-fit:contain}
-.area-titulo h1{margin:0;font-size:52px;font-weight:400}
-.area-titulo p{margin:6px 0 0;color:#718ca4;font-size:23px}
-.usuario{text-align:right;color:#718ca4;font-size:19px}
-.usuario strong{display:block;color:#17344e;font-size:24px}
-.volver{margin-top:10px;padding:11px 18px;border:1px solid #b9cbd8;border-radius:5px;background:#fff;color:#315675;font:18px Tecnico;cursor:pointer}
-.funciones{display:flex;gap:10px;margin-bottom:22px}
-.funcion{padding:15px 23px;border:1px solid #bdd0dc;border-radius:6px;background:#fff;color:#45647d;font:20px Tecnico;cursor:pointer}
+.cabecera{height:195px;min-height:195px;background:#fff;display:flex;align-items:center;padding:0 75px}
+.cabecera img{width:870px;max-width:72vw}
+.zona{flex:1;padding:32px 38px 50px}
+
+.area-head{display:flex;justify-content:space-between;gap:28px;margin-bottom:25px}
+.area-identidad{display:flex;align-items:center;gap:22px}
+.area-icono{width:120px;height:120px;object-fit:contain}
+.area-titulo h1{margin:0;font-size:60px;font-weight:400}
+.area-titulo p{margin:7px 0 0;color:#718ca4;font-size:28px;line-height:1.25}
+.usuario{text-align:right;color:#718ca4;font-size:24px}
+.usuario strong{display:block;color:#17344e;font-size:28px}
+.volver{margin-top:12px;padding:13px 20px;border:1px solid #b9cbd8;border-radius:5px;background:#fff;color:#315675;font:24px Tecnico;cursor:pointer}
+
+.funciones{display:flex;gap:12px;margin-bottom:25px;flex-wrap:wrap}
+.funcion{padding:17px 25px;border:1px solid #bdd0dc;border-radius:6px;background:#fff;color:#45647d;font:26px Tecnico;cursor:pointer}
 .funcion.activa{background:#0873ae;color:#fff;border-color:#0873ae}
-.panel{display:none;background:#fff;border:1px solid #cbd9e3;border-radius:8px;padding:28px 30px 34px}
+
+.panel{display:none;background:#fff;border:1px solid #cbd9e3;border-radius:8px;padding:32px 34px 38px}
 .panel.activo{display:block}
-.panel h2{margin:0 0 6px;font-size:36px;font-weight:400}
-.intro{margin:0 0 24px;color:#718ca4;font-size:21px}
-.barra{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:22px}
-.barra select{height:54px;min-width:360px;border:1px solid #bfd0dc;border-radius:5px;padding:0 14px;font:20px Tecnico}
-.btn{border:0;border-radius:5px;padding:13px 20px;font:19px Tecnico;cursor:pointer}
-.btn-azul{background:#0873ae;color:#fff}.btn-claro{background:#e9f1f6;color:#315675}.btn-verde{background:#378b62;color:#fff}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid #bacdda}
-.tab{padding:14px 17px;border:1px solid #c7d6e0;border-bottom:0;border-radius:6px 6px 0 0;background:#f7fafc;color:#4e6b84;font:18px Tecnico;cursor:pointer}
+.panel h2{margin:0 0 8px;font-size:42px;font-weight:400}
+.intro{margin:0 0 28px;color:#718ca4;font-size:26px;line-height:1.35}
+
+.barra{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:26px}
+.barra select{height:64px;min-width:430px;border:2px solid #bfd0dc;border-radius:6px;padding:0 16px;font:26px Tecnico;color:#17344e;background:#fff}
+.btn{border:0;border-radius:6px;padding:15px 23px;font:26px Tecnico;cursor:pointer}
+.btn-azul{background:#0873ae;color:#fff}
+.btn-claro{background:#e9f1f6;color:#315675}
+.btn-verde{background:#378b62;color:#fff}
+
+.tabs{display:flex;gap:8px;flex-wrap:wrap;border-bottom:2px solid #bacdda}
+.tab{padding:17px 20px;border:2px solid #c7d6e0;border-bottom:0;border-radius:7px 7px 0 0;background:#f7fafc;color:#4e6b84;font:28px Tecnico;cursor:pointer;line-height:1.15}
 .tab.activa{background:#0873ae;color:#fff;border-color:#0873ae}
-.subpanel{display:none;border:1px solid #cddae4;border-top:0;padding:26px}
+
+.subpanel{display:none;border:2px solid #cddae4;border-top:0;padding:30px}
 .subpanel.activo{display:block}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 26px}
-.campo{display:flex;flex-direction:column;gap:8px}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px 30px}
+.campo{display:flex;flex-direction:column;gap:10px}
 .campo.ancho{grid-column:1/-1}
-.campo label{font-size:17px;font-weight:700;color:#58738c;text-transform:uppercase}
-.campo input,.campo select,.campo textarea{width:100%;border:1px solid #bfd0dc;border-radius:5px;background:#fff;color:#17344e;font:20px Tecnico;padding:12px 14px}
-.campo input,.campo select{height:56px}
-.campo textarea{min-height:125px;resize:vertical}
-.acciones{display:flex;gap:11px;flex-wrap:wrap;margin-top:20px}
-.bloque{border:1px solid #d5e0e7;border-radius:7px;padding:19px;margin-bottom:15px;background:#fbfdfe}
-.bloque h3{margin:0 0 9px;font-size:23px;font-weight:400}
-.meta{font-size:17px;color:#71879a;margin-top:7px}
-.lista-vacia{padding:22px;color:#8092a1;text-align:center;border:1px dashed #cbd8e1;border-radius:6px;font-size:18px}
-.riesgo-ok{border-left:6px solid #399168}.riesgo-no{border-left:6px solid #c54f4f}
-.estado-aprobado,.estado-borrador{display:inline-block;padding:7px 13px;border-radius:15px;font-size:16px}
-.estado-aprobado{background:#d8f0e3;color:#28724c}.estado-borrador{background:#f1e9cf;color:#8a6a15}
-.mensaje{display:none;margin-top:15px;padding:12px 15px;border-radius:5px;background:#e5f3e9;color:#2b6944;font-size:17px}
+.campo label{font-size:26px;font-weight:700;color:#58738c;text-transform:uppercase;line-height:1.2}
+.campo input,.campo select,.campo textarea{width:100%;border:2px solid #bfd0dc;border-radius:6px;background:#fff;color:#17344e;font:26px Tecnico;padding:14px 16px}
+.campo input,.campo select{height:66px}
+.campo textarea{min-height:155px;resize:vertical;line-height:1.35}
+.campo input:focus,.campo select:focus,.campo textarea:focus{outline:3px solid #c9e9f7;border-color:#0873ae}
+
+.acciones{display:flex;gap:13px;flex-wrap:wrap;margin-top:24px}
+.bloque{border:2px solid #d5e0e7;border-radius:8px;padding:22px;margin-bottom:18px;background:#fbfdfe;font-size:26px}
+.bloque h3{margin:0 0 11px;font-size:30px;font-weight:400}
+.meta{font-size:24px;color:#71879a;margin-top:9px;line-height:1.35}
+.lista-vacia{padding:28px;color:#8092a1;text-align:center;border:2px dashed #cbd8e1;border-radius:7px;font-size:26px}
+.riesgo-ok{border-left:8px solid #399168}
+.riesgo-no{border-left:8px solid #c54f4f}
+.estado-aprobado,.estado-borrador{display:inline-block;padding:9px 15px;border-radius:18px;font-size:22px}
+.estado-aprobado{background:#d8f0e3;color:#28724c}
+.estado-borrador{background:#f1e9cf;color:#8a6a15}
+.mensaje{display:none;margin-top:18px;padding:15px 18px;border-radius:6px;background:#e5f3e9;color:#2b6944;font-size:24px}
 .mensaje.visible{display:block}
-@media(max-width:1200px){.lateral{width:285px;min-width:285px}.cabecera{height:160px;min-height:160px;padding:0 55px}.cabecera img{width:730px}.grid{grid-template-columns:1fr}}
+
+@media(max-width:1300px){
+.lateral{width:330px;min-width:330px}
+.grid{grid-template-columns:1fr}
+.cabecera{padding:0 55px}
+}
 </style>
 </head>
 
@@ -104,9 +124,16 @@ body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial
 <div class="area-head">
 <div class="area-identidad">
 <img class="area-icono" src="ICOA1.png" alt="">
-<div class="area-titulo"><h1>A1 · Área Técnica</h1><p>Definición y mantenimiento de perfiles certificables y esquemas de certificación</p></div>
+<div class="area-titulo">
+<h1>A1 · Área Técnica</h1>
+<p>Definición y mantenimiento de perfiles certificables y esquemas de certificación</p>
 </div>
-<div class="usuario"><strong id="usuarioCabecera"></strong><span id="rolCabecera"></span><br><button class="volver" onclick="location.href='index.html'">Volver al inicio</button></div>
+</div>
+<div class="usuario">
+<strong id="usuarioCabecera"></strong>
+<span id="rolCabecera"></span><br>
+<button class="volver" onclick="location.href='index.html'">Volver al inicio</button>
+</div>
 </div>
 
 <div class="funciones">
@@ -152,13 +179,19 @@ body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial
 
 <div class="subpanel" id="p_funciones">
 <div id="listaFunciones"></div>
-<div class="grid"><div class="campo"><label>Función / tarea</label><input id="ftTitulo"></div><div class="campo ancho"><label>Descripción</label><textarea id="ftDescripcion"></textarea></div></div>
+<div class="grid">
+<div class="campo"><label>Función / tarea</label><input id="ftTitulo"></div>
+<div class="campo ancho"><label>Descripción</label><textarea id="ftDescripcion"></textarea></div>
+</div>
 <div class="acciones"><button class="btn btn-azul" onclick="guardarFuncion()">Añadir función / tarea</button></div>
 </div>
 
 <div class="subpanel" id="p_competencias">
 <div id="listaCompetencias"></div>
-<div class="grid"><div class="campo"><label>Competencia</label><input id="comNombre"></div><div class="campo ancho"><label>Descripción / criterio de competencia</label><textarea id="comDescripcion"></textarea></div></div>
+<div class="grid">
+<div class="campo"><label>Competencia</label><input id="comNombre"></div>
+<div class="campo ancho"><label>Descripción / criterio de competencia</label><textarea id="comDescripcion"></textarea></div>
+</div>
 <div class="acciones"><button class="btn btn-azul" onclick="guardarCompetencia()">Añadir competencia</button></div>
 </div>
 
@@ -260,7 +293,10 @@ body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial
 <div class="campo"><label>Responsable de validación</label><input id="pvalResponsable"></div>
 <div class="campo ancho"><label>Observaciones</label><textarea id="pvalObservaciones"></textarea></div>
 </div>
-<div class="acciones"><button class="btn btn-claro" onclick="comprobarPerfil()">Comprobar perfil</button><button class="btn btn-verde" onclick="aprobarPerfil()">Aprobar perfil</button></div>
+<div class="acciones">
+<button class="btn btn-claro" onclick="comprobarPerfil()">Comprobar perfil</button>
+<button class="btn btn-verde" onclick="aprobarPerfil()">Aprobar perfil</button>
+</div>
 </div>
 </div>
 
@@ -451,7 +487,10 @@ body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial
 <div class="campo"><label>Responsable de validación</label><input id="evalResponsable"></div>
 <div class="campo ancho"><label>Observaciones</label><textarea id="evalObservaciones"></textarea></div>
 </div>
-<div class="acciones"><button class="btn btn-claro" onclick="comprobarEsquema()">Comprobar esquema</button><button class="btn btn-verde" onclick="aprobarEsquema()">Aprobar esquema</button></div>
+<div class="acciones">
+<button class="btn btn-claro" onclick="comprobarEsquema()">Comprobar esquema</button>
+<button class="btn btn-verde" onclick="aprobarEsquema()">Aprobar esquema</button>
+</div>
 </div>
 </div>
 
@@ -466,10 +505,11 @@ body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial
 <script src="maestro_esquemas_certificacion.js"></script>
 
 <script>
-const $=id=>document.getElementById(id),lineas=t=>String(t||"").split("\n").map(x=>x.trim()).filter(Boolean);
+const $=id=>document.getElementById(id);
+const lineas=t=>String(t||"").split("\n").map(x=>x.trim()).filter(Boolean);
 let perfil=null,esquema=null;
-const sesion=usuarioActivo();
 
+const sesion=usuarioActivo();
 if(!sesion||!tienePermiso("A1")){alert("No dispone de autorización para acceder al Área Técnica.");location.href="index.html"}
 $("usuarioCabecera").textContent=sesion?.nombre||"";
 $("rolCabecera").textContent=sesion?.rol||"";
@@ -489,25 +529,64 @@ p.querySelectorAll(".subpanel").forEach(x=>x.classList.remove("activo"));
 t.classList.add("activa");$(t.dataset.tab).classList.add("activo");
 });
 
-function mostrarModo(m){const p=m==="perfil";$("panelPerfil").classList.toggle("activo",p);$("panelEsquema").classList.toggle("activo",!p);$("btnPerfil").classList.toggle("activa",p);$("btnEsquema").classList.toggle("activa",!p)}
-function pintarLista(id,l,fn){const c=$(id);c.innerHTML="";if(!(l||[]).length){c.innerHTML='<div class="lista-vacia">No hay registros.</div>';return}(l||[]).forEach(x=>{const d=document.createElement("div");d.className="bloque";d.innerHTML=fn(x);c.appendChild(d)})}
-function pintarRiesgos(id,l){const c=$(id);c.innerHTML="";if(!(l||[]).length){c.innerHTML='<div class="lista-vacia">No hay riesgos registrados.</div>';return}(l||[]).forEach(x=>{const d=document.createElement("div");d.className="bloque "+(x.aceptable?"riesgo-ok":"riesgo-no");d.innerHTML=`<h3>${x.riesgo}</h3><div>${x.consecuencia||""}</div><div class="meta"><b>Nivel:</b> ${x.nivel} · ${x.aceptable?"ACEPTABLE":"NO ACEPTABLE"}<br><b>Control:</b> ${x.controles||"—"}<br><b>Acción:</b> ${x.accion||"—"}</div>`;c.appendChild(d)})}
+function mostrarModo(m){
+const p=m==="perfil";
+$("panelPerfil").classList.toggle("activo",p);
+$("panelEsquema").classList.toggle("activo",!p);
+$("btnPerfil").classList.toggle("activa",p);
+$("btnEsquema").classList.toggle("activa",!p);
+}
+
+function pintarLista(id,l,fn){
+const c=$(id);c.innerHTML="";
+if(!(l||[]).length){c.innerHTML='<div class="lista-vacia">No hay registros.</div>';return}
+(l||[]).forEach(x=>{const d=document.createElement("div");d.className="bloque";d.innerHTML=fn(x);c.appendChild(d)});
+}
+
+function pintarRiesgos(id,l){
+const c=$(id);c.innerHTML="";
+if(!(l||[]).length){c.innerHTML='<div class="lista-vacia">No hay riesgos registrados.</div>';return}
+(l||[]).forEach(x=>{
+const d=document.createElement("div");
+d.className="bloque "+(x.aceptable?"riesgo-ok":"riesgo-no");
+d.innerHTML=`<h3>${x.riesgo}</h3><div>${x.consecuencia||""}</div><div class="meta"><b>Nivel:</b> ${x.nivel} · ${x.aceptable?"ACEPTABLE":"NO ACEPTABLE"}<br><b>Control:</b> ${x.controles||"—"}<br><b>Acción:</b> ${x.accion||"—"}</div>`;
+c.appendChild(d);
+});
+}
 
 /* PERFIL */
 function rellenarSelectorPerfiles(){
 $("selectorPerfil").innerHTML="";$("ePerfil").innerHTML="";
-PERFILES_CERTIFICABLES.forEach(p=>{const a=document.createElement("option");a.value=p.codigo;a.textContent=p.codigo+" · "+p.nombre;$("selectorPerfil").appendChild(a);$("ePerfil").appendChild(a.cloneNode(true))});
+PERFILES_CERTIFICABLES.forEach(p=>{
+const a=document.createElement("option");
+a.value=p.codigo;a.textContent=p.codigo+" · "+p.nombre;
+$("selectorPerfil").appendChild(a);
+$("ePerfil").appendChild(a.cloneNode(true));
+});
 }
+
 function seleccionarPerfil(){perfil=buscarPerfilCertificable($("selectorPerfil").value);pintarPerfil()}
+
 function pintarPerfil(){
 if(!perfil)return;
-$("pCodigo").value=perfil.codigo||"";$("pNombre").value=perfil.nombre||"";$("pVersion").value=perfil.version||"01";$("pEstado").value=perfil.estado||"BORRADOR";$("pAlcance").value=perfil.alcance||"";
+$("pCodigo").value=perfil.codigo||"";
+$("pNombre").value=perfil.nombre||"";
+$("pVersion").value=perfil.version||"01";
+$("pEstado").value=perfil.estado||"BORRADOR";
+$("pAlcance").value=perfil.alcance||"";
 $("estadoPerfil").innerHTML=perfil.estado==="APROBADO"?'<span class="estado-aprobado">APROBADO</span>':'<span class="estado-borrador">'+(perfil.estado||"BORRADOR")+"</span>";
-$("pcertInicial").value=(perfil.certificacion_inicial?.criterios||[]).join("\n");$("pvigAplica").value=String(!!perfil.vigilancia?.aplica);$("pvigCriterios").value=(perfil.vigilancia?.criterios||[]).join("\n");
-$("precAplica").value=String(!!perfil.recertificacion?.aplica);$("precMeses").value=perfil.recertificacion?.periodicidad_meses||0;$("precCriterios").value=(perfil.recertificacion?.criterios||[]).join("\n");
-$("psusCriterios").value=(perfil.suspension_retirada?.criterios||[]).join("\n");$("pcodAplica").value=String(!!perfil.codigo_conducta?.aplica);$("pcodContenido").value=perfil.codigo_conducta?.contenido||"";
+$("pcertInicial").value=(perfil.certificacion_inicial?.criterios||[]).join("\n");
+$("pvigAplica").value=String(!!perfil.vigilancia?.aplica);
+$("pvigCriterios").value=(perfil.vigilancia?.criterios||[]).join("\n");
+$("precAplica").value=String(!!perfil.recertificacion?.aplica);
+$("precMeses").value=perfil.recertificacion?.periodicidad_meses||0;
+$("precCriterios").value=(perfil.recertificacion?.criterios||[]).join("\n");
+$("psusCriterios").value=(perfil.suspension_retirada?.criterios||[]).join("\n");
+$("pcodAplica").value=String(!!perfil.codigo_conducta?.aplica);
+$("pcodContenido").value=perfil.codigo_conducta?.contenido||"";
 pintarListasPerfil();
 }
+
 function pintarListasPerfil(){
 const r=perfil?.requisitos||{};
 pintarLista("listaFunciones",perfil?.funciones_tareas,x=>`<h3>${x.titulo}</h3><div>${x.descripcion||""}</div>`);
@@ -520,36 +599,221 @@ pintarLista("listaOtros",r.otros,x=>`<h3>${x.titulo}</h3><div>${x.descripcion||"
 pintarRiesgos("listaRiesgosPerfil",perfil?.riesgos);
 }
 
-async function guardarDatosBasicosPerfil(){perfil.nombre=$("pNombre").value.trim();perfil.version=$("pVersion").value.trim();perfil.estado=$("pEstado").value;perfil.alcance=$("pAlcance").value.trim();await guardarPerfilesCertificables();rellenarSelectorPerfiles();$("selectorPerfil").value=perfil.codigo;mensaje("Perfil guardado.")}
-async function nuevoPerfil(){const n=prompt("Denominación del nuevo perfil certificable:");if(!n)return;try{perfil=await altaPerfilCertificable({nombre:n});rellenarSelectorPerfiles();$("selectorPerfil").value=perfil.codigo;pintarPerfil();mensaje("Perfil creado.")}catch(e){alert(e.message)}}
-async function recargarPerfiles(){try{const c=perfil?.codigo;await cargarPerfilesCertificables();rellenarSelectorPerfiles();perfil=buscarPerfilCertificable(c)||PERFILES_CERTIFICABLES[0]||null;if(perfil)$("selectorPerfil").value=perfil.codigo;pintarPerfil();mensaje("Perfiles recargados.")}catch(e){alert(e.message)}}
-async function guardarFuncion(){try{await añadirFuncionTarea(perfil.codigo,{titulo:$("ftTitulo").value,descripcion:$("ftDescripcion").value});$("ftTitulo").value=$("ftDescripcion").value="";pintarListasPerfil();mensaje("Función añadida.")}catch(e){alert(e.message)}}
-async function guardarCompetencia(){try{await añadirCompetencia(perfil.codigo,{nombre:$("comNombre").value,descripcion:$("comDescripcion").value});$("comNombre").value=$("comDescripcion").value="";pintarListasPerfil();mensaje("Competencia añadida.")}catch(e){alert(e.message)}}
-async function guardarRequisitoPerfil(tipo){try{const p=tipo==="educacion"?"edu":"otr";await añadirRequisito(perfil.codigo,tipo,{titulo:$(p+"Titulo").value,descripcion:$(p+"Descripcion").value,metodo_comprobacion:$(p+"Metodo").value});$(p+"Titulo").value=$(p+"Descripcion").value=$(p+"Metodo").value="";pintarListasPerfil();mensaje("Requisito añadido.")}catch(e){alert(e.message)}}
-async function guardarFormacionPerfil(){try{const a=$("forArchivo").files[0];await añadirFormacion(perfil.codigo,{titulo:$("forTitulo").value,denominacion:$("forTitulo").value,duracion_horas:$("forHoras").value,caracteristicas:$("forCaracteristicas").value,temario_texto:$("forTemario").value,temario_archivo:a?{nombre:a.name,tipo:a.type}:null,metodo_comprobacion:$("forMetodo").value});["forTitulo","forHoras","forCaracteristicas","forTemario","forMetodo"].forEach(x=>$(x).value="");$("forArchivo").value="";pintarListasPerfil();mensaje("Formación añadida.")}catch(e){alert(e.message)}}
-async function guardarExperienciaPerfil(){try{const t=$("expTipo").value;await añadirExperiencia(perfil.codigo,{titulo:$("expTitulo").value,descripcion:$("expDescripcion").value,tipo:t,duracion_meses:$("expMeses").value,horas:$("expHoras").value,tutelada:t.includes("TUTELADA"),requisitos_tutor:$("expTutor").value,metodo_comprobacion:$("expMetodo").value});["expTitulo","expDescripcion","expMeses","expHoras","expTutor","expMetodo"].forEach(x=>$(x).value="");pintarListasPerfil();mensaje("Experiencia añadida.")}catch(e){alert(e.message)}}
-async function guardarExamenPerfil(){try{const r=$("exaRubrica").value.trim();await añadirExamen(perfil.codigo,{nombre:$("exaNombre").value,descripcion:$("exaDescripcion").value,tipo_prueba:$("exaTipo").value,metodo_comprobacion:$("exaMetodo").value,metrica:{tipo:"PUNTUACIÓN",maximo:Number($("exaMax").value),minimo_apto:Number($("exaMin").value)},rubrica:r?[r]:[]});["exaNombre","exaDescripcion","exaMin","exaRubrica","exaMetodo"].forEach(x=>$(x).value="");pintarListasPerfil();mensaje("Prueba añadida.")}catch(e){alert(e.message)}}
-async function guardarRiesgoPerfil(){try{await añadirRiesgoPerfil(perfil.codigo,{riesgo:$("prRiesgo").value,causa:$("prCausa").value,consecuencia:$("prConsecuencia").value,probabilidad:$("prProb").value,impacto:$("prImpacto").value,controles:$("prControles").value,accion:$("prAccion").value,responsable:$("prResponsable").value,riesgo_residual:$("prResidual").value});["prRiesgo","prCausa","prConsecuencia","prControles","prAccion","prResponsable","prResidual"].forEach(x=>$(x).value="");$("prProb").value=$("prImpacto").value=1;pintarListasPerfil();mensaje("Riesgo añadido.")}catch(e){alert(e.message)}}
-async function guardarCertificacionPerfil(){perfil.certificacion_inicial={criterios:lineas($("pcertInicial").value),metodos_evaluacion:perfil.certificacion_inicial?.metodos_evaluacion||[]};perfil.vigilancia={aplica:$("pvigAplica").value==="true",criterios:lineas($("pvigCriterios").value)};perfil.recertificacion={...perfil.recertificacion,aplica:$("precAplica").value==="true",periodicidad_meses:Number($("precMeses").value||0),criterios:lineas($("precCriterios").value)};perfil.suspension_retirada={criterios:lineas($("psusCriterios").value)};perfil.codigo_conducta={aplica:$("pcodAplica").value==="true",contenido:$("pcodContenido").value};await guardarPerfilesCertificables();mensaje("Criterios del perfil guardados.")}
-function comprobarPerfil(){const r=validarPerfilCertificable(perfil);$("resultadoValidacionPerfil").innerHTML=r.valido?'<div class="bloque riesgo-ok"><h3>PERFIL VALIDABLE</h3>No se han detectado bloqueos.</div>':'<div class="bloque riesgo-no"><h3>PERFIL INCOMPLETO</h3>'+r.errores.map(x=>"• "+x).join("<br>")+"</div>"}
-async function aprobarPerfil(){try{await aprobarPerfilCertificable(perfil.codigo,$("pvalResponsable").value,$("pvalObservaciones").value);pintarPerfil();comprobarPerfil();mensaje("Perfil aprobado.")}catch(e){alert(e.message)}}
+async function guardarDatosBasicosPerfil(){
+perfil.nombre=$("pNombre").value.trim();
+perfil.version=$("pVersion").value.trim();
+perfil.estado=$("pEstado").value;
+perfil.alcance=$("pAlcance").value.trim();
+await guardarPerfilesCertificables();
+rellenarSelectorPerfiles();
+$("selectorPerfil").value=perfil.codigo;
+mensaje("Perfil guardado.");
+}
 
-/* ESQUEMA */
-function rellenarSelectorEsquemas(){$("selectorEsquema").innerHTML="";ESQUEMAS_CERTIFICACION.forEach(e=>{const o=document.createElement("option");o.value=e.codigo;o.textContent=e.codigo+" · "+e.nombre;$("selectorEsquema").appendChild(o)})}
-function seleccionarEsquema(){esquema=buscarEsquemaCertificacion($("selectorEsquema").value);pintarEsquema()}
+async function nuevoPerfil(){
+const n=prompt("Denominación del nuevo perfil certificable:");
+if(!n)return;
+try{
+perfil=await altaPerfilCertificable({nombre:n});
+rellenarSelectorPerfiles();
+$("selectorPerfil").value=perfil.codigo;
+pintarPerfil();
+mensaje("Perfil creado.");
+}catch(e){alert(e.message)}
+}
+
+async function recargarPerfiles(){
+try{
+const c=perfil?.codigo;
+await cargarPerfilesCertificables();
+rellenarSelectorPerfiles();
+perfil=buscarPerfilCertificable(c)||PERFILES_CERTIFICABLES[0]||null;
+if(perfil)$("selectorPerfil").value=perfil.codigo;
+pintarPerfil();
+mensaje("Perfiles recargados.");
+}catch(e){alert(e.message)}
+}
+
+async function guardarFuncion(){
+try{
+await añadirFuncionTarea(perfil.codigo,{titulo:$("ftTitulo").value,descripcion:$("ftDescripcion").value});
+$("ftTitulo").value="";$("ftDescripcion").value="";
+pintarListasPerfil();mensaje("Función añadida.");
+}catch(e){alert(e.message)}
+}
+
+async function guardarCompetencia(){
+try{
+await añadirCompetencia(perfil.codigo,{nombre:$("comNombre").value,descripcion:$("comDescripcion").value});
+$("comNombre").value="";$("comDescripcion").value="";
+pintarListasPerfil();mensaje("Competencia añadida.");
+}catch(e){alert(e.message)}
+}
+
+async function guardarRequisitoPerfil(tipo){
+try{
+const p=tipo==="educacion"?"edu":"otr";
+await añadirRequisito(perfil.codigo,tipo,{titulo:$(p+"Titulo").value,descripcion:$(p+"Descripcion").value,metodo_comprobacion:$(p+"Metodo").value});
+$(p+"Titulo").value="";$(p+"Descripcion").value="";$(p+"Metodo").value="";
+pintarListasPerfil();mensaje("Requisito añadido.");
+}catch(e){alert(e.message)}
+}
+
+async function guardarFormacionPerfil(){
+try{
+const a=$("forArchivo").files[0];
+await añadirFormacion(perfil.codigo,{
+titulo:$("forTitulo").value,denominacion:$("forTitulo").value,
+duracion_horas:$("forHoras").value,caracteristicas:$("forCaracteristicas").value,
+temario_texto:$("forTemario").value,
+temario_archivo:a?{nombre:a.name,tipo:a.type}:null,
+metodo_comprobacion:$("forMetodo").value
+});
+["forTitulo","forHoras","forCaracteristicas","forTemario","forMetodo"].forEach(x=>$(x).value="");
+$("forArchivo").value="";
+pintarListasPerfil();mensaje("Formación añadida.");
+}catch(e){alert(e.message)}
+}
+
+async function guardarExperienciaPerfil(){
+try{
+const t=$("expTipo").value;
+await añadirExperiencia(perfil.codigo,{
+titulo:$("expTitulo").value,descripcion:$("expDescripcion").value,tipo:t,
+duracion_meses:$("expMeses").value,horas:$("expHoras").value,
+tutelada:t.includes("TUTELADA"),requisitos_tutor:$("expTutor").value,
+metodo_comprobacion:$("expMetodo").value
+});
+["expTitulo","expDescripcion","expMeses","expHoras","expTutor","expMetodo"].forEach(x=>$(x).value="");
+pintarListasPerfil();mensaje("Experiencia añadida.");
+}catch(e){alert(e.message)}
+}
+
+async function guardarExamenPerfil(){
+try{
+const r=$("exaRubrica").value.trim();
+await añadirExamen(perfil.codigo,{
+nombre:$("exaNombre").value,descripcion:$("exaDescripcion").value,
+tipo_prueba:$("exaTipo").value,metodo_comprobacion:$("exaMetodo").value,
+metrica:{tipo:"PUNTUACIÓN",maximo:Number($("exaMax").value),minimo_apto:Number($("exaMin").value)},
+rubrica:r?[r]:[]
+});
+["exaNombre","exaDescripcion","exaMin","exaRubrica","exaMetodo"].forEach(x=>$(x).value="");
+pintarListasPerfil();mensaje("Prueba añadida.");
+}catch(e){alert(e.message)}
+}
+
+async function guardarRiesgoPerfil(){
+try{
+await añadirRiesgoPerfil(perfil.codigo,{
+riesgo:$("prRiesgo").value,causa:$("prCausa").value,consecuencia:$("prConsecuencia").value,
+probabilidad:$("prProb").value,impacto:$("prImpacto").value,
+controles:$("prControles").value,accion:$("prAccion").value,
+responsable:$("prResponsable").value,riesgo_residual:$("prResidual").value
+});
+["prRiesgo","prCausa","prConsecuencia","prControles","prAccion","prResponsable","prResidual"].forEach(x=>$(x).value="");
+$("prProb").value=1;$("prImpacto").value=1;
+pintarListasPerfil();mensaje("Riesgo añadido.");
+}catch(e){alert(e.message)}
+}
+
+async function guardarCertificacionPerfil(){
+perfil.certificacion_inicial={criterios:lineas($("pcertInicial").value),metodos_evaluacion:perfil.certificacion_inicial?.metodos_evaluacion||[]};
+perfil.vigilancia={aplica:$("pvigAplica").value==="true",criterios:lineas($("pvigCriterios").value)};
+perfil.recertificacion={...perfil.recertificacion,aplica:$("precAplica").value==="true",periodicidad_meses:Number($("precMeses").value||0),criterios:lineas($("precCriterios").value)};
+perfil.suspension_retirada={criterios:lineas($("psusCriterios").value)};
+perfil.codigo_conducta={aplica:$("pcodAplica").value==="true",contenido:$("pcodContenido").value};
+await guardarPerfilesCertificables();
+mensaje("Criterios del perfil guardados.");
+}
+
+function comprobarPerfil(){
+const r=validarPerfilCertificable(perfil);
+$("resultadoValidacionPerfil").innerHTML=r.valido
+?'<div class="bloque riesgo-ok"><h3>PERFIL VALIDABLE</h3>No se han detectado bloqueos.</div>'
+:'<div class="bloque riesgo-no"><h3>PERFIL INCOMPLETO</h3>'+r.errores.map(x=>"• "+x).join("<br>")+"</div>";
+}
+
+async function aprobarPerfil(){
+try{
+await aprobarPerfilCertificable(perfil.codigo,$("pvalResponsable").value,$("pvalObservaciones").value);
+pintarPerfil();comprobarPerfil();mensaje("Perfil aprobado.");
+}catch(e){alert(e.message)}
+}
+
+/* ESQUEMAS */
+function rellenarSelectorEsquemas(){
+$("selectorEsquema").innerHTML="";
+ESQUEMAS_CERTIFICACION.forEach(e=>{
+const o=document.createElement("option");
+o.value=e.codigo;o.textContent=e.codigo+" · "+e.nombre;
+$("selectorEsquema").appendChild(o);
+});
+}
+
+function seleccionarEsquema(){
+esquema=buscarEsquemaCertificacion($("selectorEsquema").value);
+pintarEsquema();
+}
+
 function pintarEsquema(){
 if(!esquema)return;
-$("eCodigo").value=esquema.codigo||"";$("eNombre").value=esquema.nombre||"";$("eVersion").value=esquema.version||"01";$("eEstado").value=esquema.estado||"BORRADOR";$("ePerfil").value=esquema.perfil_codigo||"";$("eObjeto").value=esquema.objeto||"";$("eAlcance").value=esquema.alcance||"";
-$("estadoEsquema").innerHTML=esquema.estado==="APROBADO"?'<span class="estado-aprobado">APROBADO</span>':'<span class="estado-borrador">'+(esquema.estado||"BORRADOR")+"</span>";
-$("edCriterios").value=(esquema.decision_certificacion?.criterios||[]).join("\n");$("edResponsable").value=esquema.decision_certificacion?.responsable||"";$("edIndependencia").value=String(esquema.decision_certificacion?.independencia_evaluacion!==false);$("edDocumentos").value=(esquema.decision_certificacion?.documentos_requeridos||[]).join("\n");
-$("ecVigencia").value=esquema.certificado?.vigencia_meses||0;$("ecNumero").value=String(esquema.certificado?.numero_certificado_automatico!==false);$("ecContenido").value=(esquema.certificado?.contenido_minimo||[]).join("\n");$("ecCondiciones").value=(esquema.certificado?.condiciones_uso||[]).join("\n");$("ecMarca").value=esquema.certificado?.marca_certificacion||"";
-$("evigAplica").value=String(!!esquema.vigilancia?.aplica);$("evigMeses").value=esquema.vigilancia?.periodicidad_meses||0;$("evigMetodos").value=(esquema.vigilancia?.metodos||[]).join("\n");$("evigCriterios").value=(esquema.vigilancia?.criterios||[]).join("\n");$("evigEvidencias").value=(esquema.vigilancia?.evidencias||[]).join("\n");
-$("erecAplica").value=String(!!esquema.recertificacion?.aplica);$("erecMeses").value=esquema.recertificacion?.periodicidad_meses||0;$("erecExamen").value=String(!!esquema.recertificacion?.examen_requerido);$("erecMetodos").value=(esquema.recertificacion?.metodos||[]).join("\n");$("erecCriterios").value=(esquema.recertificacion?.criterios||[]).join("\n");$("erecEvidencias").value=(esquema.recertificacion?.evidencias||[]).join("\n");
-$("esSuspension").value=(esquema.suspension_retirada?.criterios_suspension||[]).join("\n");$("esRetirada").value=(esquema.suspension_retirada?.criterios_retirada||[]).join("\n");$("esReduccion").value=String(!!esquema.suspension_retirada?.reduccion_alcance?.aplica);$("esRedCriterios").value=(esquema.suspension_retirada?.reduccion_alcance?.criterios||[]).join("\n");$("esRestablecimiento").value=String(esquema.suspension_retirada?.restablecimiento?.aplica!==false);$("esResCriterios").value=(esquema.suspension_retirada?.restablecimiento?.criterios||[]).join("\n");
-$("eiRiesgos").value=(esquema.imparcialidad?.riesgos||[]).join("\n");$("eiConflictos").value=(esquema.imparcialidad?.conflictos_interes||[]).join("\n");$("eiMedidas").value=(esquema.imparcialidad?.medidas_control||[]).join("\n");$("eiRevision").value=String(esquema.imparcialidad?.revision_periodica!==false);
-$("esegConfidencial").value=(esquema.seguridad_confidencialidad?.informacion_confidencial||[]).join("\n");$("esegAccesos").value=(esquema.seguridad_confidencialidad?.controles_acceso||[]).join("\n");$("esegIntegridad").value=(esquema.seguridad_confidencialidad?.integridad_datos||[]).join("\n");$("esegExamenes").value=(esquema.seguridad_confidencialidad?.seguridad_examenes||[]).join("\n");$("esegCustodia").value=(esquema.seguridad_confidencialidad?.custodia_evidencias||[]).join("\n");
+$("eCodigo").value=esquema.codigo||"";
+$("eNombre").value=esquema.nombre||"";
+$("eVersion").value=esquema.version||"01";
+$("eEstado").value=esquema.estado||"BORRADOR";
+$("ePerfil").value=esquema.perfil_codigo||"";
+$("eObjeto").value=esquema.objeto||"";
+$("eAlcance").value=esquema.alcance||"";
+
+$("estadoEsquema").innerHTML=esquema.estado==="APROBADO"
+?'<span class="estado-aprobado">APROBADO</span>'
+:'<span class="estado-borrador">'+(esquema.estado||"BORRADOR")+"</span>";
+
+$("edCriterios").value=(esquema.decision_certificacion?.criterios||[]).join("\n");
+$("edResponsable").value=esquema.decision_certificacion?.responsable||"";
+$("edIndependencia").value=String(esquema.decision_certificacion?.independencia_evaluacion!==false);
+$("edDocumentos").value=(esquema.decision_certificacion?.documentos_requeridos||[]).join("\n");
+
+$("ecVigencia").value=esquema.certificado?.vigencia_meses||0;
+$("ecNumero").value=String(esquema.certificado?.numero_certificado_automatico!==false);
+$("ecContenido").value=(esquema.certificado?.contenido_minimo||[]).join("\n");
+$("ecCondiciones").value=(esquema.certificado?.condiciones_uso||[]).join("\n");
+$("ecMarca").value=esquema.certificado?.marca_certificacion||"";
+
+$("evigAplica").value=String(!!esquema.vigilancia?.aplica);
+$("evigMeses").value=esquema.vigilancia?.periodicidad_meses||0;
+$("evigMetodos").value=(esquema.vigilancia?.metodos||[]).join("\n");
+$("evigCriterios").value=(esquema.vigilancia?.criterios||[]).join("\n");
+$("evigEvidencias").value=(esquema.vigilancia?.evidencias||[]).join("\n");
+
+$("erecAplica").value=String(!!esquema.recertificacion?.aplica);
+$("erecMeses").value=esquema.recertificacion?.periodicidad_meses||0;
+$("erecExamen").value=String(!!esquema.recertificacion?.examen_requerido);
+$("erecMetodos").value=(esquema.recertificacion?.metodos||[]).join("\n");
+$("erecCriterios").value=(esquema.recertificacion?.criterios||[]).join("\n");
+$("erecEvidencias").value=(esquema.recertificacion?.evidencias||[]).join("\n");
+
+$("esSuspension").value=(esquema.suspension_retirada?.criterios_suspension||[]).join("\n");
+$("esRetirada").value=(esquema.suspension_retirada?.criterios_retirada||[]).join("\n");
+$("esReduccion").value=String(!!esquema.suspension_retirada?.reduccion_alcance?.aplica);
+$("esRedCriterios").value=(esquema.suspension_retirada?.reduccion_alcance?.criterios||[]).join("\n");
+$("esRestablecimiento").value=String(esquema.suspension_retirada?.restablecimiento?.aplica!==false);
+$("esResCriterios").value=(esquema.suspension_retirada?.restablecimiento?.criterios||[]).join("\n");
+
+$("eiRiesgos").value=(esquema.imparcialidad?.riesgos||[]).join("\n");
+$("eiConflictos").value=(esquema.imparcialidad?.conflictos_interes||[]).join("\n");
+$("eiMedidas").value=(esquema.imparcialidad?.medidas_control||[]).join("\n");
+$("eiRevision").value=String(esquema.imparcialidad?.revision_periodica!==false);
+
+$("esegConfidencial").value=(esquema.seguridad_confidencialidad?.informacion_confidencial||[]).join("\n");
+$("esegAccesos").value=(esquema.seguridad_confidencialidad?.controles_acceso||[]).join("\n");
+$("esegIntegridad").value=(esquema.seguridad_confidencialidad?.integridad_datos||[]).join("\n");
+$("esegExamenes").value=(esquema.seguridad_confidencialidad?.seguridad_examenes||[]).join("\n");
+$("esegCustodia").value=(esquema.seguridad_confidencialidad?.custodia_evidencias||[]).join("\n");
 pintarListasEsquema();
 }
+
 function pintarListasEsquema(){
 pintarLista("listaRequisitosPrevios",esquema?.requisitos_previos,x=>`<h3>${x.titulo}</h3><div>${x.descripcion||""}</div><div class="meta"><b>Comprobación:</b> ${x.metodo_comprobacion}</div>`);
 pintarLista("listaMetodosEvaluacion",esquema?.evaluacion?.metodos,x=>`<h3>${x.nombre}</h3><div>${x.descripcion||""}</div><div class="meta"><b>Criterio:</b> ${x.criterio||"—"}</div>`);
@@ -558,35 +822,216 @@ pintarLista("listaEvaluadores",esquema?.evaluadores?.requisitos,x=>`<h3>${x.titu
 pintarRiesgos("listaRiesgosEsquema",esquema?.riesgos);
 }
 
-async function nuevoEsquema(){if(!PERFILES_CERTIFICABLES.length){alert("Debe existir al menos un perfil certificable.");return}const n=prompt("Denominación del nuevo esquema:");if(!n)return;const pc=$("ePerfil").value||PERFILES_CERTIFICABLES[0].codigo,p=buscarPerfilCertificable(pc);try{esquema=await altaEsquemaCertificacion({nombre:n,perfil_codigo:p.codigo,perfil_nombre:p.nombre});rellenarSelectorEsquemas();$("selectorEsquema").value=esquema.codigo;pintarEsquema();mensaje("Esquema creado.")}catch(e){alert(e.message)}}
-async function recargarEsquemas(){try{const c=esquema?.codigo;await cargarEsquemasCertificacion();rellenarSelectorEsquemas();esquema=buscarEsquemaCertificacion(c)||ESQUEMAS_CERTIFICACION[0]||null;if(esquema)$("selectorEsquema").value=esquema.codigo;pintarEsquema();mensaje("Esquemas recargados.")}catch(e){alert(e.message)}}
-async function guardarIdentificacionEsquema(){const p=buscarPerfilCertificable($("ePerfil").value);esquema.nombre=$("eNombre").value.trim();esquema.version=$("eVersion").value.trim();esquema.estado=$("eEstado").value;esquema.perfil_codigo=p?.codigo||"";esquema.perfil_nombre=p?.nombre||"";esquema.objeto=$("eObjeto").value.trim();esquema.alcance=$("eAlcance").value.trim();await guardarEsquemasCertificacion();rellenarSelectorEsquemas();$("selectorEsquema").value=esquema.codigo;mensaje("Esquema guardado.")}
-async function guardarRequisitoPrevio(){try{await añadirRequisitoPrevio(esquema.codigo,{titulo:$("erTitulo").value,descripcion:$("erDescripcion").value,metodo_comprobacion:$("erMetodo").value});["erTitulo","erDescripcion","erMetodo"].forEach(x=>$(x).value="");pintarListasEsquema();mensaje("Requisito añadido.")}catch(e){alert(e.message)}}
-async function guardarMetodoEvaluacion(){try{await añadirMetodoEvaluacion(esquema.codigo,{nombre:$("eeNombre").value,descripcion:$("eeDescripcion").value,criterio:$("eeCriterio").value});["eeNombre","eeDescripcion","eeCriterio"].forEach(x=>$(x).value="");pintarListasEsquema();mensaje("Método añadido.")}catch(e){alert(e.message)}}
-async function guardarExamenEsquema(){try{const r=$("exRubrica").value.trim();await añadirExamenEsquema(esquema.codigo,{nombre:$("exNombre").value,tipo:$("exTipo").value,descripcion:$("exDescripcion").value,duracion_minutos:$("exDuracion").value,numero_preguntas:$("exPreguntas").value,puntuacion_maxima:$("exMax").value,minimo_apto:$("exMin").value,rubrica:r?[r]:[],seguridad:$("exSeguridad").value,metodo_comprobacion:$("exMetodo").value});["exNombre","exDescripcion","exDuracion","exPreguntas","exMin","exRubrica","exSeguridad","exMetodo"].forEach(x=>$(x).value="");pintarListasEsquema();mensaje("Prueba añadida.")}catch(e){alert(e.message)}}
-async function guardarRequisitoEvaluador(){try{await añadirRequisitoEvaluador(esquema.codigo,{titulo:$("evTitulo").value,descripcion:$("evDescripcion").value,metodo_comprobacion:$("evMetodo").value});["evTitulo","evDescripcion","evMetodo"].forEach(x=>$(x).value="");pintarListasEsquema();mensaje("Requisito de evaluador añadido.")}catch(e){alert(e.message)}}
-async function guardarDecision(){esquema.decision_certificacion={...esquema.decision_certificacion,criterios:lineas($("edCriterios").value),responsable:$("edResponsable").value.trim(),independencia_evaluacion:$("edIndependencia").value==="true",documentos_requeridos:lineas($("edDocumentos").value)};await guardarEsquemasCertificacion();mensaje("Decisión guardada.")}
-async function guardarCertificado(){esquema.certificado={vigencia_meses:Number($("ecVigencia").value||0),contenido_minimo:lineas($("ecContenido").value),condiciones_uso:lineas($("ecCondiciones").value),marca_certificacion:$("ecMarca").value.trim(),numero_certificado_automatico:$("ecNumero").value==="true"};await guardarEsquemasCertificacion();mensaje("Certificado guardado.")}
-async function guardarVigilancia(){esquema.vigilancia={aplica:$("evigAplica").value==="true",periodicidad_meses:Number($("evigMeses").value||0),metodos:lineas($("evigMetodos").value),criterios:lineas($("evigCriterios").value),evidencias:lineas($("evigEvidencias").value)};await guardarEsquemasCertificacion();mensaje("Vigilancia guardada.")}
-async function guardarRecertificacion(){esquema.recertificacion={aplica:$("erecAplica").value==="true",periodicidad_meses:Number($("erecMeses").value||0),metodos:lineas($("erecMetodos").value),criterios:lineas($("erecCriterios").value),evidencias:lineas($("erecEvidencias").value),examen_requerido:$("erecExamen").value==="true"};await guardarEsquemasCertificacion();mensaje("Recertificación guardada.")}
-async function guardarSuspension(){esquema.suspension_retirada={criterios_suspension:lineas($("esSuspension").value),criterios_retirada:lineas($("esRetirada").value),reduccion_alcance:{aplica:$("esReduccion").value==="true",criterios:lineas($("esRedCriterios").value)},restablecimiento:{aplica:$("esRestablecimiento").value==="true",criterios:lineas($("esResCriterios").value)}};await guardarEsquemasCertificacion();mensaje("Suspensión y retirada guardadas.")}
-async function guardarImparcialidad(){esquema.imparcialidad={riesgos:lineas($("eiRiesgos").value),conflictos_interes:lineas($("eiConflictos").value),medidas_control:lineas($("eiMedidas").value),revision_periodica:$("eiRevision").value==="true"};await guardarEsquemasCertificacion();mensaje("Imparcialidad guardada.")}
-async function guardarRiesgoEsquemaUI(){try{await añadirRiesgoEsquema(esquema.codigo,{riesgo:$("reRiesgo").value,causa:$("reCausa").value,consecuencia:$("reConsecuencia").value,probabilidad:$("reProb").value,impacto:$("reImpacto").value,controles:$("reControles").value,accion:$("reAccion").value,responsable:$("reResponsable").value,riesgo_residual:$("reResidual").value});["reRiesgo","reCausa","reConsecuencia","reControles","reAccion","reResponsable","reResidual"].forEach(x=>$(x).value="");$("reProb").value=$("reImpacto").value=1;pintarListasEsquema();mensaje("Riesgo añadido.")}catch(e){alert(e.message)}}
-async function guardarSeguridadEsquema(){esquema.seguridad_confidencialidad={informacion_confidencial:lineas($("esegConfidencial").value),controles_acceso:lineas($("esegAccesos").value),integridad_datos:lineas($("esegIntegridad").value),seguridad_examenes:lineas($("esegExamenes").value),custodia_evidencias:lineas($("esegCustodia").value)};await guardarEsquemasCertificacion();mensaje("Seguridad guardada.")}
-function comprobarEsquema(){const r=validarEsquemaCertificacion(esquema);$("resultadoValidacionEsquema").innerHTML=r.valido?'<div class="bloque riesgo-ok"><h3>ESQUEMA VALIDABLE</h3>No se han detectado bloqueos.</div>':'<div class="bloque riesgo-no"><h3>ESQUEMA INCOMPLETO</h3>'+r.errores.map(x=>"• "+x).join("<br>")+"</div>"}
-async function aprobarEsquema(){try{await aprobarEsquemaCertificacion(esquema.codigo,$("evalResponsable").value,$("evalObservaciones").value);pintarEsquema();comprobarEsquema();mensaje("Esquema aprobado.")}catch(e){alert(e.message)}}
+async function nuevoEsquema(){
+if(!PERFILES_CERTIFICABLES.length){alert("Debe existir al menos un perfil certificable.");return}
+const n=prompt("Denominación del nuevo esquema:");
+if(!n)return;
+const pc=$("ePerfil").value||PERFILES_CERTIFICABLES[0].codigo;
+const p=buscarPerfilCertificable(pc);
+try{
+esquema=await altaEsquemaCertificacion({nombre:n,perfil_codigo:p.codigo,perfil_nombre:p.nombre});
+rellenarSelectorEsquemas();$("selectorEsquema").value=esquema.codigo;
+pintarEsquema();mensaje("Esquema creado.");
+}catch(e){alert(e.message)}
+}
 
-function mensaje(t){$("mensaje").textContent=t;$("mensaje").classList.add("visible");setTimeout(()=>$("mensaje").classList.remove("visible"),2200)}
+async function recargarEsquemas(){
+try{
+const c=esquema?.codigo;
+await cargarEsquemasCertificacion();
+rellenarSelectorEsquemas();
+esquema=buscarEsquemaCertificacion(c)||ESQUEMAS_CERTIFICACION[0]||null;
+if(esquema)$("selectorEsquema").value=esquema.codigo;
+pintarEsquema();mensaje("Esquemas recargados.");
+}catch(e){alert(e.message)}
+}
+
+async function guardarIdentificacionEsquema(){
+const p=buscarPerfilCertificable($("ePerfil").value);
+esquema.nombre=$("eNombre").value.trim();
+esquema.version=$("eVersion").value.trim();
+esquema.estado=$("eEstado").value;
+esquema.perfil_codigo=p?.codigo||"";
+esquema.perfil_nombre=p?.nombre||"";
+esquema.objeto=$("eObjeto").value.trim();
+esquema.alcance=$("eAlcance").value.trim();
+await guardarEsquemasCertificacion();
+rellenarSelectorEsquemas();
+$("selectorEsquema").value=esquema.codigo;
+mensaje("Esquema guardado.");
+}
+
+async function guardarRequisitoPrevio(){
+try{
+await añadirRequisitoPrevio(esquema.codigo,{titulo:$("erTitulo").value,descripcion:$("erDescripcion").value,metodo_comprobacion:$("erMetodo").value});
+["erTitulo","erDescripcion","erMetodo"].forEach(x=>$(x).value="");
+pintarListasEsquema();mensaje("Requisito añadido.");
+}catch(e){alert(e.message)}
+}
+
+async function guardarMetodoEvaluacion(){
+try{
+await añadirMetodoEvaluacion(esquema.codigo,{nombre:$("eeNombre").value,descripcion:$("eeDescripcion").value,criterio:$("eeCriterio").value});
+["eeNombre","eeDescripcion","eeCriterio"].forEach(x=>$(x).value="");
+pintarListasEsquema();mensaje("Método añadido.");
+}catch(e){alert(e.message)}
+}
+
+async function guardarExamenEsquema(){
+try{
+const r=$("exRubrica").value.trim();
+await añadirExamenEsquema(esquema.codigo,{
+nombre:$("exNombre").value,tipo:$("exTipo").value,descripcion:$("exDescripcion").value,
+duracion_minutos:$("exDuracion").value,numero_preguntas:$("exPreguntas").value,
+puntuacion_maxima:$("exMax").value,minimo_apto:$("exMin").value,
+rubrica:r?[r]:[],seguridad:$("exSeguridad").value,metodo_comprobacion:$("exMetodo").value
+});
+["exNombre","exDescripcion","exDuracion","exPreguntas","exMin","exRubrica","exSeguridad","exMetodo"].forEach(x=>$(x).value="");
+pintarListasEsquema();mensaje("Prueba añadida.");
+}catch(e){alert(e.message)}
+}
+
+async function guardarRequisitoEvaluador(){
+try{
+await añadirRequisitoEvaluador(esquema.codigo,{titulo:$("evTitulo").value,descripcion:$("evDescripcion").value,metodo_comprobacion:$("evMetodo").value});
+["evTitulo","evDescripcion","evMetodo"].forEach(x=>$(x).value="");
+pintarListasEsquema();mensaje("Requisito de evaluador añadido.");
+}catch(e){alert(e.message)}
+}
+
+async function guardarDecision(){
+esquema.decision_certificacion={
+...esquema.decision_certificacion,
+criterios:lineas($("edCriterios").value),
+responsable:$("edResponsable").value.trim(),
+independencia_evaluacion:$("edIndependencia").value==="true",
+documentos_requeridos:lineas($("edDocumentos").value)
+};
+await guardarEsquemasCertificacion();
+mensaje("Decisión guardada.");
+}
+
+async function guardarCertificado(){
+esquema.certificado={
+vigencia_meses:Number($("ecVigencia").value||0),
+contenido_minimo:lineas($("ecContenido").value),
+condiciones_uso:lineas($("ecCondiciones").value),
+marca_certificacion:$("ecMarca").value.trim(),
+numero_certificado_automatico:$("ecNumero").value==="true"
+};
+await guardarEsquemasCertificacion();
+mensaje("Certificado guardado.");
+}
+
+async function guardarVigilancia(){
+esquema.vigilancia={
+aplica:$("evigAplica").value==="true",
+periodicidad_meses:Number($("evigMeses").value||0),
+metodos:lineas($("evigMetodos").value),
+criterios:lineas($("evigCriterios").value),
+evidencias:lineas($("evigEvidencias").value)
+};
+await guardarEsquemasCertificacion();
+mensaje("Vigilancia guardada.");
+}
+
+async function guardarRecertificacion(){
+esquema.recertificacion={
+aplica:$("erecAplica").value==="true",
+periodicidad_meses:Number($("erecMeses").value||0),
+metodos:lineas($("erecMetodos").value),
+criterios:lineas($("erecCriterios").value),
+evidencias:lineas($("erecEvidencias").value),
+examen_requerido:$("erecExamen").value==="true"
+};
+await guardarEsquemasCertificacion();
+mensaje("Recertificación guardada.");
+}
+
+async function guardarSuspension(){
+esquema.suspension_retirada={
+criterios_suspension:lineas($("esSuspension").value),
+criterios_retirada:lineas($("esRetirada").value),
+reduccion_alcance:{aplica:$("esReduccion").value==="true",criterios:lineas($("esRedCriterios").value)},
+restablecimiento:{aplica:$("esRestablecimiento").value==="true",criterios:lineas($("esResCriterios").value)}
+};
+await guardarEsquemasCertificacion();
+mensaje("Suspensión y retirada guardadas.");
+}
+
+async function guardarImparcialidad(){
+esquema.imparcialidad={
+riesgos:lineas($("eiRiesgos").value),
+conflictos_interes:lineas($("eiConflictos").value),
+medidas_control:lineas($("eiMedidas").value),
+revision_periodica:$("eiRevision").value==="true"
+};
+await guardarEsquemasCertificacion();
+mensaje("Imparcialidad guardada.");
+}
+
+async function guardarRiesgoEsquemaUI(){
+try{
+await añadirRiesgoEsquema(esquema.codigo,{
+riesgo:$("reRiesgo").value,causa:$("reCausa").value,consecuencia:$("reConsecuencia").value,
+probabilidad:$("reProb").value,impacto:$("reImpacto").value,
+controles:$("reControles").value,accion:$("reAccion").value,
+responsable:$("reResponsable").value,riesgo_residual:$("reResidual").value
+});
+["reRiesgo","reCausa","reConsecuencia","reControles","reAccion","reResponsable","reResidual"].forEach(x=>$(x).value="");
+$("reProb").value=1;$("reImpacto").value=1;
+pintarListasEsquema();mensaje("Riesgo añadido.");
+}catch(e){alert(e.message)}
+}
+
+async function guardarSeguridadEsquema(){
+esquema.seguridad_confidencialidad={
+informacion_confidencial:lineas($("esegConfidencial").value),
+controles_acceso:lineas($("esegAccesos").value),
+integridad_datos:lineas($("esegIntegridad").value),
+seguridad_examenes:lineas($("esegExamenes").value),
+custodia_evidencias:lineas($("esegCustodia").value)
+};
+await guardarEsquemasCertificacion();
+mensaje("Seguridad guardada.");
+}
+
+function comprobarEsquema(){
+const r=validarEsquemaCertificacion(esquema);
+$("resultadoValidacionEsquema").innerHTML=r.valido
+?'<div class="bloque riesgo-ok"><h3>ESQUEMA VALIDABLE</h3>No se han detectado bloqueos.</div>'
+:'<div class="bloque riesgo-no"><h3>ESQUEMA INCOMPLETO</h3>'+r.errores.map(x=>"• "+x).join("<br>")+"</div>";
+}
+
+async function aprobarEsquema(){
+try{
+await aprobarEsquemaCertificacion(esquema.codigo,$("evalResponsable").value,$("evalObservaciones").value);
+pintarEsquema();comprobarEsquema();mensaje("Esquema aprobado.");
+}catch(e){alert(e.message)}
+}
+
+function mensaje(t){
+$("mensaje").textContent=t;
+$("mensaje").classList.add("visible");
+setTimeout(()=>$("mensaje").classList.remove("visible"),2200);
+}
 
 async function iniciarA1(){
 try{
 await cargarPerfilesCertificables();
 await cargarEsquemasCertificacion();
-rellenarSelectorPerfiles();rellenarSelectorEsquemas();
-perfil=PERFILES_CERTIFICABLES[0]||null;esquema=ESQUEMAS_CERTIFICACION[0]||null;
+rellenarSelectorPerfiles();
+rellenarSelectorEsquemas();
+
+perfil=PERFILES_CERTIFICABLES[0]||null;
+esquema=ESQUEMAS_CERTIFICACION[0]||null;
+
 if(perfil){$("selectorPerfil").value=perfil.codigo;pintarPerfil()}
 if(esquema){$("selectorEsquema").value=esquema.codigo;pintarEsquema()}
-}catch(e){console.error(e);alert("No se han podido cargar los Maestros de A1:\n\n"+e.message)}
+}catch(e){
+console.error(e);
+alert("No se han podido cargar los Maestros de A1:\n\n"+e.message);
+}
 }
 
 iniciarA1();
