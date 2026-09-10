@@ -1,1 +1,239 @@
-.zona{min-height:calc(100vh - 94px);display:flex;align-items:flex-start;justify-content:center;padding:115px 30px 220px}.login{width:650px;background:#fff;border:1px solid #d6e0e8;border-radius:9px;padding:42px 52px 36px;box-shadow:0 6px 20px rgba(30,70,100,.05)}.login .mini{font-size:15px;letter-spacing:2px}.login h1{font-size:50px;margin:22px 0 7px}.login .intro{font-size:20px;line-height:27px;margin-bottom:27px}.login .campo{margin-bottom:17px}.login .campo label{font-size:14px}.login .campo input{height:53px;font-size:18px;padding:0 15px}.login .entrar{height:53px;font-size:16px;letter-spacing:5px}.login .pie{font-size:13px;line-height:18px;margin-top:34px}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rita© · UFV Instituto</title>
+
+<style>
+@font-face{font-family:Tecnico;src:url("tecnico_regular.ttf")}
+@font-face{font-family:Tecnico;src:url("tecnico_bold.ttf");font-weight:700}
+
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;min-height:100%;font-family:Tecnico,Arial,sans-serif;color:#17324d}
+body{background:#edf4fa}
+
+.app{min-height:100vh;display:flex}
+
+/* LATERAL */
+.lateral{
+width:205px;min-width:205px;min-height:100vh;
+background:linear-gradient(180deg,#074b7d 0%,#0b5d96 100%);
+color:#fff;padding:27px 16px;
+position:fixed;left:0;top:0;bottom:0
+}
+.rita{font-size:48px;line-height:1;font-weight:400;letter-spacing:-2px}
+.copyright{font-size:14px;vertical-align:top;margin-left:3px}
+.linea{width:58px;height:3px;background:#51d7d3;margin:20px 0 22px}
+.nombre{
+font-size:14px;line-height:20px;letter-spacing:1.4px;
+text-transform:uppercase;max-width:160px
+}
+
+/* ÁREA PRINCIPAL */
+.contenido{
+margin-left:205px;
+width:calc(100% - 205px);
+min-height:100vh
+}
+
+/* CABECERA */
+.cabecera{
+height:94px;background:#fff;
+display:flex;align-items:center;
+padding-left:46px;border:0
+}
+.cabecera img{
+display:block;width:auto;height:auto;
+max-height:55px;max-width:480px;
+object-fit:contain
+}
+
+/* ZONA DE ACCESO */
+.zona{
+min-height:calc(100vh - 94px);
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:flex-start;
+padding:80px 30px 60px
+}
+
+.login{
+width:680px;
+background:#fff;
+border:1px solid #d6e0e8;
+border-radius:9px;
+padding:43px 54px 38px;
+box-shadow:0 6px 20px rgba(30,70,100,.05)
+}
+
+.mini{
+font-size:15px;letter-spacing:2px;
+color:#5b83a4;text-transform:uppercase;
+border-bottom:2px solid #41c5cf;
+padding-bottom:7px;display:inline-block
+}
+
+.login h1{
+font-size:52px;font-weight:400;
+margin:22px 0 8px
+}
+
+.intro{
+font-size:20px;color:#718ba4;
+line-height:27px;margin:0 0 28px
+}
+
+.campo{margin-bottom:17px}
+
+.campo label{
+display:block;font-size:14px;
+letter-spacing:1.5px;color:#66829c;
+margin-bottom:6px
+}
+
+.campo input{
+width:100%;height:54px;
+border:1px solid #ccd9e3;
+border-radius:5px;background:#fbfcfd;
+padding:0 15px;
+font-family:Tecnico,Arial,sans-serif;
+font-size:18px;color:#17324d;
+outline:none
+}
+
+.campo input:focus{border-color:#1688b3}
+
+.pass{position:relative}
+.pass input{padding-right:45px}
+
+.ojo{
+position:absolute;right:14px;top:50%;
+transform:translateY(-50%);
+border:0;background:none;color:#52738d;
+cursor:pointer;font-size:17px
+}
+
+.entrar{
+width:100%;height:54px;
+border:0;border-radius:4px;
+background:#075b96;color:#fff;
+font-family:Tecnico,Arial,sans-serif;
+font-size:16px;letter-spacing:5px;
+cursor:pointer;margin-top:6px
+}
+
+.entrar:hover{background:#064c7d}
+
+.pie-login{
+border-top:1px solid #e3e9ee;
+margin-top:35px;padding-top:16px;
+text-align:center;font-size:13px;
+line-height:18px;color:#7990a5
+}
+
+/* RESERVA PARA LOS FUTUROS ICONOS DE PERMISOS */
+.permisos{
+width:680px;
+min-height:150px;
+margin-top:28px
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.login,.permisos{width:90%;max-width:680px}
+}
+
+@media(max-width:750px){
+.lateral{width:155px;min-width:155px;padding:25px 13px}
+.rita{font-size:39px}
+.nombre{font-size:12px}
+.contenido{margin-left:155px;width:calc(100% - 155px)}
+.cabecera{height:82px;padding-left:24px}
+.cabecera img{max-height:45px;max-width:90%}
+.zona{min-height:calc(100vh - 82px);padding:55px 18px}
+.login{padding:35px}
+.login h1{font-size:44px}
+}
+
+@media(max-width:520px){
+.app{display:block}
+.lateral{
+position:relative;width:100%;min-height:auto;
+height:auto;padding:18px 22px
+}
+.rita{font-size:35px}
+.linea{margin:13px 0}
+.nombre{max-width:none}
+.contenido{margin-left:0;width:100%}
+.cabecera{height:75px;padding:0 20px}
+.cabecera img{max-height:42px;max-width:100%}
+.zona{min-height:calc(100vh - 75px);padding:30px 15px}
+.login,.permisos{width:100%}
+.login{padding:28px 24px}
+.login h1{font-size:38px}
+.intro{font-size:17px;line-height:23px}
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<aside class="lateral">
+<div class="rita">Rita<span class="copyright">©</span></div>
+<div class="linea"></div>
+<div class="nombre">
+Sistema de Gestión<br>
+del Esquema de<br>
+Certificación<br>
+de Personas
+</div>
+</aside>
+
+<main class="contenido">
+
+<header class="cabecera">
+<img src="cabecera1.png" alt="Universidad Francisco de Vitoria · Instituto de Acompañamiento · Servicio de Certificación de Personas">
+</header>
+
+<section class="zona">
+
+<div class="login">
+<div class="mini">Acceso al sistema</div>
+
+<h1>Bienvenido</h1>
+
+<p class="intro">
+Identifíquese para acceder al entorno de gestión del Esquema de Certificación de Personas.
+</p>
+
+<div class="campo">
+<label>USUARIO</label>
+<input type="text" placeholder="Introduzca su usuario" autocomplete="username">
+</div>
+
+<div class="campo">
+<label>CONTRASEÑA</label>
+<div class="pass">
+<input id="clave" type="password" placeholder="Introduzca su contraseña" autocomplete="current-password">
+<button class="ojo" type="button" onclick="var x=document.getElementById('clave');x.type=x.type==='password'?'text':'password'">◉</button>
+</div>
+</div>
+
+<button class="entrar" type="button">ENTRAR</button>
+
+<div class="pie-login">
+Acceso restringido a personal autorizado.<br>
+Los perfiles y permisos se configurarán individualmente.
+</div>
+</div>
+
+<div class="permisos" id="permisos"></div>
+
+</section>
+</main>
+</div>
+</body>
+</html>
