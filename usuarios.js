@@ -5,7 +5,7 @@
    ========================================================= */
 
 const RITA={
-base:"/03_UFV_INSTITUTO/99_datos_Rita",
+base:"/03_UFV_INSTITUTO/99_datos_Rita/",
 archivos:{
 usuarios:"maestro_usuarios.json",
 configuracion:"maestro_configuracion.json",
@@ -21,26 +21,16 @@ return(txt||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim().toLowerCa
 }
 
 function rutaMaestro(nombre){
-return `${RITA.base}/${RITA.archivos[nombre]}`;
-}
-
-/* =========================================================
-   DROPBOX
-   DROPBOX_TOKEN deberá estar definido antes de cargar este JS
-   ========================================================= */
-
-function tokenDropbox(){
-if(typeof DROPBOX_TOKEN==="undefined"||!DROPBOX_TOKEN){
-throw new Error("No se ha configurado la conexión con Dropbox.");
-}
-return DROPBOX_TOKEN;
+return RITA.base+RITA.archivos[nombre];
 }
 
 async function leerDropbox(path){
+const token=await obtenerDropboxAccessToken();
+
 const r=await fetch("https://content.dropboxapi.com/2/files/download",{
 method:"POST",
 headers:{
-"Authorization":"Bearer "+tokenDropbox(),
+Authorization:"Bearer "+token,
 "Dropbox-API-Arg":JSON.stringify({path})
 }
 });
@@ -48,19 +38,25 @@ headers:{
 if(!r.ok){
 let detalle="";
 try{detalle=await r.text()}catch(e){}
-throw new Error(`Error Dropbox ${r.status}: ${detalle}`);
+throw new Error("Dropbox "+r.status+(detalle?": "+detalle:""));
 }
 
-return await r.json();
+const texto=await r.text();
+
+try{
+return JSON.parse(texto);
+}catch(e){
+throw new Error("El archivo "+path+" no contiene JSON válido.");
+}
 }
 
 async function escribirDropbox(path,data){
-const contenido=JSON.stringify(data,null,2);
+const token=await obtenerDropboxAccessToken();
 
 const r=await fetch("https://content.dropboxapi.com/2/files/upload",{
 method:"POST",
 headers:{
-"Authorization":"Bearer "+tokenDropbox(),
+Authorization:"Bearer "+token,
 "Content-Type":"application/octet-stream",
 "Dropbox-API-Arg":JSON.stringify({
 path,
@@ -69,28 +65,44 @@ autorename:false,
 mute:true
 })
 },
-body:contenido
+body:JSON.stringify(data,null,2)
 });
 
 if(!r.ok){
 let detalle="";
 try{detalle=await r.text()}catch(e){}
-throw new Error(`Error Dropbox ${r.status}: ${detalle}`);
+throw new Error("Dropbox "+r.status+(detalle?": "+detalle:""));
 }
 
 return await r.json();
 }
 
 /* =========================================================
-   CARGA DE MAESTROS
+   USUARIOS
    ========================================================= */
 
 async function cargarUsuarios(){
 const datos=await leerDropbox(rutaMaestro("usuarios"));
-if(!Array.isArray(datos))throw new Error("maestro_usuarios.json no contiene una lista válida.");
+
+if(!Array.isArray(datos)){
+throw new Error("maestro_usuarios.json no contiene una lista válida.");
+}
+
 RITA.usuarios=datos;
 return datos;
 }
+
+async function guardarUsuarios(){
+await escribirDropbox(rutaMaestro("usuarios"),RITA.usuarios);
+}
+
+async function obtenerUsuarios(){
+return await cargarUsuarios();
+}
+
+/* =========================================================
+   CONFIGURACIÓN
+   ========================================================= */
 
 async function cargarConfiguracion(){
 const datos=await leerDropbox(rutaMaestro("configuracion"));
@@ -98,11 +110,33 @@ RITA.configuracion=datos;
 return datos;
 }
 
+async function obtenerConfiguracion(){
+return await cargarConfiguracion();
+}
+
+async function guardarConfiguracion(config){
+RITA.configuracion=config;
+await escribirDropbox(rutaMaestro("configuracion"),config);
+
+await registrarAuditoria(
+"A8",
+"CAMBIO DE CONFIGURACIÓN",
+"Modificación de parámetros generales de Rita©"
+);
+
+return config;
+}
+
+/* =========================================================
+   INICIALIZACIÓN
+   ========================================================= */
+
 async function iniciarRita(){
 await Promise.all([
 cargarUsuarios(),
 cargarConfiguracion()
 ]);
+
 return true;
 }
 
@@ -111,11 +145,13 @@ return true;
    ========================================================= */
 
 async function buscarUsuario(usuario,password){
-if(!RITA.usuarios.length)await cargarUsuarios();
+if(!RITA.usuarios.length){
+await cargarUsuarios();
+}
 
 return RITA.usuarios.find(u=>
-u.activo!==false&&
-normalizar(u.usuario)===normalizar(usuario)&&
+u.activo!==false &&
+normalizar(u.usuario)===normalizar(usuario) &&
 u.password===password
 )||null;
 }
@@ -132,50 +168,72 @@ demo:!!usuario.demo,
 inicio:new Date().toISOString()
 };
 
-sessionStorage.setItem("rita_instituto_usuario",JSON.stringify(sesion));
+sessionStorage.setItem(
+"rita_instituto_usuario",
+JSON.stringify(sesion)
+);
+
 registrarSesion("INICIO",sesion).catch(console.error);
+
 return sesion;
 }
 
 function usuarioActivo(){
 try{
-const x=sessionStorage.getItem("rita_instituto_usuario");
-return x?JSON.parse(x):null;
+const datos=sessionStorage.getItem("rita_instituto_usuario");
+return datos?JSON.parse(datos):null;
 }catch(e){
 return null;
 }
 }
 
 function tienePermiso(codigo){
-const u=usuarioActivo();
-return!!(u&&Array.isArray(u.permisos)&&u.permisos.includes(codigo));
+const usuario=usuarioActivo();
+
+return!!(
+usuario &&
+Array.isArray(usuario.permisos) &&
+usuario.permisos.includes(codigo)
+);
 }
 
 async function cerrarSesion(){
-const u=usuarioActivo();
-if(u){
-try{await registrarSesion("CIERRE",u)}catch(e){console.error(e)}
+const usuario=usuarioActivo();
+
+if(usuario){
+try{
+await registrarSesion("CIERRE",usuario);
+}catch(e){
+console.error(e);
 }
+}
+
 sessionStorage.removeItem("rita_instituto_usuario");
 location.href="index.html";
 }
 
 /* =========================================================
-   GESTIÓN DE USUARIOS DESDE A8
+   ALTA DE USUARIOS
    ========================================================= */
 
-async function guardarUsuarios(){
-await escribirDropbox(rutaMaestro("usuarios"),RITA.usuarios);
+async function altaUsuario(datos){
+if(!RITA.usuarios.length){
+await cargarUsuarios();
 }
 
-async function altaUsuario(datos){
-if(!RITA.usuarios.length)await cargarUsuarios();
-
-if(RITA.usuarios.some(u=>normalizar(u.usuario)===normalizar(datos.usuario))){
+if(
+RITA.usuarios.some(
+u=>normalizar(u.usuario)===normalizar(datos.usuario)
+)
+){
 throw new Error("Ya existe un usuario con ese nombre de acceso.");
 }
 
-if(RITA.usuarios.some(u=>normalizar(u.codigo)===normalizar(datos.codigo))){
+if(
+RITA.usuarios.some(
+u=>normalizar(u.codigo)===normalizar(datos.codigo)
+)
+){
 throw new Error("Ya existe un usuario con ese código.");
 }
 
@@ -188,105 +246,150 @@ rol:datos.rol||"Usuario",
 administrador:!!datos.administrador,
 activo:datos.activo!==false,
 demo:!!datos.demo,
-permisos:Array.isArray(datos.permisos)?datos.permisos:[]
+permisos:Array.isArray(datos.permisos)?[...datos.permisos]:[]
 };
 
 RITA.usuarios.push(nuevo);
+
 await guardarUsuarios();
 
 await registrarAuditoria(
 "A8",
 "ALTA DE USUARIO",
-`Alta de ${nuevo.nombre} (${nuevo.usuario})`
+"Alta de "+nuevo.nombre+" ("+nuevo.usuario+")"
 );
 
 return nuevo;
 }
 
+/* =========================================================
+   EDICIÓN DE USUARIOS
+   ========================================================= */
+
 async function editarUsuario(codigo,cambios){
-if(!RITA.usuarios.length)await cargarUsuarios();
+if(!RITA.usuarios.length){
+await cargarUsuarios();
+}
 
-const u=RITA.usuarios.find(x=>x.codigo===codigo);
-if(!u)throw new Error("Usuario no encontrado.");
+const usuario=RITA.usuarios.find(u=>u.codigo===codigo);
 
-const codigoAnterior=u.codigo;
+if(!usuario){
+throw new Error("Usuario no encontrado.");
+}
 
-if(cambios.nombre!==undefined)u.nombre=cambios.nombre.trim();
-if(cambios.usuario!==undefined)u.usuario=normalizar(cambios.usuario);
-if(cambios.password)u.password=cambios.password;
-if(cambios.rol!==undefined)u.rol=cambios.rol;
-if(cambios.activo!==undefined)u.activo=!!cambios.activo;
-if(cambios.demo!==undefined)u.demo=!!cambios.demo;
-if(cambios.administrador!==undefined)u.administrador=!!cambios.administrador;
-if(Array.isArray(cambios.permisos))u.permisos=[...cambios.permisos];
+if(cambios.nombre!==undefined){
+usuario.nombre=(cambios.nombre||"").trim();
+}
+
+if(cambios.usuario!==undefined){
+const nuevoUsuario=normalizar(cambios.usuario);
+
+const repetido=RITA.usuarios.some(
+u=>u!==usuario && normalizar(u.usuario)===nuevoUsuario
+);
+
+if(repetido){
+throw new Error("Ya existe otro usuario con ese nombre de acceso.");
+}
+
+usuario.usuario=nuevoUsuario;
+}
+
+if(cambios.codigo!==undefined){
+const nuevoCodigo=(cambios.codigo||"").trim().toUpperCase();
+
+const repetido=RITA.usuarios.some(
+u=>u!==usuario && normalizar(u.codigo)===normalizar(nuevoCodigo)
+);
+
+if(repetido){
+throw new Error("Ya existe otro usuario con ese código.");
+}
+
+usuario.codigo=nuevoCodigo;
+}
+
+if(cambios.password){
+usuario.password=cambios.password;
+}
+
+if(cambios.rol!==undefined){
+usuario.rol=cambios.rol;
+}
+
+if(cambios.activo!==undefined){
+usuario.activo=!!cambios.activo;
+}
+
+if(cambios.demo!==undefined){
+usuario.demo=!!cambios.demo;
+}
+
+if(cambios.administrador!==undefined){
+usuario.administrador=!!cambios.administrador;
+}
+
+if(Array.isArray(cambios.permisos)){
+usuario.permisos=[...cambios.permisos];
+}
 
 await guardarUsuarios();
 
 await registrarAuditoria(
 "A8",
 "EDICIÓN DE USUARIO",
-`Edición del usuario ${codigoAnterior} · ${u.nombre}`
+"Edición del usuario "+usuario.codigo+" · "+usuario.nombre
 );
 
-return u;
+return usuario;
 }
 
 async function cambiarPermisos(codigo,permisos){
-return editarUsuario(codigo,{permisos});
+return await editarUsuario(codigo,{permisos});
 }
 
 async function cambiarEstadoUsuario(codigo,activo){
-return editarUsuario(codigo,{activo});
+return await editarUsuario(codigo,{activo});
 }
 
 async function cambiarPassword(codigo,password){
-if(!password)throw new Error("La contraseña no puede quedar vacía.");
-return editarUsuario(codigo,{password});
+if(!password){
+throw new Error("La contraseña no puede quedar vacía.");
 }
 
-/* =========================================================
-   CONFIGURACIÓN
-   ========================================================= */
-
-async function guardarConfiguracion(config){
-RITA.configuracion=config;
-await escribirDropbox(rutaMaestro("configuracion"),config);
-
-await registrarAuditoria(
-"A8",
-"CAMBIO DE CONFIGURACIÓN",
-"Modificación de parámetros generales de Rita©"
-);
-
-return config;
+return await editarUsuario(codigo,{password});
 }
 
 /* =========================================================
    AUDITORÍA
    ========================================================= */
 
+async function obtenerAuditoria(){
+const datos=await leerDropbox(rutaMaestro("auditoria"));
+return Array.isArray(datos)?datos:[];
+}
+
 async function registrarAuditoria(area,accion,detalle){
 let lista=[];
 
 try{
-lista=await leerDropbox(rutaMaestro("auditoria"));
-if(!Array.isArray(lista))lista=[];
+lista=await obtenerAuditoria();
 }catch(e){
 lista=[];
 }
 
-const u=usuarioActivo();
+const usuario=usuarioActivo();
 const ahora=new Date();
 
 lista.push({
 id:"AUD-"+String(lista.length+1).padStart(4,"0"),
 fecha:ahora.toISOString().slice(0,10),
 hora:ahora.toTimeString().slice(0,8),
-usuario_codigo:u?.codigo||"SISTEMA",
-usuario_nombre:u?.nombre||"Sistema",
+usuario_codigo:usuario?.codigo||"SISTEMA",
+usuario_nombre:usuario?.nombre||"Sistema",
 area:area||"",
 modulo:area==="A8"?"Configuración":"",
-accion,
+accion:accion||"",
 detalle:detalle||"",
 resultado:"Correcto"
 });
@@ -298,14 +401,26 @@ await escribirDropbox(rutaMaestro("auditoria"),lista);
    SESIONES
    ========================================================= */
 
+async function obtenerSesiones(){
+const datos=await leerDropbox(rutaMaestro("sesiones"));
+return Array.isArray(datos)?datos:[];
+}
+
 async function registrarSesion(tipo,usuario){
-if(RITA.configuracion?.acceso?.registro_accesos===false)return;
+if(!RITA.configuracion){
+try{
+await cargarConfiguracion();
+}catch(e){}
+}
+
+if(RITA.configuracion?.acceso?.registro_accesos===false){
+return;
+}
 
 let lista=[];
 
 try{
-lista=await leerDropbox(rutaMaestro("sesiones"));
-if(!Array.isArray(lista))lista=[];
+lista=await obtenerSesiones();
 }catch(e){
 lista=[];
 }
@@ -323,27 +438,4 @@ nombre:usuario.nombre
 });
 
 await escribirDropbox(rutaMaestro("sesiones"),lista);
-}
-
-/* =========================================================
-   UTILIDADES A8
-   ========================================================= */
-
-async function obtenerUsuarios(){
-await cargarUsuarios();
-return RITA.usuarios;
-}
-
-async function obtenerConfiguracion(){
-return await cargarConfiguracion();
-}
-
-async function obtenerAuditoria(){
-const x=await leerDropbox(rutaMaestro("auditoria"));
-return Array.isArray(x)?x:[];
-}
-
-async function obtenerSesiones(){
-const x=await leerDropbox(rutaMaestro("sesiones"));
-return Array.isArray(x)?x:[];
 }
