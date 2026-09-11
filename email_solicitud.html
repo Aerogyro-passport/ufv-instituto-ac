@@ -1,0 +1,12 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solicitud recibida</title>
+<style>body{margin:0;background:#edf5fb;color:#17344e;font:18px Arial}.m{max-width:760px;margin:30px auto;background:#fff;border:1px solid #cbd9e3}.h{background:#003B5D;color:#fff;padding:25px 30px}.h b{font-size:26px}.b{padding:28px 32px;line-height:1.5}.btn{display:inline-block;background:#0873ae;color:#fff;text-decoration:none;padding:14px 20px;border-radius:5px;font-weight:bold}.qr{width:190px;height:190px}.box{background:#edf5fb;padding:18px;margin:20px 0}.pie{padding:15px 30px;background:#003B5D;color:#d7e8f1;font-size:13px}</style></head><body>
+<div class="m"><div class="h"><b>Rita© · SERVICIO DE CERTIFICACIÓN DE PERSONAS</b><br>del Instituto de Acompañamiento de la UFV</div><div class="b">
+<h2>Su solicitud ha sido recibida</h2><p>Su solicitud de certificación ha sido registrada correctamente.</p><div class="box" id="info"></div>
+<p>Desde su Portal personal Rita© podrá consultar el estado del expediente y aportar las evidencias requeridas en cada fase.</p><p><a class="btn" id="portal">ACCEDER A MI PORTAL RITA©</a></p><p><img class="qr" id="qr"></p>
+<p><b>Conserve este enlace y su código QR.</b> Son personales y no deben compartirse.</p><p>Se adjunta igualmente el documento de instrucciones para el proceso de certificación.</p>
+</div><div class="pie">SERVICIO DE CERTIFICACIÓN DE PERSONAS · Instituto de Acompañamiento de la UFV</div></div>
+<script>
+const q=new URLSearchParams(location.search),sol=q.get("sol")||"",exp=q.get("exp")||"",t=q.get("t")||"",u=new URL("portal.html?t="+encodeURIComponent(t),location.href).href;
+document.getElementById("info").innerHTML=`<b>SOLICITUD:</b> ${sol}<br><b>EXPEDIENTE:</b> ${exp}<br><b>ESTADO:</b> ASPIRANTE · LLAVE 1 ADMISIÓN`;
+document.getElementById("portal").href=u;document.getElementById("qr").src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data="+encodeURIComponent(u);
+</script></body></html>
