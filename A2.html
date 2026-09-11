@@ -1,1 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rita© | A2 Área de Gestión</title>
+<style>
+@font-face{font-family:Tecnico;src:url("tecnico_regular.ttf")}@font-face{font-family:Tecnico;src:url("tecnico_bold.ttf");font-weight:700}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%}body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial,sans-serif;font-size:25px}.app{display:flex;min-height:100vh}
+.lateral{width:350px;min-width:350px;background:#003B5D;color:#fff;padding:38px 32px 30px;display:flex;flex-direction:column}.rita{position:relative;width:max-content;font-size:82px;line-height:.95;letter-spacing:-4px}.copyright{position:absolute;top:-5px;right:-22px;font:20px Arial}.linea{width:92px;height:5px;background:#4dd4d0;margin:30px 0 36px}.nombre{font-size:24px;line-height:1.3;text-transform:uppercase}.menu{margin-top:26px;padding-top:15px;border-top:1px solid #ffffff38}.menu button{width:100%;min-height:52px;margin-bottom:7px;padding:9px 11px;border:1px solid #ffffff45;border-radius:5px;background:#ffffff12;color:#fff;font:17px Tecnico;text-align:left;cursor:pointer}.menu button.actual{background:#fff;color:#003B5D}.menu button:disabled{opacity:.3;cursor:not-allowed}.pie{margin-top:auto;padding-top:28px}.pie img{width:100%}
+.principal{flex:1;min-width:0}.cabecera{height:185px;background:#fff;display:flex;align-items:center;padding:0 70px}.cabecera img{width:840px;max-width:73vw}.zona{padding:32px 38px 50px}.top{display:flex;justify-content:space-between;gap:25px;align-items:center;margin-bottom:25px}.ident{display:flex;align-items:center;gap:20px}.ident img{width:105px;height:105px;object-fit:contain}.ident h1{margin:0;font-size:54px;font-weight:400}.ident p{margin:6px 0 0;font-size:26px;color:#718ca4}.usuario{text-align:right;font-size:22px;color:#718ca4}.usuario strong{display:block;font-size:27px;color:#17344e}.volver{margin-top:10px;padding:11px 17px;border:1px solid #b8cad7;border-radius:5px;background:#fff;color:#315675;font:20px Tecnico;cursor:pointer}
+.indicadores{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}.indicador{background:#fff;border:2px solid #cad9e3;border-radius:8px;padding:16px 18px;cursor:pointer}.indicador strong{display:block;font-size:40px;font-weight:400}.indicador span{font-size:20px;color:#71879a}.indicador.alerta strong{color:#b77918}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}.tab{padding:14px 21px;border:2px solid #bfd0dc;border-radius:7px;background:#fff;color:#45647d;font:26px Tecnico;cursor:pointer}.tab.activa{background:#0873ae;color:#fff;border-color:#0873ae}.panel{display:none;background:#fff;border:2px solid #cbd9e3;border-radius:8px;padding:24px}.panel.activo{display:block}.panel h2{margin:0 0 8px;font-size:40px;font-weight:400}.intro{margin:0 0 22px;color:#718ca4;font-size:24px}
+.filtros{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:11px;margin-bottom:17px}.filtros input,.filtros select{height:55px;border:2px solid #bfd0dc;border-radius:6px;padding:0 12px;background:#fff;color:#17344e;font:21px Tecnico}
+.tabla{border:1px solid #ccd9e2;border-radius:7px;overflow:hidden}.fila{display:grid;grid-template-columns:135px 1.5fr 1.2fr 170px 190px 145px;gap:10px;align-items:center;padding:13px 14px;border-bottom:1px solid #dce5eb;font-size:20px}.fila:last-child{border-bottom:0}.fila.cab{background:#e8f0f5;color:#526f86;font-weight:700}.fila.click{cursor:pointer}.fila.click:hover{background:#f2f8fb}.estado{display:inline-block;padding:7px 10px;border-radius:18px;font-size:17px;text-align:center}.rojo{background:#f4c6c6;color:#8f2828}.amarillo{background:#f6e79b;color:#756000}.verde{background:#cdebd8;color:#276a46}.azul{background:#d8eaf5;color:#276080}.gris{background:#e5e8ea;color:#5d6870}.naranja{background:#f4cf9e;color:#8a5415}
+.detalle{margin-top:18px;border:2px solid #cbd9e3;border-radius:8px;padding:20px;background:#fbfdfe}.detalle h3{margin:0 0 15px;font-size:34px;font-weight:400}.datos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}.dato{padding:12px;background:#f2f7fa;border-radius:6px}.dato b{display:block;font-size:17px;color:#6c8498;text-transform:uppercase;margin-bottom:4px}.llaves{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}.llave{border:2px solid #cbd8e1;border-radius:8px;padding:16px;text-align:center}.llave b{display:block;font-size:23px}.llave span{font-size:18px}.llave.abierta{background:#d9efdf;border-color:#68aa7b}.llave.cerrada{background:#f0f2f4;color:#83909a}.llave.actual{background:#e3eff7;border-color:#5995bb}
+.evidencia{border:2px solid #d4e0e8;border-radius:7px;padding:16px;margin-bottom:12px}.evidencia-top{display:grid;grid-template-columns:125px 150px 1fr 185px;gap:12px;align-items:center}.evidencia h4{margin:0;font-size:25px;font-weight:400}.evidencia p{margin:8px 0;color:#667f92;font-size:20px}.evidencia-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.btn{border:0;border-radius:6px;padding:10px 16px;font:19px Tecnico;cursor:pointer}.btn-verde{background:#378b62;color:#fff}.btn-rojo{background:#b74c4c;color:#fff}.btn-azul{background:#0873ae;color:#fff}.btn-claro{background:#e6eef3;color:#315675}.btn:disabled{opacity:.4;cursor:not-allowed}.archivo{color:#0873ae;text-decoration:none;font-size:19px}.vacio{padding:30px;text-align:center;color:#7d92a1}.motivo{margin-top:12px}.motivo textarea{width:100%;min-height:90px;border:2px solid #bfd0dc;border-radius:6px;padding:10px;font:20px Tecnico}.mensaje{display:none;position:fixed;right:25px;bottom:25px;padding:15px 20px;border-radius:7px;background:#315675;color:#fff;font-size:20px}.mensaje.visible{display:block}
+@media(max-width:1400px){.lateral{width:310px;min-width:310px}.fila{grid-template-columns:120px 1.3fr 1fr 150px 170px 120px}.filtros{grid-template-columns:1fr 1fr}.datos,.llaves{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="lateral">
+<div class="rita">Rita<span class="copyright">©</span></div><div class="linea"></div><div class="nombre">Sistema de Gestión<br>del Esquema de<br>Certificación de Personas</div>
+<nav class="menu">
+<button onclick="location.href='A1.html'">A1 · ÁREA TÉCNICA</button>
+<button class="actual">A2 · ÁREA DE GESTIÓN</button>
+<button disabled>A3 · ÁREA DE EVALUACIÓN</button>
+<button disabled>A4 · ÁREA DE FORMACIÓN</button>
+<button disabled>A5 · ÁREA DE DECISIÓN</button>
+<button disabled>A6 · ÁREA DE CONFLICTOS</button>
+<button disabled>A7 · ÁREA DE MEJORA</button>
+<button onclick="location.href='A8.html'">A8 · CONFIGURACIÓN</button>
+<button onclick="location.href='A9.html'">A9 · AVISOS</button>
+<button onclick="location.href='A10.html'">A10 · GESTIÓN ECONÓMICA</button>
+</nav>
+<div class="pie"><img src="pie.png" alt=""></div>
+</aside>
 
+<main class="principal">
+<header class="cabecera"><img src="cabecera1.png" alt=""></header>
+<section class="zona">
+
+<div class="top">
+<div class="ident"><img src="ICOA2.png" alt=""><div><h1>A2 · Área de Gestión</h1><p>Gestión administrativa de solicitudes, expedientes y evidencias</p></div></div>
+<div class="usuario"><strong id="usuarioNombre"></strong><span id="usuarioRol"></span><br><button class="volver" onclick="location.href='index.html'">Volver al inicio</button></div>
+</div>
+
+<div class="indicadores">
+<div class="indicador alerta" onclick="activarTab('solicitudes')"><strong id="nSolicitudes">0</strong><span>SOLICITUDES NUEVAS</span></div>
+<div class="indicador alerta" onclick="activarTab('validacion')"><strong id="nValidar">0</strong><span>EVIDENCIAS POR VALIDAR</span></div>
+<div class="indicador" onclick="activarTab('expedientes')"><strong id="nAspirantes">0</strong><span>ASPIRANTES</span></div>
+<div class="indicador" onclick="activarTab('expedientes')"><strong id="nCandidatos">0</strong><span>CANDIDATOS</span></div>
+</div>
+
+<div class="tabs">
+<button class="tab activa" data-panel="solicitudes">Solicitudes</button>
+<button class="tab" data-panel="expedientes">Expedientes</button>
+<button class="tab" data-panel="validacion">Validación de evidencias</button>
+</div>
+
+<div class="panel activo" id="solicitudes">
+<h2>Solicitudes de certificación</h2>
+<p class="intro">Solicitudes recibidas desde el formulario público de admisión.</p>
+<div class="filtros"><input id="busSol" placeholder="Buscar nombre, documento o expediente..."><select id="esqSol"><option value="">TODOS LOS ESQUEMAS</option></select><select id="estSol"><option value="">TODOS LOS ESTADOS</option><option>NUEVA</option><option>EXPEDIENTE CREADO</option></select><button class="btn btn-claro" onclick="recargarTodo()">Recargar Dropbox</button></div>
+<div class="tabla"><div class="fila cab"><div>CÓDIGO</div><div>SOLICITANTE</div><div>ESQUEMA</div><div>FECHA</div><div>ESTADO</div><div>EXPEDIENTE</div></div><div id="listaSolicitudes"></div></div>
+</div>
+
+<div class="panel" id="expedientes">
+<h2>Expedientes</h2>
+<p class="intro">Seguimiento automático del estado administrativo de aspirantes y candidatos.</p>
+<div class="filtros"><input id="busExp" placeholder="Buscar expediente, nombre o documento..."><select id="esqExp"><option value="">TODOS LOS ESQUEMAS</option></select><select id="estExp"><option value="">TODOS LOS ESTADOS</option></select><button class="btn btn-claro" onclick="recargarTodo()">Recargar Dropbox</button></div>
+<div class="tabla"><div class="fila cab"><div>EXPEDIENTE</div><div>PERSONA</div><div>ESQUEMA</div><div>ESTADO</div><div>FASE</div><div>PROGRESO</div></div><div id="listaExpedientes"></div></div>
+<div id="detalleExpediente"></div>
+</div>
+
+<div class="panel" id="validacion">
+<h2>Validación de evidencias</h2>
+<p class="intro">El técnico de gestión sólo interviene para validar una evidencia o declararla insuficiente.</p>
+<div class="filtros"><input id="busEvi" placeholder="Buscar expediente, persona o requisito..."><select id="tipoEvi"><option value="">TODOS LOS TIPOS</option><option>EDUCACIÓN</option><option>FORMACIÓN</option><option>EXPERIENCIA</option><option>OTROS</option></select><select id="estEvi"><option value="PENDIENTE_VALIDACION">PENDIENTES DE VALIDAR</option><option value="">TODOS</option><option>SIN_EVIDENCIA</option><option>VALIDADA</option><option>INSUFICIENTE</option></select><button class="btn btn-claro" onclick="recargarTodo()">Recargar Dropbox</button></div>
+<div id="listaValidacion"></div>
+</div>
+
+</section>
+</main>
+</div>
+
+<div class="mensaje" id="mensaje"></div>
+
+<script src="dropbox_config.js"></script>
+<script src="usuarios.js"></script>
+<script src="maestro_perfiles_certificables.js"></script>
+<script src="maestro_esquemas_certificacion.js"></script>
+
+<script>
+const BASE="/03_UFV_INSTITUTO/99_datos_Rita/";
+const ARCHIVOS={solicitudes:"maestro_solicitudes.json",expedientes:"maestro_expedientes.json",evidencias:"maestro_evidencias.json",estados:"maestro_estados_expediente.json"};
+let DATOS={solicitudes:[],expedientes:[],evidencias:[],estados:[]},REV={},EXPEDIENTE_ACTIVO=null;
+const $=id=>document.getElementById(id),txt=v=>String(v??"").trim(),norm=v=>txt(v).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+
+const SESION=usuarioActivo();
+if(!SESION||!tienePermiso("A2")){alert("No dispone de autorización para acceder al Área de Gestión.");location.href="index.html"}
+$("usuarioNombre").textContent=SESION?.nombre||"";$("usuarioRol").textContent=SESION?.rol||"";
+
+async function token(){if(typeof obtenerDropboxAccessToken!=="function")throw Error("No se encuentra la conexión Dropbox.");return obtenerDropboxAccessToken()}
+
+async function descargar(k){
+const t=await token(),path=BASE+ARCHIVOS[k];
+const r=await fetch("https://content.dropboxapi.com/2/files/download",{method:"POST",headers:{Authorization:"Bearer "+t,"Dropbox-API-Arg":JSON.stringify({path})}});
+if(r.status===409||r.status===404)return [];
+if(!r.ok)throw Error(ARCHIVOS[k]+": Dropbox "+r.status);
+const meta=JSON.parse(r.headers.get("Dropbox-API-Result")||"{}");REV[k]=meta.rev;
+const texto=await r.text();if(!texto.trim())return [];
+let d;try{d=JSON.parse(texto)}catch{throw Error(ARCHIVOS[k]+" no contiene JSON válido.")}
+if(!Array.isArray(d))throw Error(ARCHIVOS[k]+" debe contener un array JSON.");
+return d;
+}
+
+async function guardar(k){
+const t=await token(),path=BASE+ARCHIVOS[k],arg={path,mode:REV[k]?{".tag":"update",update:REV[k]}:"overwrite",autorename:false,mute:true,strict_conflict:true};
+const r=await fetch("https://content.dropboxapi.com/2/files/upload",{method:"POST",headers:{Authorization:"Bearer "+t,"Content-Type":"application/octet-stream","Dropbox-API-Arg":JSON.stringify(arg)},body:JSON.stringify(DATOS[k],null,2)});
+if(!r.ok)throw Error(r.status===409?"Otro usuario ha modificado "+ARCHIVOS[k]+". Recargue Dropbox.":"Dropbox "+r.status);
+REV[k]=(await r.json()).rev;
+}
+
+function fechaISO(){return new Date().toISOString()}
+function idNuevo(pref,l){let n=1;while(l.some(x=>x.codigo===pref+"-"+String(n).padStart(5,"0")))n++;return pref+"-"+String(n).padStart(5,"0")}
+function reqPerfil(codigoPerfil){
+const p=(window.PERFILES_CERTIFICABLES||[]).find(x=>x.codigo===codigoPerfil);if(!p)return [];
+const r=p.requisitos||{};
+return [
+...(r.educacion||[]).map(x=>({...x,tipo_requisito:"EDUCACIÓN"})),
+...(r.formacion||[]).map(x=>({...x,tipo_requisito:"FORMACIÓN"})),
+...(r.experiencia||[]).map(x=>({...x,tipo_requisito:"EXPERIENCIA"})),
+...(r.otros||[]).map(x=>({...x,tipo_requisito:"OTROS"}))
+];
+}
+function reqLlave(codigoPerfil,llave){return reqPerfil(codigoPerfil).filter(x=>x.nivel_llave===llave)}
+function evidenciasExp(exp){return DATOS.evidencias.filter(x=>x.expediente_codigo===exp.codigo)}
+function evidenciaReq(exp,cod){return DATOS.evidencias.find(x=>x.expediente_codigo===exp.codigo&&x.codigo_requisito===cod)}
+function requisitosCumplidos(exp,llave){
+const req=reqLlave(exp.perfil_codigo,llave);if(!req.length)return true;
+const oblig=req.filter(x=>(x.obligatoriedad||"OBLIGATORIO")==="OBLIGATORIO");
+if(oblig.some(r=>evidenciaReq(exp,r.codigo_requisito)?.estado!=="VALIDADA"))return false;
+const grupos={};req.filter(x=>x.obligatoriedad==="ALTERNATIVO").forEach(r=>{const g=r.grupo_alternativa||r.codigo_requisito;(grupos[g]??=[]).push(r)});
+return Object.values(grupos).every(g=>g.some(r=>evidenciaReq(exp,r.codigo_requisito)?.estado==="VALIDADA"));
+}
+
+async function recalcularExpediente(exp,guardarCambios=true){
+let nuevo="ASPIRANTE",fase="LLAVE 1 · ADMISIÓN";
+if(requisitosCumplidos(exp,"ADMISION")){nuevo="CANDIDATO";fase="LLAVE 2 · CUALIFICACIÓN"}
+if(nuevo==="CANDIDATO"&&requisitosCumplidos(exp,"CUALIFICACION")){nuevo="CANDIDATO EVALUABLE";fase="LLAVE 3 · EVALUACIÓN"}
+const cambio=exp.estado!==nuevo||exp.fase!==fase;
+exp.estado=nuevo;exp.fase=fase;exp.fecha_actualizacion=fechaISO();
+if(cambio&&guardarCambios)await guardar("expedientes");
+return cambio;
+}
+
+function estadoEvidencia(e){if(!e||!e.archivo)return["SIN EVIDENCIA","rojo"];if(e.estado==="VALIDADA")return["VALIDADA","verde"];if(e.estado==="INSUFICIENTE")return["INSUFICIENTE","rojo"];return["PENDIENTE DE VALIDACIÓN","amarillo"]}
+function estadoExpClase(e){if(e==="ASPIRANTE")return"rojo";if(e==="CANDIDATO")return"amarillo";if(e==="CANDIDATO EVALUABLE")return"verde";return"azul"}
+
+function progreso(exp){
+const req=[...reqLlave(exp.perfil_codigo,"ADMISION"),...reqLlave(exp.perfil_codigo,"CUALIFICACION")];if(!req.length)return"—";
+const ok=req.filter(r=>evidenciaReq(exp,r.codigo_requisito)?.estado==="VALIDADA").length;
+return ok+"/"+req.length;
+}
+
+function activarTab(id){
+document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("activa",x.dataset.panel===id));
+document.querySelectorAll(".panel").forEach(x=>x.classList.toggle("activo",x.id===id));
+if(id==="expedientes")pintarExpedientes();if(id==="solicitudes")pintarSolicitudes();if(id==="validacion")pintarValidacion();
+}
+document.querySelectorAll(".tab").forEach(x=>x.onclick=()=>activarTab(x.dataset.panel));
+
+function pintarIndicadores(){
+$("nSolicitudes").textContent=DATOS.solicitudes.filter(x=>(x.estado||"NUEVA")==="NUEVA").length;
+$("nValidar").textContent=DATOS.evidencias.filter(x=>x.estado==="PENDIENTE_VALIDACION").length;
+$("nAspirantes").textContent=DATOS.expedientes.filter(x=>x.estado==="ASPIRANTE").length;
+$("nCandidatos").textContent=DATOS.expedientes.filter(x=>["CANDIDATO","CANDIDATO EVALUABLE"].includes(x.estado)).length;
+}
+
+function llenarFiltros(){
+const esquemas=[...new Set(DATOS.expedientes.map(x=>x.esquema_nombre).concat(DATOS.solicitudes.map(x=>x.esquema_nombre)).filter(Boolean))].sort();
+["esqSol","esqExp"].forEach(id=>{const v=$(id).value;$(id).innerHTML='<option value="">TODOS LOS ESQUEMAS</option>'+esquemas.map(x=>`<option>${x}</option>`).join("");$(id).value=v});
+const estados=[...new Set(DATOS.expedientes.map(x=>x.estado).filter(Boolean))];$("estExp").innerHTML='<option value="">TODOS LOS ESTADOS</option>'+estados.map(x=>`<option>${x}</option>`).join("");
+}
+
+function pintarSolicitudes(){
+const b=norm($("busSol").value),es=$("esqSol").value,st=$("estSol").value;
+const l=DATOS.solicitudes.filter(x=>(!b||norm([x.codigo,x.nombre,x.apellidos,x.documento,x.email].join(" ")).includes(b))&&(!es||x.esquema_nombre===es)&&(!st||(x.estado||"NUEVA")===st));
+$("listaSolicitudes").innerHTML=l.length?l.map(x=>{
+const exp=DATOS.expedientes.find(e=>e.solicitud_codigo===x.codigo);
+return `<div class="fila click" onclick="abrirSolicitud('${x.codigo}')"><div>${x.codigo||""}</div><div>${txt(x.nombre_completo)||txt(x.nombre+" "+x.apellidos)}</div><div>${x.esquema_nombre||x.esquema_codigo||"—"}</div><div>${(x.fecha_solicitud||"").slice(0,10)}</div><div><span class="estado ${x.estado==="EXPEDIENTE CREADO"?"verde":"azul"}">${x.estado||"NUEVA"}</span></div><div>${exp?.codigo||"—"}</div></div>`;
+}).join(""):'<div class="vacio">No hay solicitudes.</div>';
+}
+
+async function abrirSolicitud(cod){
+const s=DATOS.solicitudes.find(x=>x.codigo===cod);if(!s)return;
+let exp=DATOS.expedientes.find(x=>x.solicitud_codigo===s.codigo);
+if(exp){activarTab("expedientes");abrirExpediente(exp.codigo);return}
+if(!confirm("Crear automáticamente el expediente de esta solicitud?"))return;
+exp={codigo:idNuevo("EXP",DATOS.expedientes),solicitud_codigo:s.codigo,nombre_completo:s.nombre_completo||txt(s.nombre+" "+s.apellidos),documento:s.documento||"",email:s.email||"",telefono:s.telefono||"",esquema_codigo:s.esquema_codigo||"",esquema_nombre:s.esquema_nombre||"",perfil_codigo:s.perfil_codigo||"",estado:"ASPIRANTE",fase:"LLAVE 1 · ADMISIÓN",fecha_alta:fechaISO(),fecha_actualizacion:fechaISO()};
+DATOS.expedientes.push(exp);
+const req=reqPerfil(exp.perfil_codigo);
+req.forEach(r=>DATOS.evidencias.push({codigo:idNuevo("EVI",DATOS.evidencias),expediente_codigo:exp.codigo,codigo_requisito:r.codigo_requisito,tipo_requisito:r.tipo_requisito,nivel_llave:r.nivel_llave,titulo:r.titulo||r.denominacion||r.nombre||"",estado:"SIN_EVIDENCIA",archivo:null,fecha_aportacion:null,fecha_validacion:null,validado_por:null,motivo_insuficiente:""}));
+s.estado="EXPEDIENTE CREADO";s.expediente_codigo=exp.codigo;s.fecha_procesada=fechaISO();
+await guardar("expedientes");await guardar("evidencias");await guardar("solicitudes");
+pintarTodo();activarTab("expedientes");abrirExpediente(exp.codigo);mensaje("Expediente creado automáticamente.");
+}
+
+function pintarExpedientes(){
+const b=norm($("busExp").value),es=$("esqExp").value,st=$("estExp").value;
+const l=DATOS.expedientes.filter(x=>(!b||norm([x.codigo,x.nombre_completo,x.documento].join(" ")).includes(b))&&(!es||x.esquema_nombre===es)&&(!st||x.estado===st));
+$("listaExpedientes").innerHTML=l.length?l.map(x=>`<div class="fila click" onclick="abrirExpediente('${x.codigo}')"><div>${x.codigo}</div><div>${x.nombre_completo}</div><div>${x.esquema_nombre||x.esquema_codigo||"—"}</div><div><span class="estado ${estadoExpClase(x.estado)}">${x.estado}</span></div><div>${x.fase||"—"}</div><div>${progreso(x)}</div></div>`).join(""):'<div class="vacio">No hay expedientes.</div>';
+}
+
+function abrirExpediente(cod){
+const exp=DATOS.expedientes.find(x=>x.codigo===cod);if(!exp)return;EXPEDIENTE_ACTIVO=exp;
+const r1=reqLlave(exp.perfil_codigo,"ADMISION"),r2=reqLlave(exp.perfil_codigo,"CUALIFICACION"),ok1=requisitosCumplidos(exp,"ADMISION"),ok2=requisitosCumplidos(exp,"CUALIFICACION");
+$("detalleExpediente").innerHTML=`<div class="detalle">
+<h3>${exp.codigo} · ${exp.nombre_completo}</h3>
+<div class="datos">
+<div class="dato"><b>Documento</b>${exp.documento||"—"}</div><div class="dato"><b>Email</b>${exp.email||"—"}</div><div class="dato"><b>Esquema</b>${exp.esquema_nombre||"—"}</div>
+<div class="dato"><b>Estado</b>${exp.estado}</div><div class="dato"><b>Alta</b>${(exp.fecha_alta||"").slice(0,10)}</div><div class="dato"><b>Progreso documental</b>${progreso(exp)}</div>
+</div>
+<div class="llaves">
+<div class="llave ${ok1?"abierta":"actual"}"><b>LLAVE 1 · ADMISIÓN</b><span>${ok1?"ABIERTA":"PENDIENTE"} · ${r1.length} requisitos</span></div>
+<div class="llave ${ok1?(ok2?"abierta":"actual"):"cerrada"}"><b>LLAVE 2 · CUALIFICACIÓN</b><span>${!ok1?"BLOQUEADA":ok2?"ABIERTA":"PENDIENTE"} · ${r2.length} requisitos</span></div>
+<div class="llave ${ok2?"actual":"cerrada"}"><b>LLAVE 3 · EVALUACIÓN</b><span>${ok2?"ACCESO HABILITADO":"BLOQUEADA"}</span></div>
+</div>
+${pintarEvidenciasExp(exp)}
+</div>`;
+}
+
+function pintarEvidenciasExp(exp){
+const ev=evidenciasExp(exp).sort((a,b)=>String(a.nivel_llave).localeCompare(String(b.nivel_llave)));
+if(!ev.length)return'<div class="vacio">No hay requisitos asociados al expediente.</div>';
+return ev.map(e=>{
+const r=reqPerfil(exp.perfil_codigo).find(x=>x.codigo_requisito===e.codigo_requisito)||{},s=estadoEvidencia(e);
+return `<div class="evidencia">
+<div class="evidencia-top"><div>${e.codigo_requisito}</div><div>${e.tipo_requisito}</div><h4>${e.titulo}</h4><div><span class="estado ${s[1]}">${s[0]}</span></div></div>
+<p><b>${e.nivel_llave==="ADMISION"?"LLAVE 1 · ADMISIÓN":"LLAVE 2 · CUALIFICACIÓN"}</b><br>${r.descripcion||""}<br><b>Método de comprobación:</b> ${r.metodo_comprobacion||"—"}</p>
+${e.archivo?`<a class="archivo" href="${e.url||e.archivo}" target="_blank">VER EVIDENCIA APORTADA</a>`:'<span class="estado rojo">SIN ARCHIVO</span>'}
+${e.motivo_insuficiente?`<p><b>Motivo de insuficiencia:</b> ${e.motivo_insuficiente}</p>`:""}
+</div>`;
+}).join("");
+}
+
+function pintarValidacion(){
+const b=norm($("busEvi").value),tipo=$("tipoEvi").value,st=$("estEvi").value;
+let l=DATOS.evidencias.filter(e=>{
+const exp=DATOS.expedientes.find(x=>x.codigo===e.expediente_codigo);return exp&&(!b||norm([e.expediente_codigo,exp.nombre_completo,e.codigo_requisito,e.titulo].join(" ")).includes(b))&&(!tipo||e.tipo_requisito===tipo)&&(!st||e.estado===st)
+});
+$("listaValidacion").innerHTML=l.length?l.map(e=>{
+const exp=DATOS.expedientes.find(x=>x.codigo===e.expediente_codigo),r=reqPerfil(exp.perfil_codigo).find(x=>x.codigo_requisito===e.codigo_requisito)||{},s=estadoEvidencia(e),puede=e.estado==="PENDIENTE_VALIDACION";
+return `<div class="evidencia">
+<div class="evidencia-top"><div>${exp.codigo}</div><div>${e.codigo_requisito}</div><h4>${exp.nombre_completo} · ${e.titulo}</h4><div><span class="estado ${s[1]}">${s[0]}</span></div></div>
+<p><b>${e.tipo_requisito} · ${e.nivel_llave==="ADMISION"?"LLAVE 1 · ADMISIÓN":"LLAVE 2 · CUALIFICACIÓN"}</b><br>${r.descripcion||""}<br><b>Método de comprobación:</b> ${r.metodo_comprobacion||"—"}<br><b>Aportada:</b> ${e.fecha_aportacion?e.fecha_aportacion.slice(0,10):"—"}</p>
+${e.archivo?`<a class="archivo" href="${e.url||e.archivo}" target="_blank">ABRIR EVIDENCIA</a>`:""}
+<div class="evidencia-actions">
+<button class="btn btn-verde" ${puede?"":"disabled"} onclick="validarEvidencia('${e.codigo}')">VALIDAR</button>
+<button class="btn btn-rojo" ${puede?"":"disabled"} onclick="mostrarInsuficiente('${e.codigo}')">INSUFICIENTE</button>
+</div>
+<div class="motivo" id="mot-${e.codigo}" style="display:none"><textarea id="txt-${e.codigo}" placeholder="Indique por qué la evidencia es insuficiente..."></textarea><button class="btn btn-rojo" onclick="confirmarInsuficiente('${e.codigo}')">CONFIRMAR INSUFICIENTE</button></div>
+</div>`;
+}).join(""):'<div class="vacio">No hay evidencias con estos filtros.</div>';
+}
+
+async function validarEvidencia(cod){
+const e=DATOS.evidencias.find(x=>x.codigo===cod);if(!e)return;
+e.estado="VALIDADA";e.fecha_validacion=fechaISO();e.validado_por=SESION.codigo;e.motivo_insuficiente="";
+await guardar("evidencias");
+const exp=DATOS.expedientes.find(x=>x.codigo===e.expediente_codigo);await recalcularExpediente(exp,true);
+pintarTodo();pintarValidacion();mensaje("Evidencia validada.");
+}
+
+function mostrarInsuficiente(cod){$("mot-"+cod).style.display="block";$("txt-"+cod).focus()}
+
+async function confirmarInsuficiente(cod){
+const motivo=txt($("txt-"+cod).value);if(!motivo){alert("Debe indicar el motivo de insuficiencia.");return}
+const e=DATOS.evidencias.find(x=>x.codigo===cod);e.estado="INSUFICIENTE";e.fecha_validacion=fechaISO();e.validado_por=SESION.codigo;e.motivo_insuficiente=motivo;
+await guardar("evidencias");
+const exp=DATOS.expedientes.find(x=>x.codigo===e.expediente_codigo);await recalcularExpediente(exp,true);
+pintarTodo();pintarValidacion();mensaje("Evidencia declarada insuficiente.");
+}
+
+function pintarTodo(){llenarFiltros();pintarIndicadores();pintarSolicitudes();pintarExpedientes();pintarValidacion();if(EXPEDIENTE_ACTIVO)abrirExpediente(EXPEDIENTE_ACTIVO.codigo)}
+
+["busSol","esqSol","estSol"].forEach(id=>$(id).oninput=$(id).onchange=pintarSolicitudes);
+["busExp","esqExp","estExp"].forEach(id=>$(id).oninput=$(id).onchange=pintarExpedientes);
+["busEvi","tipoEvi","estEvi"].forEach(id=>$(id).oninput=$(id).onchange=pintarValidacion);
+
+async function recargarTodo(){
+try{
+if(typeof cargarPerfilesCertificables==="function")await cargarPerfilesCertificables();
+if(typeof cargarEsquemasCertificacion==="function")await cargarEsquemasCertificacion();
+const a=await Promise.all(Object.keys(ARCHIVOS).map(async k=>[k,await descargar(k)]));a.forEach(([k,d])=>DATOS[k]=d);
+for(const exp of DATOS.expedientes)await recalcularExpediente(exp,false);
+pintarTodo();mensaje("Datos actualizados desde Dropbox.");
+}catch(e){console.error(e);alert("No se ha podido cargar A2:\n\n"+e.message)}
+}
+
+function mensaje(t){const m=$("mensaje");m.textContent=t;m.classList.add("visible");setTimeout(()=>m.classList.remove("visible"),2200)}
+
+recargarTodo();
+</script>
+</body>
+</html>
