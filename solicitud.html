@@ -1,1 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rita© | Solicitud de certificación</title>
+<style>
+@font-face{font-family:Tecnico;src:url("tecnico_regular.ttf")}@font-face{font-family:Tecnico;src:url("tecnico_bold.ttf");font-weight:700}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%}body{background:#edf5fb;color:#17344e;font-family:Tecnico,Arial,sans-serif;font-size:24px}.wrap{min-height:100vh;display:flex;flex-direction:column}.cabecera{background:#fff;padding:24px 40px;border-bottom:5px solid #4dd4d0}.cabecera img{width:760px;max-width:90vw}.hero{background:#003B5D;color:#fff;padding:34px 40px}.hero h1{margin:0;font-size:48px;font-weight:400}.hero p{margin:8px 0 0;font-size:25px;color:#dcecf4;line-height:1.35}.zona{width:100%;max-width:1180px;margin:0 auto;padding:34px 28px 50px}.tarjeta{background:#fff;border:2px solid #cbd9e3;border-radius:10px;padding:30px 34px;box-shadow:0 8px 24px #31567510}.paso{display:inline-block;padding:8px 14px;border-radius:18px;background:#dff1f3;color:#245e72;font-size:18px;font-weight:700;margin-bottom:16px}h2{font-size:38px;font-weight:400;margin:0 0 10px}.intro{font-size:23px;color:#718ca4;line-height:1.4;margin:0 0 28px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px 30px}.campo{display:flex;flex-direction:column;gap:9px}.campo.ancho{grid-column:1/-1}.campo label{font-size:22px;font-weight:700;color:#58738c;text-transform:uppercase}.campo input,.campo select,.campo textarea{width:100%;border:2px solid #bfd0dc;border-radius:7px;background:#fff;color:#17344e;font:24px Tecnico;padding:14px 16px}.campo input,.campo select{height:66px}.campo textarea{min-height:120px;resize:vertical}.ayuda{font-size:18px;color:#8093a3;line-height:1.35}.separador{height:2px;background:#dbe6ed;margin:30px 0}.check{display:flex;gap:12px;align-items:flex-start;margin:15px 0;font-size:21px;line-height:1.35}.check input{width:22px;height:22px;margin-top:3px}.acciones{margin-top:30px;display:flex;justify-content:flex-end}.btn{border:0;border-radius:7px;padding:17px 28px;background:#0873ae;color:#fff;font:26px Tecnico;cursor:pointer}.btn:hover{background:#075d8d}.btn:disabled{opacity:.45;cursor:not-allowed}.estado-envio{margin-top:18px;min-height:28px;font-size:20px;text-align:right;color:#65849e}.estado-envio.error{color:#a33d3d}.confirmacion{display:none;text-align:center;padding:20px 10px}.confirmacion.visible{display:block}.ok{width:90px;height:90px;border-radius:50%;background:#d9efdf;color:#2d7952;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:48px;font-weight:700}.codigo{display:inline-block;margin:18px 0;padding:14px 22px;border-radius:7px;background:#edf5fb;border:2px solid #c8d9e4;font-size:30px;font-weight:700;color:#315675}.aviso-final{margin:24px auto 0;max-width:760px;background:#fff5d5;border:2px solid #e6b83f;border-radius:8px;padding:18px 20px;font-size:20px;line-height:1.4}.pie{margin-top:auto;background:#003B5D;color:#d8e8f1;text-align:center;padding:20px;font-size:17px}.puente{width:1px;height:1px;position:absolute;left:-9999px;top:-9999px;border:0}
+@media(max-width:850px){body{font-size:21px}.hero h1{font-size:38px}.hero p{font-size:21px}.grid{grid-template-columns:1fr}.campo.ancho{grid-column:auto}.zona{padding:20px 14px 35px}.tarjeta{padding:22px 18px}.campo input,.campo select,.campo textarea{font-size:21px}.cabecera{padding:18px 20px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="cabecera">
+<img src="cabecera1.png" alt="Universidad Francisco de Vitoria - Instituto de Acompañamiento">
+</header>
+
+<section class="hero">
+<h1>SERVICIO DE CERTIFICACIÓN DE PERSONAS</h1>
+<p>del Instituto de Acompañamiento de la UFV</p>
+</section>
+
+<main class="zona">
+
+<div class="tarjeta" id="formularioZona">
+<span class="paso">SOLICITUD INICIAL</span>
+<h2>Solicitud de certificación</h2>
+<p class="intro">Cumplimente sus datos para iniciar el expediente. En esta fase no debe aportar todavía títulos, cursos, experiencia ni otras evidencias.</p>
+
+<form id="formSolicitud">
+
+<div class="grid">
+
+<div class="campo ancho">
+<label>Esquema de certificación solicitado</label>
+<select id="esquema" required>
+<option value="">Seleccione un esquema</option>
+<option value="MENTOR" data-perfil="MENTOR">MENTOR</option>
+<option value="MENTOR_AVANZADO" data-perfil="MENTOR_AVANZADO">MENTOR AVANZADO</option>
+</select>
+</div>
+
+<div class="campo">
+<label>Nombre</label>
+<input id="nombre" maxlength="150" required>
+</div>
+
+<div class="campo">
+<label>Primer apellido</label>
+<input id="apellido1" maxlength="150" required>
+</div>
+
+<div class="campo">
+<label>Segundo apellido</label>
+<input id="apellido2" maxlength="150">
+</div>
+
+<div class="campo">
+<label>Tipo de documento</label>
+<select id="tipoDocumento" required>
+<option value="">Seleccione</option>
+<option value="DNI">DNI</option>
+<option value="NIE">NIE</option>
+<option value="PASAPORTE">PASAPORTE</option>
+<option value="OTRO">OTRO</option>
+</select>
+</div>
+
+<div class="campo">
+<label>Número de documento</label>
+<input id="documento" maxlength="50" required>
+</div>
+
+<div class="campo">
+<label>Fecha de nacimiento</label>
+<input id="fechaNacimiento" type="date" required>
+</div>
+
+<div class="campo">
+<label>Correo electrónico</label>
+<input id="email" type="email" maxlength="200" required>
+<div class="ayuda">A este correo se enviarán las instrucciones y su acceso personal a Rita©.</div>
+</div>
+
+<div class="campo">
+<label>Teléfono</label>
+<input id="telefono" type="tel" maxlength="50" required>
+</div>
+
+<div class="campo ancho">
+<label>Dirección</label>
+<input id="direccion" maxlength="300">
+</div>
+
+<div class="campo">
+<label>Código postal</label>
+<input id="cp" maxlength="20">
+</div>
+
+<div class="campo">
+<label>Población</label>
+<input id="poblacion" maxlength="150">
+</div>
+
+<div class="campo">
+<label>Provincia</label>
+<input id="provincia" maxlength="150">
+</div>
+
+<div class="campo">
+<label>País</label>
+<input id="pais" maxlength="100" value="España">
+</div>
+
+</div>
+
+<div class="separador"></div>
+
+<label class="check">
+<input id="proteccion" type="checkbox" required>
+<span>He leído y acepto el tratamiento de mis datos personales para la gestión del proceso de certificación.</span>
+</label>
+
+<label class="check">
+<input id="comunicaciones" type="checkbox" required>
+<span>Acepto recibir comunicaciones relacionadas con mi solicitud, aportación de evidencias, evaluación y certificación.</span>
+</label>
+
+<div class="acciones">
+<button class="btn" id="btnEnviar" type="submit">ENVIAR SOLICITUD</button>
+</div>
+
+<div class="estado-envio" id="estadoEnvio"></div>
+
+</form>
+</div>
+
+<div class="tarjeta confirmacion" id="confirmacion">
+<div class="ok">✓</div>
+<h2>Solicitud recibida</h2>
+<p class="intro">Su solicitud ha sido registrada correctamente.</p>
+
+<div class="codigo" id="codigoSolicitud"></div>
+
+<p class="intro">Recibirá en el correo electrónico indicado las instrucciones para continuar el proceso y su acceso personal al Portal Rita©.</p>
+
+<div class="aviso-final">
+<b>Conserve su acceso personal.</b><br>
+El QR y enlace que recibirá serán personales y le permitirán consultar su expediente y aportar las evidencias que correspondan durante el proceso.
+</div>
+</div>
+
+<iframe id="puente" class="puente" src="q7m2x9v4.html" title=""></iframe>
+
+</main>
+
+<footer class="pie">
+Rita© · Servicio de Certificación de Personas · Instituto de Acompañamiento de la UFV
+</footer>
+
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const form=$("formSolicitud");
+const btn=$("btnEnviar");
+const estado=$("estadoEnvio");
+const puente=$("puente");
+
+let puenteListo=false;
+let envioPendiente=null;
+
+puente.onload=()=>{puenteListo=true};
+
+function idMensaje(){
+const a=new Uint8Array(12);
+crypto.getRandomValues(a);
+return Array.from(a,b=>b.toString(16).padStart(2,"0")).join("");
+}
+
+function esperarRespuesta(id,timeout=20000){
+return new Promise((resolve,reject)=>{
+const timer=setTimeout(()=>{
+window.removeEventListener("message",handler);
+reject(new Error("No se ha recibido respuesta del sistema."));
+},timeout);
+
+function handler(e){
+if(e.origin!==location.origin)return;
+if(!e.data||e.data.tipo!=="RITA_SOLICITUD_RESPUESTA")return;
+if(e.data.id!==id)return;
+
+clearTimeout(timer);
+window.removeEventListener("message",handler);
+
+if(e.data.ok)resolve(e.data);
+else reject(new Error(e.data.error||"No se ha podido registrar la solicitud."));
+}
+
+window.addEventListener("message",handler);
+});
+}
+
+function datosSolicitud(){
+
+const sel=$("esquema");
+const op=sel.options[sel.selectedIndex];
+
+return{
+esquema_codigo:sel.value,
+esquema_nombre:op.textContent.trim(),
+perfil_codigo:op.dataset.perfil||sel.value,
+
+nombre:$("nombre").value,
+primer_apellido:$("apellido1").value,
+segundo_apellido:$("apellido2").value,
+
+documento_tipo:$("tipoDocumento").value,
+documento:$("documento").value,
+fecha_nacimiento:$("fechaNacimiento").value,
+
+email:$("email").value,
+telefono:$("telefono").value,
+
+direccion:$("direccion").value,
+codigo_postal:$("cp").value,
+poblacion:$("poblacion").value,
+provincia:$("provincia").value,
+pais:$("pais").value,
+
+proteccion_datos:$("proteccion").checked,
+comunicaciones_proceso:$("comunicaciones").checked
+};
+}
+
+async function registrar(){
+
+if(!puenteListo){
+throw new Error("El sistema de registro todavía no está preparado. Espere unos segundos e inténtelo de nuevo.");
+}
+
+const id=idMensaje();
+const respuesta=esperarRespuesta(id);
+
+puente.contentWindow.postMessage({
+tipo:"RITA_SOLICITUD",
+id,
+solicitud:datosSolicitud()
+},location.origin);
+
+return respuesta;
+}
+
+form.onsubmit=async e=>{
+e.preventDefault();
+
+if(envioPendiente)return;
+
+estado.className="estado-envio";
+estado.textContent="Registrando solicitud...";
+btn.disabled=true;
+btn.textContent="ENVIANDO...";
+
+try{
+
+envioPendiente=registrar();
+const r=await envioPendiente;
+
+$("codigoSolicitud").textContent=r.codigo;
+
+$("formularioZona").style.display="none";
+$("confirmacion").classList.add("visible");
+
+window.scrollTo({top:0,behavior:"smooth"});
+
+}catch(err){
+
+console.error(err);
+estado.className="estado-envio error";
+estado.textContent=err.message||"No se ha podido registrar la solicitud.";
+
+}finally{
+
+envioPendiente=null;
+btn.disabled=false;
+btn.textContent="ENVIAR SOLICITUD";
+
+}
+};
+</script>
+
+</body>
+</html>
 
