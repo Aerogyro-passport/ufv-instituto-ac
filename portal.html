@@ -1,69 +1,25 @@
 <!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Rita© | Portal personal</title>
 <style>
-@font-face{font-family:T;src:url("tecnico_regular.ttf")}@font-face{font-family:T;src:url("tecnico_bold.ttf");font-weight:700}*{box-sizing:border-box}body{margin:0;background:#edf5fb;color:#17344e;font:22px T,Arial}.head{background:#003B5D;color:#fff;padding:28px 5%}.head b{font-size:38px}.head span{display:block;color:#cfe4ef;margin-top:5px}.main{max-width:1200px;margin:auto;padding:28px}.card{background:#fff;border:2px solid #cad9e3;border-radius:9px;padding:24px;margin-bottom:18px}h1,h2{font-weight:400;margin:0 0 12px}.dato{font-size:20px;line-height:1.5}.ruta{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:20px 0}.paso{border:0;padding:14px 6px;text-align:center;border-radius:6px;background:#e5e9ec;color:#758692;font:18px T;cursor:default}.paso.on{background:#d9eef5;color:#1c6488;cursor:pointer}.paso.ok{background:#d9efdf;color:#2d7952;cursor:pointer}.paso.sel{box-shadow:0 0 0 3px #4dd4d0 inset}.paso.lock{opacity:.72}.ev{border:2px solid #d7e2e9;border-radius:7px;padding:17px;margin:12px 0}.evtop{display:flex;justify-content:space-between;gap:15px;align-items:flex-start}.tipo{color:#617f95;font-weight:700}.est{min-width:130px;min-height:72px;padding:10px 13px;border-radius:18px;font-size:17px;font-weight:700;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.15;color:#203544}.SIN_EVIDENCIA,.INSUFICIENTE{background:#f4c6c6;color:#651515}.PENDIENTE_VALIDACION{background:#f6e79b;color:#4d3d00}.VALIDADA{background:#cdebd8;color:#16452c}.BLOQUEADA{background:#e1e4e7;color:#303b43}.met{font-size:18px;color:#6c8293}.up{margin-top:12px;padding-top:12px;border-top:1px solid #dde6eb;display:flex;gap:12px;align-items:center;flex-wrap:wrap}.archivo{font:18px T;max-width:500px}.btn{border:0;border-radius:6px;background:#0873ae;color:#fff;padding:11px 16px;font:19px T;cursor:pointer}.btn:disabled{opacity:.4;cursor:not-allowed}.pdf{display:inline-block;text-decoration:none;background:#003B5D;color:#fff;padding:11px 16px;border-radius:6px}.err{color:#a33d3d}.hide{display:none}.sin{color:#6c8293;font-size:20px}.subiendo{color:#0873ae;font-size:18px}.nomarchivo{font-size:17px;color:#48677d}@media(max-width:800px){.ruta{grid-template-columns:1fr}.evtop{display:block}.est{margin-top:10px}.up{display:block}.archivo,.btn{margin-bottom:10px}}
+@font-face{font-family:T;src:url("tecnico_regular.ttf")}@font-face{font-family:T;src:url("tecnico_bold.ttf");font-weight:700}*{box-sizing:border-box}body{margin:0;background:#edf5fb;color:#17344e;font:22px T,Arial}.head{background:#003B5D;color:#fff;padding:28px 5%}.head b{font-size:38px}.head span{display:block;color:#cfe4ef;margin-top:5px}.main{max-width:1200px;margin:auto;padding:28px}.card{background:#fff;border:2px solid #cad9e3;border-radius:9px;padding:24px;margin-bottom:18px}h1,h2{font-weight:400;margin:0 0 12px}.dato{font-size:20px;line-height:1.5}.ruta{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:20px 0}.paso{border:0;padding:14px 6px;text-align:center;border-radius:6px;background:#e5e9ec;color:#758692;font:18px T;cursor:default}.paso.on{background:#d9eef5;color:#1c6488;cursor:pointer}.paso.ok{background:#d9efdf;color:#2d7952;cursor:pointer}.paso.sel{box-shadow:0 0 0 3px #4dd4d0 inset}.paso.lock{opacity:.72}.ev{border:2px solid #d7e2e9;border-radius:7px;padding:17px;margin:12px 0}.evtop{display:flex;justify-content:space-between;gap:15px;align-items:flex-start}.tipo{color:#617f95;font-weight:700}.est{min-width:130px;min-height:72px;padding:10px 13px;border-radius:18px;font-size:17px;font-weight:700;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.15}.SIN_EVIDENCIA,.INSUFICIENTE{background:#f4c6c6;color:#651515}.PENDIENTE_VALIDACION{background:#f6e79b;color:#4d3d00}.VALIDADA{background:#cdebd8;color:#16452c}.BLOQUEADA{background:#e1e4e7;color:#303b43}.met{font-size:18px;color:#6c8293}.up{margin-top:12px;padding-top:12px;border-top:1px solid #dde6eb;display:flex;gap:12px;align-items:center;flex-wrap:wrap}.archivo{font:18px T;max-width:500px}.btn{border:0;border-radius:6px;background:#0873ae;color:#fff;padding:11px 16px;font:19px T;cursor:pointer}.btn:disabled{opacity:.4;cursor:not-allowed}.pdf{display:inline-block;text-decoration:none;background:#003B5D;color:#fff;padding:11px 16px;border-radius:6px}.err{color:#a33d3d}.hide{display:none}.sin{color:#6c8293;font-size:20px}.nomarchivo{font-size:17px;color:#48677d}.toast{position:fixed;left:50%;top:24px;transform:translateX(-50%) translateY(-120px);z-index:9999;background:#237346;color:#fff;border:3px solid #fff;border-radius:10px;padding:18px 32px;font-size:25px;font-weight:700;box-shadow:0 8px 30px #0004;transition:.25s}.toast.ver{transform:translateX(-50%) translateY(0)}@media(max-width:800px){.ruta{grid-template-columns:1fr}.evtop{display:block}.est{margin-top:10px}.up{display:block}.archivo,.btn{margin-bottom:10px}}
 </style></head><body>
-
+<div class="toast" id="toast">ARCHIVO SUBIDO ESTUPENDAMENTE</div>
 <div class="head"><b>PORTAL PERSONAL Rita©</b><span>SERVICIO DE CERTIFICACIÓN DE PERSONAS · Instituto de Acompañamiento de la UFV</span></div>
-
-<main class="main">
-<div class="card" id="carga">Accediendo a su expediente...</div>
-
-<div id="contenido" class="hide">
-<div class="card">
-<h1 id="nombre"></h1>
-<div class="dato" id="datos"></div>
-
-<div class="ruta">
-<button class="paso" id="p1">LLAVE 1<br>ADMISIÓN</button>
-<button class="paso" id="p2">LLAVE 2<br>CUALIFICACIÓN</button>
-<button class="paso" id="p3">LLAVE 3<br>EVALUACIÓN</button>
-<button class="paso" id="p4">DECISIÓN</button>
-<button class="paso" id="p5">CERTIFICACIÓN</button>
-</div>
-
-<a id="pdf" class="pdf hide" target="_blank">DESCARGAR INSTRUCCIONES</a>
-</div>
-
-<div class="card">
-<h2 id="tituloReq">Mis requisitos</h2>
-<div id="evidencias"></div>
-</div>
-</div>
-</main>
-
+<main class="main"><div class="card" id="carga">Accediendo a su expediente...</div><div id="contenido" class="hide">
+<div class="card"><h1 id="nombre"></h1><div class="dato" id="datos"></div>
+<div class="ruta"><button class="paso" id="p1">LLAVE 1<br>ADMISIÓN</button><button class="paso" id="p2">LLAVE 2<br>CUALIFICACIÓN</button><button class="paso" id="p3">LLAVE 3<br>EVALUACIÓN</button><button class="paso" id="p4">DECISIÓN</button><button class="paso" id="p5">CERTIFICACIÓN</button></div>
+<a id="pdf" class="pdf hide" target="_blank">DESCARGAR INSTRUCCIONES</a></div>
+<div class="card"><h2 id="tituloReq">Mis requisitos</h2><div id="evidencias"></div></div></div></main>
 <iframe id="x" src="q7m2x9v4.html" style="display:none"></iframe>
-
 <script>
 const $=x=>document.getElementById(x),token=new URLSearchParams(location.search).get("t")||"",x=$("x");let ready=false,DATA=null,LLAVE="ADMISION";
 const MID=()=>crypto.getRandomValues(new Uint32Array(2)).join("");
-
 function ask(tipo,data={},timeout=90000){return new Promise((ok,no)=>{if(!ready)return no(Error("Sistema no disponible"));const id=MID(),tm=setTimeout(()=>{removeEventListener("message",h);no(Error("Sin respuesta del sistema"))},timeout);function h(e){if(e.origin!==location.origin||e.data?.id!==id)return;clearTimeout(tm);removeEventListener("message",h);e.data.ok?ok(e.data):no(Error(e.data.error||"Error"))}addEventListener("message",h);x.contentWindow.postMessage({tipo,id,...data},location.origin)})}
-
+function toast(){const t=$("toast");t.classList.add("ver");setTimeout(()=>t.classList.remove("ver"),2600)}
 function llaves(e){["p1","p2","p3","p4","p5"].forEach(z=>$(z).className="paso lock");$("p1").className="paso on";if(e.llave_actual==="CUALIFICACION"){$("p1").className="paso ok";$("p2").className="paso on"}if(e.llave_actual==="EVALUACION"){$("p1").className="paso ok";$("p2").className="paso ok";$("p3").className="paso on"}["p1","p2","p3"].forEach(z=>$(z).classList.remove("sel"));if(LLAVE==="ADMISION")$("p1").classList.add("sel");if(LLAVE==="CUALIFICACION")$("p2").classList.add("sel");if(LLAVE==="EVALUACION")$("p3").classList.add("sel")}
-
-function render(){
-if(!DATA)return;
-const e=DATA.expediente;
-$("nombre").textContent=e.nombre_completo;
-$("datos").innerHTML=`<b>EXPEDIENTE:</b> ${e.codigo}<br><b>ESQUEMA:</b> ${e.esquema_nombre}<br><b>ESTADO:</b> ${e.estado}<br><b>FASE:</b> ${e.fase}`;
-llaves(e);
-if(DATA.pdf){$("pdf").href=DATA.pdf;$("pdf").classList.remove("hide")}
-const lista=DATA.evidencias.filter(v=>v.nivel_llave===LLAVE);
-$("tituloReq").textContent=LLAVE==="ADMISION"?"Mis requisitos · LLAVE 1 · ADMISIÓN":LLAVE==="CUALIFICACION"?"Mis requisitos · LLAVE 2 · CUALIFICACIÓN":"Mis requisitos · LLAVE 3 · EVALUACIÓN";
+function render(){if(!DATA)return;const e=DATA.expediente;$("nombre").textContent=e.nombre_completo;$("datos").innerHTML=`<b>EXPEDIENTE:</b> ${e.codigo}<br><b>ESQUEMA:</b> ${e.esquema_nombre}<br><b>ESTADO:</b> ${e.estado}<br><b>FASE:</b> ${e.fase}`;llaves(e);if(DATA.pdf){$("pdf").href=DATA.pdf;$("pdf").classList.remove("hide")}const lista=DATA.evidencias.filter(v=>v.nivel_llave===LLAVE);$("tituloReq").textContent=LLAVE==="ADMISION"?"Mis requisitos · LLAVE 1 · ADMISIÓN":LLAVE==="CUALIFICACION"?"Mis requisitos · LLAVE 2 · CUALIFICACIÓN":"Mis requisitos · LLAVE 3 · EVALUACIÓN";
 $("evidencias").innerHTML=lista.length?lista.map(v=>`<div class="ev"><div class="evtop"><div><span class="tipo">${v.tipo_requisito} · ${v.codigo_requisito}</span><h2>${v.titulo}</h2></div><span class="est ${v.estado}">${v.estado.replaceAll("_"," ")}</span></div><div>${v.descripcion||""}</div><div class="met"><b>Método de comprobación:</b> ${v.metodo_comprobacion||"No especificado"}</div>${v.motivo_insuficiente?`<div class="err"><b>Motivo:</b> ${v.motivo_insuficiente}</div>`:""}${["SIN_EVIDENCIA","INSUFICIENTE"].includes(v.estado)?`<div class="up" data-codigo="${v.codigo}"><input class="archivo" type="file"><button class="btn subir" type="button" disabled>SUBIR EVIDENCIA</button><span class="nomarchivo">Seleccione un archivo</span></div>`:""}</div>`).join(""):'<div class="sin">No hay requisitos disponibles en esta fase.</div>';
-
-document.querySelectorAll(".up").forEach(z=>{
-const inp=z.querySelector(".archivo"),btn=z.querySelector(".subir"),nom=z.querySelector(".nomarchivo"),codigo=z.dataset.codigo;
-inp.onchange=()=>{const f=inp.files&&inp.files[0];nom.textContent=f?f.name:"Seleccione un archivo";btn.disabled=!f};
-btn.onclick=async()=>{const f=inp.files&&inp.files[0];if(!f)return;btn.disabled=true;btn.textContent="SUBIENDO...";nom.className="subiendo";nom.textContent="Guardando evidencia en Rita©...";try{await ask("RITA_APORTAR_EVIDENCIA",{token,evidencia_codigo:codigo,archivo:f},120000);await load()}catch(err){alert(err.message);btn.disabled=false;btn.textContent="SUBIR EVIDENCIA";nom.className="nomarchivo";nom.textContent=f.name}}
-});
-}
-
+document.querySelectorAll(".up").forEach(z=>{const inp=z.querySelector(".archivo"),btn=z.querySelector(".subir"),nom=z.querySelector(".nomarchivo"),codigo=z.dataset.codigo;inp.onchange=()=>{const f=inp.files?.[0];nom.textContent=f?f.name:"Seleccione un archivo";btn.disabled=!f};btn.onclick=async()=>{const f=inp.files?.[0];if(!f)return;btn.disabled=true;btn.textContent="SUBIENDO...";try{await ask("RITA_APORTAR_EVIDENCIA",{token,evidencia_codigo:codigo,archivo:f},120000);toast();await load()}catch(err){alert(err.message);btn.disabled=false;btn.textContent="SUBIR EVIDENCIA"}}})}
 async function load(){try{DATA=await ask("RITA_PORTAL",{token});$("carga").classList.add("hide");$("contenido").classList.remove("hide");render()}catch(e){$("carga").innerHTML='<span class="err">'+e.message+"</span>"}}
-
-$("p1").onclick=()=>{LLAVE="ADMISION";render()};
-$("p2").onclick=()=>{if(DATA?.expediente?.llave_actual==="ADMISION")return;LLAVE="CUALIFICACION";render()};
-$("p3").onclick=()=>{if(DATA?.expediente?.llave_actual!=="EVALUACION")return;LLAVE="EVALUACION";render()};
-
+$("p1").onclick=()=>{LLAVE="ADMISION";render()};$("p2").onclick=()=>{if(DATA?.expediente?.llave_actual==="ADMISION")return;LLAVE="CUALIFICACION";render()};$("p3").onclick=()=>{if(DATA?.expediente?.llave_actual!=="EVALUACION")return;LLAVE="EVALUACION";render()};
 x.onload=()=>{ready=true;if(!token)$("carga").innerHTML='<span class="err">Falta el acceso personal.</span>';else load()};
 </script></body></html>
