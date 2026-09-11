@@ -1,1 +1,1159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title></title>
+<style>html,body{margin:0;width:1px;height:1px;overflow:hidden;background:#fff;color:#fff}</style>
+</head>
 
+<body>
+
+<script src="dropbox_config.js"></script>
+
+<script>
+(()=>{
+
+/* =========================================================
+   EL ENGENDRO
+   Módulo interno de intercambio Rita©
+   ========================================================= */
+
+const BASE="/03_UFV_INSTITUTO/99_datos_Rita/";
+
+const F={
+solicitudes:BASE+"maestro_solicitudes.json",
+expedientes:BASE+"maestro_expedientes.json",
+evidencias:BASE+"maestro_evidencias.json",
+
+/* COMPROBAR SÓLO ESTOS DOS NOMBRES SI FUERA NECESARIO */
+perfiles:BASE+"maestro_perfiles_certificables.json",
+esquemas:BASE+"maestro_esquemas_certificacion.json"
+};
+
+const PDF_INSTRUCCIONES=
+"/03_UFV_INSTITUTO/01_Documentación del sistema/Varios/Rita_Instrucciones_Solicitante_BORRADOR.pdf";
+
+
+/* =========================================================
+   UTILIDADES
+   ========================================================= */
+
+const limpio=(v,max=500)=>
+String(v??"")
+.trim()
+.slice(0,max);
+
+const normalizaDocumento=v=>
+limpio(v,50)
+.toUpperCase()
+.replace(/\s+/g,"");
+
+const ahoraISO=()=>new Date().toISOString();
+
+function tokenSeguro(){
+
+const a=new Uint8Array(32);
+
+crypto.getRandomValues(a);
+
+return Array
+.from(a,b=>b.toString(16).padStart(2,"0"))
+.join("");
+
+}
+
+function siguienteCodigo(lista,prefijo,digitos=5){
+
+let max=0;
+
+(lista||[]).forEach(x=>{
+
+const r=
+new RegExp("^"+prefijo+"-(\\d+)$");
+
+const m=
+String(x.codigo||"").match(r);
+
+if(m){
+
+max=
+Math.max(
+max,
+Number(m[1])
+);
+
+}
+
+});
+
+return prefijo+"-"+
+String(max+1)
+.padStart(digitos,"0");
+
+}
+
+function nombreCompleto(d){
+
+return[
+limpio(d.nombre,150),
+limpio(d.primer_apellido,150),
+limpio(d.segundo_apellido,150)
+]
+.filter(Boolean)
+.join(" ");
+
+}
+
+
+/* =========================================================
+   DROPBOX
+   ========================================================= */
+
+async function leerJSON(path){
+
+const tk=
+await obtenerDropboxAccessToken();
+
+const r=
+await fetch(
+"https://content.dropboxapi.com/2/files/download",
+{
+method:"POST",
+headers:{
+"Authorization":"Bearer "+tk,
+"Dropbox-API-Arg":
+JSON.stringify({path})
+}
+}
+);
+
+if(r.status===404||r.status===409){
+
+return{
+datos:[],
+rev:null
+};
+
+}
+
+if(!r.ok){
+
+let t="";
+
+try{
+t=await r.text();
+}catch(e){}
+
+throw new Error(
+"No se puede leer "+
+path+
+(t?" · "+t:"")
+);
+
+}
+
+let meta={};
+
+try{
+
+meta=
+JSON.parse(
+r.headers.get("Dropbox-API-Result")
+||"{}"
+);
+
+}catch(e){}
+
+const texto=
+await r.text();
+
+if(!texto.trim()){
+
+return{
+datos:[],
+rev:meta.rev||null
+};
+
+}
+
+let datos;
+
+try{
+
+datos=
+JSON.parse(texto);
+
+}catch(e){
+
+throw new Error(
+"JSON no válido: "+path
+);
+
+}
+
+if(!Array.isArray(datos)){
+
+throw new Error(
+"El Maestro debe contener un array: "+
+path
+);
+
+}
+
+return{
+datos,
+rev:meta.rev||null
+};
+
+}
+
+
+async function escribirJSON(path,datos,rev){
+
+const tk=
+await obtenerDropboxAccessToken();
+
+const arg={
+path,
+mode:
+rev
+?{".tag":"update","update":rev}
+:"overwrite",
+autorename:false,
+mute:true,
+strict_conflict:true
+};
+
+const r=
+await fetch(
+"https://content.dropboxapi.com/2/files/upload",
+{
+method:"POST",
+headers:{
+"Authorization":"Bearer "+tk,
+"Content-Type":
+"application/octet-stream",
+"Dropbox-API-Arg":
+JSON.stringify(arg)
+},
+body:
+JSON.stringify(datos,null,2)
+}
+);
+
+if(r.status===409){
+
+throw new Error("CONFLICTO");
+
+}
+
+if(!r.ok){
+
+let t="";
+
+try{
+t=await r.text();
+}catch(e){}
+
+throw new Error(
+"No se puede guardar "+
+path+
+(t?" · "+t:"")
+);
+
+}
+
+return r.json();
+
+}
+
+
+/* =========================================================
+   ESQUEMAS / PERFILES
+   ========================================================= */
+
+function esquemaUtilizable(e){
+
+const estado=
+String(e.estado||"")
+.toUpperCase();
+
+if(
+estado==="OBSOLETO" ||
+estado==="INACTIVO" ||
+estado==="RETIRADO"
+){
+
+return false;
+
+}
+
+if(e.activo===false){
+
+return false;
+
+}
+
+return true;
+
+}
+
+
+async function catalogoEsquemas(){
+
+const [
+mEsquemas,
+mPerfiles
+]=
+await Promise.all([
+leerJSON(F.esquemas),
+leerJSON(F.perfiles)
+]);
+
+const perfiles=
+mPerfiles.datos;
+
+return mEsquemas.datos
+.filter(esquemaUtilizable)
+.map(e=>{
+
+const codigoPerfil=
+e.perfil_codigo||
+e.codigo_perfil||
+"";
+
+const p=
+perfiles.find(x=>
+x.codigo===codigoPerfil
+);
+
+return{
+
+codigo:e.codigo||"",
+nombre:
+e.nombre||
+e.denominacion||
+e.codigo||
+"",
+
+perfil_codigo:
+codigoPerfil,
+
+perfil_nombre:
+p?.nombre||
+e.perfil_nombre||
+""
+
+};
+
+})
+.filter(x=>
+x.codigo &&
+x.perfil_codigo
+);
+
+}
+
+
+/* =========================================================
+   REQUISITOS DEL PERFIL
+   ========================================================= */
+
+function requisitosPerfil(perfil){
+
+if(!perfil)return[];
+
+const r=
+perfil.requisitos||{};
+
+return[
+...(r.educacion||[])
+.map(x=>({
+...x,
+tipo_requisito:"EDUCACIÓN"
+})),
+
+...(r.formacion||[])
+.map(x=>({
+...x,
+tipo_requisito:"FORMACIÓN"
+})),
+
+...(r.experiencia||[])
+.map(x=>({
+...x,
+tipo_requisito:"EXPERIENCIA"
+})),
+
+...(r.otros||[])
+.map(x=>({
+...x,
+tipo_requisito:"OTROS"
+}))
+];
+
+}
+
+
+/* =========================================================
+   VALIDACIÓN SOLICITUD
+   ========================================================= */
+
+function validarSolicitud(d){
+
+if(
+!d ||
+typeof d!=="object"
+){
+
+throw new Error(
+"Solicitud no válida."
+);
+
+}
+
+const obligatorios=[
+["esquema_codigo","Esquema"],
+["nombre","Nombre"],
+["primer_apellido","Primer apellido"],
+["documento_tipo","Tipo de documento"],
+["documento","Documento"],
+["fecha_nacimiento","Fecha de nacimiento"],
+["email","Correo electrónico"],
+["telefono","Teléfono"]
+];
+
+for(
+const [campo,nombre]
+of obligatorios
+){
+
+if(!limpio(d[campo])){
+
+throw new Error(
+"Falta: "+nombre+"."
+);
+
+}
+
+}
+
+const email=
+limpio(
+d.email,
+200
+)
+.toLowerCase();
+
+if(
+!/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+.test(email)
+){
+
+throw new Error(
+"Correo electrónico no válido."
+);
+
+}
+
+if(!d.proteccion_datos){
+
+throw new Error(
+"Debe aceptar el tratamiento de datos."
+);
+
+}
+
+if(!d.comunicaciones_proceso){
+
+throw new Error(
+"Debe aceptar las comunicaciones del proceso."
+);
+
+}
+
+}
+
+
+/* =========================================================
+   ALTA COMPLETA
+   ========================================================= */
+
+async function registrarSolicitud(
+entrada,
+intento=0
+){
+
+validarSolicitud(entrada);
+
+const [
+ms,
+me,
+mv,
+mp,
+mesq
+]=
+await Promise.all([
+leerJSON(F.solicitudes),
+leerJSON(F.expedientes),
+leerJSON(F.evidencias),
+leerJSON(F.perfiles),
+leerJSON(F.esquemas)
+]);
+
+const solicitudes=
+ms.datos;
+
+const expedientes=
+me.datos;
+
+const evidencias=
+mv.datos;
+
+const perfiles=
+mp.datos;
+
+const esquemas=
+mesq.datos;
+
+
+/* ESQUEMA REAL */
+
+const esquema=
+esquemas.find(x=>
+x.codigo===
+entrada.esquema_codigo
+);
+
+if(
+!esquema ||
+!esquemaUtilizable(esquema)
+){
+
+throw new Error(
+"El esquema seleccionado no está disponible."
+);
+
+}
+
+const perfilCodigo=
+esquema.perfil_codigo||
+esquema.codigo_perfil||
+entrada.perfil_codigo||
+"";
+
+const perfil=
+perfiles.find(x=>
+x.codigo===perfilCodigo
+);
+
+if(!perfil){
+
+throw new Error(
+"No se encuentra el perfil certificable asociado al esquema."
+);
+
+}
+
+
+/* DUPLICADOS */
+
+const documento=
+normalizaDocumento(
+entrada.documento
+);
+
+const existente=
+solicitudes.find(x=>
+
+normalizaDocumento(
+x.documento
+)===documento
+
+&&
+
+String(
+x.esquema_codigo||""
+)===
+String(
+esquema.codigo||""
+)
+
+&&
+
+![
+"CANCELADA",
+"CERRADA",
+"ANULADA"
+]
+.includes(
+String(
+x.estado||""
+).toUpperCase()
+)
+
+);
+
+if(existente){
+
+return{
+ok:true,
+duplicada:true,
+codigo:
+existente.codigo,
+expediente_codigo:
+existente.expediente_codigo||
+null,
+estado:
+existente.estado||
+"NUEVA"
+};
+
+}
+
+
+/* CÓDIGOS */
+
+const codigoSolicitud=
+siguienteCodigo(
+solicitudes,
+"SOL"
+);
+
+const codigoExpediente=
+siguienteCodigo(
+expedientes,
+"EXP"
+);
+
+const tokenPortal=
+tokenSeguro();
+
+const ahora=
+ahoraISO();
+
+
+/* SOLICITUD */
+
+const solicitud={
+
+codigo:
+codigoSolicitud,
+
+fecha_solicitud:
+ahora,
+
+fecha_actualizacion:
+ahora,
+
+estado:
+"EXPEDIENTE CREADO",
+
+esquema_codigo:
+esquema.codigo,
+
+esquema_nombre:
+esquema.nombre||
+esquema.denominacion||
+esquema.codigo,
+
+perfil_codigo:
+perfil.codigo,
+
+perfil_nombre:
+perfil.nombre||"",
+
+nombre:
+limpio(
+entrada.nombre,
+150
+),
+
+primer_apellido:
+limpio(
+entrada.primer_apellido,
+150
+),
+
+segundo_apellido:
+limpio(
+entrada.segundo_apellido,
+150
+),
+
+nombre_completo:
+nombreCompleto(
+entrada
+),
+
+documento_tipo:
+limpio(
+entrada.documento_tipo,
+50
+),
+
+documento,
+
+fecha_nacimiento:
+limpio(
+entrada.fecha_nacimiento,
+20
+),
+
+email:
+limpio(
+entrada.email,
+200
+)
+.toLowerCase(),
+
+telefono:
+limpio(
+entrada.telefono,
+50
+),
+
+direccion:
+limpio(
+entrada.direccion,
+300
+),
+
+codigo_postal:
+limpio(
+entrada.codigo_postal,
+20
+),
+
+poblacion:
+limpio(
+entrada.poblacion,
+150
+),
+
+provincia:
+limpio(
+entrada.provincia,
+150
+),
+
+pais:
+limpio(
+entrada.pais,
+100
+),
+
+proteccion_datos:
+true,
+
+comunicaciones_proceso:
+true,
+
+token_portal:
+tokenPortal,
+
+portal_activo:
+true,
+
+pdf_instrucciones:
+PDF_INSTRUCCIONES,
+
+expediente_codigo:
+codigoExpediente,
+
+fecha_procesada:
+ahora,
+
+origen:
+"SOLICITUD_PUBLICA"
+
+};
+
+
+/* EXPEDIENTE */
+
+const expediente={
+
+codigo:
+codigoExpediente,
+
+solicitud_codigo:
+codigoSolicitud,
+
+fecha_alta:
+ahora,
+
+fecha_actualizacion:
+ahora,
+
+nombre_completo:
+solicitud.nombre_completo,
+
+documento_tipo:
+solicitud.documento_tipo,
+
+documento:
+solicitud.documento,
+
+fecha_nacimiento:
+solicitud.fecha_nacimiento,
+
+email:
+solicitud.email,
+
+telefono:
+solicitud.telefono,
+
+esquema_codigo:
+solicitud.esquema_codigo,
+
+esquema_nombre:
+solicitud.esquema_nombre,
+
+perfil_codigo:
+perfil.codigo,
+
+perfil_nombre:
+perfil.nombre||"",
+
+estado:
+"ASPIRANTE",
+
+fase:
+"LLAVE 1 · ADMISIÓN",
+
+llave_actual:
+"ADMISION",
+
+token_portal:
+tokenPortal,
+
+portal_activo:
+true,
+
+fecha_certificacion:
+null,
+
+numero_certificado:
+null,
+
+estado_certificacion:
+null
+
+};
+
+
+/* EVIDENCIAS */
+
+const requisitos=
+requisitosPerfil(
+perfil
+);
+
+const nuevasEvidencias=[];
+
+requisitos.forEach(r=>{
+
+const llave=
+String(
+r.nivel_llave||""
+)
+.toUpperCase();
+
+if(
+llave!=="ADMISION" &&
+llave!=="CUALIFICACION"
+){
+
+return;
+
+}
+
+const codigoEvidencia=
+siguienteCodigo(
+[
+...evidencias,
+...nuevasEvidencias
+],
+"EVI"
+);
+
+nuevasEvidencias.push({
+
+codigo:
+codigoEvidencia,
+
+expediente_codigo:
+codigoExpediente,
+
+solicitud_codigo:
+codigoSolicitud,
+
+codigo_requisito:
+r.codigo_requisito||"",
+
+tipo_requisito:
+r.tipo_requisito,
+
+titulo:
+r.titulo||
+r.denominacion||
+r.nombre||
+"",
+
+descripcion:
+r.descripcion||"",
+
+metodo_comprobacion:
+r.metodo_comprobacion||"",
+
+nivel_llave:
+llave,
+
+obligatoriedad:
+r.obligatoriedad||
+"OBLIGATORIO",
+
+grupo_alternativa:
+r.grupo_alternativa||
+"",
+
+estado:
+llave==="ADMISION"
+?"SIN_EVIDENCIA"
+:"BLOQUEADA",
+
+archivo:
+null,
+
+url:
+null,
+
+fecha_aportacion:
+null,
+
+fecha_validacion:
+null,
+
+validado_por:
+null,
+
+motivo_insuficiente:
+"",
+
+fecha_creacion:
+ahora
+
+});
+
+});
+
+
+/* INCORPORAR */
+
+solicitudes.push(
+solicitud
+);
+
+expedientes.push(
+expediente
+);
+
+evidencias.push(
+...nuevasEvidencias
+);
+
+
+/* GUARDAR
+   Primero evidencias y expediente.
+   Solicitud se guarda al final como confirmación del alta.
+*/
+
+try{
+
+await escribirJSON(
+F.evidencias,
+evidencias,
+mv.rev
+);
+
+await escribirJSON(
+F.expedientes,
+expedientes,
+me.rev
+);
+
+await escribirJSON(
+F.solicitudes,
+solicitudes,
+ms.rev
+);
+
+}catch(err){
+
+if(
+err.message==="CONFLICTO" &&
+intento<2
+){
+
+return registrarSolicitud(
+entrada,
+intento+1
+);
+
+}
+
+throw err;
+
+}
+
+
+return{
+
+ok:true,
+
+duplicada:false,
+
+codigo:
+codigoSolicitud,
+
+expediente_codigo:
+codigoExpediente,
+
+estado:
+"ASPIRANTE",
+
+fase:
+"LLAVE 1 · ADMISIÓN",
+
+token_portal:
+tokenPortal
+
+};
+
+}
+
+
+/* =========================================================
+   MENSAJES DESDE solicitud.html
+   ========================================================= */
+
+window.addEventListener(
+"message",
+async e=>{
+
+if(
+e.origin!==location.origin
+){
+
+return;
+
+}
+
+if(!e.data)return;
+
+const id=
+e.data.id;
+
+
+/* CATÁLOGO DE ESQUEMAS */
+
+if(
+e.data.tipo===
+"RITA_CATALOGO_ESQUEMAS"
+){
+
+try{
+
+const esquemas=
+await catalogoEsquemas();
+
+e.source.postMessage(
+{
+tipo:
+"RITA_CATALOGO_ESQUEMAS_RESPUESTA",
+id,
+ok:true,
+esquemas
+},
+e.origin
+);
+
+}catch(err){
+
+console.error(err);
+
+e.source.postMessage(
+{
+tipo:
+"RITA_CATALOGO_ESQUEMAS_RESPUESTA",
+id,
+ok:false,
+error:
+err?.message||
+"No se pueden cargar los esquemas."
+},
+e.origin
+);
+
+}
+
+return;
+
+}
+
+
+/* REGISTRO SOLICITUD */
+
+if(
+e.data.tipo===
+"RITA_SOLICITUD"
+){
+
+try{
+
+const resultado=
+await registrarSolicitud(
+e.data.solicitud||{}
+);
+
+e.source.postMessage(
+{
+tipo:
+"RITA_SOLICITUD_RESPUESTA",
+id,
+...resultado
+},
+e.origin
+);
+
+}catch(err){
+
+console.error(err);
+
+e.source.postMessage(
+{
+tipo:
+"RITA_SOLICITUD_RESPUESTA",
+id,
+ok:false,
+error:
+err?.message||
+"No se ha podido registrar la solicitud."
+},
+e.origin
+);
+
+}
+
+}
+
+}
+);
+
+})();
+</script>
+
+</body>
+</html>
