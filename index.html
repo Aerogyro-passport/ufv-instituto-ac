@@ -1,110 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Rita© | Instituto de Acompañamiento UFV</title>
-
 <style>
-@font-face{font-family:Tecnico;src:url("tecnico_regular.ttf") format("truetype");font-weight:400}
-@font-face{font-family:Tecnico;src:url("tecnico_bold.ttf") format("truetype");font-weight:700}
-@font-face{font-family:Tecnico;src:url("tecnico_regularitalic.ttf") format("truetype");font-weight:400;font-style:italic}
-@font-face{font-family:Tecnico;src:url("tecnico_bolditalic.ttf") format("truetype");font-weight:700;font-style:italic}
-
-*{box-sizing:border-box}
-html,body{margin:0;width:100%;min-height:100%}
-body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial,sans-serif}
-.app{display:flex;width:100%;min-height:100vh}
-
-/* LATERAL */
-.lateral{width:330px;min-width:330px;min-height:100vh;background:#003B5D;color:#fff;padding:38px 34px 30px;display:flex;flex-direction:column}
-.rita{position:relative;display:inline-block;width:max-content;font-size:82px;line-height:.95;font-weight:400;letter-spacing:-4px}
-.copyright{position:absolute;top:-5px;right:-22px;font:20px Arial}
-.linea-rita{width:92px;height:5px;margin:35px 0 40px;background:#4dd4d0}
-.nombre-sistema{width:250px;font-size:25px;line-height:1.28;letter-spacing:1.5px;text-transform:uppercase}
-
-.menu-lateral{display:none;width:100%;margin-top:28px;padding-top:16px;border-top:1px solid rgba(255,255,255,.22)}
-.menu-lateral.visible{display:block}
-.boton-lateral{width:100%;min-height:52px;margin-bottom:8px;padding:8px 11px;border:1px solid rgba(255,255,255,.28);border-radius:5px;background:rgba(255,255,255,.08);color:#fff;font-family:Tecnico,Arial,sans-serif;text-align:left;display:flex;align-items:center;gap:10px}
-.boton-lateral.activo{cursor:pointer}
-.boton-lateral.activo:hover{background:rgba(255,255,255,.16)}
-.boton-lateral.inactivo{opacity:.30;filter:grayscale(1);cursor:not-allowed;background:rgba(255,255,255,.035)}
-.boton-codigo{width:39px;color:#59d8d5;font-size:18px;font-weight:700}
-.boton-lateral.inactivo .boton-codigo{color:#fff}
-.boton-texto{font-size:15px;line-height:1.1;text-transform:uppercase}
-
-.pie-lateral{margin-top:auto;width:100%;display:flex;justify-content:center;padding-bottom:95px;padding-top:30px}
-.pie-lateral img{display:block;width:382px;max-width:100%;height:auto;object-fit:contain}
-
-/* PRINCIPAL */
-.principal{flex:1;min-width:0;min-height:100vh;display:flex;flex-direction:column}
-.cabecera{width:100%;height:185px;min-height:185px;background:#fff;display:flex;align-items:center;padding:0 75px}
-.cabecera img{display:block;width:844px;max-width:72vw;height:auto;object-fit:contain}
-.zona{flex:1;width:100%;background:#edf5fb;display:flex;flex-direction:column;align-items:center;padding:55px 40px 35px}
-
-/* LOGIN */
-.login{width:820px;max-width:calc(100% - 50px);margin:0 auto;background:#fff;border:2px solid #d6e0e8;border-radius:11px;padding:52px 66px 45px;box-shadow:0 8px 25px rgba(30,70,100,.06)}
-.login-mini{display:inline-block;margin-bottom:23px;padding-bottom:9px;border-bottom:4px solid #4dd4d0;color:#6588a5;font-size:20px;letter-spacing:2.5px;text-transform:uppercase}
-.login h1{margin:0 0 12px;font-size:62px;line-height:1;font-weight:400}
-.login-intro{margin:0 0 35px;color:#718ca4;font-size:24px;line-height:1.35}
-.campo{margin-bottom:22px}
-.campo label{display:block;margin-bottom:9px;color:#65849e;font-size:18px;letter-spacing:1.5px;text-transform:uppercase}
-.input-wrap{position:relative}
-.campo input{width:100%;height:70px;padding:0 21px;border:2px solid #c8d7e3;border-radius:6px;outline:none;background:#fbfcfd;color:#17344e;font:23px Tecnico,Arial,sans-serif}
-.campo input::placeholder{color:#929ca5}
-.campo input:focus{border-color:#3d91bd;box-shadow:0 0 0 3px rgba(61,145,189,.09)}
-.password{padding-right:65px!important}
-.ver{position:absolute;top:50%;right:20px;transform:translateY(-50%);width:30px;height:30px;border:0;background:transparent;color:#557c98;font-size:23px;cursor:pointer}
-.entrar{width:100%;height:70px;margin-top:10px;border:0;border-radius:5px;background:#09669f;color:#fff;font:21px Tecnico,Arial,sans-serif;letter-spacing:6px;text-transform:uppercase;cursor:pointer}
-.entrar:hover{background:#075987}
-.entrar:disabled{opacity:.55;cursor:wait}
-.aviso{margin-top:40px;padding-top:24px;border-top:1px solid #dce5ec;color:#718ca4;text-align:center;font-size:17px;line-height:1.4}
-.error{min-height:24px;margin-top:14px;color:#a33d3d;text-align:center;font-size:17px}
-
-/* USUARIO */
-.panel{display:none;width:100%;max-width:1320px;background:#fff;border:1px solid #c7d4de;padding:20px 24px 28px}
-.panel.visible{display:block}
-.titulo-panel,.autorizaciones-titulo{font-size:31px;color:#506e8e;border-bottom:2px solid #506e8e;padding-bottom:4px;margin-bottom:10px}
-.autorizaciones-titulo{margin-top:10px;margin-bottom:14px}
-.datos-usuario{font-size:21px;line-height:1.25;color:#202020}
-
-/* BOTONES A1-A10 */
-.permisos{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:flex-start;gap:12px}
-.permiso{position:relative;width:94px;height:94px;border:0;padding:0;background:transparent;transition:transform .12s ease,opacity .12s ease}
-.permiso img{display:block;width:94px;height:94px;object-fit:contain;border-radius:9px}
-.permiso.activo{cursor:pointer}
-.permiso.activo:hover{transform:translateY(-3px)}
-.permiso.inactivo{opacity:.25;filter:grayscale(1);cursor:not-allowed}
-.icono-fallback{display:none;width:94px;height:94px;border-radius:9px;background:#0873ae;color:#fff;align-items:center;justify-content:center;font-size:28px;font-weight:700}
-.permiso.inactivo .icono-fallback{background:#8397a6}
-
-/* QR */
-.qr-admision{margin-top:25px;padding:18px 20px;border:2px solid #cbd9e3;border-radius:8px;background:#f8fbfd;display:flex;align-items:center;gap:24px}
-.qr-caja{width:205px;min-width:205px;height:205px;display:flex;align-items:center;justify-content:center;background:#fff;border:2px solid #b8cbd8;border-radius:7px;padding:8px}
-.qr-caja img{display:block;width:185px;height:185px;object-fit:contain}
-.qr-info{font-size:21px;line-height:1.35;color:#5d778b}
-.qr-info strong{display:block;margin-bottom:7px;color:#315675;font-size:30px;font-weight:400}
-.qr-info a{display:inline-block;margin-top:11px;padding:10px 15px;border-radius:5px;background:#0873ae;color:#fff;text-decoration:none;font-size:19px}
-.qr-error{display:none;text-align:center;font-size:18px;color:#9b3f3f}
-
-/* AVISOS CONTRAÍDOS */
-.resumen-avisos{margin-top:15px;border:2px solid #c5d6e2;border-radius:7px;background:#f7fbfd;overflow:hidden}
-.avisos-cab{width:100%;border:0;background:#e5f0f6;color:#224c68;padding:14px 18px;font:23px Tecnico,Arial,sans-serif;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
-.avisos-cab:hover{background:#dceaf2}
-.avisos-lista{display:none;padding:8px 18px}
-.avisos-lista.abierta{display:block}
-.aviso-linea{padding:10px 4px;border-bottom:1px solid #d9e4eb;font-size:18px}
-.aviso-linea:last-child{border-bottom:0}
-.aviso-rojo{color:#a83b3b}.aviso-naranja{color:#a86419}.aviso-amarillo{color:#89730a}.aviso-azul{color:#21678f}
-
-.salir{margin-top:18px;border:1px solid #afc3d1;border-radius:5px;background:#fff;color:#315675;padding:9px 15px;font:16px Tecnico,Arial,sans-serif;cursor:pointer}
-
-@media(max-width:1200px){
-.lateral{width:285px;min-width:285px}.rita{font-size:72px}.nombre-sistema{font-size:21px}.pie-lateral{padding-bottom:65px}.pie-lateral img{width:330px}.cabecera{height:160px;min-height:160px;padding:0 55px}.cabecera img{width:730px}.login{width:740px;padding:45px 55px 40px}.login h1{font-size:55px}
-}
+@font-face{font-family:Tecnico;src:url("tecnico_regular.ttf") format("truetype");font-weight:400}@font-face{font-family:Tecnico;src:url("tecnico_bold.ttf") format("truetype");font-weight:700}@font-face{font-family:Tecnico;src:url("tecnico_regularitalic.ttf") format("truetype");font-style:italic}@font-face{font-family:Tecnico;src:url("tecnico_bolditalic.ttf") format("truetype");font-weight:700;font-style:italic}
+*{box-sizing:border-box}html,body{margin:0;width:100%;min-height:100%}body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial,sans-serif}.app{display:flex;width:100%;min-height:100vh}
+.lateral{width:330px;min-width:330px;min-height:100vh;background:#003B5D;color:#fff;padding:38px 34px 30px;display:flex;flex-direction:column}.rita{position:relative;display:inline-block;width:max-content;font-size:82px;line-height:.95;letter-spacing:-4px}.copyright{position:absolute;top:-5px;right:-22px;font:20px Arial}.linea-rita{width:92px;height:5px;margin:35px 0 40px;background:#4dd4d0}.nombre-sistema{width:250px;font-size:25px;line-height:1.28;letter-spacing:1.5px;text-transform:uppercase}
+.qr-publico{margin-top:32px;padding-top:22px;border-top:1px solid #ffffff48;text-align:center}.qr-publico.oculto{display:none}.qr-publico h3{margin:0 0 7px;font-size:21px;font-weight:400;letter-spacing:1px}.qr-publico p{margin:0 0 14px;font-size:15px;line-height:1.3;color:#d9eaf3}.qr-caja{width:190px;height:190px;margin:0 auto 13px;padding:7px;background:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center}.qr-caja img{display:block;width:176px;height:176px;object-fit:contain}.qr-error{display:none;color:#8e2424;background:#fff;padding:14px;font-size:14px}.enlace-solicitud{display:block;color:#59d8d5;font-size:16px;text-decoration:none;line-height:1.25}.enlace-solicitud:hover{text-decoration:underline}
+.menu-lateral{display:none;width:100%;margin-top:28px;padding-top:16px;border-top:1px solid #ffffff38}.menu-lateral.visible{display:block}.boton-lateral{width:100%;min-height:52px;margin-bottom:8px;padding:8px 11px;border:1px solid #ffffff47;border-radius:5px;background:#ffffff14;color:#fff;font-family:Tecnico;text-align:left;display:flex;align-items:center;gap:10px}.boton-lateral.activo{cursor:pointer}.boton-lateral.activo:hover{background:#ffffff29}.boton-lateral.inactivo{opacity:.3;filter:grayscale(1);cursor:not-allowed;background:#ffffff09}.boton-codigo{width:39px;color:#59d8d5;font-size:18px;font-weight:700}.boton-lateral.inactivo .boton-codigo{color:#fff}.boton-texto{font-size:15px;line-height:1.1;text-transform:uppercase}.pie-lateral{margin-top:auto;width:100%;display:flex;justify-content:center;padding:30px 0 95px}.pie-lateral img{display:block;width:382px;max-width:100%;height:auto}
+.principal{flex:1;min-width:0;min-height:100vh;display:flex;flex-direction:column}.cabecera{width:100%;height:185px;min-height:185px;background:#fff;display:flex;align-items:center;padding:0 75px}.cabecera img{display:block;width:844px;max-width:72vw;height:auto}.zona{flex:1;width:100%;background:#edf5fb;display:flex;flex-direction:column;align-items:center;padding:55px 40px 35px}
+.login{width:820px;max-width:calc(100% - 50px);margin:0 auto;background:#fff;border:2px solid #d6e0e8;border-radius:11px;padding:52px 66px 45px;box-shadow:0 8px 25px #1e46640f}.login-mini{display:inline-block;margin-bottom:23px;padding-bottom:9px;border-bottom:4px solid #4dd4d0;color:#6588a5;font-size:20px;letter-spacing:2.5px;text-transform:uppercase}.login h1{margin:0 0 12px;font-size:62px;line-height:1;font-weight:400}.login-intro{margin:0 0 35px;color:#718ca4;font-size:24px;line-height:1.35}.campo{margin-bottom:22px}.campo label{display:block;margin-bottom:9px;color:#65849e;font-size:18px;letter-spacing:1.5px;text-transform:uppercase}.input-wrap{position:relative}.campo input{width:100%;height:70px;padding:0 21px;border:2px solid #c8d7e3;border-radius:6px;outline:none;background:#fbfcfd;color:#17344e;font:23px Tecnico}.campo input:focus{border-color:#3d91bd;box-shadow:0 0 0 3px #3d91bd17}.password{padding-right:65px!important}.ver{position:absolute;top:50%;right:20px;transform:translateY(-50%);width:30px;height:30px;border:0;background:transparent;color:#557c98;font-size:23px;cursor:pointer}.entrar{width:100%;height:70px;margin-top:10px;border:0;border-radius:5px;background:#09669f;color:#fff;font:21px Tecnico;letter-spacing:6px;text-transform:uppercase;cursor:pointer}.entrar:hover{background:#075987}.entrar:disabled{opacity:.55;cursor:wait}.aviso{margin-top:40px;padding-top:24px;border-top:1px solid #dce5ec;color:#718ca4;text-align:center;font-size:17px}.error{min-height:24px;margin-top:14px;color:#a33d3d;text-align:center;font-size:17px}
+.panel{display:none;width:100%;max-width:1320px;background:#fff;border:1px solid #c7d4de;padding:20px 24px 28px}.panel.visible{display:block}.titulo-panel,.autorizaciones-titulo{font-size:31px;color:#506e8e;border-bottom:2px solid #506e8e;padding-bottom:4px;margin-bottom:10px}.autorizaciones-titulo{margin-top:10px;margin-bottom:14px}.datos-usuario{font-size:21px;line-height:1.25;color:#202020}.permisos{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:flex-start;gap:12px}.permiso{position:relative;width:94px;height:94px;border:0;padding:0;background:transparent;transition:transform .12s,opacity .12s}.permiso img{display:block;width:94px;height:94px;object-fit:contain;border-radius:9px}.permiso.activo{cursor:pointer}.permiso.activo:hover{transform:translateY(-3px)}.permiso.inactivo{opacity:.25;filter:grayscale(1);cursor:not-allowed}.ico-fallback{display:none;width:94px;height:94px;border-radius:9px;background:#0873ae;color:#fff;align-items:center;justify-content:center;font-size:27px;font-weight:700}
+.resumen-avisos{margin-top:18px;border:2px solid #c5d6e2;border-radius:7px;background:#f7fbfd;overflow:hidden}.avisos-cab{width:100%;border:0;background:#e5f0f6;color:#224c68;padding:14px 18px;font:23px Tecnico;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center}.avisos-lista{display:none;padding:8px 18px}.avisos-lista.abierta{display:block}.aviso-linea{padding:10px 4px;border-bottom:1px solid #d9e4eb;font-size:18px}.aviso-linea:last-child{border-bottom:0}.aviso-rojo{color:#a83b3b}.aviso-naranja{color:#a86419}.aviso-amarillo{color:#89730a}.aviso-azul{color:#21678f}.salir{margin-top:18px;border:1px solid #afc3d1;border-radius:5px;background:#fff;color:#315675;padding:9px 15px;font:16px Tecnico;cursor:pointer}
+@media(max-width:1200px){.lateral{width:285px;min-width:285px}.rita{font-size:72px}.nombre-sistema{font-size:21px}.qr-caja{width:165px;height:165px}.qr-caja img{width:151px;height:151px}.pie-lateral{padding-bottom:65px}.pie-lateral img{width:330px}.cabecera{height:160px;min-height:160px;padding:0 55px}.cabecera img{width:730px}.login{width:740px;padding:45px 55px 40px}.login h1{font-size:55px}}
 </style>
 </head>
-
 <body>
 <div class="app">
 
@@ -112,6 +23,16 @@ body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial
 <div class="rita">Rita<span class="copyright">©</span></div>
 <div class="linea-rita"></div>
 <div class="nombre-sistema">Sistema de Gestión<br>del Esquema de<br>Certificación<br>de Personas</div>
+
+<div class="qr-publico" id="qrPublico">
+<h3>SOLICITUD DE CERTIFICACIÓN</h3>
+<p>Escanee para iniciar una solicitud.</p>
+<div class="qr-caja">
+<img id="qrAdmision" alt="QR de admisión">
+<div class="qr-error" id="qrError">QR no disponible.<br>Pulse el enlace inferior.</div>
+</div>
+<a class="enlace-solicitud" id="enlaceSolicitud" href="solicitud.html">INICIAR SOLICITUD</a>
+</div>
 
 <nav class="menu-lateral" id="menuLateral">
 <button class="boton-lateral" data-permiso="A1" type="button"><span class="boton-codigo">A1</span><span class="boton-texto">Área Técnica</span></button>
@@ -131,21 +52,17 @@ body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial
 
 <main class="principal">
 <header class="cabecera"><img src="cabecera1.png" alt="Universidad Francisco de Vitoria - Instituto de Acompañamiento"></header>
-
 <section class="zona">
 
 <div class="login" id="login">
 <div class="login-mini">Acceso al sistema</div>
 <h1>Bienvenido</h1>
 <p class="login-intro">Identifíquese para acceder al entorno de gestión del Esquema de Certificación de Personas.</p>
-
 <form id="loginForm">
 <div class="campo"><label for="usuario">Usuario</label><input id="usuario" type="text" autocomplete="username" placeholder="Introduzca su usuario"></div>
 <div class="campo"><label for="password">Contraseña</label><div class="input-wrap"><input id="password" class="password" type="password" autocomplete="current-password" placeholder="Introduzca su contraseña"><button class="ver" id="verPassword" type="button">◉</button></div></div>
-<button class="entrar" id="btnEntrar" type="submit">Entrar</button>
-<div class="error" id="error"></div>
+<button class="entrar" id="btnEntrar" type="submit">Entrar</button><div class="error" id="error"></div>
 </form>
-
 <div class="aviso">Acceso restringido a personal autorizado.</div>
 </div>
 
@@ -156,7 +73,6 @@ body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial
 <div class="datos-usuario" id="codigoUsuario"></div>
 
 <div class="autorizaciones-titulo">Autorizaciones</div>
-
 <div class="permisos">
 <button class="permiso" data-permiso="A1" type="button"><img src="ICOA1.png" alt="A1"></button>
 <button class="permiso" data-permiso="A2" type="button"><img src="ICOA2.png" alt="A2"></button>
@@ -169,35 +85,17 @@ body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial
 
 <button class="permiso" data-permiso="A9" type="button">
 <img src="ICOA9.png" alt="A9" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-<span class="icono-fallback">A9</span>
+<span class="ico-fallback">A9</span>
 </button>
 
 <button class="permiso" data-permiso="A10" type="button">
 <img src="ICOA10.png" alt="A10" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-<span class="icono-fallback">A10</span>
+<span class="ico-fallback">A10</span>
 </button>
-</div>
-
-<div class="qr-admision">
-<div class="qr-caja">
-<img id="qrAdmision" alt="QR de solicitud de certificación">
-<div class="qr-error" id="qrError">QR no disponible.<br>Utilice el enlace.</div>
-</div>
-
-<div class="qr-info">
-<strong>SOLICITUD DE CERTIFICACIÓN</strong>
-Escanee este código para acceder al formulario público de solicitud.<br>
-El mismo QR puede utilizarse en carteles, web, documentos o cualquier otro soporte.
-<br>
-<a id="enlaceSolicitud" href="solicitud.html" target="_blank" rel="noopener">ABRIR FORMULARIO DE SOLICITUD</a>
-</div>
 </div>
 
 <div class="resumen-avisos">
-<button class="avisos-cab" id="btnAvisos" type="button">
-<span id="textoAvisos">NO TIENES AVISOS</span>
-<span id="flechaAvisos">▼</span>
-</button>
+<button class="avisos-cab" id="btnAvisos" type="button"><span id="textoAvisos">NO TIENES AVISOS</span><span id="flechaAvisos">▼</span></button>
 <div class="avisos-lista" id="listaAvisos"></div>
 </div>
 
@@ -210,10 +108,8 @@ El mismo QR puede utilizarse en carteles, web, documentos o cualquier otro sopor
 
 <script src="dropbox_config.js"></script>
 <script src="usuarios.js"></script>
-
 <script>
-const login=document.getElementById("login"),panel=document.getElementById("panel"),menu=document.getElementById("menuLateral"),formulario=document.getElementById("loginForm"),campoUsuario=document.getElementById("usuario"),password=document.getElementById("password"),error=document.getElementById("error"),botonVer=document.getElementById("verPassword"),btnEntrar=document.getElementById("btnEntrar");
-
+const login=document.getElementById("login"),panel=document.getElementById("panel"),menu=document.getElementById("menuLateral"),qrPublico=document.getElementById("qrPublico"),formulario=document.getElementById("loginForm"),campoUsuario=document.getElementById("usuario"),password=document.getElementById("password"),error=document.getElementById("error"),botonVer=document.getElementById("verPassword"),btnEntrar=document.getElementById("btnEntrar");
 let AVISOS_ACTIVOS=[];
 
 function abrirArea(codigo){
@@ -222,8 +118,7 @@ if(rutas[codigo]){location.href=rutas[codigo];return}
 alert(codigo+" · Área en preparación");
 }
 
-/* A9 TODOS. A10 HEREDA PERMISO A2 */
-function tienePermisoIndex(codigo){
+function permisoIndex(codigo){
 if(codigo==="A9")return true;
 if(codigo==="A10")return tienePermiso("A2");
 return tienePermiso(codigo);
@@ -231,7 +126,7 @@ return tienePermiso(codigo);
 
 function aplicarPermisos(){
 document.querySelectorAll("[data-permiso]").forEach(el=>{
-const permitido=tienePermisoIndex(el.dataset.permiso);
+const permitido=permisoIndex(el.dataset.permiso);
 el.classList.remove("activo","inactivo");
 el.classList.add(permitido?"activo":"inactivo");
 el.disabled=!permitido;
@@ -239,79 +134,50 @@ el.onclick=permitido?()=>abrirArea(el.dataset.permiso):null;
 });
 }
 
-/* QR ADMISIÓN */
+/* QR PÚBLICO. SÓLO EXISTE VISUALMENTE ANTES DEL LOGIN */
 function prepararQR(){
 const destino=new URL("solicitud.html",location.href).href;
-const qr=document.getElementById("qrAdmision");
-const err=document.getElementById("qrError");
-const enlace=document.getElementById("enlaceSolicitud");
-
+const qr=document.getElementById("qrAdmision"),err=document.getElementById("qrError"),enlace=document.getElementById("enlaceSolicitud");
 enlace.href=destino;
 
-const servidores=[
+const fuentes=[
 "https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=4&data="+encodeURIComponent(destino),
 "https://quickchart.io/qr?size=220&margin=2&text="+encodeURIComponent(destino)
 ];
 
-let intento=0;
-
-function probar(){
-if(intento>=servidores.length){
-qr.style.display="none";
-err.style.display="block";
-return;
+let i=0;
+function intentar(){
+if(i>=fuentes.length){qr.style.display="none";err.style.display="block";return}
+qr.src=fuentes[i++];
 }
-qr.src=servidores[intento++];
-}
-
-qr.onload=()=>{
-qr.style.display="block";
-err.style.display="none";
-};
-
-qr.onerror=probar;
-probar();
+qr.onload=()=>{qr.style.display="block";err.style.display="none"};
+qr.onerror=intentar;
+intentar();
 }
 
-/* AVISOS */
 function cargarAvisosResumen(u){
 const todos=Array.isArray(window.RITA_AVISOS)?window.RITA_AVISOS:[];
-AVISOS_ACTIVOS=todos.filter(a=>{
-const activo=String(a.estado||"ACTIVO").toUpperCase()!=="RESUELTO";
-const usuario=!a.usuario||a.usuario==="TODOS"||a.usuario===u.codigo;
-return activo&&usuario;
-});
+AVISOS_ACTIVOS=todos.filter(a=>String(a.estado||"ACTIVO").toUpperCase()!=="RESUELTO"&&(!a.usuario||a.usuario==="TODOS"||a.usuario===u.codigo));
 pintarAvisos();
 }
 
 function pintarAvisos(){
-const n=AVISOS_ACTIVOS.length;
-const texto=document.getElementById("textoAvisos");
-const lista=document.getElementById("listaAvisos");
-const flecha=document.getElementById("flechaAvisos");
-
+const n=AVISOS_ACTIVOS.length,texto=document.getElementById("textoAvisos"),lista=document.getElementById("listaAvisos"),flecha=document.getElementById("flechaAvisos");
 texto.textContent=n?`TIENES ${n} AVISO${n===1?"":"S"}`:"NO TIENES AVISOS";
 flecha.style.visibility=n?"visible":"hidden";
-
-lista.innerHTML=n
-?AVISOS_ACTIVOS.map(a=>{
-const p=String(a.prioridad||"AZUL").toLowerCase();
-return `<div class="aviso-linea aviso-${p}">${a.texto||a.mensaje||"Aviso del sistema"}</div>`;
-}).join("")
-:'';
+lista.innerHTML=n?AVISOS_ACTIVOS.map(a=>`<div class="aviso-linea aviso-${String(a.prioridad||"AZUL").toLowerCase()}">${a.texto||a.mensaje||"Aviso del sistema"}</div>`).join(""):"";
 }
 
 document.getElementById("btnAvisos").onclick=()=>{
 if(!AVISOS_ACTIVOS.length)return;
-const lista=document.getElementById("listaAvisos");
-const flecha=document.getElementById("flechaAvisos");
-lista.classList.toggle("abierta");
-flecha.textContent=lista.classList.contains("abierta")?"▲":"▼";
+const l=document.getElementById("listaAvisos"),f=document.getElementById("flechaAvisos");
+l.classList.toggle("abierta");
+f.textContent=l.classList.contains("abierta")?"▲":"▼";
 };
 
-/* SESIÓN */
 function mostrarUsuario(u){
 login.style.display="none";
+qrPublico.classList.add("oculto");
 panel.classList.add("visible");
 menu.classList.add("visible");
 
@@ -320,28 +186,20 @@ document.getElementById("rolUsuario").textContent=u.rol||"Usuario";
 document.getElementById("codigoUsuario").textContent="Código: "+u.codigo;
 
 aplicarPermisos();
-prepararQR();
 cargarAvisosResumen(u);
 }
 
-botonVer.onclick=()=>{
-password.type=password.type==="password"?"text":"password";
-};
+botonVer.onclick=()=>password.type=password.type==="password"?"text":"password";
 
 formulario.onsubmit=async e=>{
 e.preventDefault();
-
 error.textContent="";
 btnEntrar.disabled=true;
 btnEntrar.textContent="CARGANDO...";
 
 try{
 await iniciarRita();
-
-const u=await buscarUsuario(
-campoUsuario.value,
-password.value
-);
+const u=await buscarUsuario(campoUsuario.value,password.value);
 
 if(!u){
 error.textContent="Usuario o contraseña incorrectos.";
@@ -359,12 +217,10 @@ btnEntrar.textContent="ENTRAR";
 }
 };
 
+prepararQR();
+
 const sesionActiva=usuarioActivo();
-
-if(sesionActiva){
-mostrarUsuario(sesionActiva);
-}
+if(sesionActiva)mostrarUsuario(sesionActiva);
 </script>
-
 </body>
 </html>
