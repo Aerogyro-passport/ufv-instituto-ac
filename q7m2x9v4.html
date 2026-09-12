@@ -15,13 +15,55 @@ function buscarEsquema(lista,d){const c=UP(d.esquema_codigo),n=UP(d.esquema_nomb
 function buscarPerfil(lista,es,d){const pc=es?.perfil_codigo||es?.codigo_perfil||d.perfil_codigo||"",pn=es?.perfil_nombre||"";return lista.find(x=>UP(x.codigo)===UP(pc)||UP(x.nombre)===UP(pc)||UP(x.codigo)===UP(pn)||UP(x.nombre)===UP(pn))}
 async function catalog(){const[e,p]=await Promise.all([read(F.esq),read(F.per)]);return e.d.filter(usable).map(x=>{const q=buscarPerfil(p.d,x,{});return{codigo:x.codigo||x.nombre,nombre:x.nombre||x.denominacion||x.codigo,perfil_codigo:x.perfil_codigo||x.codigo_perfil||q?.codigo||"",perfil_nombre:x.perfil_nombre||q?.nombre||""}}).filter(x=>x.codigo&&x.perfil_codigo)}
 function valid(d){for(const[c,n]of[["esquema_codigo","Esquema"],["nombre","Nombre"],["primer_apellido","Primer apellido"],["documento_tipo","Documento"],["documento","Documento"],["fecha_nacimiento","Fecha de nacimiento"],["email","Correo"],["telefono","Teléfono"]])if(!S(d?.[c]))throw Error("Falta: "+n);if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(S(d.email)))throw Error("Correo no válido");if(!d.proteccion_datos||!d.comunicaciones_proceso)throw Error("Debe aceptar las condiciones")}
+
+function nuevaEvidencia(r,e,mv,n){
+const l=UP(r.nivel_llave);
+const abierta=l==="ADMISION"||e.llave_actual==="CUALIFICACION"||e.llave_actual==="EVALUACION";
+return{codigo:COD(mv,"EVI"),expediente_codigo:e.codigo,solicitud_codigo:e.solicitud_codigo||"",codigo_requisito:r.codigo_requisito||"",tipo_requisito:r.tipo_requisito,titulo:r.titulo||r.denominacion||r.nombre||"",descripcion:r.descripcion||"",metodo_comprobacion:r.metodo_comprobacion||"",nivel_llave:l,obligatoriedad:r.obligatoriedad||"OBLIGATORIO",grupo_alternativa:r.grupo_alternativa||"",estado:abierta?"SIN_EVIDENCIA":"BLOQUEADA",archivo:null,url:null,fecha_aportacion:null,fecha_validacion:null,validado_por:null,motivo_insuficiente:"",fecha_creacion:n}
+}
+
+async function sincronizarEvidencias(e,mv,mp){
+const p=mp.d.find(x=>UP(x.codigo)===UP(e.perfil_codigo)||UP(x.nombre)===UP(e.perfil_codigo)||UP(x.codigo)===UP(e.perfil_nombre)||UP(x.nombre)===UP(e.perfil_nombre));
+if(!p)return false;
+const requisitos=req(p).filter(r=>["ADMISION","CUALIFICACION"].includes(UP(r.nivel_llave)));
+let cambio=false;
+for(const r of requisitos){
+const cr=S(r.codigo_requisito);
+if(!cr)continue;
+let v=mv.d.find(x=>x.expediente_codigo===e.codigo&&x.codigo_requisito===cr);
+if(!v){
+v=nuevaEvidencia(r,e,mv.d,N());
+mv.d.push(v);
+cambio=true;
+}else{
+if(!v.tipo_requisito&&r.tipo_requisito){v.tipo_requisito=r.tipo_requisito;cambio=true}
+if(!v.titulo&&(r.titulo||r.denominacion||r.nombre)){v.titulo=r.titulo||r.denominacion||r.nombre;cambio=true}
+if(!v.descripcion&&r.descripcion){v.descripcion=r.descripcion;cambio=true}
+if(!v.metodo_comprobacion&&r.metodo_comprobacion){v.metodo_comprobacion=r.metodo_comprobacion;cambio=true}
+if(!v.nivel_llave&&r.nivel_llave){v.nivel_llave=UP(r.nivel_llave);cambio=true}
+if(v.estado==="BLOQUEADA"&&UP(v.nivel_llave)==="CUALIFICACION"&&["CUALIFICACION","EVALUACION"].includes(UP(e.llave_actual))){v.estado="SIN_EVIDENCIA";cambio=true}
+}
+}
+if(cambio)await write(F.evi,mv.d,mv.rev);
+return cambio
+}
+
 async function alta(d,i=0){valid(d);const[ms,mx,mv,mp,me]=await Promise.all([read(F.sol),read(F.exp),read(F.evi),read(F.per),read(F.esq)]),es=buscarEsquema(me.d,d);if(!es)throw Error("Esquema no disponible");const p=buscarPerfil(mp.d,es,d);if(!p)throw Error("Perfil no localizado");const dd=D(d.documento),dup=ms.d.find(x=>D(x.documento)===dd&&UP(x.esquema_codigo)===UP(es.codigo)&&!["CANCELADA","CERRADA","ANULADA"].includes(UP(x.estado)));if(dup)return{ok:true,duplicada:true,codigo:dup.codigo,expediente_codigo:dup.expediente_codigo,estado:"ASPIRANTE",fase:"LLAVE 1 · ADMISIÓN",token_portal:dup.token_portal,pdf_instrucciones:await temp(PDF)};
 const cs=COD(ms.d,"SOL"),ce=COD(mx.d,"EXP"),tk=TK(),n=N(),nombre=[S(d.nombre,150),S(d.primer_apellido,150),S(d.segundo_apellido,150)].filter(Boolean).join(" ");
 const sol={codigo:cs,fecha_solicitud:n,fecha_actualizacion:n,estado:"EXPEDIENTE CREADO",esquema_codigo:es.codigo,esquema_nombre:es.nombre||es.denominacion||es.codigo,perfil_codigo:p.codigo,perfil_nombre:p.nombre||"",nombre:S(d.nombre,150),primer_apellido:S(d.primer_apellido,150),segundo_apellido:S(d.segundo_apellido,150),nombre_completo:nombre,documento_tipo:S(d.documento_tipo,50),documento:dd,fecha_nacimiento:S(d.fecha_nacimiento,20),email:S(d.email,200).toLowerCase(),telefono:S(d.telefono,50),direccion:S(d.direccion,300),codigo_postal:S(d.codigo_postal,20),poblacion:S(d.poblacion,150),provincia:S(d.provincia,150),pais:S(d.pais,100),proteccion_datos:true,comunicaciones_proceso:true,token_portal:tk,portal_activo:true,pdf_instrucciones:PDF,expediente_codigo:ce,fecha_procesada:n,origen:"SOLICITUD_PUBLICA"};
 const exp={codigo:ce,solicitud_codigo:cs,fecha_alta:n,fecha_actualizacion:n,nombre_completo:nombre,documento_tipo:sol.documento_tipo,documento:dd,fecha_nacimiento:sol.fecha_nacimiento,email:sol.email,telefono:sol.telefono,esquema_codigo:sol.esquema_codigo,esquema_nombre:sol.esquema_nombre,perfil_codigo:p.codigo,perfil_nombre:p.nombre||"",estado:"ASPIRANTE",fase:"LLAVE 1 · ADMISIÓN",llave_actual:"ADMISION",token_portal:tk,portal_activo:true,fecha_descarga_instrucciones:null,fecha_descarga_confirmacion:null,confirmacion_pdf:null,numero_certificado:null,estado_certificacion:null};
 const ne=[];req(p).forEach(r=>{const l=UP(r.nivel_llave);if(!["ADMISION","CUALIFICACION"].includes(l))return;ne.push({codigo:COD([...mv.d,...ne],"EVI"),expediente_codigo:ce,solicitud_codigo:cs,codigo_requisito:r.codigo_requisito||"",tipo_requisito:r.tipo_requisito,titulo:r.titulo||r.denominacion||r.nombre||"",descripcion:r.descripcion||"",metodo_comprobacion:r.metodo_comprobacion||"",nivel_llave:l,obligatoriedad:r.obligatoriedad||"OBLIGATORIO",grupo_alternativa:r.grupo_alternativa||"",estado:l==="ADMISION"?"SIN_EVIDENCIA":"BLOQUEADA",archivo:null,url:null,fecha_aportacion:null,fecha_validacion:null,validado_por:null,motivo_insuficiente:"",fecha_creacion:n})});
 ms.d.push(sol);mx.d.push(exp);mv.d.push(...ne);try{await write(F.evi,mv.d,mv.rev);await write(F.exp,mx.d,mx.rev);await write(F.sol,ms.d,ms.rev)}catch(e){if(e.message==="CONFLICTO"&&i<2)return alta(d,i+1);throw e}return{ok:true,codigo:cs,expediente_codigo:ce,estado:"ASPIRANTE",fase:exp.fase,token_portal:tk,pdf_instrucciones:await temp(PDF)}}
-async function portal(tk){const[mx,mv]=await Promise.all([read(F.exp),read(F.evi)]),e=mx.d.find(x=>x.token_portal===tk&&x.portal_activo!==false);if(!e)throw Error("Acceso personal no válido");return{ok:true,expediente:{codigo:e.codigo,nombre_completo:e.nombre_completo,esquema_codigo:e.esquema_codigo,esquema_nombre:e.esquema_nombre,estado:e.estado,fase:e.fase,llave_actual:e.llave_actual,numero_certificado:e.numero_certificado,estado_certificacion:e.estado_certificacion},evidencias:mv.d.filter(x=>x.expediente_codigo===e.codigo).map(v=>({codigo:v.codigo,codigo_requisito:v.codigo_requisito,tipo_requisito:v.tipo_requisito,titulo:v.titulo,descripcion:v.descripcion,metodo_comprobacion:v.metodo_comprobacion,nivel_llave:v.nivel_llave,estado:v.estado,motivo_insuficiente:v.motivo_insuficiente||"",fecha_aportacion:v.fecha_aportacion})),pdf:await temp(PDF)}}
+
+async function portal(tk){
+const[mx,mv,mp]=await Promise.all([read(F.exp),read(F.evi),read(F.per)]);
+const e=mx.d.find(x=>x.token_portal===tk&&x.portal_activo!==false);
+if(!e)throw Error("Acceso personal no válido");
+await sincronizarEvidencias(e,mv,mp);
+const mv2=await read(F.evi);
+return{ok:true,expediente:{codigo:e.codigo,nombre_completo:e.nombre_completo,esquema_codigo:e.esquema_codigo,esquema_nombre:e.esquema_nombre,estado:e.estado,fase:e.fase,llave_actual:e.llave_actual,numero_certificado:e.numero_certificado,estado_certificacion:e.estado_certificacion},evidencias:mv2.d.filter(x=>x.expediente_codigo===e.codigo).map(v=>({codigo:v.codigo,codigo_requisito:v.codigo_requisito,tipo_requisito:v.tipo_requisito,titulo:v.titulo,descripcion:v.descripcion,metodo_comprobacion:v.metodo_comprobacion,nivel_llave:v.nivel_llave,estado:v.estado,motivo_insuficiente:v.motivo_insuficiente||"",fecha_aportacion:v.fecha_aportacion})),pdf:await temp(PDF)}
+}
+
 async function evidencia(tk,codigo,file){if(!file||!file.name)throw Error("Seleccione un archivo");const[mx,mv]=await Promise.all([read(F.exp),read(F.evi)]),e=mx.d.find(x=>x.token_portal===tk&&x.portal_activo!==false);if(!e)throw Error("Acceso personal no válido");const v=mv.d.find(x=>x.codigo===codigo&&x.expediente_codigo===e.codigo);if(!v)throw Error("Requisito no localizado");if(v.estado==="BLOQUEADA")throw Error("Esta fase todavía está bloqueada");const dir=A+"/"+e.codigo;await folder(dir);const path=dir+"/"+v.codigo+"_"+SAFE(file.name);await upload(path,file);v.archivo=path;v.estado="PENDIENTE_VALIDACION";v.fecha_aportacion=N();v.fecha_validacion=null;v.validado_por=null;v.motivo_insuficiente="";await write(F.evi,mv.d,mv.rev);return{ok:true,estado:v.estado}}
 async function descarga(tk,tipo){const m=await read(F.exp),e=m.d.find(x=>x.token_portal===tk&&x.portal_activo!==false);if(!e)throw Error("Expediente no localizado");if(tipo==="INSTRUCCIONES")e.fecha_descarga_instrucciones=N();else if(tipo==="CONFIRMACION")e.fecha_descarga_confirmacion=N();else throw Error("Documento no válido");e.fecha_actualizacion=N();await write(F.exp,m.d,m.rev);return{ok:true}}
 async function archiva(tk,file){if(!file)throw Error("Falta el PDF");const m=await read(F.exp),e=m.d.find(x=>x.token_portal===tk&&x.portal_activo!==false);if(!e)throw Error("Expediente no localizado");const dir=A+"/"+e.codigo;await folder(dir);const path=dir+"/Confirmacion_"+e.solicitud_codigo+"_"+e.codigo+".pdf";await upload(path,file);e.confirmacion_pdf=path;e.fecha_actualizacion=N();await write(F.exp,m.d,m.rev);return{ok:true,path}}
