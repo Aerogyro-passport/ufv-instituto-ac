@@ -4,7 +4,18 @@
 .visor-fondo{display:none;position:fixed;inset:0;background:#000b;z-index:10000;padding:26px}.visor-fondo.visible{display:flex;align-items:center;justify-content:center}.visor{width:min(1500px,96vw);height:94vh;background:#edf5fb;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 20px 70px #0008}.visor-cab{height:72px;background:#003B5D;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 24px}.visor-cab strong{font-size:25px;font-weight:400}.visor-cab button{border:1px solid #ffffff80;border-radius:6px;background:#ffffff15;color:#fff;padding:9px 17px;font:19px Tecnico;cursor:pointer}.visor-cuerpo{flex:1;position:relative;background:#dce6ed}.visor-cuerpo iframe{width:100%;height:100%;border:0;background:#fff}.visor-carga{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:24px;color:#315675;background:#edf5fb}.spinner{width:36px;height:36px;border:5px solid #bfd0dc;border-top-color:#0873ae;border-radius:50%;margin-right:15px;animation:g .8s linear infinite}@keyframes g{to{transform:rotate(360deg)}}@media(max-width:1400px){.lateral{width:310px;min-width:310px}.fila{grid-template-columns:120px 1.3fr 1fr 150px 170px 120px}.filtros{grid-template-columns:1fr 1fr}.datos,.llaves{grid-template-columns:1fr}}
 </style></head><body>
 
-<div class="app"><aside class="lateral"><div class="rita">Rita<span class="copyright">©</span></div><div class="linea"></div><div class="nombre">Sistema de Gestión<br>del Esquema de<br>Certificación de Personas</div><nav class="menu"><button onclick="location.href='A1.html'">A1 · ÁREA TÉCNICA</button><button class="actual">A2 · ÁREA DE GESTIÓN</button><button disabled>A3 · ÁREA DE EVALUACIÓN</button><button disabled>A4 · ÁREA DE FORMACIÓN</button><button disabled>A5 · ÁREA DE DECISIÓN</button><button disabled>A6 · ÁREA DE CONFLICTOS</button><button disabled>A7 · ÁREA DE MEJORA</button><button onclick="location.href='A8.html'">A8 · CONFIGURACIÓN</button><button onclick="location.href='A9.html'">A9 · AVISOS</button><button onclick="location.href='A10.html'">A10 · GESTIÓN ECONÓMICA</button></nav><div class="pie"><img src="pie.png" alt=""></div></aside>
+<div class="app"><aside class="lateral"><div class="rita">Rita<span class="copyright">©</span></div><div class="linea"></div><div class="nombre">Sistema de Gestión<br>del Esquema de<br>Certificación de Personas</div><nav class="menu">
+<button data-area="A1">A1 · ÁREA TÉCNICA</button>
+<button class="actual" data-area="A2">A2 · ÁREA DE GESTIÓN</button>
+<button data-area="A3">A3 · ÁREA DE EVALUACIÓN</button>
+<button data-area="A4">A4 · ÁREA DE FORMACIÓN</button>
+<button data-area="A5">A5 · ÁREA DE DECISIÓN</button>
+<button data-area="A6">A6 · ÁREA DE CONFLICTOS</button>
+<button data-area="A7">A7 · ÁREA DE MEJORA</button>
+<button data-area="A8">A8 · CONFIGURACIÓN</button>
+<button data-area="A9">A9 · AVISOS</button>
+<button data-area="A10">A10 · GESTIÓN ECONÓMICA</button>
+</nav><div class="pie"><img src="pie.png" alt=""></div></aside>
 
 <main class="principal"><header class="cabecera"><img src="cabecera1.png" alt=""></header><section class="zona"><div class="top"><div class="ident"><img src="ICOA2.png" alt=""><div><h1>A2 · Área de Gestión</h1><p>Gestión administrativa de solicitudes, expedientes y evidencias</p></div></div><div class="usuario"><strong id="usuarioNombre"></strong><span id="usuarioRol"></span><br><button class="volver" onclick="location.href='index.html'">Volver al inicio</button></div></div>
 
@@ -27,6 +38,19 @@
 const BASE="/03_UFV_INSTITUTO/99_datos_Rita/",ARCHIVOS={solicitudes:"maestro_solicitudes.json",expedientes:"maestro_expedientes.json",evidencias:"maestro_evidencias.json",estados:"maestro_estados_expediente.json",perfiles:"maestro_perfiles_certificables.json",esquemas:"maestro_esquemas_certificacion.json"};let DATOS={solicitudes:[],expedientes:[],evidencias:[],estados:[],perfiles:[],esquemas:[]},REV={},EXPEDIENTE_ACTIVO=null,URL_VISOR=null;
 const $=id=>document.getElementById(id),txt=v=>String(v??"").trim(),norm=v=>txt(v).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase(),ahora=()=>new Date().toISOString();
 const SESION=typeof usuarioActivo==="function"?usuarioActivo():null;if(!SESION||typeof tienePermiso!=="function"||!tienePermiso("A2")){alert("No dispone de autorización para acceder al Área de Gestión.");location.href="index.html"}$("usuarioNombre").textContent=SESION?.nombre||"";$("usuarioRol").textContent=SESION?.rol||"";
+
+function permisoMenu(a){
+if(a==="A9")return true;
+if(a==="A10")return tienePermiso("A2");
+return tienePermiso(a);
+}
+
+document.querySelectorAll(".menu button[data-area]").forEach(b=>{
+const a=b.dataset.area,ok=permisoMenu(a);
+b.disabled=!ok;
+if(!ok)return;
+b.onclick=()=>location.href=a+".html";
+});
 
 async function token(){if(typeof obtenerDropboxAccessToken!=="function")throw Error("No se encuentra la conexión Dropbox.");return obtenerDropboxAccessToken()}
 async function descargar(k){const t=await token(),path=BASE+ARCHIVOS[k],r=await fetch("https://content.dropboxapi.com/2/files/download",{method:"POST",headers:{Authorization:"Bearer "+t,"Dropbox-API-Arg":JSON.stringify({path})}});if(r.status===409||r.status===404){REV[k]=null;return[]}if(!r.ok)throw Error(ARCHIVOS[k]+": Dropbox "+r.status);let meta={};try{meta=JSON.parse(r.headers.get("Dropbox-API-Result")||"{}")}catch{}REV[k]=meta.rev||null;const s=await r.text();if(!s.trim())return[];let d;try{d=JSON.parse(s)}catch{throw Error(ARCHIVOS[k]+" no contiene JSON válido.")}if(!Array.isArray(d))throw Error(ARCHIVOS[k]+" debe contener un array JSON.");return d}
