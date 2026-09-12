@@ -4,503 +4,63 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Rita© | A3 Área de Evaluación</title>
-
 <style>
-@font-face{font-family:Tecnico;src:url("tecnico_regular.ttf") format("truetype");font-weight:400}
-@font-face{font-family:Tecnico;src:url("tecnico_bold.ttf") format("truetype");font-weight:700}
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%}
-body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial,sans-serif;font-size:22px}
-.app{display:flex;min-height:100vh}
-.lateral{width:350px;min-width:350px;background:#003B5D;color:#fff;padding:38px 32px 30px;display:flex;flex-direction:column}
-.rita{position:relative;width:max-content;font-size:82px;line-height:.95;letter-spacing:-4px}
-.copyright{position:absolute;top:-5px;right:-22px;font:20px Arial}
-.linea{width:92px;height:5px;background:#4dd4d0;margin:30px 0 36px}
-.nombre{font-size:24px;line-height:1.3;text-transform:uppercase}
-.menu{margin-top:26px;padding-top:15px;border-top:1px solid #ffffff38}
-.menu button{width:100%;min-height:52px;margin-bottom:7px;padding:9px 11px;border:1px solid #ffffff45;border-radius:5px;background:#ffffff12;color:#fff;font:17px Tecnico;text-align:left;cursor:pointer}
-.menu button.actual{background:#fff;color:#003B5D}
-.menu button:disabled{opacity:.3;filter:grayscale(1);cursor:not-allowed}
-.pie{margin-top:auto;padding-top:28px}
-.pie img{width:100%}
-.principal{flex:1;min-width:0}
-.cabecera{height:185px;background:#fff;display:flex;align-items:center;padding:0 70px}
-.cabecera img{width:840px;max-width:73vw}
-.zona{padding:32px 38px 55px}
-.top{display:flex;justify-content:space-between;gap:25px;align-items:center;margin-bottom:24px}
-.ident{display:flex;align-items:center;gap:20px}
-.ident img{width:110px;height:110px;object-fit:contain}
-.ident h1{margin:0;font-size:56px;font-weight:400}
-.ident p{margin:6px 0 0;font-size:27px;color:#718ca4}
-.usuario{text-align:right;font-size:22px;color:#718ca4}
-.usuario strong{display:block;font-size:28px;color:#17344e}
-.volver{margin-top:10px;padding:11px 17px;border:1px solid #b8cad7;border-radius:5px;background:#fff;color:#315675;font:20px Tecnico;cursor:pointer}
+@font-face{font-family:Tecnico;src:url("tecnico_regular.ttf") format("truetype");font-weight:400}@font-face{font-family:Tecnico;src:url("tecnico_bold.ttf") format("truetype");font-weight:700}*{box-sizing:border-box}html,body{margin:0;min-height:100%}body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial,sans-serif;font-size:22px}.app{display:flex;min-height:100vh}.lateral{width:350px;min-width:350px;background:#003B5D;color:#fff;padding:38px 32px 30px;display:flex;flex-direction:column}.rita{position:relative;width:max-content;font-size:82px;line-height:.95;letter-spacing:-4px}.copyright{position:absolute;top:-5px;right:-22px;font:20px Arial}.linea{width:92px;height:5px;background:#4dd4d0;margin:30px 0 36px}.nombre{font-size:24px;line-height:1.3;text-transform:uppercase}.menu{margin-top:26px;padding-top:15px;border-top:1px solid #ffffff38}.menu button{width:100%;min-height:52px;margin-bottom:7px;padding:9px 11px;border:1px solid #ffffff45;border-radius:5px;background:#ffffff12;color:#fff;font:17px Tecnico;text-align:left;cursor:pointer}.menu button.actual{background:#fff;color:#003B5D}.menu button:disabled{opacity:.3;filter:grayscale(1);cursor:not-allowed}.pie{margin-top:auto;padding-top:28px}.pie img{width:100%}.principal{flex:1;min-width:0}.cabecera{height:185px;background:#fff;display:flex;align-items:center;padding:0 70px}.cabecera img{width:840px;max-width:73vw}.zona{padding:32px 38px 55px}.top{display:flex;justify-content:space-between;gap:25px;align-items:center;margin-bottom:24px}.ident{display:flex;align-items:center;gap:20px}.ident img{width:110px;height:110px;object-fit:contain}.ident h1{margin:0;font-size:56px;font-weight:400}.ident p{margin:6px 0 0;font-size:27px;color:#718ca4}.usuario{text-align:right;font-size:22px;color:#718ca4}.usuario strong{display:block;font-size:28px;color:#17344e}.volver{margin-top:10px;padding:11px 17px;border:1px solid #b8cad7;border-radius:5px;background:#fff;color:#315675;font:20px Tecnico;cursor:pointer}.resumen{display:grid;grid-template-columns:repeat(5,1fr);gap:11px;margin-bottom:20px}.card{border:2px solid;border-radius:8px;padding:14px 16px;cursor:pointer}.card strong{display:block;font-size:36px;font-weight:400}.card span{font-size:16px}.azul{background:rgba(40,119,165,.11);border-color:#2877a5;color:#275f80}.verde{background:rgba(59,150,99,.12);border-color:#3b9663;color:#286544}.amarillo{background:rgba(220,184,46,.15);border-color:#c5a226;color:#756000}.rojo{background:rgba(190,67,67,.12);border-color:#b74444;color:#8f2828}.turquesa{background:rgba(77,212,208,.15);border-color:#3eb5b1;color:#226d6a}.gris{background:rgba(110,126,137,.10);border-color:#85939c;color:#5d6870}.tabs{display:flex;gap:7px;flex-wrap:wrap;border-bottom:2px solid #bacdda;margin-top:10px}.tab{padding:14px 17px;border:2px solid #c7d6e0;border-bottom:0;border-radius:7px 7px 0 0;background:#f7fafc;color:#4e6b84;font:20px Tecnico;cursor:pointer}.tab.activa{background:#0873ae;color:#fff;border-color:#0873ae}.panel{display:none;background:#fff;border:2px solid #cddae4;border-top:0;padding:28px 30px 40px}.panel.activo{display:block}.panel h2{margin:0 0 7px;font-size:40px;font-weight:400}.panel h3{margin:22px 0 12px;font-size:29px;font-weight:400;color:#315675}.intro{margin:0 0 22px;color:#718ca4;font-size:22px;line-height:1.35}.barra{display:flex;gap:11px;flex-wrap:wrap;align-items:center;margin:18px 0}.barra input,.barra select{height:54px;border:2px solid #bfd0dc;border-radius:6px;padding:0 12px;background:#fff;color:#17344e;font:20px Tecnico}.barra input{min-width:300px;flex:1}.btn{border:0;border-radius:6px;padding:11px 16px;font:19px Tecnico;cursor:pointer}.btn-azul{background:#0873ae;color:#fff}.btn-verde{background:#378b62;color:#fff}.btn-rojo{background:#b74c4c;color:#fff}.btn-amarillo{background:#c69a1b;color:#fff}.btn-turquesa{background:#369d99;color:#fff}.btn-claro{background:#e6eef3;color:#315675}.btn:disabled{opacity:.4;cursor:not-allowed}.tabla-wrap{overflow:auto;border:1px solid #ccd9e2;border-radius:7px}table{width:100%;border-collapse:collapse;min-width:1050px}th,td{padding:12px 13px;border-bottom:1px solid #dce5eb;text-align:left;vertical-align:top}th{background:#e8f0f5;color:#526f86;font-size:17px}td{font-size:18px}tbody tr.click{cursor:pointer}tbody tr.click:hover{background:#f4f9fc}.estado{display:inline-block;border:2px solid;border-radius:5px;padding:5px 9px;font-size:14px;font-weight:700}.expediente-cab{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;border:2px solid #bdd0dc;border-radius:9px;background:#f7fbfd;padding:19px 22px;margin-bottom:20px}.expediente-cab h3{margin:0 0 5px;font-size:34px;color:#17344e}.expediente-cab p{margin:4px 0;color:#668197}.expediente-cab .derecha{text-align:right}.ficha{border:2px solid #cbd9e3;border-radius:8px;padding:20px 22px;background:#fbfdfe;margin-top:17px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 24px}.campo{display:flex;flex-direction:column;gap:7px}.campo.ancho{grid-column:1/-1}.campo label{font-size:17px;font-weight:700;color:#58738c;text-transform:uppercase}.campo input,.campo select,.campo textarea{width:100%;border:2px solid #bfd0dc;border-radius:6px;background:#fff;color:#17344e;font:20px Tecnico;padding:12px 14px}.campo input,.campo select{height:55px}.campo textarea{min-height:110px;resize:vertical;line-height:1.3}.acciones{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.barra-ficha{width:100%;display:flex;justify-content:space-between;align-items:center;border:2px solid #bfd0dc;border-radius:7px;background:#edf5fa;color:#315675;padding:13px 17px;font:20px Tecnico;cursor:pointer;margin:15px 0 8px}.form-desplegable{display:none}.form-desplegable.abierto{display:block}.prueba{border:2px solid #d4e0e8;border-radius:8px;padding:17px;margin-bottom:12px}.prueba h4{margin:0 0 8px;font-size:25px;font-weight:400}.prueba-meta{color:#6b8396;font-size:17px;line-height:1.4}.checks{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}.check{display:flex;gap:9px;align-items:center;border:2px solid #d4e0e7;border-radius:6px;background:#fff;padding:11px;font-size:16px}.check input{width:22px;height:22px}.aviso{padding:14px 16px;border:2px solid;border-radius:7px;margin:14px 0}.rita-badge{display:inline-block;background:#003B5D;color:#fff;border:2px solid #4dd4d0;border-radius:5px;padding:6px 10px;font-weight:700}.rita-box{border:3px solid #4dd4d0;border-radius:9px;background:rgba(77,212,208,.08);padding:20px;margin-top:18px}.transparencia{background:#f4faf7;border-left:6px solid #378b62;padding:15px 17px;border-radius:6px;margin-top:14px}.verificacion{background:#f8fafb;border:2px solid #d2dee6;border-radius:7px;padding:15px;margin-top:15px}.vacio{padding:28px;text-align:center;color:#7d92a1}.oculto{display:none!important}.mensaje{display:none;position:fixed;right:25px;bottom:25px;padding:15px 20px;border-radius:7px;background:#315675;color:#fff;font-size:20px;z-index:9999}.mensaje.visible{display:block}.importador{display:none;border:2px solid #80a8bf;background:#f3f8fb;border-radius:8px;padding:18px;margin:14px 0}.importador.visible{display:block}pre.preview{max-height:300px;overflow:auto;background:#fff;border:1px solid #cbd9e3;border-radius:6px;padding:12px;font:14px monospace;white-space:pre-wrap}@media(max-width:1450px){.lateral{width:310px;min-width:310px}.resumen{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:1fr}.campo.ancho{grid-column:auto}.checks{grid-template-columns:1fr 1fr}}
+</style></head><body>
+<div class="app"><aside class="lateral"><div class="rita">Rita<span class="copyright">©</span></div><div class="linea"></div><div class="nombre">Sistema de Gestión<br>del Esquema de<br>Certificación de Personas</div><nav class="menu"><button data-area="A1">A1 · ÁREA TÉCNICA</button><button data-area="A2">A2 · ÁREA DE GESTIÓN</button><button class="actual" data-area="A3">A3 · ÁREA DE EVALUACIÓN</button><button data-area="A4">A4 · ÁREA DE FORMACIÓN</button><button data-area="A5">A5 · ÁREA DE DECISIÓN</button><button data-area="A6">A6 · ÁREA DE CONFLICTOS</button><button data-area="A7">A7 · ÁREA DE MEJORA</button><button data-area="A8">A8 · CONFIGURACIÓN</button><button data-area="A9">A9 · AVISOS</button><button data-area="A10">A10 · GESTIÓN ECONÓMICA</button></nav><div class="pie"><img src="pie.png" alt=""></div></aside>
+<main class="principal"><header class="cabecera"><img src="cabecera1.png" alt=""></header><section class="zona"><div class="top"><div class="ident"><img src="ICOA3.png" alt=""><div><h1>A3 · Área de Evaluación</h1><p>Evaluación individual, trazable y controlada de cada expediente</p></div></div><div class="usuario"><strong id="usuarioNombre"></strong><span id="usuarioRol"></span><br><button class="volver" onclick="location.href='index.html'">Volver al inicio</button></div></div>
+<div class="resumen"><div class="card azul" onclick="activarTab('expedientes')"><strong id="nPendientes">0</strong><span>EXPEDIENTES EVALUABLES</span></div><div class="card amarillo" onclick="activarTab('planificacion')"><strong id="nCurso">0</strong><span>EN EVALUACIÓN</span></div><div class="card rojo" onclick="activarTab('supervision')"><strong id="nSupervision">0</strong><span>SUPERVISIONES PENDIENTES</span></div><div class="card turquesa" onclick="activarTab('rita')"><strong id="nRita">0</strong><span>INTERVENCIONES Rita©</span></div><div class="card verde" onclick="activarTab('cerradas')"><strong id="nCerradas">0</strong><span>EVALUACIONES CERRADAS</span></div></div>
+<div class="tabs"><button class="tab activa" data-panel="expedientes">Expedientes evaluables</button><button class="tab" data-panel="planificacion">Planificación</button><button class="tab" data-panel="examinadores">Examinadores</button><button class="tab" data-panel="pruebas">Exámenes / pruebas</button><button class="tab" data-panel="supervision">Supervisión</button><button class="tab" data-panel="resultados">Resultados</button><button class="tab" data-panel="incidencias">Incidencias</button><button class="tab" data-panel="rita">Rita©</button><button class="tab" data-panel="cerradas">Evaluaciones cerradas</button></div>
+<div class="panel activo" id="expedientes"><h2>Expedientes evaluables</h2><p class="intro">Índice de acceso. La evaluación se gestiona siempre expediente por expediente.</p><div class="barra"><input id="buscarExp" placeholder="Buscar expediente, candidato o documento..."><select id="filtroEsquema"><option value="">TODOS LOS ESQUEMAS</option></select><button class="btn btn-claro" onclick="recargarTodo()">Recargar Dropbox</button></div><div class="tabla-wrap"><table><thead><tr><th>Expediente</th><th>Candidato</th><th>Esquema</th><th>Estado A2</th><th>Evaluación</th><th>Acción</th></tr></thead><tbody id="tablaExpedientes"></tbody></table></div></div>
+<div class="panel" id="planificacion"><h2>Planificación de evaluación</h2><div id="cabPlanificacion"></div><div id="contenidoPlanificacion"></div></div>
+<div class="panel" id="examinadores"><h2>Examinadores</h2><p class="intro">Las personas pueden proceder del PERSONAL INTERNO o de PERSONAS VINCULADAS habilitadas.</p><div id="cabExaminadores"></div><div id="contenidoExaminadores"></div></div>
+<div class="panel" id="pruebas"><h2>Exámenes / pruebas</h2><div id="cabPruebas"></div><div id="contenidoPruebas"></div></div>
+<div class="panel" id="supervision"><h2>Supervisión</h2><div id="cabSupervision"></div><div id="contenidoSupervision"></div></div>
+<div class="panel" id="resultados"><h2>Resultados de evaluación</h2><div id="cabResultados"></div><div id="contenidoResultados"></div></div>
+<div class="panel" id="incidencias"><h2>Incidencias de evaluación</h2><div id="cabIncidencias"></div><div id="contenidoIncidencias"></div></div>
+<div class="panel" id="rita"><h2>Intervenciones de Rita©</h2><div id="cabRita"></div><div id="contenidoRita"></div></div>
+<div class="panel" id="cerradas"><h2>Evaluaciones cerradas</h2><div class="barra"><input id="buscarCerrada" placeholder="Buscar expediente o candidato..."></div><div class="tabla-wrap"><table><thead><tr><th>Evaluación</th><th>Expediente</th><th>Candidato</th><th>Esquema</th><th>Resultado</th><th>Fecha cierre</th><th>Acciones</th></tr></thead><tbody id="tablaCerradas"></tbody></table></div></div>
+</section></main></div><div class="mensaje" id="mensaje"></div>
 
-.resumen{display:grid;grid-template-columns:repeat(5,1fr);gap:11px;margin-bottom:20px}
-.card{border:2px solid;border-radius:8px;padding:14px 16px;cursor:pointer}
-.card strong{display:block;font-size:36px;font-weight:400}
-.card span{font-size:16px}
-.azul{background:rgba(40,119,165,.11);border-color:#2877a5;color:#275f80}
-.verde{background:rgba(59,150,99,.12);border-color:#3b9663;color:#286544}
-.amarillo{background:rgba(220,184,46,.15);border-color:#c5a226;color:#756000}
-.rojo{background:rgba(190,67,67,.12);border-color:#b74444;color:#8f2828}
-.turquesa{background:rgba(77,212,208,.15);border-color:#3eb5b1;color:#226d6a}
-.gris{background:rgba(110,126,137,.10);border-color:#85939c;color:#5d6870}
-
-.tabs{display:flex;gap:7px;flex-wrap:wrap;border-bottom:2px solid #bacdda;margin-top:10px}
-.tab{padding:14px 17px;border:2px solid #c7d6e0;border-bottom:0;border-radius:7px 7px 0 0;background:#f7fafc;color:#4e6b84;font:20px Tecnico;cursor:pointer}
-.tab.activa{background:#0873ae;color:#fff;border-color:#0873ae}
-
-.panel{display:none;background:#fff;border:2px solid #cddae4;border-top:0;padding:28px 30px 40px}
-.panel.activo{display:block}
-.panel h2{margin:0 0 7px;font-size:40px;font-weight:400}
-.panel h3{margin:22px 0 12px;font-size:29px;font-weight:400;color:#315675}
-.intro{margin:0 0 22px;color:#718ca4;font-size:22px;line-height:1.35}
-
-.barra{display:flex;gap:11px;flex-wrap:wrap;align-items:center;margin:18px 0}
-.barra input,.barra select{height:54px;border:2px solid #bfd0dc;border-radius:6px;padding:0 12px;background:#fff;color:#17344e;font:20px Tecnico}
-.barra input{min-width:300px;flex:1}
-.btn{border:0;border-radius:6px;padding:11px 16px;font:19px Tecnico;cursor:pointer}
-.btn-azul{background:#0873ae;color:#fff}
-.btn-verde{background:#378b62;color:#fff}
-.btn-rojo{background:#b74c4c;color:#fff}
-.btn-amarillo{background:#c69a1b;color:#fff}
-.btn-turquesa{background:#369d99;color:#fff}
-.btn-claro{background:#e6eef3;color:#315675}
-.btn:disabled{opacity:.4;cursor:not-allowed}
-
-.tabla-wrap{overflow:auto;border:1px solid #ccd9e2;border-radius:7px}
-table{width:100%;border-collapse:collapse;min-width:1050px}
-th,td{padding:12px 13px;border-bottom:1px solid #dce5eb;text-align:left;vertical-align:top}
-th{background:#e8f0f5;color:#526f86;font-size:17px}
-td{font-size:18px}
-tbody tr.click{cursor:pointer}
-tbody tr.click:hover{background:#f4f9fc}
-
-.estado{display:inline-block;border:2px solid;border-radius:5px;padding:5px 9px;font-size:14px;font-weight:700}
-.etiqueta{display:inline-block;border:1px solid #9fb6c5;border-radius:4px;background:#eef4f7;color:#49677c;padding:5px 8px;margin:2px;font-size:14px}
-
-.expediente-cab{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;border:2px solid #bdd0dc;border-radius:9px;background:#f7fbfd;padding:19px 22px;margin-bottom:20px}
-.expediente-cab h3{margin:0 0 5px;font-size:34px;color:#17344e}
-.expediente-cab p{margin:4px 0;color:#668197}
-.expediente-cab .derecha{text-align:right}
-
-.ficha{border:2px solid #cbd9e3;border-radius:8px;padding:20px 22px;background:#fbfdfe;margin-top:17px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 24px}
-.campo{display:flex;flex-direction:column;gap:7px}
-.campo.ancho{grid-column:1/-1}
-.campo label{font-size:17px;font-weight:700;color:#58738c;text-transform:uppercase}
-.campo input,.campo select,.campo textarea{width:100%;border:2px solid #bfd0dc;border-radius:6px;background:#fff;color:#17344e;font:20px Tecnico;padding:12px 14px}
-.campo input,.campo select{height:55px}
-.campo textarea{min-height:110px;resize:vertical;line-height:1.3}
-.acciones{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-
-.barra-ficha{width:100%;display:flex;justify-content:space-between;align-items:center;border:2px solid #bfd0dc;border-radius:7px;background:#edf5fa;color:#315675;padding:13px 17px;font:20px Tecnico;cursor:pointer;margin:15px 0 8px}
-.form-desplegable{display:none}
-.form-desplegable.abierto{display:block}
-
-.prueba{border:2px solid #d4e0e8;border-radius:8px;padding:17px;margin-bottom:12px}
-.prueba h4{margin:0 0 8px;font-size:25px;font-weight:400}
-.prueba-meta{color:#6b8396;font-size:17px;line-height:1.4}
-.checks{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
-.check{display:flex;gap:9px;align-items:center;border:2px solid #d4e0e7;border-radius:6px;background:#fff;padding:11px;font-size:16px}
-.check input{width:22px;height:22px}
-.aviso{padding:14px 16px;border:2px solid;border-radius:7px;margin:14px 0}
-.rita-badge{display:inline-block;background:#003B5D;color:#fff;border:2px solid #4dd4d0;border-radius:5px;padding:6px 10px;font-weight:700;letter-spacing:.5px}
-.rita-box{border:3px solid #4dd4d0;border-radius:9px;background:rgba(77,212,208,.08);padding:20px;margin-top:18px}
-.rita-box h3{margin-top:0;color:#003B5D}
-.transparencia{background:#f4faf7;border-left:6px solid #378b62;padding:15px 17px;border-radius:6px;margin-top:14px}
-.verificacion{background:#f8fafb;border:2px solid #d2dee6;border-radius:7px;padding:15px;margin-top:15px}
-.vacio{padding:28px;text-align:center;color:#7d92a1}
-.oculto{display:none!important}
-.mensaje{display:none;position:fixed;right:25px;bottom:25px;padding:15px 20px;border-radius:7px;background:#315675;color:#fff;font-size:20px;z-index:9999}
-.mensaje.visible{display:block}
-.importador{display:none;border:2px solid #80a8bf;background:#f3f8fb;border-radius:8px;padding:18px;margin:14px 0}
-.importador.visible{display:block}
-pre.preview{max-height:300px;overflow:auto;background:#fff;border:1px solid #cbd9e3;border-radius:6px;padding:12px;font:14px monospace;white-space:pre-wrap}
-
-@media print{
-.lateral,.cabecera,.top,.tabs,.no-print,.btn,.barra{display:none!important}
-.zona{padding:0}
-.panel{display:block!important;border:0;padding:0}
-body{background:#fff;font-size:12pt}
-}
-@media(max-width:1450px){
-.lateral{width:310px;min-width:310px}
-.resumen{grid-template-columns:repeat(3,1fr)}
-.grid{grid-template-columns:1fr}
-.campo.ancho{grid-column:auto}
-.checks{grid-template-columns:1fr 1fr}
-}
-</style>
-</head>
-
-<body>
-<div class="app">
-<aside class="lateral">
-<div class="rita">Rita<span class="copyright">©</span></div>
-<div class="linea"></div>
-<div class="nombre">Sistema de Gestión<br>del Esquema de<br>Certificación de Personas</div>
-<nav class="menu">
-<button data-area="A1">A1 · ÁREA TÉCNICA</button>
-<button data-area="A2">A2 · ÁREA DE GESTIÓN</button>
-<button class="actual" data-area="A3">A3 · ÁREA DE EVALUACIÓN</button>
-<button data-area="A4">A4 · ÁREA DE FORMACIÓN</button>
-<button data-area="A5">A5 · ÁREA DE DECISIÓN</button>
-<button data-area="A6">A6 · ÁREA DE CONFLICTOS</button>
-<button data-area="A7">A7 · ÁREA DE MEJORA</button>
-<button data-area="A8">A8 · CONFIGURACIÓN</button>
-<button data-area="A9">A9 · AVISOS</button>
-<button data-area="A10">A10 · GESTIÓN ECONÓMICA</button>
-</nav>
-<div class="pie"><img src="pie.png" alt=""></div>
-</aside>
-
-<main class="principal">
-<header class="cabecera"><img src="cabecera1.png" alt=""></header>
-<section class="zona">
-
-<div class="top">
-<div class="ident">
-<img src="ICOA3.png" alt="">
-<div><h1>A3 · Área de Evaluación</h1><p>Evaluación individual, trazable y controlada de cada expediente</p></div>
-</div>
-<div class="usuario"><strong id="usuarioNombre"></strong><span id="usuarioRol"></span><br><button class="volver" onclick="location.href='index.html'">Volver al inicio</button></div>
-</div>
-
-<div class="resumen">
-<div class="card azul" onclick="activarTab('expedientes')"><strong id="nPendientes">0</strong><span>EXPEDIENTES EVALUABLES</span></div>
-<div class="card amarillo" onclick="activarTab('planificacion')"><strong id="nCurso">0</strong><span>EN EVALUACIÓN</span></div>
-<div class="card rojo" onclick="activarTab('supervision')"><strong id="nSupervision">0</strong><span>SUPERVISIONES PENDIENTES</span></div>
-<div class="card turquesa" onclick="activarTab('rita')"><strong id="nRita">0</strong><span>INTERVENCIONES Rita©</span></div>
-<div class="card verde" onclick="activarTab('cerradas')"><strong id="nCerradas">0</strong><span>EVALUACIONES CERRADAS</span></div>
-</div>
-
-<div class="tabs">
-<button class="tab activa" data-panel="expedientes">Expedientes evaluables</button>
-<button class="tab" data-panel="planificacion">Planificación</button>
-<button class="tab" data-panel="examinadores">Examinadores</button>
-<button class="tab" data-panel="pruebas">Exámenes / pruebas</button>
-<button class="tab" data-panel="supervision">Supervisión</button>
-<button class="tab" data-panel="resultados">Resultados</button>
-<button class="tab" data-panel="incidencias">Incidencias</button>
-<button class="tab" data-panel="rita">Rita©</button>
-<button class="tab" data-panel="cerradas">Evaluaciones cerradas</button>
-</div>
-
-<div class="panel activo" id="expedientes">
-<h2>Expedientes evaluables</h2>
-<p class="intro">Índice de acceso. La evaluación se gestiona siempre expediente por expediente.</p>
-<div class="barra">
-<input id="buscarExp" placeholder="Buscar expediente, candidato o documento...">
-<select id="filtroEsquema"><option value="">TODOS LOS ESQUEMAS</option></select>
-<button class="btn btn-claro" onclick="recargarTodo()">Recargar Dropbox</button>
-</div>
-<div class="tabla-wrap"><table><thead><tr><th>Expediente</th><th>Candidato</th><th>Esquema</th><th>Estado A2</th><th>Evaluación</th><th>Acción</th></tr></thead><tbody id="tablaExpedientes"></tbody></table></div>
-</div>
-
-<div class="panel" id="planificacion"><h2>Planificación de evaluación</h2><p class="intro">La planificación queda vinculada al expediente, al esquema y a la versión vigente utilizada en el momento de iniciar la evaluación.</p><div id="cabPlanificacion"></div><div id="contenidoPlanificacion"></div></div>
-
-<div class="panel" id="examinadores"><h2>Examinadores</h2><p class="intro">Asignación de personas competentes para evaluar el expediente. Antes de intervenir deben quedar comprobadas competencia, autorización e imparcialidad.</p><div id="cabExaminadores"></div><div id="contenidoExaminadores"></div></div>
-
-<div class="panel" id="pruebas"><h2>Exámenes / pruebas</h2><p class="intro">Las pruebas proceden del esquema definido en A1. A3 ejecuta y registra, pero no redefine los criterios técnicos.</p><div id="cabPruebas"></div><div id="contenidoPruebas"></div></div>
-
-<div class="panel" id="supervision"><h2>Supervisión</h2><p class="intro">Supervisión de exámenes y supervisión específica de intervenciones de Rita©.</p><div id="cabSupervision"></div><div id="contenidoSupervision"></div></div>
-
-<div class="panel" id="resultados"><h2>Resultados de evaluación</h2><p class="intro">Registro de resultados por prueba y conclusión global de evaluación. A3 no toma la decisión de certificación.</p><div id="cabResultados"></div><div id="contenidoResultados"></div></div>
-
-<div class="panel" id="incidencias"><h2>Incidencias de evaluación</h2><p class="intro">Las desviaciones detectadas durante la evaluación se trasladan a A7 para su tratamiento formal.</p><div id="cabIncidencias"></div><div id="contenidoIncidencias"></div></div>
-
-<div class="panel" id="rita"><h2>Intervenciones de Rita©</h2><p class="intro">Toda intervención material de Rita© debe quedar identificada, motivada, verificable y transparente.</p><div id="cabRita"></div><div id="contenidoRita"></div></div>
-
-<div class="panel" id="cerradas"><h2>Evaluaciones cerradas</h2><p class="intro">Evaluaciones completas remitidas a A5 · Decisión. Permanecen disponibles para trazabilidad, auditoría e impresión.</p><div class="barra"><input id="buscarCerrada" placeholder="Buscar expediente o candidato..."></div><div class="tabla-wrap"><table><thead><tr><th>Evaluación</th><th>Expediente</th><th>Candidato</th><th>Esquema</th><th>Resultado</th><th>Fecha cierre</th><th>Acciones</th></tr></thead><tbody id="tablaCerradas"></tbody></table></div></div>
-
-</section>
-</main>
-</div>
-
-<div class="mensaje" id="mensaje"></div>
-
-<script src="dropbox_config.js"></script>
-<script src="usuarios.js"></script>
-
-<script>
-const BASE="/03_UFV_INSTITUTO/99_datos_Rita/";
-const ARCHIVOS={
-expedientes:"maestro_expedientes.json",
-esquemas:"maestro_esquemas_certificacion.json",
-perfiles:"maestro_perfiles_certificables.json",
-evaluaciones:"maestro_evaluaciones.json",
-resultados:"maestro_resultados_evaluacion.json",
-supervisiones:"maestro_supervision_examenes.json",
-rita:"maestro_intervenciones_rita.json",
-incidencias:"maestro_incidencias.json",
-personas:"maestro_personas_vinculadas.json"
-};
-
-const DATA={expedientes:[],esquemas:[],perfiles:[],evaluaciones:[],resultados:[],supervisiones:[],rita:[],incidencias:[],personas:[]};
-const REV={};
-let EXP_ACTIVO=null,EVA_ACTIVA=null,USUARIOS=[];
-
-const $=id=>document.getElementById(id);
-const txt=v=>String(v??"").trim();
-const norm=v=>txt(v).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
-const ahora=()=>new Date().toISOString();
-const hoy=()=>new Date().toISOString().slice(0,10);
-const SESION=typeof usuarioActivo==="function"?usuarioActivo():null;
-
-if(!SESION||typeof tienePermiso!=="function"||!tienePermiso("A3")){
-alert("No dispone de autorización para acceder al Área de Evaluación.");
-location.href="index.html";
-}
-
-$("usuarioNombre").textContent=SESION.nombre||"";
-$("usuarioRol").textContent=SESION.rol||"";
-
-function permisoMenu(a){if(a==="A9")return true;if(a==="A10")return tienePermiso("A2");return tienePermiso(a)}
-document.querySelectorAll(".menu button[data-area]").forEach(b=>{const a=b.dataset.area,ok=permisoMenu(a);b.disabled=!ok;if(ok)b.onclick=()=>location.href=a+".html"});
-document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>activarTab(t.dataset.panel));
-
-function activarTab(id){document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("activa",t.dataset.panel===id));document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("activo",p.id===id));if(id==="cerradas")pintarCerradas()}
-
-async function token(){if(typeof obtenerDropboxAccessToken!=="function")throw Error("No se encuentra la conexión Dropbox.");return obtenerDropboxAccessToken()}
-async function descargar(k){const t=await token(),path=BASE+ARCHIVOS[k],r=await fetch("https://content.dropboxapi.com/2/files/download",{method:"POST",headers:{Authorization:"Bearer "+t,"Dropbox-API-Arg":JSON.stringify({path})}});if(r.status===404||r.status===409){REV[k]=null;return[]}if(!r.ok)throw Error(ARCHIVOS[k]+" · Dropbox "+r.status);let meta={};try{meta=JSON.parse(r.headers.get("Dropbox-API-Result")||"{}")}catch{}REV[k]=meta.rev||null;const s=await r.text();if(!s.trim())return[];const d=JSON.parse(s);if(!Array.isArray(d))throw Error(ARCHIVOS[k]+" debe contener un array JSON.");return d}
-async function guardar(k){const t=await token(),path=BASE+ARCHIVOS[k],arg={path,mode:REV[k]?{".tag":"update",update:REV[k]}:"overwrite",autorename:false,mute:true,strict_conflict:true},r=await fetch("https://content.dropboxapi.com/2/files/upload",{method:"POST",headers:{Authorization:"Bearer "+t,"Content-Type":"application/octet-stream","Dropbox-API-Arg":JSON.stringify(arg)},body:JSON.stringify(DATA[k],null,2)});if(r.status===409)throw Error("CONFLICTO DE EDICIÓN. Recargue A3.");if(!r.ok)throw Error("Dropbox "+r.status);REV[k]=(await r.json()).rev}
-
-function codigo(k,pref){let n=1;while(DATA[k].some(x=>x.codigo===pref+"-"+String(n).padStart(3,"0")))n++;return pref+"-"+String(n).padStart(3,"0")}
-function mensaje(t){const m=$("mensaje");m.textContent=t;m.className="mensaje visible";setTimeout(()=>m.className="mensaje",2500)}
-function esquemaDe(exp){return DATA.esquemas.find(e=>e.codigo===exp.esquema_codigo)||DATA.esquemas.find(e=>e.nombre===exp.esquema_nombre)||null}
-function evaluacionDe(expCodigo){return DATA.evaluaciones.find(e=>e.expediente_codigo===expCodigo)||null}
-function resultadoDe(evaCodigo,pruebaId){return DATA.resultados.find(r=>r.evaluacion_codigo===evaCodigo&&r.prueba_id===pruebaId)||null}
-function evaluables(){return DATA.expedientes.filter(e=>e.estado==="CANDIDATO EVALUABLE")}
-function pruebasEsquema(esq){return Array.isArray(esq?.examenes)?esq.examenes:[]}
-function resumenEva(e){if(!e)return'<span class="estado gris">SIN INICIAR</span>';if(e.estado==="CERRADA")return'<span class="estado verde">CERRADA</span>';if(e.estado==="LISTA PARA DECISIÓN")return'<span class="estado turquesa">LISTA PARA A5</span>';return'<span class="estado amarillo">'+(e.estado||"EN EVALUACIÓN")+"</span>"}
-
-function cabExp(){if(!EXP_ACTIVO)return'<div class="aviso gris">Seleccione un expediente evaluable.</div>';const e=EVA_ACTIVA,esq=esquemaDe(EXP_ACTIVO);return `<div class="expediente-cab"><div><h3>${EXP_ACTIVO.codigo} · ${EXP_ACTIVO.nombre_completo}</h3><p><b>Documento:</b> ${EXP_ACTIVO.documento||"—"}</p><p><b>Esquema:</b> ${EXP_ACTIVO.esquema_nombre||esq?.nombre||"—"} · Versión ${e?.esquema_version||esq?.version||"—"}</p></div><div class="derecha">${resumenEva(e)}<br><button class="btn btn-claro no-print" onclick="activarTab('expedientes')">Cambiar expediente</button></div></div>`}
-
-function seleccionarExpediente(codigo){EXP_ACTIVO=DATA.expedientes.find(e=>e.codigo===codigo)||null;EVA_ACTIVA=EXP_ACTIVO?evaluacionDe(EXP_ACTIVO.codigo):null;pintarTodoExpediente();activarTab("planificacion")}
-
-function pintarExpedientes(){const q=norm($("buscarExp").value),es=$("filtroEsquema").value,l=evaluables().filter(e=>(!q||norm([e.codigo,e.nombre_completo,e.documento,e.esquema_nombre].join(" ")).includes(q))&&(!es||e.esquema_nombre===es));$("tablaExpedientes").innerHTML=l.length?l.map(e=>{const eva=evaluacionDe(e.codigo);return `<tr class="click" onclick="seleccionarExpediente('${e.codigo}')"><td><strong>${e.codigo}</strong></td><td>${e.nombre_completo}</td><td>${e.esquema_nombre||"—"}</td><td>${e.estado}</td><td>${resumenEva(eva)}</td><td><button class="btn btn-azul" onclick="event.stopPropagation();seleccionarExpediente('${e.codigo}')">${eva?"ABRIR":"INICIAR"}</button></td></tr>`}).join(""):'<tr><td colspan="6" class="vacio">No hay expedientes evaluables.</td></tr>'}
-
-async function iniciarEvaluacion(){if(!EXP_ACTIVO||EVA_ACTIVA)return;const esq=esquemaDe(EXP_ACTIVO);if(!esq)return alert("No se localiza el esquema asociado.");const r={codigo:codigo("evaluaciones","EVA"),expediente_codigo:EXP_ACTIVO.codigo,candidato_nombre:EXP_ACTIVO.nombre_completo,documento:EXP_ACTIVO.documento||"",esquema_codigo:esq.codigo,esquema_nombre:esq.nombre,esquema_version:esq.version||"01",estado:"PLANIFICACIÓN",fecha_inicio:ahora(),fecha_actualizacion:ahora(),creado_por:SESION.codigo||SESION.nombre||"",planificacion:{},examinadores:[],pruebas_snapshot:JSON.parse(JSON.stringify(pruebasEsquema(esq))),conclusion:"",resultado_global:"",fecha_cierre:null,enviado_a5:false};DATA.evaluaciones.push(r);await guardar("evaluaciones");EVA_ACTIVA=r;pintarTodoExpediente();pintarExpedientes();mensaje(r.codigo+" creada.")}
-
-function pintarPlanificacion(){$("cabPlanificacion").innerHTML=cabExp();if(!EXP_ACTIVO){$("contenidoPlanificacion").innerHTML="";return}if(!EVA_ACTIVA){$("contenidoPlanificacion").innerHTML=`<div class="ficha"><h3>Iniciar evaluación</h3><p>Se fijará una copia de la versión del esquema y de sus pruebas para preservar la trazabilidad histórica.</p><button class="btn btn-azul" onclick="iniciarEvaluacion()">INICIAR EVALUACIÓN DEL EXPEDIENTE</button></div>`;return}const p=EVA_ACTIVA.planificacion||{};$("contenidoPlanificacion").innerHTML=`<div class="ficha"><div class="grid"><div class="campo"><label>Fecha prevista de inicio</label><input id="plInicio" type="date" value="${p.fecha_inicio||""}"></div><div class="campo"><label>Fecha prevista de fin</label><input id="plFin" type="date" value="${p.fecha_fin||""}"></div><div class="campo"><label>Modalidad</label><select id="plModalidad"><option ${p.modalidad==="PRESENCIAL"?"selected":""}>PRESENCIAL</option><option ${p.modalidad==="REMOTA"?"selected":""}>REMOTA</option><option ${p.modalidad==="MIXTA"?"selected":""}>MIXTA</option></select></div><div class="campo"><label>Lugar / medio</label><input id="plLugar" value="${p.lugar||""}"></div><div class="campo ancho"><label>Observaciones de planificación</label><textarea id="plObs">${p.observaciones||""}</textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarPlanificacion()">GUARDAR PLANIFICACIÓN</button></div></div><div class="ficha"><h3>Versión congelada para este expediente</h3><p><b>Esquema:</b> ${EVA_ACTIVA.esquema_codigo} · ${EVA_ACTIVA.esquema_nombre}</p><p><b>Versión:</b> ${EVA_ACTIVA.esquema_version}</p><p><b>Pruebas fijadas:</b> ${(EVA_ACTIVA.pruebas_snapshot||[]).length}</p></div>`}
-
+<script src="dropbox_config.js"></script><script src="usuarios.js"></script><script>
+const BASE="/03_UFV_INSTITUTO/99_datos_Rita/",ARCHIVOS={expedientes:"maestro_expedientes.json",esquemas:"maestro_esquemas_certificacion.json",perfiles:"maestro_perfiles_certificables.json",evaluaciones:"maestro_evaluaciones.json",resultados:"maestro_resultados_evaluacion.json",supervisiones:"maestro_supervision_examenes.json",rita:"maestro_intervenciones_rita.json",incidencias:"maestro_incidencias.json",personal:"maestro_personal.json",personas:"maestro_personas_vinculadas.json"},DATA={expedientes:[],esquemas:[],perfiles:[],evaluaciones:[],resultados:[],supervisiones:[],rita:[],incidencias:[],personal:[],personas:[]},REV={};let EXP_ACTIVO=null,EVA_ACTIVA=null;const $=id=>document.getElementById(id),txt=v=>String(v??"").trim(),norm=v=>txt(v).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase(),UP=v=>txt(v).toUpperCase(),ahora=()=>new Date().toISOString(),hoy=()=>new Date().toISOString().slice(0,10),SESION=typeof usuarioActivo==="function"?usuarioActivo():null;if(!SESION||typeof tienePermiso!=="function"||!tienePermiso("A3")){alert("No dispone de autorización para acceder al Área de Evaluación.");location.href="index.html"}$("usuarioNombre").textContent=SESION.nombre||"";$("usuarioRol").textContent=SESION.rol||"";
+function permisoMenu(a){if(a==="A9")return true;if(a==="A10")return tienePermiso("A2");return tienePermiso(a)}document.querySelectorAll(".menu button[data-area]").forEach(b=>{const a=b.dataset.area,ok=permisoMenu(a);b.disabled=!ok;if(ok)b.onclick=()=>location.href=a+".html"});document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>activarTab(t.dataset.panel));function activarTab(id){document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("activa",t.dataset.panel===id));document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("activo",p.id===id));if(id==="cerradas")pintarCerradas()}
+async function token(){return obtenerDropboxAccessToken()}async function descargar(k){const t=await token(),path=BASE+ARCHIVOS[k],r=await fetch("https://content.dropboxapi.com/2/files/download",{method:"POST",headers:{Authorization:"Bearer "+t,"Dropbox-API-Arg":JSON.stringify({path})}});if(r.status===404||r.status===409){REV[k]=null;return[]}if(!r.ok)throw Error(ARCHIVOS[k]+" · Dropbox "+r.status);let m={};try{m=JSON.parse(r.headers.get("Dropbox-API-Result")||"{}")}catch{}REV[k]=m.rev||null;const s=await r.text();if(!s.trim())return[];const d=JSON.parse(s);if(!Array.isArray(d))throw Error(ARCHIVOS[k]+" debe contener un array JSON.");return d}async function guardar(k){const t=await token(),path=BASE+ARCHIVOS[k],arg={path,mode:REV[k]?{".tag":"update",update:REV[k]}:"overwrite",autorename:false,mute:true,strict_conflict:true},r=await fetch("https://content.dropboxapi.com/2/files/upload",{method:"POST",headers:{Authorization:"Bearer "+t,"Content-Type":"application/octet-stream","Dropbox-API-Arg":JSON.stringify(arg)},body:JSON.stringify(DATA[k],null,2)});if(r.status===409)throw Error("CONFLICTO DE EDICIÓN. Recargue A3.");if(!r.ok)throw Error("Dropbox "+r.status);REV[k]=(await r.json()).rev}
+function codigo(k,p){let n=1;while(DATA[k].some(x=>x.codigo===p+"-"+String(n).padStart(3,"0")))n++;return p+"-"+String(n).padStart(3,"0")}function mensaje(t){const m=$("mensaje");m.textContent=t;m.className="mensaje visible";setTimeout(()=>m.className="mensaje",2500)}function esquemaDe(e){return DATA.esquemas.find(x=>x.codigo===e.esquema_codigo)||DATA.esquemas.find(x=>x.nombre===e.esquema_nombre)||null}function evaluacionDe(c){return DATA.evaluaciones.find(e=>e.expediente_codigo===c)||null}function resultadoDe(c,p){return DATA.resultados.find(r=>r.evaluacion_codigo===c&&r.prueba_id===p)||null}function evaluables(){return DATA.expedientes.filter(e=>e.estado==="CANDIDATO EVALUABLE")}function pruebasEsquema(e){return Array.isArray(e?.examenes)?e.examenes:[]}function resumenEva(e){if(!e)return'<span class="estado gris">SIN INICIAR</span>';if(e.estado==="CERRADA")return'<span class="estado verde">CERRADA</span>';return'<span class="estado amarillo">'+(e.estado||"EN EVALUACIÓN")+"</span>"}
+function cabExp(){if(!EXP_ACTIVO)return'<div class="aviso gris">Seleccione un expediente evaluable.</div>';const e=EVA_ACTIVA,s=esquemaDe(EXP_ACTIVO);return`<div class="expediente-cab"><div><h3>${EXP_ACTIVO.codigo} · ${EXP_ACTIVO.nombre_completo}</h3><p><b>Documento:</b> ${EXP_ACTIVO.documento||"—"}</p><p><b>Esquema:</b> ${EXP_ACTIVO.esquema_nombre||s?.nombre||"—"} · Versión ${e?.esquema_version||s?.version||"—"}</p></div><div class="derecha">${resumenEva(e)}<br><button class="btn btn-claro" onclick="activarTab('expedientes')">Cambiar expediente</button></div></div>`}
+function seleccionarExpediente(c){EXP_ACTIVO=DATA.expedientes.find(e=>e.codigo===c)||null;EVA_ACTIVA=EXP_ACTIVO?evaluacionDe(EXP_ACTIVO.codigo):null;pintarTodoExpediente();activarTab("planificacion")}
+function pintarExpedientes(){const q=norm($("buscarExp").value),es=$("filtroEsquema").value,l=evaluables().filter(e=>(!q||norm([e.codigo,e.nombre_completo,e.documento,e.esquema_nombre].join(" ")).includes(q))&&(!es||e.esquema_nombre===es));$("tablaExpedientes").innerHTML=l.length?l.map(e=>{const v=evaluacionDe(e.codigo);return`<tr class="click" onclick="seleccionarExpediente('${e.codigo}')"><td>${e.codigo}</td><td>${e.nombre_completo}</td><td>${e.esquema_nombre||"—"}</td><td>${e.estado}</td><td>${resumenEva(v)}</td><td><button class="btn btn-azul">${v?"ABRIR":"INICIAR"}</button></td></tr>`}).join(""):'<tr><td colspan="6" class="vacio">No hay expedientes evaluables.</td></tr>'}
+async function iniciarEvaluacion(){if(!EXP_ACTIVO||EVA_ACTIVA)return;const s=esquemaDe(EXP_ACTIVO);if(!s)return alert("No se localiza el esquema.");const r={codigo:codigo("evaluaciones","EVA"),expediente_codigo:EXP_ACTIVO.codigo,candidato_nombre:EXP_ACTIVO.nombre_completo,documento:EXP_ACTIVO.documento||"",esquema_codigo:s.codigo,esquema_nombre:s.nombre,esquema_version:s.version||"01",estado:"PLANIFICACIÓN",fecha_inicio:ahora(),fecha_actualizacion:ahora(),creado_por:SESION.codigo||SESION.nombre||"",planificacion:{},examinadores:[],pruebas_snapshot:JSON.parse(JSON.stringify(pruebasEsquema(s))),conclusion:"",resultado_global:"",fecha_cierre:null,enviado_a5:false};DATA.evaluaciones.push(r);await guardar("evaluaciones");EVA_ACTIVA=r;pintarTodoExpediente();pintarExpedientes();mensaje(r.codigo+" creada.")}
+function pintarPlanificacion(){$("cabPlanificacion").innerHTML=cabExp();if(!EXP_ACTIVO){$("contenidoPlanificacion").innerHTML="";return}if(!EVA_ACTIVA){$("contenidoPlanificacion").innerHTML='<div class="ficha"><h3>Iniciar evaluación</h3><button class="btn btn-azul" onclick="iniciarEvaluacion()">INICIAR EVALUACIÓN DEL EXPEDIENTE</button></div>';return}const p=EVA_ACTIVA.planificacion||{};$("contenidoPlanificacion").innerHTML=`<div class="ficha"><div class="grid"><div class="campo"><label>Fecha inicio</label><input id="plInicio" type="date" value="${p.fecha_inicio||""}"></div><div class="campo"><label>Fecha fin</label><input id="plFin" type="date" value="${p.fecha_fin||""}"></div><div class="campo"><label>Modalidad</label><select id="plModalidad"><option>PRESENCIAL</option><option>REMOTA</option><option>MIXTA</option></select></div><div class="campo"><label>Lugar / medio</label><input id="plLugar" value="${p.lugar||""}"></div><div class="campo ancho"><label>Observaciones</label><textarea id="plObs">${p.observaciones||""}</textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarPlanificacion()">GUARDAR PLANIFICACIÓN</button></div></div>`}
 async function guardarPlanificacion(){EVA_ACTIVA.planificacion={fecha_inicio:$("plInicio").value,fecha_fin:$("plFin").value,modalidad:$("plModalidad").value,lugar:txt($("plLugar").value),observaciones:txt($("plObs").value)};EVA_ACTIVA.estado="PLANIFICADA";EVA_ACTIVA.fecha_actualizacion=ahora();await guardar("evaluaciones");pintarResumen();mensaje("Planificación guardada.")}
 
-async function cargarUsuarios(){try{if(typeof obtenerUsuarios==="function"){const u=await obtenerUsuarios();USUARIOS=Array.isArray(u)?u:[]}}catch{USUARIOS=[]}}
-
-function personaVinculadaDeUsuario(u){return DATA.personas.find(p=>p.usuario_codigo===u.codigo)||DATA.personas.find(p=>p.codigo===u.codigo)||null}
-function funcionesPersona(p){return Array.isArray(p?.funciones)?p.funciones.map(x=>String(x).toUpperCase()):[]}
-function posiblesExaminadores(){
-return USUARIOS.map(u=>({usuario:u,persona:personaVinculadaDeUsuario(u)})).filter(x=>{
-const p=x.persona;
-if(!uActivo(x.usuario)||!p||p.activo===false)return false;
-const f=funcionesPersona(p);
-return f.includes("EVALUADOR")||f.includes("SUPERVISOR");
-}).map(x=>({
-codigo:x.usuario.codigo,
-nombre:x.usuario.nombre||x.persona.nombre,
-usuario:x.usuario.usuario||"",
-funciones:funcionesPersona(x.persona),
-habilitacion:x.persona.habilitacion||"",
-competencia_validada:!!x.persona.competencia?.validada,
-persona:x.persona
-}));
-}
-function uActivo(u){return u&&u.activo!==false}
-
-function pintarExaminadores(){
-$("cabExaminadores").innerHTML=cabExp();
-if(!EVA_ACTIVA){$("contenidoExaminadores").innerHTML='<div class="vacio">Inicie primero la evaluación.</div>';return}
-const lista=EVA_ACTIVA.examinadores||[];
-const opciones=posiblesExaminadores().map(u=>`<option value="${u.codigo}">${u.codigo} · ${u.nombre} · ${u.funciones.join(" / ")}</option>`).join("");
-$("contenidoExaminadores").innerHTML=`
-<div class="tabla-wrap"><table><thead><tr><th>Persona</th><th>Función</th><th>Competencia comprobada</th><th>Conflicto</th><th>Autorizada</th></tr></thead><tbody>
-${lista.length?lista.map(x=>`<tr><td>${x.codigo} · ${x.nombre}</td><td>${x.funcion}</td><td>${x.competencia_comprobada?"SÍ":"NO"}</td><td>${x.sin_conflicto?"NO":"PENDIENTE / EXISTE"}</td><td>${x.autorizada?'<span class="estado verde">SÍ</span>':'<span class="estado rojo">NO</span>'}</td></tr>`).join(""):'<tr><td colspan="5" class="vacio">No hay examinadores asignados.</td></tr>'}
-</tbody></table></div>
-<button class="barra-ficha" onclick="toggle('formExam')"><span>+ ASIGNAR EXAMINADOR / SUPERVISOR</span><span>▼</span></button>
-<div class="form-desplegable" id="formExam"><div class="ficha"><div class="grid">
-<div class="campo"><label>Persona</label><select id="exPersona"><option value="">Seleccione...</option>${opciones}</select></div>
-<div class="campo"><label>Función</label><select id="exFuncion"><option>EXAMINADOR</option><option>SUPERVISOR</option></select></div>
-<div class="campo"><label>Competencia comprobada</label><select id="exCompetencia"><option value="false">NO</option><option value="true">SÍ</option></select></div>
-<div class="campo"><label>Ausencia de conflicto comprobada</label><select id="exConflicto"><option value="false">PENDIENTE</option><option value="true">SÍ</option></select></div>
-<div class="campo ancho"><label>Base de autorización / observaciones</label><textarea id="exObs"></textarea></div>
-</div><div class="acciones"><button class="btn btn-azul" onclick="asignarExaminador()">ASIGNAR</button></div></div></div>`;
-}
-
-async function asignarExaminador(){
-const cod=$("exPersona").value;
-const candidatos=posiblesExaminadores();
-const u=candidatos.find(x=>x.codigo===cod);
-if(!u)return alert("Seleccione una persona.");
-const funcion=$("exFuncion").value;
-if(funcion==="EXAMINADOR"&&!u.funciones.includes("EVALUADOR"))return alert("La persona seleccionada no tiene función EVALUADOR.");
-if(funcion==="SUPERVISOR"&&!u.funciones.includes("SUPERVISOR"))return alert("La persona seleccionada no tiene función SUPERVISOR.");
-if(u.habilitacion&&u.habilitacion!=="HABILITADO")return alert("La persona no está habilitada actualmente.");
-const competencia=$("exCompetencia").value==="true";
-const sinConflicto=$("exConflicto").value==="true";
-if(!competencia)return alert("No se puede autorizar a una persona cuya competencia no esté comprobada.");
-if(!sinConflicto)return alert("No se puede autorizar mientras no se haya comprobado la ausencia de conflicto.");
-EVA_ACTIVA.examinadores=EVA_ACTIVA.examinadores||[];
-if(EVA_ACTIVA.examinadores.some(x=>x.codigo===u.codigo&&x.funcion===funcion))return alert("Esta persona ya está asignada con esa función.");
-EVA_ACTIVA.examinadores.push({
-codigo:u.codigo,
-nombre:u.nombre,
-funcion,
-roles_funcionales:u.funciones,
-competencia_comprobada:competencia,
-competencia_registrada:u.competencia_validada,
-sin_conflicto:sinConflicto,
-autorizada:true,
-observaciones:txt($("exObs").value),
-fecha_asignacion:ahora(),
-asignado_por:SESION.codigo||SESION.nombre||""
-});
-EVA_ACTIVA.fecha_actualizacion=ahora();
-await guardar("evaluaciones");
-pintarExaminadores();
-mensaje("Persona asignada.");
-}
-
+function funciones(p){return Array.isArray(p?.funciones)?p.funciones.map(UP):[]}
+function colectivo(){const m=new Map();(DATA.personal||[]).filter(p=>p&&p.activo!==false).forEach(p=>m.set(p.codigo,{...p,origen:"PERSONAL INTERNO"}));(DATA.personas||[]).filter(p=>p&&p.activo!==false).forEach(p=>{if(!m.has(p.codigo))m.set(p.codigo,{...p,origen:"PERSONA VINCULADA"})});return[...m.values()]}
+function posiblesAsignados(){return colectivo().filter(p=>UP(p.habilitacion)==="HABILITADO"&&(funciones(p).includes("EVALUADOR")||funciones(p).includes("SUPERVISOR")))}
+function pintarExaminadores(){$("cabExaminadores").innerHTML=cabExp();if(!EVA_ACTIVA){$("contenidoExaminadores").innerHTML='<div class="vacio">Inicie primero la evaluación.</div>';return}const l=EVA_ACTIVA.examinadores||[],o=posiblesAsignados().map(p=>`<option value="${p.codigo}">${p.codigo} · ${p.nombre} · ${p.origen}</option>`).join("");$("contenidoExaminadores").innerHTML=`<div class="tabla-wrap"><table><thead><tr><th>Persona</th><th>Origen</th><th>Función</th><th>Competencia</th><th>Conflicto</th><th>Autorizada</th></tr></thead><tbody>${l.length?l.map(x=>`<tr><td>${x.codigo} · ${x.nombre}</td><td>${x.origen||"—"}</td><td>${x.funcion}</td><td>${x.competencia_comprobada?"SÍ":"NO"}</td><td>${x.sin_conflicto?"NO":"PENDIENTE / EXISTE"}</td><td>${x.autorizada?"SÍ":"NO"}</td></tr>`).join(""):'<tr><td colspan="6" class="vacio">No hay personas asignadas.</td></tr>'}</tbody></table></div><button class="barra-ficha" onclick="toggle('formExam')"><span>+ ASIGNAR EXAMINADOR / SUPERVISOR</span><span>▼</span></button><div class="form-desplegable" id="formExam"><div class="ficha"><div class="grid"><div class="campo"><label>Persona</label><select id="exPersona"><option value="">Seleccione...</option>${o}</select></div><div class="campo"><label>Función</label><select id="exFuncion"><option>EXAMINADOR</option><option>SUPERVISOR</option></select></div><div class="campo"><label>Competencia comprobada</label><select id="exCompetencia"><option value="false">NO</option><option value="true">SÍ</option></select></div><div class="campo"><label>Ausencia de conflicto comprobada</label><select id="exConflicto"><option value="false">PENDIENTE</option><option value="true">SÍ</option></select></div><div class="campo ancho"><label>Base de autorización / observaciones</label><textarea id="exObs"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="asignarExaminador()">ASIGNAR</button></div></div></div>`}
+async function asignarExaminador(){const p=posiblesAsignados().find(x=>x.codigo===$("exPersona").value);if(!p)return alert("Seleccione una persona.");const f=$("exFuncion").value,fs=funciones(p);if(f==="EXAMINADOR"&&!fs.includes("EVALUADOR"))return alert("No tiene función EVALUADOR.");if(f==="SUPERVISOR"&&!fs.includes("SUPERVISOR"))return alert("No tiene función SUPERVISOR.");if($("exCompetencia").value!=="true")return alert("Debe comprobar la competencia.");if($("exConflicto").value!=="true")return alert("Debe comprobar la ausencia de conflicto.");EVA_ACTIVA.examinadores??=[];if(EVA_ACTIVA.examinadores.some(x=>x.codigo===p.codigo&&x.funcion===f))return alert("Ya está asignado con esa función.");EVA_ACTIVA.examinadores.push({codigo:p.codigo,nombre:p.nombre,origen:p.origen,funcion:f,roles_funcionales:fs,competencia_comprobada:true,competencia_registrada:!!p.competencia?.validada,sin_conflicto:true,autorizada:true,observaciones:txt($("exObs").value),fecha_asignacion:ahora(),asignado_por:SESION.codigo||SESION.nombre||""});EVA_ACTIVA.fecha_actualizacion=ahora();await guardar("evaluaciones");pintarExaminadores();mensaje("Persona asignada.")}
 function toggle(id){$(id).classList.toggle("abierto")}
 
-function pintarPruebas(){
-$("cabPruebas").innerHTML=cabExp();
-if(!EVA_ACTIVA){$("contenidoPruebas").innerHTML='<div class="vacio">Inicie primero la evaluación.</div>';return}
-const pruebas=EVA_ACTIVA.pruebas_snapshot||[];
-$("contenidoPruebas").innerHTML=`<div class="acciones no-print"><button class="btn btn-claro" onclick="mostrarImportador()">IMPORTAR RESULTADOS</button></div><div class="importador" id="importador"><h3>Importar resultados para este expediente</h3><p>Sólo se importan datos correspondientes a <b>${EXP_ACTIVO.codigo}</b>. Se admite CSV o JSON.</p><input type="file" id="archivoImportacion" accept=".csv,.json,.txt"><div class="acciones"><button class="btn btn-azul" onclick="previsualizarImportacion()">PREVISUALIZAR</button><button class="btn btn-verde" id="btnConfirmarImport" disabled onclick="confirmarImportacion()">CONFIRMAR IMPORTACIÓN</button></div><pre class="preview" id="previewImport"></pre></div>
-${pruebas.length?pruebas.map((p,i)=>{const id=p.id||p.codigo||"PRU-"+String(i+1).padStart(3,"0"),r=resultadoDe(EVA_ACTIVA.codigo,id);return `<div class="prueba"><h4>${id} · ${p.nombre||p.denominacion||"Prueba"}</h4><div class="prueba-meta"><b>Tipo:</b> ${p.tipo||"—"} · <b>Duración:</b> ${p.duracion_minutos||"—"} · <b>Mínimo APTO:</b> ${p.minimo_apto??p.metrica?.minimo_apto??"—"}<br><b>Versión del esquema:</b> ${EVA_ACTIVA.esquema_version}</div><div class="acciones"><button class="btn ${r?"btn-claro":"btn-azul"}" onclick="abrirResultado('${id}')">${r?"EDITAR RESULTADO":"REGISTRAR RESULTADO"}</button></div><div id="res-${id}"></div></div>`}).join(""):'<div class="vacio">El esquema no contiene pruebas.</div>'}`;
-}
+function pintarPruebas(){$("cabPruebas").innerHTML=cabExp();if(!EVA_ACTIVA){$("contenidoPruebas").innerHTML='<div class="vacio">Inicie primero la evaluación.</div>';return}const ps=EVA_ACTIVA.pruebas_snapshot||[];$("contenidoPruebas").innerHTML=ps.length?ps.map((p,i)=>{const id=p.id||p.codigo||"PRU-"+String(i+1).padStart(3,"0"),r=resultadoDe(EVA_ACTIVA.codigo,id);return`<div class="prueba"><h4>${id} · ${p.nombre||p.denominacion||"Prueba"}</h4><div class="prueba-meta"><b>Tipo:</b> ${p.tipo||"—"} · <b>Mínimo APTO:</b> ${p.minimo_apto??p.metrica?.minimo_apto??"—"}</div><div class="acciones"><button class="btn btn-azul" onclick="abrirResultado('${id}')">${r?"EDITAR RESULTADO":"REGISTRAR RESULTADO"}</button></div><div id="res-${id}"></div></div>`}).join(""):'<div class="vacio">El esquema no contiene pruebas.</div>'}
+function abrirResultado(id){const r=resultadoDe(EVA_ACTIVA.codigo,id)||{};$("res-"+id).innerHTML=`<div class="ficha"><div class="grid"><div class="campo"><label>Fecha</label><input id="rf-${id}" type="date" value="${r.fecha||hoy()}"></div><div class="campo"><label>Examinador</label><select id="re-${id}">${(EVA_ACTIVA.examinadores||[]).filter(x=>x.funcion==="EXAMINADOR"&&x.autorizada).map(x=>`<option value="${x.codigo}">${x.codigo} · ${x.nombre}</option>`).join("")}</select></div><div class="campo"><label>Puntuación</label><input id="rp-${id}" type="number" value="${r.puntuacion??""}"></div><div class="campo"><label>Resultado</label><select id="rr-${id}"><option>APTO</option><option>NO APTO</option><option>NO PRESENTADO</option></select></div><div class="campo ancho"><label>Observaciones</label><textarea id="ro-${id}">${r.observaciones||""}</textarea></div></div><div class="acciones"><button class="btn btn-verde" onclick="guardarResultado('${id}')">GUARDAR RESULTADO</button></div></div>`}
+async function guardarResultado(id){const ex=$("re-"+id).value;if(!ex)return alert("Debe existir un examinador autorizado.");let r=resultadoDe(EVA_ACTIVA.codigo,id);if(!r){r={codigo:codigo("resultados","RES"),evaluacion_codigo:EVA_ACTIVA.codigo,expediente_codigo:EXP_ACTIVO.codigo,prueba_id:id};DATA.resultados.push(r)}r.fecha=$("rf-"+id).value;r.examinador_codigo=ex;r.puntuacion=Number($("rp-"+id).value||0);r.resultado=$("rr-"+id).value;r.observaciones=txt($("ro-"+id).value);r.fecha_actualizacion=ahora();await guardar("resultados");EVA_ACTIVA.estado="EN EVALUACIÓN";await guardar("evaluaciones");pintarResumen();mensaje("Resultado guardado.")}
 
-function abrirResultado(pruebaId){
-const p=(EVA_ACTIVA.pruebas_snapshot||[]).find((x,i)=>(x.id||x.codigo||"PRU-"+String(i+1).padStart(3,"0"))===pruebaId)||{};
-const r=resultadoDe(EVA_ACTIVA.codigo,pruebaId)||{};
-const cont=$("res-"+pruebaId);
-cont.innerHTML=`<div class="ficha"><div class="grid"><div class="campo"><label>Fecha de realización</label><input id="rrFecha-${pruebaId}" type="date" value="${r.fecha||hoy()}"></div><div class="campo"><label>Examinador</label><select id="rrExam-${pruebaId}">${(EVA_ACTIVA.examinadores||[]).filter(x=>x.funcion==="EXAMINADOR"&&x.autorizada).map(x=>`<option value="${x.codigo}" ${r.examinador_codigo===x.codigo?"selected":""}>${x.codigo} · ${x.nombre}</option>`).join("")}</select></div><div class="campo"><label>Puntuación</label><input id="rrPunt-${pruebaId}" type="number" value="${r.puntuacion??""}"></div><div class="campo"><label>Resultado</label><select id="rrEstado-${pruebaId}"><option ${r.resultado==="APTO"?"selected":""}>APTO</option><option ${r.resultado==="NO APTO"?"selected":""}>NO APTO</option><option ${r.resultado==="NO PRESENTADO"?"selected":""}>NO PRESENTADO</option></select></div><div class="campo ancho"><label>Observaciones / evidencias</label><textarea id="rrObs-${pruebaId}">${r.observaciones||""}</textarea></div></div><div class="acciones"><button class="btn btn-verde" onclick="guardarResultado('${pruebaId}')">GUARDAR RESULTADO</button></div></div>`;
-}
-
-async function guardarResultado(pruebaId){
-const ex=$("rrExam-"+pruebaId).value;
-if(!ex)return alert("Debe existir un examinador autorizado.");
-let r=resultadoDe(EVA_ACTIVA.codigo,pruebaId);
-if(!r){r={codigo:codigo("resultados","RES"),evaluacion_codigo:EVA_ACTIVA.codigo,expediente_codigo:EXP_ACTIVO.codigo,prueba_id:pruebaId};DATA.resultados.push(r)}
-r.fecha=$("rrFecha-"+pruebaId).value;
-r.examinador_codigo=ex;
-r.puntuacion=Number($("rrPunt-"+pruebaId).value||0);
-r.resultado=$("rrEstado-"+pruebaId).value;
-r.observaciones=txt($("rrObs-"+pruebaId).value);
-r.fecha_actualizacion=ahora();
-r.actualizado_por=SESION.codigo||SESION.nombre||"";
-await guardar("resultados");
-EVA_ACTIVA.estado="EN EVALUACIÓN";
-EVA_ACTIVA.fecha_actualizacion=ahora();
-await guardar("evaluaciones");
-pintarResumen();
-mensaje("Resultado guardado.");
-}
-
-let IMPORT_TEMP=[];
-function mostrarImportador(){$("importador").classList.toggle("visible")}
-async function previsualizarImportacion(){
-const f=$("archivoImportacion").files[0];
-if(!f)return alert("Seleccione un archivo.");
-const t=await f.text();IMPORT_TEMP=[];
-try{
-if(f.name.toLowerCase().endsWith(".json")){const d=JSON.parse(t);IMPORT_TEMP=Array.isArray(d)?d:[d]}
-else{const lineas=t.split(/\r?\n/).filter(Boolean),sep=lineas[0].includes(";")?";":",",cab=lineas.shift().split(sep).map(x=>x.trim());IMPORT_TEMP=lineas.map(l=>{const v=l.split(sep),o={};cab.forEach((c,i)=>o[c]=v[i]?.trim()||"");return o})}
-const invalid=IMPORT_TEMP.filter(x=>x.expediente_codigo&&x.expediente_codigo!==EXP_ACTIVO.codigo);
-$("previewImport").textContent=JSON.stringify(IMPORT_TEMP,null,2);
-$("btnConfirmarImport").disabled=!IMPORT_TEMP.length||invalid.length>0;
-if(invalid.length)alert("La importación contiene registros de otros expedientes. No se permite una importación colectiva.");
-}catch(e){IMPORT_TEMP=[];$("previewImport").textContent="Error: "+e.message;$("btnConfirmarImport").disabled=true}
-}
-
-async function confirmarImportacion(){
-for(const x of IMPORT_TEMP){
-const prueba=x.prueba_id||x.prueba||x.codigo_prueba;if(!prueba)continue;
-let r=resultadoDe(EVA_ACTIVA.codigo,prueba);
-if(!r){r={codigo:codigo("resultados","RES"),evaluacion_codigo:EVA_ACTIVA.codigo,expediente_codigo:EXP_ACTIVO.codigo,prueba_id:prueba};DATA.resultados.push(r)}
-r.fecha=x.fecha||hoy();r.examinador_codigo=x.examinador_codigo||x.examinador||"";r.puntuacion=Number(x.puntuacion||0);r.resultado=x.resultado||"";r.observaciones=x.observaciones||"";r.origen_importacion=true;r.archivo_origen=$("archivoImportacion").files[0]?.name||"";r.importado_por=SESION.codigo||SESION.nombre||"";r.fecha_importacion=ahora();
-}
-await guardar("resultados");IMPORT_TEMP=[];pintarPruebas();mensaje("Importación incorporada al expediente.");
-}
-
-function pintarSupervision(){
-$("cabSupervision").innerHTML=cabExp();
-if(!EVA_ACTIVA){$("contenidoSupervision").innerHTML='<div class="vacio">Inicie primero la evaluación.</div>';return}
-const sup=DATA.supervisiones.filter(s=>s.evaluacion_codigo===EVA_ACTIVA.codigo);
-$("contenidoSupervision").innerHTML=`<div class="tabla-wrap"><table><thead><tr><th>Código</th><th>Tipo</th><th>Objeto</th><th>Supervisor</th><th>Resultado</th><th>Fecha</th></tr></thead><tbody>${sup.length?sup.map(s=>`<tr><td>${s.codigo}</td><td>${s.tipo}</td><td>${s.objeto||"—"}</td><td>${s.supervisor||"—"}</td><td>${s.resultado||"PENDIENTE"}</td><td>${(s.fecha||"").slice(0,10)}</td></tr>`).join(""):'<tr><td colspan="6" class="vacio">Sin supervisiones.</td></tr>'}</tbody></table></div>
-<button class="barra-ficha" onclick="toggle('formSup')"><span>+ NUEVA SUPERVISIÓN</span><span>▼</span></button>
-<div class="form-desplegable" id="formSup"><div class="ficha"><div class="grid"><div class="campo"><label>Tipo</label><select id="supTipo" onchange="cambiarTipoSup()"><option>SUPERVISIÓN DE EXAMEN</option><option>SUPERVISIÓN DE INTERVENCIÓN Rita©</option></select></div><div class="campo"><label>Supervisor</label><input id="supSupervisor"></div><div class="campo ancho"><label>Objeto / prueba / intervención</label><input id="supObjeto"></div></div>
-<div id="checksSupExamen" class="checks"><label class="check"><input id="sxIdent" type="checkbox">Identidad comprobada</label><label class="check"><input id="sxCond" type="checkbox">Condiciones conformes</label><label class="check"><input id="sxSeg" type="checkbox">Seguridad preservada</label><label class="check"><input id="sxFraude" type="checkbox">Sin indicios de fraude</label><label class="check"><input id="sxMaterial" type="checkbox">Material controlado</label><label class="check"><input id="sxInc" type="checkbox">Incidencias registradas</label></div>
-<div id="checksSupRita" class="checks oculto"><label class="check"><input id="srResultado" type="checkbox">Resultado correcto</label><label class="check"><input id="srRazonamiento" type="checkbox">Razonamiento correcto</label><label class="check"><input id="srProcedimiento" type="checkbox">Procedimiento correcto</label><label class="check"><input id="srTraza" type="checkbox">Trazabilidad suficiente</label><label class="check"><input id="srTransp" type="checkbox">Transparencia correcta</label><label class="check"><input id="srHumana" type="checkbox">Supervisión humana real</label></div>
-<div class="grid" style="margin-top:15px"><div class="campo"><label>Resultado</label><select id="supResultado"><option>CONFORME</option><option>CON OBSERVACIONES</option><option>NO CONFORME</option></select></div><div class="campo ancho"><label>Observaciones</label><textarea id="supObs"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarSupervision()">GUARDAR SUPERVISIÓN</button></div></div></div>`;
-}
-
-function cambiarTipoSup(){const r=$("supTipo").value.includes("Rita");$("checksSupRita").classList.toggle("oculto",!r);$("checksSupExamen").classList.toggle("oculto",r)}
-
-async function guardarSupervision(){
-const tipo=$("supTipo").value,rita=tipo.includes("Rita"),ids=rita?["srResultado","srRazonamiento","srProcedimiento","srTraza","srTransp","srHumana"]:["sxIdent","sxCond","sxSeg","sxFraude","sxMaterial","sxInc"],controles={};ids.forEach(id=>controles[id]=$(id).checked);
-const s={codigo:codigo("supervisiones","SUP"),evaluacion_codigo:EVA_ACTIVA.codigo,expediente_codigo:EXP_ACTIVO.codigo,tipo,objeto:txt($("supObjeto").value),supervisor:txt($("supSupervisor").value),controles,resultado:$("supResultado").value,observaciones:txt($("supObs").value),fecha:ahora(),creado_por:SESION.codigo||SESION.nombre||""};
-DATA.supervisiones.push(s);await guardar("supervisiones");if(s.resultado==="NO CONFORME")await generarIncidenciaDesdeA3("Supervisión no conforme "+s.codigo,"SUPERVISIÓN");pintarSupervision();pintarResumen();mensaje("Supervisión registrada.");
-}
+function pintarSupervision(){$("cabSupervision").innerHTML=cabExp();if(!EVA_ACTIVA){$("contenidoSupervision").innerHTML='<div class="vacio">Inicie primero la evaluación.</div>';return}const l=DATA.supervisiones.filter(s=>s.evaluacion_codigo===EVA_ACTIVA.codigo),sup=posiblesAsignados().filter(p=>funciones(p).includes("SUPERVISOR")).map(p=>`<option value="${p.codigo}">${p.codigo} · ${p.nombre} · ${p.origen}</option>`).join("");$("contenidoSupervision").innerHTML=`<div class="tabla-wrap"><table><thead><tr><th>Código</th><th>Tipo</th><th>Objeto</th><th>Supervisor</th><th>Resultado</th></tr></thead><tbody>${l.length?l.map(s=>`<tr><td>${s.codigo}</td><td>${s.tipo}</td><td>${s.objeto||"—"}</td><td>${s.supervisor||"—"}</td><td>${s.resultado}</td></tr>`).join(""):'<tr><td colspan="5" class="vacio">Sin supervisiones.</td></tr>'}</tbody></table></div><button class="barra-ficha" onclick="toggle('formSup')"><span>+ NUEVA SUPERVISIÓN</span><span>▼</span></button><div class="form-desplegable" id="formSup"><div class="ficha"><div class="grid"><div class="campo"><label>Tipo</label><select id="supTipo"><option>SUPERVISIÓN DE EXAMEN</option><option>SUPERVISIÓN DE INTERVENCIÓN Rita©</option></select></div><div class="campo"><label>Supervisor</label><select id="supSupervisor"><option value="">Seleccione...</option>${sup}</select></div><div class="campo ancho"><label>Objeto</label><input id="supObjeto"></div><div class="campo"><label>Resultado</label><select id="supResultado"><option>CONFORME</option><option>CON OBSERVACIONES</option><option>NO CONFORME</option></select></div><div class="campo ancho"><label>Observaciones</label><textarea id="supObs"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarSupervision()">GUARDAR SUPERVISIÓN</button></div></div></div>`}
+async function guardarSupervision(){const s={codigo:codigo("supervisiones","SUP"),evaluacion_codigo:EVA_ACTIVA.codigo,expediente_codigo:EXP_ACTIVO.codigo,tipo:$("supTipo").value,objeto:txt($("supObjeto").value),supervisor:$("supSupervisor").value,resultado:$("supResultado").value,observaciones:txt($("supObs").value),fecha:ahora(),creado_por:SESION.codigo||SESION.nombre||""};if(!s.supervisor)return alert("Seleccione supervisor.");DATA.supervisiones.push(s);await guardar("supervisiones");pintarSupervision();pintarResumen();mensaje("Supervisión registrada.")}
 
 function resultadosEva(){return DATA.resultados.filter(r=>r.evaluacion_codigo===EVA_ACTIVA?.codigo)}
-function pintarResultados(){
-$("cabResultados").innerHTML=cabExp();
-if(!EVA_ACTIVA){$("contenidoResultados").innerHTML='<div class="vacio">Inicie primero la evaluación.</div>';return}
-const pruebas=EVA_ACTIVA.pruebas_snapshot||[],res=resultadosEva(),completos=pruebas.length>0&&pruebas.every((p,i)=>res.some(r=>r.prueba_id===(p.id||p.codigo||"PRU-"+String(i+1).padStart(3,"0")))),aptos=completos&&res.every(r=>r.resultado==="APTO");
-$("contenidoResultados").innerHTML=`<div class="tabla-wrap"><table><thead><tr><th>Prueba</th><th>Fecha</th><th>Examinador</th><th>Puntuación</th><th>Resultado</th></tr></thead><tbody>${res.length?res.map(r=>`<tr><td>${r.prueba_id}</td><td>${r.fecha||"—"}</td><td>${r.examinador_codigo||"—"}</td><td>${r.puntuacion}</td><td><span class="estado ${r.resultado==="APTO"?"verde":"rojo"}">${r.resultado}</span></td></tr>`).join(""):'<tr><td colspan="5" class="vacio">Sin resultados registrados.</td></tr>'}</tbody></table></div>
-<div class="ficha"><h3>Conclusión global de evaluación</h3><div class="grid"><div class="campo"><label>Resultado técnico</label><select id="resGlobal"><option ${EVA_ACTIVA.resultado_global==="EVALUACIÓN FAVORABLE"?"selected":""}>EVALUACIÓN FAVORABLE</option><option ${EVA_ACTIVA.resultado_global==="EVALUACIÓN NO FAVORABLE"?"selected":""}>EVALUACIÓN NO FAVORABLE</option><option ${EVA_ACTIVA.resultado_global==="EVALUACIÓN INCOMPLETA"?"selected":""}>EVALUACIÓN INCOMPLETA</option></select></div><div class="campo ancho"><label>Conclusión motivada</label><textarea id="resConclusion">${EVA_ACTIVA.conclusion||""}</textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarConclusion()">GUARDAR CONCLUSIÓN</button><button class="btn btn-claro" onclick="imprimirEvaluacion(false)">PDF INTERNO</button><button class="btn btn-claro" onclick="imprimirEvaluacion(true)">PDF PARA SOLICITANTE</button><button class="btn btn-verde" ${completos?"":"disabled"} onclick="cerrarEvaluacion()">CERRAR Y ENVIAR A A5</button></div>${!completos?'<div class="aviso amarillo">No pueden cerrarse la evaluación ni enviarse a A5 hasta que todas las pruebas tengan resultado.</div>':""}${completos?`<div class="aviso ${aptos?"verde":"rojo"}">Todas las pruebas tienen resultado. Resultado objetivo actual: ${aptos?"TODAS APTAS":"EXISTEN PRUEBAS NO APTAS"}.</div>`:""}</div>`;
-}
-
+function pintarResultados(){$("cabResultados").innerHTML=cabExp();if(!EVA_ACTIVA){$("contenidoResultados").innerHTML='<div class="vacio">Inicie primero la evaluación.</div>';return}const ps=EVA_ACTIVA.pruebas_snapshot||[],rs=resultadosEva(),ok=ps.length&&ps.every((p,i)=>rs.some(r=>r.prueba_id===(p.id||p.codigo||"PRU-"+String(i+1).padStart(3,"0"))));$("contenidoResultados").innerHTML=`<div class="tabla-wrap"><table><thead><tr><th>Prueba</th><th>Examinador</th><th>Puntuación</th><th>Resultado</th></tr></thead><tbody>${rs.length?rs.map(r=>`<tr><td>${r.prueba_id}</td><td>${r.examinador_codigo}</td><td>${r.puntuacion}</td><td>${r.resultado}</td></tr>`).join(""):'<tr><td colspan="4" class="vacio">Sin resultados.</td></tr>'}</tbody></table></div><div class="ficha"><div class="campo"><label>Resultado técnico</label><select id="resGlobal"><option>EVALUACIÓN FAVORABLE</option><option>EVALUACIÓN NO FAVORABLE</option><option>EVALUACIÓN INCOMPLETA</option></select></div><div class="campo"><label>Conclusión motivada</label><textarea id="resConclusion">${EVA_ACTIVA.conclusion||""}</textarea></div><div class="acciones"><button class="btn btn-azul" onclick="guardarConclusion()">GUARDAR CONCLUSIÓN</button><button class="btn btn-verde" ${ok?"":"disabled"} onclick="cerrarEvaluacion()">CERRAR Y ENVIAR A A5</button></div></div>`}
 async function guardarConclusion(){EVA_ACTIVA.resultado_global=$("resGlobal").value;EVA_ACTIVA.conclusion=txt($("resConclusion").value);EVA_ACTIVA.fecha_actualizacion=ahora();await guardar("evaluaciones");mensaje("Conclusión guardada.")}
-async function cerrarEvaluacion(){const pruebas=EVA_ACTIVA.pruebas_snapshot||[],res=resultadosEva();if(!pruebas.length||!pruebas.every((p,i)=>res.some(r=>r.prueba_id===(p.id||p.codigo||"PRU-"+String(i+1).padStart(3,"0")))))return alert("Faltan resultados de pruebas.");if(!txt(EVA_ACTIVA.conclusion)&&!txt($("resConclusion")?.value))return alert("Debe existir una conclusión motivada.");await guardarConclusion();EVA_ACTIVA.estado="CERRADA";EVA_ACTIVA.fecha_cierre=ahora();EVA_ACTIVA.enviado_a5=true;EVA_ACTIVA.fecha_envio_a5=ahora();await guardar("evaluaciones");pintarTodo();activarTab("cerradas");mensaje("Evaluación cerrada y preparada para A5.")}
+async function cerrarEvaluacion(){if(!txt($("resConclusion").value))return alert("Debe existir conclusión motivada.");await guardarConclusion();EVA_ACTIVA.estado="CERRADA";EVA_ACTIVA.fecha_cierre=ahora();EVA_ACTIVA.enviado_a5=true;EVA_ACTIVA.fecha_envio_a5=ahora();await guardar("evaluaciones");pintarTodo();activarTab("cerradas");mensaje("Evaluación cerrada y preparada para A5.")}
 
-async function generarIncidenciaDesdeA3(descripcion,origen="EVALUACIÓN"){const i={codigo:codigo("incidencias","INC"),fecha:hoy(),origen:"A3 · "+origen,descripcion,gravedad:"MEDIA",responsable:"",actuacion_inmediata:"",causa:"",estado:"ABIERTA",referencia:EVA_ACTIVA?.codigo||"",expediente_codigo:EXP_ACTIVO?.codigo||"",fecha_alta:ahora(),creado_por:SESION.codigo||SESION.nombre||""};DATA.incidencias.push(i);await guardar("incidencias");return i}
-
-function pintarIncidencias(){
-$("cabIncidencias").innerHTML=cabExp();
-if(!EVA_ACTIVA){$("contenidoIncidencias").innerHTML='<div class="vacio">Inicie primero la evaluación.</div>';return}
-const l=DATA.incidencias.filter(i=>i.referencia===EVA_ACTIVA.codigo||i.expediente_codigo===EXP_ACTIVO.codigo);
-$("contenidoIncidencias").innerHTML=`<div class="tabla-wrap"><table><thead><tr><th>Código</th><th>Fecha</th><th>Origen</th><th>Descripción</th><th>Estado</th></tr></thead><tbody>${l.length?l.map(i=>`<tr><td>${i.codigo}</td><td>${i.fecha}</td><td>${i.origen}</td><td>${i.descripcion}</td><td>${i.estado}</td></tr>`).join(""):'<tr><td colspan="5" class="vacio">Sin incidencias asociadas.</td></tr>'}</tbody></table></div><button class="barra-ficha" onclick="toggle('formIncA3')"><span>+ GENERAR INCIDENCIA EN A7</span><span>▼</span></button><div class="form-desplegable" id="formIncA3"><div class="ficha"><div class="campo ancho"><label>Descripción</label><textarea id="incA3Descripcion"></textarea></div><div class="acciones"><button class="btn btn-rojo" onclick="altaIncA3()">GENERAR INCIDENCIA</button></div></div></div>`;
-}
-async function altaIncA3(){const d=txt($("incA3Descripcion").value);if(!d)return alert("Describa la incidencia.");const i=await generarIncidenciaDesdeA3(d);pintarIncidencias();mensaje(i.codigo+" creada en A7.")}
-
-function pintarRita(){
-$("cabRita").innerHTML=cabExp();
-if(!EVA_ACTIVA){$("contenidoRita").innerHTML='<div class="vacio">Inicie primero la evaluación.</div>';return}
-const l=DATA.rita.filter(r=>r.evaluacion_codigo===EVA_ACTIVA.codigo);
-$("contenidoRita").innerHTML=`<div class="tabla-wrap"><table><thead><tr><th>Código</th><th>Tipo</th><th>Objeto</th><th>Recomendación</th><th>Validación humana</th><th>Verificación</th></tr></thead><tbody>${l.length?l.map(r=>`<tr class="click" onclick="verRita('${r.codigo}')"><td>${r.codigo}</td><td><span class="rita-badge">${r.tipo}</span></td><td>${r.objeto}</td><td>${r.recomendacion}</td><td>${r.validacion_humana||"PENDIENTE"}</td><td>${r.verificacion_estado||"PENDIENTE"}</td></tr>`).join(""):'<tr><td colspan="6" class="vacio">Rita© no ha intervenido materialmente en esta evaluación.</td></tr>'}</tbody></table></div>`;
-}
-
-function verRita(cod){const r=DATA.rita.find(x=>x.codigo===cod);if(!r)return;alert(`${r.tipo}\n\n${r.objeto}\n\nRECOMENDACIÓN:\n${r.recomendacion}\n\nPOR QUÉ:\n${r.razonamiento||""}`)}
-function imprimirEvaluacion(){window.print()}
-
+function pintarIncidencias(){$("cabIncidencias").innerHTML=cabExp();$("contenidoIncidencias").innerHTML='<div class="vacio">Las incidencias de este expediente se gestionan vinculadas a A7.</div>'}
+function pintarRita(){$("cabRita").innerHTML=cabExp();if(!EVA_ACTIVA){$("contenidoRita").innerHTML='<div class="vacio">Inicie primero la evaluación.</div>';return}const l=DATA.rita.filter(r=>r.evaluacion_codigo===EVA_ACTIVA.codigo);$("contenidoRita").innerHTML=l.length?l.map(r=>`<div class="rita-box"><span class="rita-badge">${r.tipo}</span><p><b>Recomendación:</b> ${r.recomendacion}</p><p><b>POR QUÉ:</b> ${r.porque}</p><div class="transparencia">${r.explicacion_solicitante||""}</div></div>`).join(""):'<div class="vacio">Rita© no ha intervenido materialmente.</div>'}
 function pintarCerradas(){const q=norm($("buscarCerrada").value),l=DATA.evaluaciones.filter(e=>e.estado==="CERRADA"&&(!q||norm([e.codigo,e.expediente_codigo,e.candidato_nombre].join(" ")).includes(q)));$("tablaCerradas").innerHTML=l.length?l.map(e=>`<tr><td>${e.codigo}</td><td>${e.expediente_codigo}</td><td>${e.candidato_nombre}</td><td>${e.esquema_nombre}</td><td>${e.resultado_global||"—"}</td><td>${(e.fecha_cierre||"").slice(0,10)}</td><td><button class="btn btn-claro" onclick="seleccionarExpediente('${e.expediente_codigo}')">ABRIR</button></td></tr>`).join(""):'<tr><td colspan="7" class="vacio">No hay evaluaciones cerradas.</td></tr>'}
-
 function pintarResumen(){$("nPendientes").textContent=evaluables().filter(e=>!evaluacionDe(e.codigo)).length;$("nCurso").textContent=DATA.evaluaciones.filter(e=>e.estado!=="CERRADA").length;$("nSupervision").textContent=DATA.supervisiones.filter(s=>s.resultado==="PENDIENTE").length;$("nRita").textContent=DATA.rita.length;$("nCerradas").textContent=DATA.evaluaciones.filter(e=>e.estado==="CERRADA").length}
 function pintarFiltros(){const es=[...new Set(evaluables().map(x=>x.esquema_nombre).filter(Boolean))].sort();$("filtroEsquema").innerHTML='<option value="">TODOS LOS ESQUEMAS</option>'+es.map(x=>`<option>${x}</option>`).join("")}
 function pintarTodoExpediente(){pintarPlanificacion();pintarExaminadores();pintarPruebas();pintarSupervision();pintarResultados();pintarIncidencias();pintarRita()}
 function pintarTodo(){pintarFiltros();pintarExpedientes();pintarResumen();pintarCerradas();if(EXP_ACTIVO){EVA_ACTIVA=evaluacionDe(EXP_ACTIVO.codigo);pintarTodoExpediente()}}
-
-$("buscarExp").oninput=pintarExpedientes;
-$("filtroEsquema").onchange=pintarExpedientes;
-$("buscarCerrada").oninput=pintarCerradas;
-
-async function recargarTodo(aviso=true){
-try{
-const claves=Object.keys(ARCHIVOS);
-const a=await Promise.all(claves.map(async k=>[k,await descargar(k)]));
-a.forEach(([k,d])=>DATA[k]=d);
-await cargarUsuarios();
-pintarTodo();
-if(aviso)mensaje("A3 actualizado desde Dropbox.");
-}catch(e){console.error(e);alert("No se ha podido cargar A3:\n\n"+e.message)}
-}
-
+$("buscarExp").oninput=pintarExpedientes;$("filtroEsquema").onchange=pintarExpedientes;$("buscarCerrada").oninput=pintarCerradas;
+async function recargarTodo(aviso=true){try{const a=await Promise.all(Object.keys(ARCHIVOS).map(async k=>[k,await descargar(k)]));a.forEach(([k,d])=>DATA[k]=d);pintarTodo();if(aviso)mensaje("A3 actualizado desde Dropbox.")}catch(e){console.error(e);alert("No se ha podido cargar A3:\n\n"+e.message)}}
 recargarTodo(false);
-</script>
-</body>
-</html>
+</script></body></html>
