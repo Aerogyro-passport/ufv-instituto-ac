@@ -9,168 +9,106 @@
 @font-face{font-family:Tecnico;src:url("tecnico_regular.ttf") format("truetype");font-weight:400}
 @font-face{font-family:Tecnico;src:url("tecnico_bold.ttf") format("truetype");font-weight:700}
 @font-face{font-family:Tecnico;src:url("tecnico_regularitalic.ttf") format("truetype");font-style:italic}
-
 *{box-sizing:border-box}
 html,body{margin:0;width:100%;min-height:100%}
 body{min-height:100vh;background:#edf5fb;color:#17344e;font-family:Tecnico,Arial,sans-serif}
 .app{display:flex;min-height:100vh}
-
-/* LATERAL */
-.lateral{
-width:330px;min-width:330px;min-height:100vh;background:#003B5D;
-color:#fff;padding:38px 34px 30px;display:flex;flex-direction:column
-}
+.lateral{width:330px;min-width:330px;min-height:100vh;background:#003B5D;color:#fff;padding:38px 34px 30px;display:flex;flex-direction:column}
 .rita{position:relative;width:max-content;font-size:82px;line-height:.95;letter-spacing:-4px}
 .copyright{position:absolute;top:-5px;right:-22px;font:20px Arial}
 .linea-rita{width:92px;height:5px;background:#4dd4d0;margin:35px 0 40px}
 .nombre-sistema{width:250px;font-size:25px;line-height:1.28;letter-spacing:1.5px;text-transform:uppercase}
-
 .menu{margin-top:28px;padding-top:16px;border-top:1px solid rgba(255,255,255,.22)}
-.menu-btn{
-width:100%;min-height:52px;margin-bottom:8px;padding:8px 11px;
-border:1px solid rgba(255,255,255,.28);border-radius:5px;
-background:rgba(255,255,255,.08);color:#fff;
-display:flex;align-items:center;gap:10px;text-align:left;
-font-family:Tecnico;cursor:pointer
-}
+.menu-btn{width:100%;min-height:47px;margin-bottom:6px;padding:7px 11px;border:1px solid rgba(255,255,255,.28);border-radius:5px;background:rgba(255,255,255,.08);color:#fff;display:flex;align-items:center;gap:10px;text-align:left;font-family:Tecnico;cursor:pointer}
 .menu-btn.inactivo{opacity:.28;filter:grayscale(1);cursor:not-allowed}
 .menu-btn.actual{background:#fff;color:#003B5D;border-color:#fff}
-.menu-codigo{width:35px;font-size:18px;font-weight:700;color:#59d8d5}
+.menu-codigo{width:35px;font-size:17px;font-weight:700;color:#59d8d5}
 .menu-btn.actual .menu-codigo{color:#003B5D}
-.menu-texto{font-size:15px;line-height:1.1;text-transform:uppercase}
-
-.pie-lateral{margin-top:auto;padding:30px 0 95px;display:flex;justify-content:center}
+.menu-texto{font-size:14px;line-height:1.1;text-transform:uppercase}
+.pie-lateral{margin-top:auto;padding:30px 0 45px;display:flex;justify-content:center}
 .pie-lateral img{display:block;width:382px;max-width:100%;height:auto}
-
-/* PRINCIPAL */
 .principal{flex:1;min-width:0;display:flex;flex-direction:column}
-.cabecera{
-height:185px;min-height:185px;background:#fff;
-display:flex;align-items:center;padding:0 75px
-}
+.cabecera{height:185px;min-height:185px;background:#fff;display:flex;align-items:center;padding:0 75px}
 .cabecera img{display:block;width:844px;max-width:72vw;height:auto}
 .zona{flex:1;padding:34px 42px 50px;background:#edf5fb}
-
-/* CABECERA A8 */
-.area-head{
-display:flex;justify-content:space-between;align-items:flex-start;
-gap:25px;margin-bottom:23px
-}
+.area-head{display:flex;justify-content:space-between;align-items:flex-start;gap:25px;margin-bottom:23px}
 .area-identidad{display:flex;align-items:center;gap:20px}
 .area-icono{width:105px;height:105px;object-fit:contain;border-radius:14px}
 .area-titulo h1{margin:0;font-size:46px;font-weight:400}
 .area-titulo p{margin:6px 0 0;color:#718ca4;font-size:20px}
 .usuario-activo{text-align:right;color:#718ca4;font-size:17px}
 .usuario-activo strong{display:block;color:#17344e;font-size:22px}
-.volver{
-margin-top:10px;padding:10px 17px;border:1px solid #b9cbd8;
-border-radius:5px;background:#fff;color:#315675;font:16px Tecnico;cursor:pointer
-}
-
-/* PESTAÑAS */
+.volver{margin-top:10px;padding:10px 17px;border:1px solid #b9cbd8;border-radius:5px;background:#fff;color:#315675;font:16px Tecnico;cursor:pointer}
 .tabs{display:flex;gap:5px;flex-wrap:wrap;border-bottom:1px solid #bacdda}
-.tab{
-padding:14px 19px;border:1px solid #c7d6e0;border-bottom:0;
-border-radius:6px 6px 0 0;background:#f7fafc;color:#4e6b84;
-font:16px Tecnico;cursor:pointer
-}
+.tab{padding:14px 17px;border:1px solid #c7d6e0;border-bottom:0;border-radius:6px 6px 0 0;background:#f7fafc;color:#4e6b84;font:15px Tecnico;cursor:pointer}
 .tab.activa{background:#0873ae;color:#fff;border-color:#0873ae}
-
-.panel{
-display:none;background:#fff;border:1px solid #cddae4;border-top:0;
-padding:26px 28px 32px
-}
+.panel{display:none;background:#fff;border:1px solid #cddae4;border-top:0;padding:26px 28px 32px}
 .panel.activo{display:block}
 .panel h2{margin:0 0 5px;font-size:31px;font-weight:400}
+.panel h3{margin:25px 0 12px;font-size:23px;font-weight:400;color:#315675}
 .intro{margin:0 0 22px;color:#718ca4;font-size:18px}
-
-/* FORMULARIOS */
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px 25px}
 .campo{display:flex;flex-direction:column;gap:6px}
 .campo.ancho{grid-column:1/-1}
 .campo label{font-size:15px;font-weight:700;color:#58738c}
-.campo input,.campo select,.campo textarea{
-width:100%;border:1px solid #bfd0dc;border-radius:5px;
-background:#fff;color:#17344e;font:17px Tecnico;padding:11px 13px;outline:none
-}
+.campo input,.campo select,.campo textarea{width:100%;border:1px solid #bfd0dc;border-radius:5px;background:#fff;color:#17344e;font:17px Tecnico;padding:11px 13px;outline:none}
 .campo input,.campo select{height:48px}
-.campo textarea{min-height:105px;resize:vertical}
-
-.acciones{display:flex;gap:12px;margin-top:20px}
-.btn{
-border:0;border-radius:5px;padding:12px 20px;
-font:16px Tecnico;cursor:pointer
-}
+.campo textarea{min-height:100px;resize:vertical}
+.acciones{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.btn{border:0;border-radius:5px;padding:12px 20px;font:16px Tecnico;cursor:pointer}
 .btn-azul{background:#0873ae;color:#fff}
+.btn-verde{background:#378b62;color:#fff}
 .btn-claro{background:#edf3f7;color:#315675}
-
-/* TABLA USUARIOS */
-.filtros{
-display:grid;grid-template-columns:2fr 1fr 1fr;
-gap:14px;margin:24px 0 12px
-}
-.filtros input,.filtros select{
-height:45px;border:1px solid #bfd0dc;border-radius:5px;
-background:#fff;padding:0 13px;font:16px Tecnico;color:#17344e
-}
-
+.btn-rojo{background:#b74c4c;color:#fff}
+.filtros{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px;margin:24px 0 12px}
+.filtros input,.filtros select{height:45px;border:1px solid #bfd0dc;border-radius:5px;background:#fff;padding:0 13px;font:16px Tecnico;color:#17344e}
 .tabla-wrap{overflow:auto}
-.tabla{width:100%;border-collapse:collapse;min-width:820px}
-.tabla th,.tabla td{
-padding:10px 12px;border-bottom:1px solid #dce5eb;
-text-align:left;font-size:15px
-}
+.tabla{width:100%;border-collapse:collapse;min-width:900px}
+.tabla th,.tabla td{padding:10px 12px;border-bottom:1px solid #dce5eb;text-align:left;font-size:15px}
 .tabla th{background:#eaf0f4;color:#4e6b84;font-weight:700}
 .tabla tbody tr:hover{background:#f7fafc}
-
-.estado{
-display:inline-block;padding:5px 11px;border-radius:14px;
-font-size:13px
-}
+.estado{display:inline-block;padding:5px 11px;border-radius:14px;font-size:13px}
 .estado.activo{background:#d9f4e5;color:#26714a}
 .estado.inactivo{background:#eee;color:#737373}
+.estado.alerta{background:#f6e79b;color:#756000}
+.estado.rojo{background:#f4c6c6;color:#8f2828}
 .demo{font-size:12px;color:#b57b17;margin-left:5px}
-
-.acciones-tabla button{
-border:0;background:transparent;color:#0873ae;
-font:16px Tecnico;cursor:pointer;margin-right:8px
-}
-
-/* PERMISOS */
+.acciones-tabla button{border:0;background:transparent;color:#0873ae;font:16px Tecnico;cursor:pointer;margin-right:8px}
 .permisos-tabla-wrap{overflow:auto}
-.permisos-tabla{
-width:100%;border-collapse:collapse;min-width:920px
-}
-.permisos-tabla th,.permisos-tabla td{
-border-bottom:1px solid #dce5eb;
-padding:10px 11px;text-align:center;font-size:15px
-}
+.permisos-tabla{width:100%;border-collapse:collapse;min-width:1020px}
+.permisos-tabla th,.permisos-tabla td{border-bottom:1px solid #dce5eb;padding:10px 11px;text-align:center;font-size:15px}
 .permisos-tabla th{background:#eaf0f4;color:#4e6b84}
 .permisos-tabla td.usuario-permiso{text-align:left;font-size:17px}
 .permisos-tabla input{width:21px;height:21px;cursor:pointer}
 .permisos-tabla tbody tr:hover{background:#f8fbfd}
-
-.mensaje{
-display:none;margin-top:16px;padding:11px 14px;border-radius:5px;
-background:#e5f3e9;color:#2b6944;font-size:15px
-}
+.mensaje{display:none;margin-top:16px;padding:11px 14px;border-radius:5px;background:#e5f3e9;color:#2b6944;font-size:15px}
 .mensaje.visible{display:block}
-
-/* RESTO */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
 .card{border:1px solid #d1dee7;border-radius:7px;background:#f9fbfc;padding:20px}
 .card h3{margin:0 0 8px;font-size:21px;font-weight:400}
 .card p{margin:0;color:#71879a;font-size:16px;line-height:1.4}
 .card .dato{font-size:30px;color:#0873ae;margin-bottom:6px}
-
 .log{width:100%;border-collapse:collapse}
 .log th,.log td{padding:11px 12px;border-bottom:1px solid #dce5eb;text-align:left;font-size:15px}
 .log th{background:#eaf0f4;color:#4e6b84}
-
+.bloque{border:1px solid #cfdee7;border-radius:7px;background:#f9fbfc;padding:18px 20px;margin-top:17px}
+.bloque h3{margin:0 0 14px;font-size:22px}
+.funciones{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 15px}
+.funcion{display:flex;align-items:center;gap:8px;border:1px solid #d8e3ea;background:#fff;border-radius:5px;padding:9px 11px;font-size:14px}
+.funcion input{width:18px;height:18px}
+.aviso{padding:13px 15px;background:#eaf4fa;border-left:4px solid #0873ae;border-radius:4px;color:#41627c;font-size:15px;line-height:1.4;margin:12px 0}
+.declaracion{padding:17px;border:1px solid #bfd0dc;border-radius:6px;background:#fff;font-size:15px;line-height:1.5}
+.declaracion-check{display:flex;gap:10px;align-items:flex-start;margin-top:12px}
+.declaracion-check input{width:20px;height:20px;flex:none}
+.mini{font-size:13px;color:#718ca4}
 @media(max-width:1200px){
 .lateral{width:285px;min-width:285px}
 .cabecera{height:160px;min-height:160px;padding:0 55px}
 .cabecera img{width:730px}
+.form-grid{grid-template-columns:1fr}
+.campo.ancho{grid-column:auto}
+.funciones{grid-template-columns:1fr 1fr}
+.cards{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -195,6 +133,9 @@ Sistema de Gestión<br>del Esquema de<br>Certificación<br>de Personas
 <button class="menu-btn" data-area="A6"><span class="menu-codigo">A6</span><span class="menu-texto">Área de Conflictos</span></button>
 <button class="menu-btn" data-area="A7"><span class="menu-codigo">A7</span><span class="menu-texto">Área de Mejora</span></button>
 <button class="menu-btn actual" data-area="A8"><span class="menu-codigo">A8</span><span class="menu-texto">Configuración</span></button>
+<button class="menu-btn" data-area="A9"><span class="menu-codigo">A9</span><span class="menu-texto">Supervisión</span></button>
+<button class="menu-btn libre" data-href="A10.html"><span class="menu-codigo">A10</span><span class="menu-texto">Avisos</span></button>
+<button class="menu-btn libre" data-href="A11.html"><span class="menu-codigo">A11</span><span class="menu-texto">Gestión Económica</span></button>
 </nav>
 
 <div class="pie-lateral">
@@ -215,7 +156,7 @@ Sistema de Gestión<br>del Esquema de<br>Certificación<br>de Personas
 <img class="area-icono" src="ICOA8.png" alt="A8">
 <div class="area-titulo">
 <h1>A8 · Configuración</h1>
-<p>Administración y parámetros generales de Rita©</p>
+<p>Administración, personas vinculadas y parámetros generales de Rita©</p>
 </div>
 </div>
 
@@ -229,13 +170,13 @@ Sistema de Gestión<br>del Esquema de<br>Certificación<br>de Personas
 <div class="tabs">
 <button class="tab activa" data-panel="usuarios">Usuarios de la App</button>
 <button class="tab" data-panel="permisos">Permisos</button>
+<button class="tab" data-panel="personas">Personas vinculadas</button>
 <button class="tab" data-panel="parametros">Parámetros generales</button>
 <button class="tab" data-panel="seguridad">Seguridad y sesiones</button>
 <button class="tab" data-panel="auditoria">Registro / auditoría</button>
 <button class="tab" data-panel="estado">Estado de la App</button>
 </div>
 
-<!-- USUARIOS -->
 <div class="panel activo" id="usuarios">
 <h2>Usuarios de la App</h2>
 <p class="intro">Alta, edición y gestión de usuarios autorizados para acceder a Rita©.</p>
@@ -325,10 +266,9 @@ Sistema de Gestión<br>del Esquema de<br>Certificación<br>de Personas
 </div>
 </div>
 
-<!-- PERMISOS -->
 <div class="panel" id="permisos">
 <h2>Permisos</h2>
-<p class="intro">Asignación de las áreas funcionales A1–A8 a cada usuario.</p>
+<p class="intro">Asignación de las áreas funcionales A1–A9 a cada usuario. A10 y A11 son accesos generales y no forman parte del sistema de permisos.</p>
 
 <div class="permisos-tabla-wrap">
 <table class="permisos-tabla">
@@ -343,6 +283,7 @@ Sistema de Gestión<br>del Esquema de<br>Certificación<br>de Personas
 <th>A6<br>CONF.</th>
 <th>A7<br>MEJ.</th>
 <th>A8<br>CONFIG.</th>
+<th>A9<br>SUP.</th>
 </tr>
 </thead>
 <tbody id="tablaPermisos"></tbody>
@@ -356,7 +297,239 @@ Sistema de Gestión<br>del Esquema de<br>Certificación<br>de Personas
 <div class="mensaje" id="mensajePermisos"></div>
 </div>
 
-<!-- PARÁMETROS -->
+<div class="panel" id="personas">
+<h2>Personas vinculadas a la Entidad</h2>
+<p class="intro">Gestión de competencia, habilitación, actividades e intereses de las personas que pueden intervenir en las actividades del esquema.</p>
+
+<div class="bloque">
+<h3>Identificación y vinculación</h3>
+
+<div class="form-grid">
+<div class="campo">
+<label>Código</label>
+<input id="pCodigo" placeholder="Ej. AML / EXT-001">
+</div>
+
+<div class="campo">
+<label>Nombre completo</label>
+<input id="pNombre" placeholder="Nombre y apellidos">
+</div>
+
+<div class="campo">
+<label>Tipo de vinculación</label>
+<select id="pTipo">
+<option value="PROPIO">Personal propio</option>
+<option value="EXTERNO">Colaborador externo</option>
+<option value="COMITE">Miembro del Comité de Partes</option>
+<option value="EXPERTO">Experto externo</option>
+<option value="OTRO">Otra vinculación</option>
+</select>
+</div>
+
+<div class="campo">
+<label>Organización / entidad de procedencia</label>
+<input id="pEntidad" placeholder="UFV u organización de procedencia">
+</div>
+
+<div class="campo">
+<label>Correo electrónico</label>
+<input id="pEmail" type="email">
+</div>
+
+<div class="campo">
+<label>Usuario Rita© asociado</label>
+<select id="pUsuario">
+<option value="">Sin usuario de Rita©</option>
+</select>
+</div>
+
+<div class="campo">
+<label>Estado</label>
+<select id="pActivo">
+<option value="true">Activo</option>
+<option value="false">Inactivo</option>
+</select>
+</div>
+
+<div class="campo">
+<label>Habilitación general</label>
+<select id="pHabilitacion">
+<option value="HABILITADO">Habilitado</option>
+<option value="REQUIERE_REVISION">Requiere revisión</option>
+<option value="NO_HABILITADO">No habilitado</option>
+<option value="SUSPENDIDO">Suspendido</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="bloque">
+<h3>Funciones autorizadas</h3>
+
+<div class="funciones">
+<label class="funcion"><input type="checkbox" class="pFuncion" value="DISENADOR_PERFIL">Diseñador de perfil / esquema</label>
+<label class="funcion"><input type="checkbox" class="pFuncion" value="GESTOR_SISTEMA">Gestor del sistema</label>
+<label class="funcion"><input type="checkbox" class="pFuncion" value="GESTOR_ADMINISTRATIVO">Gestor administrativo</label>
+<label class="funcion"><input type="checkbox" class="pFuncion" value="EVALUADOR">Evaluador</label>
+<label class="funcion"><input type="checkbox" class="pFuncion" value="FORMADOR">Formador</label>
+<label class="funcion"><input type="checkbox" class="pFuncion" value="CERTIFICADOR">Certificador / decisor</label>
+<label class="funcion"><input type="checkbox" class="pFuncion" value="SUPERVISOR">Supervisor</label>
+<label class="funcion"><input type="checkbox" class="pFuncion" value="INSTRUCTOR_CONFLICTOS">Instructor de conflictos</label>
+<label class="funcion"><input type="checkbox" class="pFuncion" value="COMITE_PARTES">Miembro Comité de Partes</label>
+<label class="funcion"><input type="checkbox" class="pFuncion" value="EXPERTO_TECNICO">Experto técnico</label>
+</div>
+</div>
+
+<div class="bloque">
+<h3>Competencia</h3>
+
+<div class="form-grid">
+<div class="campo ancho">
+<label>Competencia / cualificación relevante</label>
+<textarea id="pCompetencia" placeholder="Resumen breve de la formación, experiencia o cualificación que sustenta su competencia para las funciones autorizadas."></textarea>
+</div>
+
+<div class="campo">
+<label>Competencia validada</label>
+<select id="pCompetenciaValidada">
+<option value="false">Pendiente</option>
+<option value="true">Validada</option>
+</select>
+</div>
+
+<div class="campo">
+<label>Fecha de validación</label>
+<input id="pFechaCompetencia" type="date">
+</div>
+
+<div class="campo">
+<label>Validada por</label>
+<input id="pCompetenciaPor" placeholder="Código o nombre del responsable">
+</div>
+
+<div class="campo">
+<label>Alcance / limitaciones</label>
+<input id="pAlcance" placeholder="Si procede">
+</div>
+
+<div class="campo ancho">
+<label>Evidencias / documentos de soporte</label>
+<textarea id="pEvidencias" placeholder="Referencia a CV, títulos, cursos, experiencia, documentos o ubicación de evidencias."></textarea>
+</div>
+</div>
+</div>
+
+<div class="bloque">
+<h3>Actividades e intereses</h3>
+
+<div class="form-grid">
+<div class="campo">
+<label>Actividad profesional principal</label>
+<input id="pActividadEntidad" placeholder="Entidad / organización">
+</div>
+
+<div class="campo">
+<label>Cargo o actividad</label>
+<input id="pActividadCargo" placeholder="Cargo, función o actividad">
+</div>
+
+<div class="campo ancho">
+<label>Otras actividades profesionales relevantes</label>
+<textarea id="pOtrasActividades" placeholder="Formación, consultoría, mentoría, evaluación, certificación u otras actividades que puedan ser relevantes."></textarea>
+</div>
+
+<div class="campo ancho">
+<label>Sociedades o entidades en las que mantiene intereses relevantes</label>
+<textarea id="pSociedades" placeholder="Una por línea: ENTIDAD | TIPO DE VÍNCULO | VIGENTE&#10;Ejemplo: Ejemplo S.L. | Socio | SI"></textarea>
+<span class="mini">Rita© conservará cada línea como un registro independiente para futuros análisis de posibles conflictos.</span>
+</div>
+
+<div class="campo ancho">
+<label>Otras relaciones o intereses relevantes</label>
+<textarea id="pOtrosIntereses" placeholder="Indique cualquier otra relación, interés o circunstancia que razonablemente pueda afectar a su independencia."></textarea>
+</div>
+</div>
+</div>
+
+<div class="bloque">
+<h3>Declaración general de independencia e intereses</h3>
+
+<div class="declaracion">
+Declaro que he comunicado las actividades, intereses y relaciones que conozco y que razonablemente pudieran comprometer mi independencia en las funciones que desempeño para la Entidad. Me comprometo a comunicar cualquier modificación o nueva circunstancia que pudiera generar un conflicto de interés y a abstenerme de intervenir cuando considere que mi independencia pueda verse comprometida.
+
+<label class="declaracion-check">
+<input type="checkbox" id="pDeclaracion">
+<span>La persona ha aceptado esta declaración y se compromete a mantener actualizada la información.</span>
+</label>
+</div>
+
+<div class="form-grid" style="margin-top:15px">
+<div class="campo">
+<label>Fecha de última declaración</label>
+<input id="pFechaDeclaracion" type="date">
+</div>
+
+<div class="campo">
+<label>Versión de declaración</label>
+<input id="pVersionDeclaracion" value="01">
+</div>
+
+<div class="campo ancho">
+<label>Observaciones / restricciones</label>
+<textarea id="pObservaciones"></textarea>
+</div>
+</div>
+
+<div class="acciones">
+<button class="btn btn-verde" id="btnRatificar">Ratificar declaración hoy</button>
+</div>
+</div>
+
+<div class="acciones">
+<button class="btn btn-azul" id="btnGuardarPersona">Guardar persona</button>
+<button class="btn btn-claro" id="btnLimpiarPersona">Limpiar</button>
+</div>
+
+<div class="mensaje" id="mensajePersonas"></div>
+
+<div class="filtros">
+<input id="buscarPersona" placeholder="Buscar persona, código, entidad..." oninput="pintarPersonas()">
+
+<select id="fTipoPersona" onchange="pintarPersonas()">
+<option value="">Todas las vinculaciones</option>
+<option value="PROPIO">Personal propio</option>
+<option value="EXTERNO">Colaborador externo</option>
+<option value="COMITE">Comité de Partes</option>
+<option value="EXPERTO">Experto externo</option>
+<option value="OTRO">Otra</option>
+</select>
+
+<select id="fEstadoPersona" onchange="pintarPersonas()">
+<option value="">Todos los estados</option>
+<option value="true">Activos</option>
+<option value="false">Inactivos</option>
+</select>
+</div>
+
+<div class="tabla-wrap">
+<table class="tabla">
+<thead>
+<tr>
+<th>Código</th>
+<th>Nombre</th>
+<th>Vinculación</th>
+<th>Funciones</th>
+<th>Competencia</th>
+<th>Declaración</th>
+<th>Habilitación</th>
+<th>Acciones</th>
+</tr>
+</thead>
+<tbody id="tablaPersonas"></tbody>
+</table>
+</div>
+</div>
+
 <div class="panel" id="parametros">
 <h2>Parámetros generales</h2>
 <p class="intro">Configuración institucional y comportamiento general visible de Rita©.</p>
@@ -400,7 +573,6 @@ Sistema de Gestión<br>del Esquema de<br>Certificación<br>de Personas
 <div class="mensaje" id="mensajeConfig"></div>
 </div>
 
-<!-- SEGURIDAD -->
 <div class="panel" id="seguridad">
 <h2>Seguridad y sesiones</h2>
 <p class="intro">Configuración de acceso, contraseñas y sesiones.</p>
@@ -456,7 +628,6 @@ Sistema de Gestión<br>del Esquema de<br>Certificación<br>de Personas
 <div class="mensaje" id="mensajeSeguridad"></div>
 </div>
 
-<!-- AUDITORÍA -->
 <div class="panel" id="auditoria">
 <h2>Registro de cambios / auditoría</h2>
 <p class="intro">Trazabilidad de operaciones realizadas dentro de Rita©.</p>
@@ -478,7 +649,6 @@ Sistema de Gestión<br>del Esquema de<br>Certificación<br>de Personas
 </div>
 </div>
 
-<!-- ESTADO -->
 <div class="panel" id="estado">
 <h2>Estado de la App</h2>
 <p class="intro">Información general del sistema.</p>
@@ -512,83 +682,150 @@ Sistema de Gestión<br>del Esquema de<br>Certificación<br>de Personas
 <script src="usuarios.js"></script>
 
 <script>
-const AREAS=["A1","A2","A3","A4","A5","A6","A7","A8"];
+const AREAS=["A1","A2","A3","A4","A5","A6","A7","A8","A9"];
+const BASE="/03_UFV_INSTITUTO/99_datos_Rita/";
+const ARCHIVO_PERSONAS="maestro_personas_vinculadas.json";
 
 let usuarios=[];
 let configuracion=null;
+let personas=[];
 let codigoEditando=null;
+let personaEditando=null;
+let revPersonas=null;
 
 const sesion=usuarioActivo();
+const $=id=>document.getElementById(id);
+const txt=v=>String(v??"").trim();
+const norm=v=>txt(v).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
 
 if(!sesion||!tienePermiso("A8")){
 alert("No dispone de autorización para acceder a Configuración.");
 location.href="index.html";
 }
 
-document.getElementById("usuarioCabecera").textContent=sesion?.nombre||"";
-document.getElementById("rolCabecera").textContent=sesion?.rol||"";
+$("usuarioCabecera").textContent=sesion?.nombre||"";
+$("rolCabecera").textContent=sesion?.rol||"";
 
-/* MENÚ */
 document.querySelectorAll(".menu-btn").forEach(b=>{
-const ok=tienePermiso(b.dataset.area);
-
+if(b.classList.contains("libre")){
+b.onclick=()=>location.href=b.dataset.href;
+return;
+}
+const area=b.dataset.area;
+const ok=tienePermiso(area);
 if(!ok){
 b.classList.add("inactivo");
 b.disabled=true;
+return;
 }
-
-if(ok&&b.dataset.area!=="A8"){
-b.onclick=()=>alert(b.dataset.area+" · Área en preparación");
-}
+if(area==="A8")return;
+b.onclick=()=>{
+if(area==="A1"||area==="A2")location.href=area+".html";
+else if(area==="A9"){
+if(confirm("A9 · Supervisión está todavía en preparación. ¿Desea intentar abrirla?"))location.href="A9.html";
+}else alert(area+" · Área en preparación");
+};
 });
 
-/* PESTAÑAS */
 document.querySelectorAll(".tab").forEach(tab=>{
 tab.onclick=()=>{
 document.querySelectorAll(".tab").forEach(t=>t.classList.remove("activa"));
 document.querySelectorAll(".panel").forEach(p=>p.classList.remove("activo"));
-
 tab.classList.add("activa");
-document.getElementById(tab.dataset.panel).classList.add("activo");
-
+$(tab.dataset.panel).classList.add("activo");
 if(tab.dataset.panel==="auditoria")cargarAuditoria();
+if(tab.dataset.panel==="personas")pintarPersonas();
 };
 });
 
-/* CARGA */
+async function token(){
+if(typeof obtenerDropboxAccessToken!=="function")throw Error("No se encuentra la conexión Dropbox.");
+return obtenerDropboxAccessToken();
+}
+
+async function descargarPersonas(){
+const t=await token();
+const path=BASE+ARCHIVO_PERSONAS;
+const r=await fetch("https://content.dropboxapi.com/2/files/download",{
+method:"POST",
+headers:{
+Authorization:"Bearer "+t,
+"Dropbox-API-Arg":JSON.stringify({path})
+}
+});
+if(r.status===409||r.status===404){
+revPersonas=null;
+return [];
+}
+if(!r.ok)throw Error(ARCHIVO_PERSONAS+": Dropbox "+r.status);
+const meta=JSON.parse(r.headers.get("Dropbox-API-Result")||"{}");
+revPersonas=meta.rev||null;
+const texto=await r.text();
+if(!texto.trim())return [];
+let datos;
+try{datos=JSON.parse(texto)}catch{throw Error(ARCHIVO_PERSONAS+" no contiene JSON válido.");}
+if(!Array.isArray(datos))throw Error(ARCHIVO_PERSONAS+" debe contener un array JSON.");
+return datos;
+}
+
+async function guardarPersonas(){
+const t=await token();
+const path=BASE+ARCHIVO_PERSONAS;
+const arg={
+path,
+mode:revPersonas?{".tag":"update","update":revPersonas}:"overwrite",
+autorename:false,
+mute:true,
+strict_conflict:true
+};
+const r=await fetch("https://content.dropboxapi.com/2/files/upload",{
+method:"POST",
+headers:{
+Authorization:"Bearer "+t,
+"Content-Type":"application/octet-stream",
+"Dropbox-API-Arg":JSON.stringify(arg)
+},
+body:JSON.stringify(personas,null,2)
+});
+if(!r.ok){
+if(r.status===409)throw Error("Otro usuario ha modificado "+ARCHIVO_PERSONAS+". Recargue A8 antes de guardar.");
+throw Error("Dropbox "+r.status);
+}
+const meta=await r.json();
+revPersonas=meta.rev||revPersonas;
+}
+
 async function cargarA8(){
 try{
 usuarios=await obtenerUsuarios();
 configuracion=await obtenerConfiguracion();
-
+personas=await descargarPersonas();
 pintarUsuarios();
 pintarPermisos();
+cargarUsuariosPersona();
+pintarPersonas();
 cargarConfiguracionPantalla();
 cargarEstado();
-
 }catch(e){
 console.error(e);
 alert("No se ha podido cargar la configuración desde Dropbox:\n\n"+e.message);
 }
 }
 
-/* USUARIOS */
 function pintarUsuarios(){
-const q=(document.getElementById("buscar").value||"").toLowerCase();
-const rol=document.getElementById("fRol").value;
-const estado=document.getElementById("fEstado").value;
-
-const tbody=document.getElementById("tablaUsuarios");
+const q=norm($("buscar").value);
+const rol=$("fRol").value;
+const estado=$("fEstado").value;
+const tbody=$("tablaUsuarios");
 tbody.innerHTML="";
 
 usuarios.filter(u=>{
-if(q&&!((u.nombre||"").toLowerCase().includes(q)||(u.usuario||"").toLowerCase().includes(q)))return false;
+if(q&&!norm((u.nombre||"")+" "+(u.usuario||"")+" "+(u.codigo||"")).includes(q))return false;
 if(rol&&u.rol!==rol)return false;
 if(estado!==""&&String(u.activo!==false)!==estado)return false;
 return true;
 }).forEach(u=>{
 const tr=document.createElement("tr");
-
 tr.innerHTML=`
 <td>${u.codigo||""}</td>
 <td>${u.nombre||""}${u.demo?'<span class="demo">DEMO</span>':""}</td>
@@ -600,7 +837,6 @@ tr.innerHTML=`
 <button onclick="cargarUsuarioEdicion('${u.codigo}')">Editar</button>
 <button onclick="cambiarEstado('${u.codigo}')">${u.activo!==false?"Desactivar":"Activar"}</button>
 </td>`;
-
 tbody.appendChild(tr);
 });
 }
@@ -608,38 +844,35 @@ tbody.appendChild(tr);
 function cargarUsuarioEdicion(codigo){
 const u=usuarios.find(x=>x.codigo===codigo);
 if(!u)return;
-
 codigoEditando=codigo;
-
-document.getElementById("uNombre").value=u.nombre||"";
-document.getElementById("uUsuario").value=u.usuario||"";
-document.getElementById("uRol").value=u.rol||"Usuario";
-document.getElementById("uEstado").value=String(u.activo!==false);
-document.getElementById("uPassword").value="";
-document.getElementById("uCodigo").value=u.codigo||"";
-
+$("uNombre").value=u.nombre||"";
+$("uUsuario").value=u.usuario||"";
+$("uRol").value=u.rol||"Usuario";
+$("uEstado").value=String(u.activo!==false);
+$("uPassword").value="";
+$("uCodigo").value=u.codigo||"";
 window.scrollTo({top:0,behavior:"smooth"});
 }
 
 function limpiarFormulario(){
 codigoEditando=null;
-document.getElementById("uNombre").value="";
-document.getElementById("uUsuario").value="";
-document.getElementById("uPassword").value="";
-document.getElementById("uCodigo").value="";
-document.getElementById("uRol").value="Usuario";
-document.getElementById("uEstado").value="true";
+$("uNombre").value="";
+$("uUsuario").value="";
+$("uPassword").value="";
+$("uCodigo").value="";
+$("uRol").value="Usuario";
+$("uEstado").value="true";
 }
 
-document.getElementById("btnGuardarUsuario").onclick=async()=>{
+$("btnGuardarUsuario").onclick=async()=>{
 try{
 const datos={
-nombre:document.getElementById("uNombre").value.trim(),
-usuario:document.getElementById("uUsuario").value.trim(),
-password:document.getElementById("uPassword").value,
-codigo:document.getElementById("uCodigo").value.trim(),
-rol:document.getElementById("uRol").value,
-activo:document.getElementById("uEstado").value==="true"
+nombre:$("uNombre").value.trim(),
+usuario:$("uUsuario").value.trim(),
+password:$("uPassword").value,
+codigo:$("uCodigo").value.trim(),
+rol:$("uRol").value,
+activo:$("uEstado").value==="true"
 };
 
 if(!datos.nombre||!datos.usuario||!datos.codigo){
@@ -647,20 +880,15 @@ alert("Debe indicar nombre, usuario y código.");
 return;
 }
 
-if(codigoEditando){
-await editarUsuario(codigoEditando,datos);
-}else{
-await altaUsuario(datos);
-}
+if(codigoEditando)await editarUsuario(codigoEditando,datos);
+else await altaUsuario(datos);
 
 usuarios=await obtenerUsuarios();
-
 limpiarFormulario();
 pintarUsuarios();
 pintarPermisos();
-
+cargarUsuariosPersona();
 mensaje("mensajeUsuarios","Usuario guardado correctamente.");
-
 }catch(e){
 console.error(e);
 alert(e.message);
@@ -671,26 +899,21 @@ async function cambiarEstado(codigo){
 try{
 const u=usuarios.find(x=>x.codigo===codigo);
 if(!u)return;
-
 await cambiarEstadoUsuario(codigo,!(u.activo!==false));
 usuarios=await obtenerUsuarios();
-
 pintarUsuarios();
 pintarPermisos();
-
+cargarUsuariosPersona();
 }catch(e){
 alert(e.message);
 }
 }
 
-/* PERMISOS */
 function pintarPermisos(){
-const tbody=document.getElementById("tablaPermisos");
+const tbody=$("tablaPermisos");
 tbody.innerHTML="";
-
 usuarios.forEach(u=>{
 const tr=document.createElement("tr");
-
 let html=`
 <td class="usuario-permiso">
 <strong>${u.nombre}</strong><br>
@@ -714,10 +937,9 @@ tbody.appendChild(tr);
 });
 }
 
-document.getElementById("btnGuardarPermisos").onclick=async()=>{
+$("btnGuardarPermisos").onclick=async()=>{
 try{
 const filas={};
-
 document.querySelectorAll("#tablaPermisos input[type=checkbox]").forEach(c=>{
 if(!filas[c.dataset.codigo])filas[c.dataset.codigo]=[];
 if(c.checked)filas[c.dataset.codigo].push(c.dataset.area);
@@ -726,91 +948,363 @@ if(c.checked)filas[c.dataset.codigo].push(c.dataset.area);
 for(const codigo of Object.keys(filas)){
 const actual=usuarios.find(u=>u.codigo===codigo);
 const nuevos=filas[codigo];
-
 if(JSON.stringify([...(actual.permisos||[])].sort())!==JSON.stringify([...nuevos].sort())){
 await cambiarPermisos(codigo,nuevos);
 }
 }
 
 usuarios=await obtenerUsuarios();
-
 pintarUsuarios();
 pintarPermisos();
-
 mensaje("mensajePermisos","Permisos guardados correctamente.");
-
 }catch(e){
 console.error(e);
 alert("No se han podido guardar los permisos:\n\n"+e.message);
 }
 };
 
-/* CONFIGURACIÓN */
-function cargarConfiguracionPantalla(){
-if(!configuracion)return;
-
-document.getElementById("cfgNombre").value=configuracion.app?.titulo||"";
-document.getElementById("cfgEntidad").value=configuracion.app?.entidad||"";
-document.getElementById("cfgServicio").value=configuracion.app?.servicio||"";
-document.getElementById("cfgVersion").value=configuracion.app?.version||"";
-document.getElementById("cfgIdioma").value=configuracion.app?.idioma||"es";
-document.getElementById("cfgMensaje").value=configuracion.acceso?.mensaje||"";
-
-document.getElementById("segDuracion").value=configuracion.acceso?.duracion_sesion_minutos||240;
-document.getElementById("segIntentos").value=configuracion.acceso?.intentos_fallidos_bloqueo||5;
-document.getElementById("segCambio").value=String(configuracion.acceso?.cambio_password_inicial!==false);
-document.getElementById("segPersistente").value=String(!!configuracion.acceso?.sesion_persistente);
-document.getElementById("segBloqueo").value=String(configuracion.acceso?.bloqueo_automatico!==false);
-document.getElementById("segRegistro").value=String(configuracion.acceso?.registro_accesos!==false);
+function cargarUsuariosPersona(){
+const actual=$("pUsuario").value;
+$("pUsuario").innerHTML='<option value="">Sin usuario de Rita©</option>'+
+usuarios.map(u=>`<option value="${u.codigo}">${u.nombre} · ${u.codigo}</option>`).join("");
+$("pUsuario").value=actual;
 }
 
-document.getElementById("btnGuardarConfig").onclick=async()=>{
+$("pUsuario").onchange=()=>{
+const cod=$("pUsuario").value;
+if(!cod)return;
+const u=usuarios.find(x=>x.codigo===cod);
+if(!u)return;
+if(!$("pCodigo").value)$("pCodigo").value=u.codigo;
+if(!$("pNombre").value)$("pNombre").value=u.nombre;
+};
+
+function parseSociedades(texto){
+return String(texto||"").split("\n").map(x=>x.trim()).filter(Boolean).map(linea=>{
+const p=linea.split("|").map(x=>x.trim());
+return{
+entidad:p[0]||"",
+vinculo:p[1]||"",
+vigente:!p[2]||["SI","SÍ","TRUE","VIGENTE","ACTUAL"].includes(p[2].toUpperCase())
+};
+});
+}
+
+function sociedadesTexto(lista){
+return (lista||[]).map(x=>`${x.entidad||""} | ${x.vinculo||""} | ${x.vigente===false?"NO":"SI"}`).join("\n");
+}
+
+function funcionesSeleccionadas(){
+return [...document.querySelectorAll(".pFuncion:checked")].map(x=>x.value);
+}
+
+function marcarFunciones(lista){
+document.querySelectorAll(".pFuncion").forEach(x=>x.checked=(lista||[]).includes(x.value));
+}
+
+function nombreTipo(t){
+return{
+PROPIO:"Personal propio",
+EXTERNO:"Colaborador externo",
+COMITE:"Comité de Partes",
+EXPERTO:"Experto externo",
+OTRO:"Otra"
+}[t]||t||"—";
+}
+
+function nombreFuncion(f){
+return{
+DISENADOR_PERFIL:"Diseño",
+GESTOR_SISTEMA:"Gestión sistema",
+GESTOR_ADMINISTRATIVO:"Administración",
+EVALUADOR:"Evaluación",
+FORMADOR:"Formación",
+CERTIFICADOR:"Decisión",
+SUPERVISOR:"Supervisión",
+INSTRUCTOR_CONFLICTOS:"Instructor",
+COMITE_PARTES:"Comité",
+EXPERTO_TECNICO:"Experto técnico"
+}[f]||f;
+}
+
+function claseHabilitacion(h){
+if(h==="HABILITADO")return"activo";
+if(h==="REQUIERE_REVISION")return"alerta";
+return"rojo";
+}
+
+function textoHabilitacion(h){
+return{
+HABILITADO:"Habilitado",
+REQUIERE_REVISION:"Requiere revisión",
+NO_HABILITADO:"No habilitado",
+SUSPENDIDO:"Suspendido"
+}[h]||h||"—";
+}
+
+function pintarPersonas(){
+const q=norm($("buscarPersona").value);
+const tipo=$("fTipoPersona").value;
+const estado=$("fEstadoPersona").value;
+const tbody=$("tablaPersonas");
+tbody.innerHTML="";
+
+const lista=personas.filter(p=>{
+if(q&&!norm([p.codigo,p.nombre,p.entidad,p.email].join(" ")).includes(q))return false;
+if(tipo&&p.tipo_vinculacion!==tipo)return false;
+if(estado!==""&&String(p.activo!==false)!==estado)return false;
+return true;
+});
+
+if(!lista.length){
+tbody.innerHTML='<tr><td colspan="8" style="text-align:center;color:#718ca4;padding:25px">No hay personas vinculadas con estos filtros.</td></tr>';
+return;
+}
+
+lista.forEach(p=>{
+const tr=document.createElement("tr");
+tr.innerHTML=`
+<td>${p.codigo||""}</td>
+<td>${p.nombre||""}</td>
+<td>${nombreTipo(p.tipo_vinculacion)}</td>
+<td>${(p.funciones||[]).map(nombreFuncion).join(", ")||"—"}</td>
+<td><span class="estado ${p.competencia?.validada?"activo":"alerta"}">${p.competencia?.validada?"VALIDADA":"PENDIENTE"}</span></td>
+<td><span class="estado ${p.declaracion_independencia?.aceptada?"activo":"alerta"}">${p.declaracion_independencia?.aceptada?"VIGENTE":"PENDIENTE"}</span></td>
+<td><span class="estado ${claseHabilitacion(p.habilitacion)}">${textoHabilitacion(p.habilitacion)}</span></td>
+<td class="acciones-tabla">
+<button onclick="editarPersona('${p.codigo}')">Editar</button>
+<button onclick="cambiarEstadoPersona('${p.codigo}')">${p.activo!==false?"Desactivar":"Activar"}</button>
+</td>`;
+tbody.appendChild(tr);
+});
+}
+
+function limpiarPersona(){
+personaEditando=null;
+$("pCodigo").value="";
+$("pNombre").value="";
+$("pTipo").value="PROPIO";
+$("pEntidad").value="";
+$("pEmail").value="";
+$("pUsuario").value="";
+$("pActivo").value="true";
+$("pHabilitacion").value="HABILITADO";
+marcarFunciones([]);
+$("pCompetencia").value="";
+$("pCompetenciaValidada").value="false";
+$("pFechaCompetencia").value="";
+$("pCompetenciaPor").value="";
+$("pAlcance").value="";
+$("pEvidencias").value="";
+$("pActividadEntidad").value="";
+$("pActividadCargo").value="";
+$("pOtrasActividades").value="";
+$("pSociedades").value="";
+$("pOtrosIntereses").value="";
+$("pDeclaracion").checked=false;
+$("pFechaDeclaracion").value="";
+$("pVersionDeclaracion").value="01";
+$("pObservaciones").value="";
+}
+
+$("btnLimpiarPersona").onclick=limpiarPersona;
+
+$("btnRatificar").onclick=()=>{
+$("pDeclaracion").checked=true;
+$("pFechaDeclaracion").value=new Date().toISOString().slice(0,10);
+mensaje("mensajePersonas","Declaración ratificada con la fecha de hoy. Pulse GUARDAR PERSONA para conservarla.");
+};
+
+function editarPersona(codigo){
+const p=personas.find(x=>x.codigo===codigo);
+if(!p)return;
+personaEditando=codigo;
+$("pCodigo").value=p.codigo||"";
+$("pNombre").value=p.nombre||"";
+$("pTipo").value=p.tipo_vinculacion||"PROPIO";
+$("pEntidad").value=p.entidad||"";
+$("pEmail").value=p.email||"";
+$("pUsuario").value=p.usuario_codigo||"";
+$("pActivo").value=String(p.activo!==false);
+$("pHabilitacion").value=p.habilitacion||"HABILITADO";
+marcarFunciones(p.funciones||[]);
+$("pCompetencia").value=p.competencia?.descripcion||"";
+$("pCompetenciaValidada").value=String(!!p.competencia?.validada);
+$("pFechaCompetencia").value=p.competencia?.fecha_validacion||"";
+$("pCompetenciaPor").value=p.competencia?.validada_por||"";
+$("pAlcance").value=p.competencia?.alcance||"";
+$("pEvidencias").value=p.competencia?.evidencias||"";
+$("pActividadEntidad").value=p.actividad_principal?.entidad||"";
+$("pActividadCargo").value=p.actividad_principal?.cargo_actividad||"";
+$("pOtrasActividades").value=p.otras_actividades||"";
+$("pSociedades").value=sociedadesTexto(p.sociedades_intereses);
+$("pOtrosIntereses").value=p.otros_intereses||"";
+$("pDeclaracion").checked=!!p.declaracion_independencia?.aceptada;
+$("pFechaDeclaracion").value=p.declaracion_independencia?.fecha||"";
+$("pVersionDeclaracion").value=p.declaracion_independencia?.version||"01";
+$("pObservaciones").value=p.observaciones||"";
+window.scrollTo({top:0,behavior:"smooth"});
+}
+
+async function cambiarEstadoPersona(codigo){
+const p=personas.find(x=>x.codigo===codigo);
+if(!p)return;
+p.activo=!(p.activo!==false);
+p.fecha_actualizacion=new Date().toISOString();
+try{
+await guardarPersonas();
+pintarPersonas();
+mensaje("mensajePersonas","Estado actualizado.");
+}catch(e){
+alert(e.message);
+personas=await descargarPersonas();
+pintarPersonas();
+}
+}
+
+$("btnGuardarPersona").onclick=async()=>{
+try{
+const codigo=txt($("pCodigo").value);
+const nombre=txt($("pNombre").value);
+
+if(!codigo||!nombre){
+alert("Debe indicar código y nombre de la persona.");
+return;
+}
+
+if(!personaEditando&&personas.some(x=>x.codigo===codigo)){
+alert("Ya existe una persona con el código "+codigo+".");
+return;
+}
+
+const registro={
+codigo,
+nombre,
+tipo_vinculacion:$("pTipo").value,
+entidad:txt($("pEntidad").value),
+email:txt($("pEmail").value),
+usuario_codigo:$("pUsuario").value||"",
+activo:$("pActivo").value==="true",
+habilitacion:$("pHabilitacion").value,
+funciones:funcionesSeleccionadas(),
+
+competencia:{
+descripcion:txt($("pCompetencia").value),
+validada:$("pCompetenciaValidada").value==="true",
+fecha_validacion:$("pFechaCompetencia").value||"",
+validada_por:txt($("pCompetenciaPor").value),
+alcance:txt($("pAlcance").value),
+evidencias:txt($("pEvidencias").value)
+},
+
+actividad_principal:{
+entidad:txt($("pActividadEntidad").value),
+cargo_actividad:txt($("pActividadCargo").value)
+},
+
+otras_actividades:txt($("pOtrasActividades").value),
+
+sociedades_intereses:parseSociedades($("pSociedades").value),
+
+otros_intereses:txt($("pOtrosIntereses").value),
+
+declaracion_independencia:{
+aceptada:$("pDeclaracion").checked,
+fecha:$("pFechaDeclaracion").value||"",
+version:txt($("pVersionDeclaracion").value)||"01",
+compromiso_actualizacion:true,
+compromiso_abstencion:true
+},
+
+observaciones:txt($("pObservaciones").value),
+fecha_actualizacion:new Date().toISOString()
+};
+
+if(personaEditando){
+const i=personas.findIndex(x=>x.codigo===personaEditando);
+if(i<0)throw Error("No se encuentra la persona que se está editando.");
+registro.fecha_alta=personas[i].fecha_alta||new Date().toISOString();
+personas[i]=registro;
+}else{
+registro.fecha_alta=new Date().toISOString();
+personas.push(registro);
+}
+
+await guardarPersonas();
+
+limpiarPersona();
+pintarPersonas();
+mensaje("mensajePersonas","Persona guardada correctamente.");
+
+}catch(e){
+console.error(e);
+alert("No se ha podido guardar la persona:\n\n"+e.message);
+try{
+personas=await descargarPersonas();
+pintarPersonas();
+}catch{}
+}
+};
+
+function cargarConfiguracionPantalla(){
+if(!configuracion)return;
+$("cfgNombre").value=configuracion.app?.titulo||"";
+$("cfgEntidad").value=configuracion.app?.entidad||"";
+$("cfgServicio").value=configuracion.app?.servicio||"";
+$("cfgVersion").value=configuracion.app?.version||"";
+$("cfgIdioma").value=configuracion.app?.idioma||"es";
+$("cfgMensaje").value=configuracion.acceso?.mensaje||"";
+
+$("segDuracion").value=configuracion.acceso?.duracion_sesion_minutos||240;
+$("segIntentos").value=configuracion.acceso?.intentos_fallidos_bloqueo||5;
+$("segCambio").value=String(configuracion.acceso?.cambio_password_inicial!==false);
+$("segPersistente").value=String(!!configuracion.acceso?.sesion_persistente);
+$("segBloqueo").value=String(configuracion.acceso?.bloqueo_automatico!==false);
+$("segRegistro").value=String(configuracion.acceso?.registro_accesos!==false);
+}
+
+$("btnGuardarConfig").onclick=async()=>{
 try{
 configuracion.app=configuracion.app||{};
 configuracion.acceso=configuracion.acceso||{};
 
-configuracion.app.titulo=document.getElementById("cfgNombre").value;
-configuracion.app.entidad=document.getElementById("cfgEntidad").value;
-configuracion.app.servicio=document.getElementById("cfgServicio").value;
-configuracion.app.version=document.getElementById("cfgVersion").value;
-configuracion.app.idioma=document.getElementById("cfgIdioma").value;
-configuracion.acceso.mensaje=document.getElementById("cfgMensaje").value;
+configuracion.app.titulo=$("cfgNombre").value;
+configuracion.app.entidad=$("cfgEntidad").value;
+configuracion.app.servicio=$("cfgServicio").value;
+configuracion.app.version=$("cfgVersion").value;
+configuracion.app.idioma=$("cfgIdioma").value;
+configuracion.acceso.mensaje=$("cfgMensaje").value;
 
 await guardarConfiguracion(configuracion);
-
 mensaje("mensajeConfig","Parámetros guardados correctamente.");
 cargarEstado();
-
 }catch(e){
 alert(e.message);
 }
 };
 
-document.getElementById("btnGuardarSeguridad").onclick=async()=>{
+$("btnGuardarSeguridad").onclick=async()=>{
 try{
 configuracion.acceso=configuracion.acceso||{};
 
-configuracion.acceso.duracion_sesion_minutos=Number(document.getElementById("segDuracion").value);
-configuracion.acceso.intentos_fallidos_bloqueo=Number(document.getElementById("segIntentos").value);
-configuracion.acceso.cambio_password_inicial=document.getElementById("segCambio").value==="true";
-configuracion.acceso.sesion_persistente=document.getElementById("segPersistente").value==="true";
-configuracion.acceso.bloqueo_automatico=document.getElementById("segBloqueo").value==="true";
-configuracion.acceso.registro_accesos=document.getElementById("segRegistro").value==="true";
+configuracion.acceso.duracion_sesion_minutos=Number($("segDuracion").value);
+configuracion.acceso.intentos_fallidos_bloqueo=Number($("segIntentos").value);
+configuracion.acceso.cambio_password_inicial=$("segCambio").value==="true";
+configuracion.acceso.sesion_persistente=$("segPersistente").value==="true";
+configuracion.acceso.bloqueo_automatico=$("segBloqueo").value==="true";
+configuracion.acceso.registro_accesos=$("segRegistro").value==="true";
 
 await guardarConfiguracion(configuracion);
-
 mensaje("mensajeSeguridad","Seguridad guardada correctamente.");
-
 }catch(e){
 alert(e.message);
 }
 };
 
-/* AUDITORÍA */
 async function cargarAuditoria(){
 try{
 const datos=await obtenerAuditoria();
-const tbody=document.getElementById("tablaAuditoria");
+const tbody=$("tablaAuditoria");
 tbody.innerHTML="";
 
 [...datos].reverse().forEach(a=>{
@@ -824,24 +1318,22 @@ tr.innerHTML=`
 <td>${a.detalle||""}</td>`;
 tbody.appendChild(tr);
 });
-
 }catch(e){
 console.error(e);
 }
 }
 
-/* ESTADO */
 function cargarEstado(){
-document.getElementById("estadoVersion").textContent=configuracion?.app?.version||"—";
-document.getElementById("estadoSistema").textContent=configuracion?.sistema?.estado||"—";
-document.getElementById("estadoFecha").textContent=configuracion?.sistema?.fecha_ultima_actualizacion||"—";
+$("estadoVersion").textContent=configuracion?.app?.version||"—";
+$("estadoSistema").textContent=configuracion?.sistema?.estado||"—";
+$("estadoFecha").textContent=configuracion?.sistema?.fecha_ultima_actualizacion||"—";
 }
 
 function mensaje(id,texto){
-const el=document.getElementById(id);
+const el=$(id);
 el.textContent=texto;
 el.classList.add("visible");
-setTimeout(()=>el.classList.remove("visible"),2500);
+setTimeout(()=>el.classList.remove("visible"),2800);
 }
 
 cargarA8();
