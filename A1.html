@@ -9,13 +9,40 @@
 </head>
 <body>
 <div class="app"><aside class="lateral"><div class="rita">Rita<span class="copyright">©</span></div><div class="linea-rita"></div><div class="nombre-sistema">Sistema de Gestión<br>del Esquema de<br>Certificación<br>de Personas</div><nav class="menu">
-<button class="menu-btn actual" data-area="A1"><span class="menu-codigo">A1</span><span class="menu-texto">Área Técnica</span></button><button class="menu-btn" data-area="A2"><span class="menu-codigo">A2</span><span class="menu-texto">Área de Gestión</span></button><button class="menu-btn" data-area="A3"><span class="menu-codigo">A3</span><span class="menu-texto">Área de Evaluación</span></button><button class="menu-btn" data-area="A4"><span class="menu-codigo">A4</span><span class="menu-texto">Área de Formación</span></button><button class="menu-btn" data-area="A5"><span class="menu-codigo">A5</span><span class="menu-texto">Área de Decisión</span></button><button class="menu-btn" data-area="A6"><span class="menu-codigo">A6</span><span class="menu-texto">Área de Conflictos</span></button><button class="menu-btn" data-area="A7"><span class="menu-codigo">A7</span><span class="menu-texto">Área de Mejora</span></button><button class="menu-btn" data-area="A8"><span class="menu-codigo">A8</span><span class="menu-texto">Configuración</span></button>
+<button class="menu-btn actual" data-area="A1"><span class="menu-codigo">A1</span><span class="menu-texto">Área Técnica</span></button>
+<button class="menu-btn" data-area="A2"><span class="menu-codigo">A2</span><span class="menu-texto">Área de Gestión</span></button>
+<button class="menu-btn" data-area="A3"><span class="menu-codigo">A3</span><span class="menu-texto">Área de Evaluación</span></button>
+<button class="menu-btn" data-area="A4"><span class="menu-codigo">A4</span><span class="menu-texto">Área de Formación</span></button>
+<button class="menu-btn" data-area="A5"><span class="menu-codigo">A5</span><span class="menu-texto">Área de Decisión</span></button>
+<button class="menu-btn" data-area="A6"><span class="menu-codigo">A6</span><span class="menu-texto">Área de Conflictos</span></button>
+<button class="menu-btn" data-area="A7"><span class="menu-codigo">A7</span><span class="menu-texto">Área de Mejora</span></button>
+<button class="menu-btn" data-area="A8"><span class="menu-codigo">A8</span><span class="menu-texto">Configuración</span></button>
+<button class="menu-btn" data-area="A9"><span class="menu-codigo">A9</span><span class="menu-texto">Avisos</span></button>
+<button class="menu-btn" data-area="A10"><span class="menu-codigo">A10</span><span class="menu-texto">Gestión Económica</span></button>
 </nav><div class="pie-lateral"><img src="pie.png" alt=""></div></aside>
+
 <main class="principal"><header class="cabecera"><img src="cabecera1.png" alt=""></header><section class="zona"><div class="area-head"><div class="area-identidad"><img class="area-icono" src="ICOA1.png" alt=""><div class="area-titulo"><h1>A1 · Área Técnica</h1><p>Definición y mantenimiento de perfiles certificables y esquemas de certificación</p></div></div><div class="usuario"><strong id="usuarioCabecera"></strong><span id="rolCabecera"></span><br><button class="volver" onclick="location.href='index.html'">Volver al inicio</button></div></div>
+
 <div class="funciones"><button class="funcion activa" id="btnPerfil" onclick="mostrarModo('perfil')">Perfil certificable</button><button class="funcion" id="btnEsquema" onclick="mostrarModo('esquema')">Esquema de certificación</button></div>
 
-<div class="panel activo" id="panelPerfil"><h2>Alta / modificación de perfil certificable</h2><p class="intro">Definición técnica del perfil cuya competencia será objeto de certificación.</p><div class="barra"><select id="selectorPerfil" onchange="seleccionarPerfil()"></select><button class="btn btn-azul" onclick="nuevoPerfil()">Nuevo perfil</button><button class="btn btn-claro" onclick="recargarPerfiles()">Recargar Dropbox</button><span id="estadoPerfil"></span></div>
-<div class="tabs"><button class="tab activa" data-grupo="perfil" data-tab="p_identificacion">Identificación</button><button class="tab" data-grupo="perfil" data-tab="p_funciones">Funciones / tareas</button><button class="tab" data-grupo="perfil" data-tab="p_competencias">Competencias</button><button class="tab" data-grupo="perfil" data-tab="p_educacion">Educación</button><button class="tab" data-grupo="perfil" data-tab="p_formacion">Formación</button><button class="tab" data-grupo="perfil" data-tab="p_experiencia">Experiencia</button><button class="tab" data-grupo="perfil" data-tab="p_examenes">Examen / prueba</button><button class="tab" data-grupo="perfil" data-tab="p_otros">Otros</button><button class="tab" data-grupo="perfil" data-tab="p_riesgos">Riesgos</button><button class="tab" data-grupo="perfil" data-tab="p_certificacion">Certificación</button><button class="tab" data-grupo="perfil" data-tab="p_validacion">Validación</button></div>
+<div class="panel activo" id="panelPerfil">
+<h2>Alta / modificación de perfil certificable</h2>
+<p class="intro">Definición técnica del perfil cuya competencia será objeto de certificación.</p>
+<div class="barra"><select id="selectorPerfil" onchange="seleccionarPerfil()"></select><button class="btn btn-azul" onclick="nuevoPerfil()">Nuevo perfil</button><button class="btn btn-claro" onclick="recargarPerfiles()">Recargar Dropbox</button><span id="estadoPerfil"></span></div>
+
+<div class="tabs">
+<button class="tab activa" data-grupo="perfil" data-tab="p_identificacion">Identificación</button>
+<button class="tab" data-grupo="perfil" data-tab="p_funciones">Funciones / tareas</button>
+<button class="tab" data-grupo="perfil" data-tab="p_competencias">Competencias</button>
+<button class="tab" data-grupo="perfil" data-tab="p_educacion">Educación</button>
+<button class="tab" data-grupo="perfil" data-tab="p_formacion">Formación</button>
+<button class="tab" data-grupo="perfil" data-tab="p_experiencia">Experiencia</button>
+<button class="tab" data-grupo="perfil" data-tab="p_examenes">Examen / prueba</button>
+<button class="tab" data-grupo="perfil" data-tab="p_otros">Otros</button>
+<button class="tab" data-grupo="perfil" data-tab="p_riesgos">Riesgos</button>
+<button class="tab" data-grupo="perfil" data-tab="p_certificacion">Certificación</button>
+<button class="tab" data-grupo="perfil" data-tab="p_validacion">Validación</button>
+</div>
 
 <div class="subpanel activo" id="p_identificacion"><div class="grid"><div class="campo"><label>Código</label><input id="pCodigo" readonly></div><div class="campo"><label>Denominación</label><input id="pNombre"></div><div class="campo"><label>Versión</label><input id="pVersion"></div><div class="campo"><label>Estado</label><select id="pEstado"><option>BORRADOR</option><option>EN REVISIÓN</option><option>APROBADO</option><option>OBSOLETO</option></select></div><div class="campo ancho"><label>Alcance del perfil certificable</label><textarea id="pAlcance"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarDatosBasicosPerfil()">Guardar identificación</button></div></div>
 
@@ -37,84 +64,650 @@
 
 <div class="subpanel" id="p_certificacion"><div class="grid"><div class="campo ancho"><label>Criterios de certificación inicial</label><textarea id="pcertInicial"></textarea></div><div class="campo"><label>Vigilancia</label><select id="pvigAplica"><option value="false">No aplica</option><option value="true">Aplica</option></select></div><div class="campo"><label>Recertificación</label><select id="precAplica"><option value="false">No aplica</option><option value="true">Aplica</option></select></div><div class="campo"><label>Periodicidad recertificación (meses)</label><input id="precMeses" type="number"></div><div class="campo ancho"><label>Criterios de vigilancia</label><textarea id="pvigCriterios"></textarea></div><div class="campo ancho"><label>Criterios de recertificación</label><textarea id="precCriterios"></textarea></div><div class="campo ancho"><label>Suspensión / retirada</label><textarea id="psusCriterios"></textarea></div><div class="campo"><label>Código de conducta</label><select id="pcodAplica"><option value="false">No aplica</option><option value="true">Aplica</option></select></div><div class="campo ancho"><label>Contenido / referencia</label><textarea id="pcodContenido"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarCertificacionPerfil()">Guardar criterios</button></div></div>
 
-<div class="subpanel" id="p_validacion"><div id="resultadoValidacionPerfil"></div><div class="grid"><div class="campo"><label>Responsable de validación</label><input id="pvalResponsable"></div><div class="campo ancho"><label>Observaciones</label><textarea id="pvalObservaciones"></textarea></div></div><div class="acciones"><button class="btn btn-claro" onclick="comprobarPerfil()">Comprobar perfil</button><button class="btn btn-verde" onclick="aprobarPerfil()">Aprobar perfil</button></div></div></div>
+<div class="subpanel" id="p_validacion"><div id="resultadoValidacionPerfil"></div><div class="grid"><div class="campo"><label>Responsable de validación</label><input id="pvalResponsable"></div><div class="campo ancho"><label>Observaciones</label><textarea id="pvalObservaciones"></textarea></div></div><div class="acciones"><button class="btn btn-claro" onclick="comprobarPerfil()">Comprobar perfil</button><button class="btn btn-verde" onclick="aprobarPerfil()">Aprobar perfil</button></div></div>
+</div>
 
 <div class="panel" id="panelEsquema"><h2>Alta / modificación de esquema de certificación</h2><p class="intro">Definición de las reglas y procesos aplicables a la certificación de cada perfil.</p><div class="barra"><select id="selectorEsquema" onchange="seleccionarEsquema()"></select><button class="btn btn-azul" onclick="nuevoEsquema()">Nuevo esquema</button><button class="btn btn-claro" onclick="recargarEsquemas()">Recargar Dropbox</button><span id="estadoEsquema"></span></div>
+
 <div class="tabs"><button class="tab activa" data-grupo="esquema" data-tab="e_identificacion">Identificación</button><button class="tab" data-grupo="esquema" data-tab="e_requisitos">Requisitos previos</button><button class="tab" data-grupo="esquema" data-tab="e_evaluacion">Evaluación</button><button class="tab" data-grupo="esquema" data-tab="e_examenes">Exámenes / pruebas</button><button class="tab" data-grupo="esquema" data-tab="e_evaluadores">Evaluadores</button><button class="tab" data-grupo="esquema" data-tab="e_decision">Decisión</button><button class="tab" data-grupo="esquema" data-tab="e_certificado">Certificado</button><button class="tab" data-grupo="esquema" data-tab="e_vigilancia">Vigilancia</button><button class="tab" data-grupo="esquema" data-tab="e_recertificacion">Recertificación</button><button class="tab" data-grupo="esquema" data-tab="e_suspension">Suspensión / retirada</button><button class="tab" data-grupo="esquema" data-tab="e_imparcialidad">Imparcialidad</button><button class="tab" data-grupo="esquema" data-tab="e_riesgos">Riesgos</button><button class="tab" data-grupo="esquema" data-tab="e_seguridad">Seguridad</button><button class="tab" data-grupo="esquema" data-tab="e_validacion">Validación</button></div>
 
 <div class="subpanel activo" id="e_identificacion"><div class="grid"><div class="campo"><label>Código</label><input id="eCodigo" readonly></div><div class="campo"><label>Denominación</label><input id="eNombre"></div><div class="campo"><label>Versión</label><input id="eVersion"></div><div class="campo"><label>Estado</label><select id="eEstado"><option>BORRADOR</option><option>EN REVISIÓN</option><option>APROBADO</option><option>OBSOLETO</option></select></div><div class="campo"><label>Perfil certificable asociado</label><select id="ePerfil"></select></div><div class="campo ancho"><label>Objeto</label><textarea id="eObjeto"></textarea></div><div class="campo ancho"><label>Alcance</label><textarea id="eAlcance"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarIdentificacionEsquema()">Guardar identificación</button></div></div>
-<div class="subpanel" id="e_requisitos"><div id="listaRequisitosPrevios"></div><div class="grid"><div class="campo"><label>Requisito previo</label><input id="erTitulo"></div><div class="campo ancho"><label>Descripción</label><textarea id="erDescripcion"></textarea></div><div class="campo ancho"><label>Método de comprobación</label><textarea id="erMetodo"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarRequisitoPrevio()">Añadir requisito previo</button></div></div>
-<div class="subpanel" id="e_evaluacion"><div id="listaMetodosEvaluacion"></div><div class="grid"><div class="campo"><label>Método de evaluación</label><input id="eeNombre"></div><div class="campo ancho"><label>Descripción</label><textarea id="eeDescripcion"></textarea></div><div class="campo ancho"><label>Criterio de evaluación</label><textarea id="eeCriterio"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarMetodoEvaluacion()">Añadir método de evaluación</button></div></div>
-<div class="subpanel" id="e_examenes"><div id="listaExamenesEsquema"></div><div class="grid"><div class="campo"><label>Prueba</label><input id="exNombre"></div><div class="campo"><label>Tipo</label><select id="exTipo"><option>CONOCIMIENTOS</option><option>PRÁCTICA</option><option>ORAL</option><option>MIXTA</option></select></div><div class="campo ancho"><label>Descripción</label><textarea id="exDescripcion"></textarea></div><div class="campo"><label>Duración (minutos)</label><input id="exDuracion" type="number"></div><div class="campo"><label>Número de preguntas</label><input id="exPreguntas" type="number"></div><div class="campo"><label>Puntuación máxima</label><input id="exMax" type="number" value="100"></div><div class="campo"><label>Mínimo APTO</label><input id="exMin" type="number"></div><div class="campo ancho"><label>Rúbrica / métrica</label><textarea id="exRubrica"></textarea></div><div class="campo ancho"><label>Seguridad de la prueba</label><textarea id="exSeguridad"></textarea></div><div class="campo ancho"><label>Método de comprobación</label><textarea id="exMetodo"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarExamenEsquema()">Añadir examen / prueba</button></div></div>
-<div class="subpanel" id="e_evaluadores"><div id="listaEvaluadores"></div><div class="grid"><div class="campo"><label>Requisito del evaluador</label><input id="evTitulo"></div><div class="campo ancho"><label>Descripción</label><textarea id="evDescripcion"></textarea></div><div class="campo ancho"><label>Método de comprobación</label><textarea id="evMetodo"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarRequisitoEvaluador()">Añadir requisito</button></div></div>
-<div class="subpanel" id="e_decision"><div class="grid"><div class="campo ancho"><label>Criterios para la decisión de certificación</label><textarea id="edCriterios"></textarea></div><div class="campo"><label>Responsable de decisión</label><input id="edResponsable"></div><div class="campo"><label>Independencia respecto a evaluación</label><select id="edIndependencia"><option value="true">Sí</option><option value="false">No</option></select></div><div class="campo ancho"><label>Documentación requerida para decidir</label><textarea id="edDocumentos"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarDecision()">Guardar decisión</button></div></div>
-<div class="subpanel" id="e_certificado"><div class="grid"><div class="campo"><label>Vigencia del certificado (meses)</label><input id="ecVigencia" type="number"></div><div class="campo"><label>Numeración automática</label><select id="ecNumero"><option value="true">Sí</option><option value="false">No</option></select></div><div class="campo ancho"><label>Contenido mínimo</label><textarea id="ecContenido"></textarea></div><div class="campo ancho"><label>Condiciones de uso</label><textarea id="ecCondiciones"></textarea></div><div class="campo ancho"><label>Marca o referencia</label><input id="ecMarca"></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarCertificado()">Guardar certificado</button></div></div>
-<div class="subpanel" id="e_vigilancia"><div class="grid"><div class="campo"><label>¿Aplica vigilancia?</label><select id="evigAplica"><option value="false">No</option><option value="true">Sí</option></select></div><div class="campo"><label>Periodicidad (meses)</label><input id="evigMeses" type="number"></div><div class="campo ancho"><label>Métodos</label><textarea id="evigMetodos"></textarea></div><div class="campo ancho"><label>Criterios</label><textarea id="evigCriterios"></textarea></div><div class="campo ancho"><label>Evidencias</label><textarea id="evigEvidencias"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarVigilancia()">Guardar vigilancia</button></div></div>
-<div class="subpanel" id="e_recertificacion"><div class="grid"><div class="campo"><label>¿Aplica recertificación?</label><select id="erecAplica"><option value="false">No</option><option value="true">Sí</option></select></div><div class="campo"><label>Periodicidad (meses)</label><input id="erecMeses" type="number"></div><div class="campo"><label>¿Examen requerido?</label><select id="erecExamen"><option value="false">No</option><option value="true">Sí</option></select></div><div class="campo ancho"><label>Métodos</label><textarea id="erecMetodos"></textarea></div><div class="campo ancho"><label>Criterios</label><textarea id="erecCriterios"></textarea></div><div class="campo ancho"><label>Evidencias</label><textarea id="erecEvidencias"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarRecertificacion()">Guardar recertificación</button></div></div>
-<div class="subpanel" id="e_suspension"><div class="grid"><div class="campo ancho"><label>Criterios de suspensión</label><textarea id="esSuspension"></textarea></div><div class="campo ancho"><label>Criterios de retirada</label><textarea id="esRetirada"></textarea></div><div class="campo"><label>¿Permite reducción de alcance?</label><select id="esReduccion"><option value="false">No</option><option value="true">Sí</option></select></div><div class="campo"><label>¿Permite restablecimiento?</label><select id="esRestablecimiento"><option value="true">Sí</option><option value="false">No</option></select></div><div class="campo ancho"><label>Criterios de reducción</label><textarea id="esRedCriterios"></textarea></div><div class="campo ancho"><label>Criterios de restablecimiento</label><textarea id="esResCriterios"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarSuspension()">Guardar criterios</button></div></div>
-<div class="subpanel" id="e_imparcialidad"><div class="grid"><div class="campo ancho"><label>Riesgos para la imparcialidad</label><textarea id="eiRiesgos"></textarea></div><div class="campo ancho"><label>Conflictos de interés</label><textarea id="eiConflictos"></textarea></div><div class="campo ancho"><label>Medidas de control</label><textarea id="eiMedidas"></textarea></div><div class="campo"><label>Revisión periódica</label><select id="eiRevision"><option value="true">Sí</option><option value="false">No</option></select></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarImparcialidad()">Guardar imparcialidad</button></div></div>
-<div class="subpanel" id="e_riesgos"><div class="leyenda-riesgo"><span class="ley v1">1 · MUY BAJA</span><span class="ley v2">2 · BAJA</span><span class="ley v3">3 · MEDIA</span><span class="ley v4">4 · ALTA</span><span class="ley v5">5 · MUY ALTA</span></div><div id="listaRiesgosEsquema"></div><div class="grid"><div class="campo"><label>Riesgo</label><input id="reRiesgo"></div><div class="campo"><label>Causa</label><input id="reCausa"></div><div class="campo ancho"><label>Consecuencia</label><textarea id="reConsecuencia"></textarea></div><div class="campo"><label>Probabilidad</label><select id="reProb" class="v1" onchange="actualizarRiesgo('re')"><option value="1">1 · MUY BAJA</option><option value="2">2 · BAJA</option><option value="3">3 · MEDIA</option><option value="4">4 · ALTA</option><option value="5">5 · MUY ALTA</option></select></div><div class="campo"><label>Gravedad</label><select id="reGravedad" class="v1" onchange="actualizarRiesgo('re')"><option value="1">1 · MUY BAJA</option><option value="2">2 · BAJA</option><option value="3">3 · MEDIA</option><option value="4">4 · ALTA</option><option value="5">5 · MUY ALTA</option></select></div><div class="campo ancho"><div id="reNivel" class="nivel-riesgo nr-verde">NIVEL DE RIESGO: 1</div></div><div class="campo ancho"><label>Controles existentes</label><textarea id="reControles"></textarea></div><div class="campo ancho"><label>Acción / tratamiento</label><textarea id="reAccion"></textarea></div><div class="campo"><label>Responsable</label><input id="reResponsable"></div><div class="campo"><label>Riesgo residual</label><input id="reResidual" type="number"></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarRiesgoEsquemaUI()">Añadir riesgo</button></div></div>
-<div class="subpanel" id="e_seguridad"><div class="grid"><div class="campo ancho"><label>Información confidencial</label><textarea id="esegConfidencial"></textarea></div><div class="campo ancho"><label>Controles de acceso</label><textarea id="esegAccesos"></textarea></div><div class="campo ancho"><label>Integridad de datos</label><textarea id="esegIntegridad"></textarea></div><div class="campo ancho"><label>Seguridad de exámenes</label><textarea id="esegExamenes"></textarea></div><div class="campo ancho"><label>Custodia de evidencias</label><textarea id="esegCustodia"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarSeguridadEsquema()">Guardar seguridad</button></div></div>
-<div class="subpanel" id="e_validacion"><div id="resultadoValidacionEsquema"></div><div class="grid"><div class="campo"><label>Responsable de validación</label><input id="evalResponsable"></div><div class="campo ancho"><label>Observaciones</label><textarea id="evalObservaciones"></textarea></div></div><div class="acciones"><button class="btn btn-claro" onclick="comprobarEsquema()">Comprobar esquema</button><button class="btn btn-verde" onclick="aprobarEsquema()">Aprobar esquema</button></div></div></div>
-<div class="mensaje" id="mensaje"></div></section></main></div>
 
-<script src="dropbox_config.js"></script><script src="usuarios.js"></script><script src="maestro_perfiles_certificables.js"></script><script src="maestro_esquemas_certificacion.js"></script>
+<div class="subpanel" id="e_requisitos"><div id="listaRequisitosPrevios"></div><div class="grid"><div class="campo"><label>Requisito previo</label><input id="erTitulo"></div><div class="campo ancho"><label>Descripción</label><textarea id="erDescripcion"></textarea></div><div class="campo ancho"><label>Método de comprobación</label><textarea id="erMetodo"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarRequisitoPrevio()">Añadir requisito previo</button></div></div>
+
+<div class="subpanel" id="e_evaluacion"><div id="listaMetodosEvaluacion"></div><div class="grid"><div class="campo"><label>Método de evaluación</label><input id="eeNombre"></div><div class="campo ancho"><label>Descripción</label><textarea id="eeDescripcion"></textarea></div><div class="campo ancho"><label>Criterio de evaluación</label><textarea id="eeCriterio"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarMetodoEvaluacion()">Añadir método de evaluación</button></div></div>
+
+<div class="subpanel" id="e_examenes"><div id="listaExamenesEsquema"></div><div class="grid"><div class="campo"><label>Prueba</label><input id="exNombre"></div><div class="campo"><label>Tipo</label><select id="exTipo"><option>CONOCIMIENTOS</option><option>PRÁCTICA</option><option>ORAL</option><option>MIXTA</option></select></div><div class="campo ancho"><label>Descripción</label><textarea id="exDescripcion"></textarea></div><div class="campo"><label>Duración (minutos)</label><input id="exDuracion" type="number"></div><div class="campo"><label>Número de preguntas</label><input id="exPreguntas" type="number"></div><div class="campo"><label>Puntuación máxima</label><input id="exMax" type="number" value="100"></div><div class="campo"><label>Mínimo APTO</label><input id="exMin" type="number"></div><div class="campo ancho"><label>Rúbrica / métrica</label><textarea id="exRubrica"></textarea></div><div class="campo ancho"><label>Seguridad de la prueba</label><textarea id="exSeguridad"></textarea></div><div class="campo ancho"><label>Método de comprobación</label><textarea id="exMetodo"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarExamenEsquema()">Añadir examen / prueba</button></div></div>
+
+<div class="subpanel" id="e_evaluadores"><div id="listaEvaluadores"></div><div class="grid"><div class="campo"><label>Requisito del evaluador</label><input id="evTitulo"></div><div class="campo ancho"><label>Descripción</label><textarea id="evDescripcion"></textarea></div><div class="campo ancho"><label>Método de comprobación</label><textarea id="evMetodo"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarRequisitoEvaluador()">Añadir requisito</button></div></div>
+
+<div class="subpanel" id="e_decision"><div class="grid"><div class="campo ancho"><label>Criterios para la decisión de certificación</label><textarea id="edCriterios"></textarea></div><div class="campo"><label>Responsable de decisión</label><input id="edResponsable"></div><div class="campo"><label>Independencia respecto a evaluación</label><select id="edIndependencia"><option value="true">Sí</option><option value="false">No</option></select></div><div class="campo ancho"><label>Documentación requerida para decidir</label><textarea id="edDocumentos"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarDecision()">Guardar decisión</button></div></div>
+
+<div class="subpanel" id="e_certificado"><div class="grid"><div class="campo"><label>Vigencia del certificado (meses)</label><input id="ecVigencia" type="number"></div><div class="campo"><label>Numeración automática</label><select id="ecNumero"><option value="true">Sí</option><option value="false">No</option></select></div><div class="campo ancho"><label>Contenido mínimo</label><textarea id="ecContenido"></textarea></div><div class="campo ancho"><label>Condiciones de uso</label><textarea id="ecCondiciones"></textarea></div><div class="campo ancho"><label>Marca o referencia</label><input id="ecMarca"></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarCertificado()">Guardar certificado</button></div></div>
+
+<div class="subpanel" id="e_vigilancia"><div class="grid"><div class="campo"><label>¿Aplica vigilancia?</label><select id="evigAplica"><option value="false">No</option><option value="true">Sí</option></select></div><div class="campo"><label>Periodicidad (meses)</label><input id="evigMeses" type="number"></div><div class="campo ancho"><label>Métodos</label><textarea id="evigMetodos"></textarea></div><div class="campo ancho"><label>Criterios</label><textarea id="evigCriterios"></textarea></div><div class="campo ancho"><label>Evidencias</label><textarea id="evigEvidencias"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarVigilancia()">Guardar vigilancia</button></div></div>
+
+<div class="subpanel" id="e_recertificacion"><div class="grid"><div class="campo"><label>¿Aplica recertificación?</label><select id="erecAplica"><option value="false">No</option><option value="true">Sí</option></select></div><div class="campo"><label>Periodicidad (meses)</label><input id="erecMeses" type="number"></div><div class="campo"><label>¿Examen requerido?</label><select id="erecExamen"><option value="false">No</option><option value="true">Sí</option></select></div><div class="campo ancho"><label>Métodos</label><textarea id="erecMetodos"></textarea></div><div class="campo ancho"><label>Criterios</label><textarea id="erecCriterios"></textarea></div><div class="campo ancho"><label>Evidencias</label><textarea id="erecEvidencias"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarRecertificacion()">Guardar recertificación</button></div></div>
+
+<div class="subpanel" id="e_suspension"><div class="grid"><div class="campo ancho"><label>Criterios de suspensión</label><textarea id="esSuspension"></textarea></div><div class="campo ancho"><label>Criterios de retirada</label><textarea id="esRetirada"></textarea></div><div class="campo"><label>¿Permite reducción de alcance?</label><select id="esReduccion"><option value="false">No</option><option value="true">Sí</option></select></div><div class="campo"><label>¿Permite restablecimiento?</label><select id="esRestablecimiento"><option value="true">Sí</option><option value="false">No</option></select></div><div class="campo ancho"><label>Criterios de reducción</label><textarea id="esRedCriterios"></textarea></div><div class="campo ancho"><label>Criterios de restablecimiento</label><textarea id="esResCriterios"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarSuspension()">Guardar criterios</button></div></div>
+
+<div class="subpanel" id="e_imparcialidad"><div class="grid"><div class="campo ancho"><label>Riesgos para la imparcialidad</label><textarea id="eiRiesgos"></textarea></div><div class="campo ancho"><label>Conflictos de interés</label><textarea id="eiConflictos"></textarea></div><div class="campo ancho"><label>Medidas de control</label><textarea id="eiMedidas"></textarea></div><div class="campo"><label>Revisión periódica</label><select id="eiRevision"><option value="true">Sí</option><option value="false">No</option></select></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarImparcialidad()">Guardar imparcialidad</button></div></div>
+
+<div class="subpanel" id="e_riesgos"><div class="leyenda-riesgo"><span class="ley v1">1 · MUY BAJA</span><span class="ley v2">2 · BAJA</span><span class="ley v3">3 · MEDIA</span><span class="ley v4">4 · ALTA</span><span class="ley v5">5 · MUY ALTA</span></div><div id="listaRiesgosEsquema"></div><div class="grid"><div class="campo"><label>Riesgo</label><input id="reRiesgo"></div><div class="campo"><label>Causa</label><input id="reCausa"></div><div class="campo ancho"><label>Consecuencia</label><textarea id="reConsecuencia"></textarea></div><div class="campo"><label>Probabilidad</label><select id="reProb" class="v1" onchange="actualizarRiesgo('re')"><option value="1">1 · MUY BAJA</option><option value="2">2 · BAJA</option><option value="3">3 · MEDIA</option><option value="4">4 · ALTA</option><option value="5">5 · MUY ALTA</option></select></div><div class="campo"><label>Gravedad</label><select id="reGravedad" class="v1" onchange="actualizarRiesgo('re')"><option value="1">1 · MUY BAJA</option><option value="2">2 · BAJA</option><option value="3">3 · MEDIA</option><option value="4">4 · ALTA</option><option value="5">5 · MUY ALTA</option></select></div><div class="campo ancho"><div id="reNivel" class="nivel-riesgo nr-verde">NIVEL DE RIESGO: 1</div></div><div class="campo ancho"><label>Controles existentes</label><textarea id="reControles"></textarea></div><div class="campo ancho"><label>Acción / tratamiento</label><textarea id="reAccion"></textarea></div><div class="campo"><label>Responsable</label><input id="reResponsable"></div><div class="campo"><label>Riesgo residual</label><input id="reResidual" type="number"></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarRiesgoEsquemaUI()">Añadir riesgo</button></div></div>
+
+<div class="subpanel" id="e_seguridad"><div class="grid"><div class="campo ancho"><label>Información confidencial</label><textarea id="esegConfidencial"></textarea></div><div class="campo ancho"><label>Controles de acceso</label><textarea id="esegAccesos"></textarea></div><div class="campo ancho"><label>Integridad de datos</label><textarea id="esegIntegridad"></textarea></div><div class="campo ancho"><label>Seguridad de exámenes</label><textarea id="esegExamenes"></textarea></div><div class="campo ancho"><label>Custodia de evidencias</label><textarea id="esegCustodia"></textarea></div></div><div class="acciones"><button class="btn btn-azul" onclick="guardarSeguridadEsquema()">Guardar seguridad</button></div></div>
+
+<div class="subpanel" id="e_validacion"><div id="resultadoValidacionEsquema"></div><div class="grid"><div class="campo"><label>Responsable de validación</label><input id="evalResponsable"></div><div class="campo ancho"><label>Observaciones</label><textarea id="evalObservaciones"></textarea></div></div><div class="acciones"><button class="btn btn-claro" onclick="comprobarEsquema()">Comprobar esquema</button><button class="btn btn-verde" onclick="aprobarEsquema()">Aprobar esquema</button></div></div>
+</div>
+
+<div class="mensaje" id="mensaje"></div>
+</section></main></div>
+
+<script src="dropbox_config.js"></script>
+<script src="usuarios.js"></script>
+<script src="maestro_perfiles_certificables.js"></script>
+<script src="maestro_esquemas_certificacion.js"></script>
+
 <script>
 const $=id=>document.getElementById(id),lineas=t=>String(t||"").split("\n").map(x=>x.trim()).filter(Boolean);let perfil=null,esquema=null;
-const sesion=usuarioActivo();if(!sesion||!tienePermiso("A1")){alert("No dispone de autorización para acceder al Área Técnica.");location.href="index.html"}$("usuarioCabecera").textContent=sesion?.nombre||"";$("rolCabecera").textContent=sesion?.rol||"";
-document.querySelectorAll(".menu-btn").forEach(b=>{const ok=tienePermiso(b.dataset.area);if(!ok){b.classList.add("inactivo");b.disabled=true;return}if(b.dataset.area==="A1")b.onclick=()=>location.href="A1.html";else if(b.dataset.area==="A2")b.onclick=()=>location.href="A2.html";else if(b.dataset.area==="A8")b.onclick=()=>location.href="A8.html";else b.onclick=()=>alert(b.dataset.area+" · Área en preparación")});
-document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{const g=t.dataset.grupo,p=g==="perfil"?$("panelPerfil"):$("panelEsquema");document.querySelectorAll(`.tab[data-grupo="${g}"]`).forEach(x=>x.classList.remove("activa"));p.querySelectorAll(".subpanel").forEach(x=>x.classList.remove("activo"));t.classList.add("activa");$(t.dataset.tab).classList.add("activo")});
-function mostrarModo(m){const p=m==="perfil";$("panelPerfil").classList.toggle("activo",p);$("panelEsquema").classList.toggle("activo",!p);$("btnPerfil").classList.toggle("activa",p);$("btnEsquema").classList.toggle("activa",!p)}
-function pintarLista(id,l,fn){const c=$(id);c.innerHTML="";if(!(l||[]).length){c.innerHTML='<div class="lista-vacia">No hay registros.</div>';return}(l||[]).forEach(x=>{const d=document.createElement("div");d.className="bloque";d.innerHTML=fn(x);c.appendChild(d)})}
-function codigoReq(tipo,l){const p={educacion:"EDU",formacion:"FOR",experiencia:"EXP",otros:"OTR",examenes:"EVA"}[tipo]||"REQ";return p+"-"+String((l||[]).length+1).padStart(3,"0")}
-function etiquetaLlave(x){const l=x?.nivel_llave||"";return l==="ADMISION"?'<span class="llave llave1">LLAVE 1 · ADMISIÓN</span>':l==="CUALIFICACION"?'<span class="llave llave2">LLAVE 2 · CUALIFICACIÓN</span>':l==="EVALUACION"?'<span class="llave llave3">LLAVE 3 · EVALUACIÓN</span>':""}
-function metaReq(x){return `${etiquetaLlave(x)}<div class="meta"><b>Código:</b> ${x.codigo_requisito||"—"} · <b>${x.obligatoriedad||"OBLIGATORIO"}</b>${x.grupo_alternativa?" · Grupo: "+x.grupo_alternativa:""}<br><b>Método de comprobación:</b> ${x.metodo_comprobacion||"—"}</div>`}
-function claseNivel(n){return n<=4?"nr-verde":n<=9?"nr-amarillo":n<=16?"nr-naranja":"nr-rojo"}function claseBorde(n){return n<=4?"riesgo-verde":n<=9?"riesgo-amarillo":n<=16?"riesgo-naranja":"riesgo-rojo"}function pintarValor(s){s.classList.remove("v1","v2","v3","v4","v5");s.classList.add("v"+Number(s.value))}function actualizarRiesgo(pref){const p=$(pref+"Prob"),g=$(pref+"Gravedad");pintarValor(p);pintarValor(g);const n=Number(p.value)*Number(g.value),c=$(pref+"Nivel");c.className="nivel-riesgo "+claseNivel(n);c.textContent="NIVEL DE RIESGO: "+n}
-function pintarRiesgos(id,l){const c=$(id);c.innerHTML="";if(!(l||[]).length){c.innerHTML='<div class="lista-vacia">No hay riesgos registrados.</div>';return}(l||[]).forEach(x=>{const g=Number(x.gravedad??x.impacto??1),p=Number(x.probabilidad||1),n=Number(x.nivel||p*g),d=document.createElement("div");d.className="bloque "+claseBorde(n);d.innerHTML=`<h3>${x.riesgo}</h3><div>${x.consecuencia||""}</div><div class="meta"><b>Probabilidad:</b> ${p} · <b>Gravedad:</b> ${g} · <b>Nivel:</b> ${n}<br><b>Control:</b> ${x.controles||"—"}<br><b>Acción:</b> ${x.accion||"—"}</div>`;c.appendChild(d)})}
+const sesion=usuarioActivo();
+if(!sesion||!tienePermiso("A1")){alert("No dispone de autorización para acceder al Área Técnica.");location.href="index.html"}
+$("usuarioCabecera").textContent=sesion?.nombre||"";
+$("rolCabecera").textContent=sesion?.rol||"";
+
+function permisoMenu(area){
+if(area==="A9")return true;
+if(area==="A10")return tienePermiso("A2");
+return tienePermiso(area);
+}
+
+document.querySelectorAll(".menu-btn").forEach(b=>{
+const area=b.dataset.area;
+const ok=permisoMenu(area);
+if(!ok){
+b.classList.add("inactivo");
+b.disabled=true;
+b.onclick=null;
+return;
+}
+b.classList.remove("inactivo");
+b.disabled=false;
+b.onclick=()=>location.href=area+".html";
+});
+
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{
+const g=t.dataset.grupo,p=g==="perfil"?$("panelPerfil"):$("panelEsquema");
+document.querySelectorAll(`.tab[data-grupo="${g}"]`).forEach(x=>x.classList.remove("activa"));
+p.querySelectorAll(".subpanel").forEach(x=>x.classList.remove("activo"));
+t.classList.add("activa");
+$(t.dataset.tab).classList.add("activo")
+});
+
+function mostrarModo(m){
+const p=m==="perfil";
+$("panelPerfil").classList.toggle("activo",p);
+$("panelEsquema").classList.toggle("activo",!p);
+$("btnPerfil").classList.toggle("activa",p);
+$("btnEsquema").classList.toggle("activa",!p)
+}
+
+function pintarLista(id,l,fn){
+const c=$(id);c.innerHTML="";
+if(!(l||[]).length){c.innerHTML='<div class="lista-vacia">No hay registros.</div>';return}
+(l||[]).forEach(x=>{const d=document.createElement("div");d.className="bloque";d.innerHTML=fn(x);c.appendChild(d)})
+}
+
+function codigoReq(tipo,l){
+const p={educacion:"EDU",formacion:"FOR",experiencia:"EXP",otros:"OTR",examenes:"EVA"}[tipo]||"REQ";
+return p+"-"+String((l||[]).length+1).padStart(3,"0")
+}
+
+function etiquetaLlave(x){
+const l=x?.nivel_llave||"";
+return l==="ADMISION"?'<span class="llave llave1">LLAVE 1 · ADMISIÓN</span>':
+l==="CUALIFICACION"?'<span class="llave llave2">LLAVE 2 · CUALIFICACIÓN</span>':
+l==="EVALUACION"?'<span class="llave llave3">LLAVE 3 · EVALUACIÓN</span>':""
+}
+
+function metaReq(x){
+return `${etiquetaLlave(x)}<div class="meta"><b>Código:</b> ${x.codigo_requisito||"—"} · <b>${x.obligatoriedad||"OBLIGATORIO"}</b>${x.grupo_alternativa?" · Grupo: "+x.grupo_alternativa:""}<br><b>Método de comprobación:</b> ${x.metodo_comprobacion||"—"}</div>`
+}
+
+function claseNivel(n){return n<=4?"nr-verde":n<=9?"nr-amarillo":n<=16?"nr-naranja":"nr-rojo"}
+function claseBorde(n){return n<=4?"riesgo-verde":n<=9?"riesgo-amarillo":n<=16?"riesgo-naranja":"riesgo-rojo"}
+function pintarValor(s){s.classList.remove("v1","v2","v3","v4","v5");s.classList.add("v"+Number(s.value))}
+function actualizarRiesgo(pref){
+const p=$(pref+"Prob"),g=$(pref+"Gravedad");
+pintarValor(p);pintarValor(g);
+const n=Number(p.value)*Number(g.value),c=$(pref+"Nivel");
+c.className="nivel-riesgo "+claseNivel(n);
+c.textContent="NIVEL DE RIESGO: "+n
+}
+
+function pintarRiesgos(id,l){
+const c=$(id);c.innerHTML="";
+if(!(l||[]).length){c.innerHTML='<div class="lista-vacia">No hay riesgos registrados.</div>';return}
+(l||[]).forEach(x=>{
+const g=Number(x.gravedad??x.impacto??1),p=Number(x.probabilidad||1),n=Number(x.nivel||p*g),d=document.createElement("div");
+d.className="bloque "+claseBorde(n);
+d.innerHTML=`<h3>${x.riesgo}</h3><div>${x.consecuencia||""}</div><div class="meta"><b>Probabilidad:</b> ${p} · <b>Gravedad:</b> ${g} · <b>Nivel:</b> ${n}<br><b>Control:</b> ${x.controles||"—"}<br><b>Acción:</b> ${x.accion||"—"}</div>`;
+c.appendChild(d)
+})
+}
 
 /* PERFIL */
-function rellenarSelectorPerfiles(){$("selectorPerfil").innerHTML="";$("ePerfil").innerHTML="";PERFILES_CERTIFICABLES.forEach(p=>{const a=document.createElement("option");a.value=p.codigo;a.textContent=p.codigo+" · "+p.nombre;$("selectorPerfil").appendChild(a);$("ePerfil").appendChild(a.cloneNode(true))})}
+function rellenarSelectorPerfiles(){
+$("selectorPerfil").innerHTML="";
+$("ePerfil").innerHTML="";
+PERFILES_CERTIFICABLES.forEach(p=>{
+const a=document.createElement("option");
+a.value=p.codigo;a.textContent=p.codigo+" · "+p.nombre;
+$("selectorPerfil").appendChild(a);
+$("ePerfil").appendChild(a.cloneNode(true))
+})
+}
+
 function seleccionarPerfil(){perfil=buscarPerfilCertificable($("selectorPerfil").value);pintarPerfil()}
-function pintarPerfil(){if(!perfil)return;perfil.requisitos=perfil.requisitos||{};["educacion","formacion","experiencia","examenes","otros"].forEach(k=>perfil.requisitos[k]=perfil.requisitos[k]||[]);$("pCodigo").value=perfil.codigo||"";$("pNombre").value=perfil.nombre||"";$("pVersion").value=perfil.version||"01";$("pEstado").value=perfil.estado||"BORRADOR";$("pAlcance").value=perfil.alcance||"";$("estadoPerfil").innerHTML=perfil.estado==="APROBADO"?'<span class="estado-aprobado">APROBADO</span>':'<span class="estado-borrador">'+(perfil.estado||"BORRADOR")+"</span>";$("pcertInicial").value=(perfil.certificacion_inicial?.criterios||[]).join("\n");$("pvigAplica").value=String(!!perfil.vigilancia?.aplica);$("pvigCriterios").value=(perfil.vigilancia?.criterios||[]).join("\n");$("precAplica").value=String(!!perfil.recertificacion?.aplica);$("precMeses").value=perfil.recertificacion?.periodicidad_meses||0;$("precCriterios").value=(perfil.recertificacion?.criterios||[]).join("\n");$("psusCriterios").value=(perfil.suspension_retirada?.criterios||[]).join("\n");$("pcodAplica").value=String(!!perfil.codigo_conducta?.aplica);$("pcodContenido").value=perfil.codigo_conducta?.contenido||"";pintarListasPerfil()}
-function pintarListasPerfil(){const r=perfil?.requisitos||{};pintarLista("listaFunciones",perfil?.funciones_tareas,x=>`<h3>${x.titulo}</h3><div>${x.descripcion||""}</div>`);pintarLista("listaCompetencias",perfil?.competencias,x=>`<h3>${x.nombre}</h3><div>${x.descripcion||""}</div>`);pintarLista("listaEducacion",r.educacion,x=>`<h3>${x.codigo_requisito||""} · ${x.titulo}</h3><div>${x.descripcion||""}</div>${metaReq(x)}`);pintarLista("listaFormacion",r.formacion,x=>`<h3>${x.codigo_requisito||""} · ${x.denominacion||x.titulo}</h3><div>${x.caracteristicas||""}</div><div class="meta"><b>Tipo:</b> ${x.tipo_formacion||"—"} · <b>Duración:</b> ${x.duracion_horas||0} h</div>${metaReq(x)}`);pintarLista("listaExperiencia",r.experiencia,x=>`<h3>${x.codigo_requisito||""} · ${x.titulo}</h3><div>${x.descripcion||""}</div><div class="meta"><b>Tipo:</b> ${x.tipo||""} · ${x.duracion_meses||0} meses · ${x.horas||0} h</div>${metaReq(x)}`);pintarLista("listaExamenes",r.examenes,x=>`<h3>${x.codigo_requisito||""} · ${x.nombre}</h3><div>${x.descripcion||""}</div><div class="meta"><b>Tipo:</b> ${x.tipo_prueba||""} · APTO ≥ ${x.metrica?.minimo_apto||0}</div>${metaReq(x)}`);pintarLista("listaOtros",r.otros,x=>`<h3>${x.codigo_requisito||""} · ${x.titulo}</h3><div>${x.descripcion||""}</div>${metaReq(x)}`);pintarRiesgos("listaRiesgosPerfil",perfil?.riesgos)}
-async function guardarDatosBasicosPerfil(){perfil.nombre=$("pNombre").value.trim();perfil.version=$("pVersion").value.trim();perfil.estado=$("pEstado").value;perfil.alcance=$("pAlcance").value.trim();await guardarPerfilesCertificables();rellenarSelectorPerfiles();$("selectorPerfil").value=perfil.codigo;mensaje("Perfil guardado.")}
-async function nuevoPerfil(){const n=prompt("Denominación del nuevo perfil certificable:");if(!n)return;try{perfil=await altaPerfilCertificable({nombre:n});rellenarSelectorPerfiles();$("selectorPerfil").value=perfil.codigo;pintarPerfil();mensaje("Perfil creado.")}catch(e){alert(e.message)}}
-async function recargarPerfiles(){try{const c=perfil?.codigo;await cargarPerfilesCertificables();rellenarSelectorPerfiles();perfil=buscarPerfilCertificable(c)||PERFILES_CERTIFICABLES[0]||null;if(perfil)$("selectorPerfil").value=perfil.codigo;pintarPerfil();mensaje("Perfiles recargados.")}catch(e){alert(e.message)}}
-async function guardarFuncion(){try{await añadirFuncionTarea(perfil.codigo,{titulo:$("ftTitulo").value,descripcion:$("ftDescripcion").value});$("ftTitulo").value=$("ftDescripcion").value="";pintarListasPerfil();mensaje("Función añadida.")}catch(e){alert(e.message)}}
-async function guardarCompetencia(){try{await añadirCompetencia(perfil.codigo,{nombre:$("comNombre").value,descripcion:$("comDescripcion").value});$("comNombre").value=$("comDescripcion").value="";pintarListasPerfil();mensaje("Competencia añadida.")}catch(e){alert(e.message)}}
-async function guardarRequisitoPerfil(t){try{const p=t==="educacion"?"edu":"otr",l=perfil.requisitos[t]||[],o={codigo_requisito:codigoReq(t,l),titulo:$(p+"Titulo").value,descripcion:$(p+"Descripcion").value,metodo_comprobacion:$(p+"Metodo").value,nivel_llave:$(p+"Llave").value,obligatoriedad:$(p+"Oblig").value,grupo_alternativa:$(p+"Oblig").value==="ALTERNATIVO"?$(p+"Grupo").value.trim():""};await añadirRequisito(perfil.codigo,t,o);[p+"Titulo",p+"Descripcion",p+"Metodo",p+"Grupo"].forEach(x=>$(x).value="");pintarListasPerfil();mensaje("Requisito añadido.")}catch(e){alert(e.message)}}
-async function guardarFormacionPerfil(){try{const a=$("forArchivo").files[0],l=perfil.requisitos.formacion||[];await añadirFormacion(perfil.codigo,{codigo_requisito:codigoReq("formacion",l),titulo:$("forTitulo").value,denominacion:$("forTitulo").value,nivel_llave:$("forLlave").value,tipo_formacion:$("forTipo").value,obligatoriedad:$("forOblig").value,grupo_alternativa:$("forOblig").value==="ALTERNATIVO"?$("forGrupo").value.trim():"",duracion_horas:$("forHoras").value,caracteristicas:$("forCaracteristicas").value,temario_texto:$("forTemario").value,temario_archivo:a?{nombre:a.name,tipo:a.type}:null,metodo_comprobacion:$("forMetodo").value});["forTitulo","forHoras","forGrupo","forCaracteristicas","forTemario","forMetodo"].forEach(x=>$(x).value="");$("forArchivo").value="";pintarListasPerfil();mensaje("Formación añadida.")}catch(e){alert(e.message)}}
-async function guardarExperienciaPerfil(){try{const l=perfil.requisitos.experiencia||[],t=$("expTipo").value;await añadirExperiencia(perfil.codigo,{codigo_requisito:codigoReq("experiencia",l),titulo:$("expTitulo").value,descripcion:$("expDescripcion").value,nivel_llave:$("expLlave").value,tipo:t,obligatoriedad:$("expOblig").value,grupo_alternativa:$("expOblig").value==="ALTERNATIVO"?$("expGrupo").value.trim():"",duracion_meses:$("expMeses").value,horas:$("expHoras").value,tutelada:t.includes("TUTELADA"),requisitos_tutor:$("expTutor").value,metodo_comprobacion:$("expMetodo").value});["expTitulo","expGrupo","expDescripcion","expMeses","expHoras","expTutor","expMetodo"].forEach(x=>$(x).value="");pintarListasPerfil();mensaje("Experiencia añadida.")}catch(e){alert(e.message)}}
-async function guardarExamenPerfil(){try{const l=perfil.requisitos.examenes||[],r=$("exaRubrica").value.trim();await añadirExamen(perfil.codigo,{codigo_requisito:codigoReq("examenes",l),nombre:$("exaNombre").value,descripcion:$("exaDescripcion").value,tipo_prueba:$("exaTipo").value,nivel_llave:"EVALUACION",obligatoriedad:$("exaOblig").value,grupo_alternativa:$("exaOblig").value==="ALTERNATIVO"?$("exaGrupo").value.trim():"",metodo_comprobacion:$("exaMetodo").value,metrica:{tipo:"PUNTUACIÓN",maximo:Number($("exaMax").value),minimo_apto:Number($("exaMin").value)},rubrica:r?[r]:[]});["exaNombre","exaGrupo","exaDescripcion","exaMin","exaRubrica","exaMetodo"].forEach(x=>$(x).value="");pintarListasPerfil();mensaje("Prueba añadida.")}catch(e){alert(e.message)}}
-async function guardarRiesgoPerfilUI(){try{const p=Number($("prProb").value),g=Number($("prGravedad").value),n=p*g;perfil.riesgos=perfil.riesgos||[];perfil.riesgos.push({id:"RIE-"+String(perfil.riesgos.length+1).padStart(3,"0"),riesgo:$("prRiesgo").value.trim(),causa:$("prCausa").value.trim(),consecuencia:$("prConsecuencia").value.trim(),probabilidad:p,gravedad:g,nivel:n,aceptable:n<=9,controles:$("prControles").value.trim(),accion:$("prAccion").value.trim(),responsable:$("prResponsable").value.trim(),riesgo_residual:Number($("prResidual").value||0)});await guardarPerfilesCertificables();["prRiesgo","prCausa","prConsecuencia","prControles","prAccion","prResponsable","prResidual"].forEach(x=>$(x).value="");$("prProb").value=1;$("prGravedad").value=1;actualizarRiesgo("pr");pintarListasPerfil();mensaje("Riesgo añadido.")}catch(e){alert(e.message)}}
-async function guardarCertificacionPerfil(){perfil.certificacion_inicial={criterios:lineas($("pcertInicial").value),metodos_evaluacion:perfil.certificacion_inicial?.metodos_evaluacion||[]};perfil.vigilancia={aplica:$("pvigAplica").value==="true",criterios:lineas($("pvigCriterios").value)};perfil.recertificacion={...perfil.recertificacion,aplica:$("precAplica").value==="true",periodicidad_meses:Number($("precMeses").value||0),criterios:lineas($("precCriterios").value)};perfil.suspension_retirada={criterios:lineas($("psusCriterios").value)};perfil.codigo_conducta={aplica:$("pcodAplica").value==="true",contenido:$("pcodContenido").value};await guardarPerfilesCertificables();mensaje("Criterios del perfil guardados.")}
-function comprobarPerfil(){const r=validarPerfilCertificable(perfil);$("resultadoValidacionPerfil").innerHTML=r.valido?'<div class="bloque riesgo-verde"><h3>PERFIL VALIDABLE</h3>No se han detectado bloqueos.</div>':'<div class="bloque riesgo-rojo"><h3>PERFIL INCOMPLETO</h3>'+r.errores.map(x=>"• "+x).join("<br>")+"</div>"}
-async function aprobarPerfil(){try{await aprobarPerfilCertificable(perfil.codigo,$("pvalResponsable").value,$("pvalObservaciones").value);pintarPerfil();comprobarPerfil();mensaje("Perfil aprobado.")}catch(e){alert(e.message)}}
+
+function pintarPerfil(){
+if(!perfil)return;
+perfil.requisitos=perfil.requisitos||{};
+["educacion","formacion","experiencia","examenes","otros"].forEach(k=>perfil.requisitos[k]=perfil.requisitos[k]||[]);
+$("pCodigo").value=perfil.codigo||"";
+$("pNombre").value=perfil.nombre||"";
+$("pVersion").value=perfil.version||"01";
+$("pEstado").value=perfil.estado||"BORRADOR";
+$("pAlcance").value=perfil.alcance||"";
+$("estadoPerfil").innerHTML=perfil.estado==="APROBADO"?'<span class="estado-aprobado">APROBADO</span>':'<span class="estado-borrador">'+(perfil.estado||"BORRADOR")+"</span>";
+$("pcertInicial").value=(perfil.certificacion_inicial?.criterios||[]).join("\n");
+$("pvigAplica").value=String(!!perfil.vigilancia?.aplica);
+$("pvigCriterios").value=(perfil.vigilancia?.criterios||[]).join("\n");
+$("precAplica").value=String(!!perfil.recertificacion?.aplica);
+$("precMeses").value=perfil.recertificacion?.periodicidad_meses||0;
+$("precCriterios").value=(perfil.recertificacion?.criterios||[]).join("\n");
+$("psusCriterios").value=(perfil.suspension_retirada?.criterios||[]).join("\n");
+$("pcodAplica").value=String(!!perfil.codigo_conducta?.aplica);
+$("pcodContenido").value=perfil.codigo_conducta?.contenido||"";
+pintarListasPerfil()
+}
+
+function pintarListasPerfil(){
+const r=perfil?.requisitos||{};
+pintarLista("listaFunciones",perfil?.funciones_tareas,x=>`<h3>${x.titulo}</h3><div>${x.descripcion||""}</div>`);
+pintarLista("listaCompetencias",perfil?.competencias,x=>`<h3>${x.nombre}</h3><div>${x.descripcion||""}</div>`);
+pintarLista("listaEducacion",r.educacion,x=>`<h3>${x.codigo_requisito||""} · ${x.titulo}</h3><div>${x.descripcion||""}</div>${metaReq(x)}`);
+pintarLista("listaFormacion",r.formacion,x=>`<h3>${x.codigo_requisito||""} · ${x.denominacion||x.titulo}</h3><div>${x.caracteristicas||""}</div><div class="meta"><b>Tipo:</b> ${x.tipo_formacion||"—"} · <b>Duración:</b> ${x.duracion_horas||0} h</div>${metaReq(x)}`);
+pintarLista("listaExperiencia",r.experiencia,x=>`<h3>${x.codigo_requisito||""} · ${x.titulo}</h3><div>${x.descripcion||""}</div><div class="meta"><b>Tipo:</b> ${x.tipo||""} · ${x.duracion_meses||0} meses · ${x.horas||0} h</div>${metaReq(x)}`);
+pintarLista("listaExamenes",r.examenes,x=>`<h3>${x.codigo_requisito||""} · ${x.nombre}</h3><div>${x.descripcion||""}</div><div class="meta"><b>Tipo:</b> ${x.tipo_prueba||""} · APTO ≥ ${x.metrica?.minimo_apto||0}</div>${metaReq(x)}`);
+pintarLista("listaOtros",r.otros,x=>`<h3>${x.codigo_requisito||""} · ${x.titulo}</h3><div>${x.descripcion||""}</div>${metaReq(x)}`);
+pintarRiesgos("listaRiesgosPerfil",perfil?.riesgos)
+}
+
+async function guardarDatosBasicosPerfil(){
+perfil.nombre=$("pNombre").value.trim();
+perfil.version=$("pVersion").value.trim();
+perfil.estado=$("pEstado").value;
+perfil.alcance=$("pAlcance").value.trim();
+await guardarPerfilesCertificables();
+rellenarSelectorPerfiles();
+$("selectorPerfil").value=perfil.codigo;
+mensaje("Perfil guardado.")
+}
+
+async function nuevoPerfil(){
+const n=prompt("Denominación del nuevo perfil certificable:");
+if(!n)return;
+try{
+perfil=await altaPerfilCertificable({nombre:n});
+rellenarSelectorPerfiles();
+$("selectorPerfil").value=perfil.codigo;
+pintarPerfil();
+mensaje("Perfil creado.")
+}catch(e){alert(e.message)}
+}
+
+async function recargarPerfiles(){
+try{
+const c=perfil?.codigo;
+await cargarPerfilesCertificables();
+rellenarSelectorPerfiles();
+perfil=buscarPerfilCertificable(c)||PERFILES_CERTIFICABLES[0]||null;
+if(perfil)$("selectorPerfil").value=perfil.codigo;
+pintarPerfil();
+mensaje("Perfiles recargados.")
+}catch(e){alert(e.message)}
+}
+
+async function guardarFuncion(){
+try{
+await añadirFuncionTarea(perfil.codigo,{titulo:$("ftTitulo").value,descripcion:$("ftDescripcion").value});
+$("ftTitulo").value=$("ftDescripcion").value="";
+pintarListasPerfil();
+mensaje("Función añadida.")
+}catch(e){alert(e.message)}
+}
+
+async function guardarCompetencia(){
+try{
+await añadirCompetencia(perfil.codigo,{nombre:$("comNombre").value,descripcion:$("comDescripcion").value});
+$("comNombre").value=$("comDescripcion").value="";
+pintarListasPerfil();
+mensaje("Competencia añadida.")
+}catch(e){alert(e.message)}
+}
+
+async function guardarRequisitoPerfil(t){
+try{
+const p=t==="educacion"?"edu":"otr",l=perfil.requisitos[t]||[],o={
+codigo_requisito:codigoReq(t,l),
+titulo:$(p+"Titulo").value,
+descripcion:$(p+"Descripcion").value,
+metodo_comprobacion:$(p+"Metodo").value,
+nivel_llave:$(p+"Llave").value,
+obligatoriedad:$(p+"Oblig").value,
+grupo_alternativa:$(p+"Oblig").value==="ALTERNATIVO"?$(p+"Grupo").value.trim():""
+};
+await añadirRequisito(perfil.codigo,t,o);
+[p+"Titulo",p+"Descripcion",p+"Metodo",p+"Grupo"].forEach(x=>$(x).value="");
+pintarListasPerfil();
+mensaje("Requisito añadido.")
+}catch(e){alert(e.message)}
+}
+
+async function guardarFormacionPerfil(){
+try{
+const a=$("forArchivo").files[0],l=perfil.requisitos.formacion||[];
+await añadirFormacion(perfil.codigo,{
+codigo_requisito:codigoReq("formacion",l),
+titulo:$("forTitulo").value,
+denominacion:$("forTitulo").value,
+nivel_llave:$("forLlave").value,
+tipo_formacion:$("forTipo").value,
+obligatoriedad:$("forOblig").value,
+grupo_alternativa:$("forOblig").value==="ALTERNATIVO"?$("forGrupo").value.trim():"",
+duracion_horas:$("forHoras").value,
+caracteristicas:$("forCaracteristicas").value,
+temario_texto:$("forTemario").value,
+temario_archivo:a?{nombre:a.name,tipo:a.type}:null,
+metodo_comprobacion:$("forMetodo").value
+});
+["forTitulo","forHoras","forGrupo","forCaracteristicas","forTemario","forMetodo"].forEach(x=>$(x).value="");
+$("forArchivo").value="";
+pintarListasPerfil();
+mensaje("Formación añadida.")
+}catch(e){alert(e.message)}
+}
+
+async function guardarExperienciaPerfil(){
+try{
+const l=perfil.requisitos.experiencia||[],t=$("expTipo").value;
+await añadirExperiencia(perfil.codigo,{
+codigo_requisito:codigoReq("experiencia",l),
+titulo:$("expTitulo").value,
+descripcion:$("expDescripcion").value,
+nivel_llave:$("expLlave").value,
+tipo:t,
+obligatoriedad:$("expOblig").value,
+grupo_alternativa:$("expOblig").value==="ALTERNATIVO"?$("expGrupo").value.trim():"",
+duracion_meses:$("expMeses").value,
+horas:$("expHoras").value,
+tutelada:t.includes("TUTELADA"),
+requisitos_tutor:$("expTutor").value,
+metodo_comprobacion:$("expMetodo").value
+});
+["expTitulo","expGrupo","expDescripcion","expMeses","expHoras","expTutor","expMetodo"].forEach(x=>$(x).value="");
+pintarListasPerfil();
+mensaje("Experiencia añadida.")
+}catch(e){alert(e.message)}
+}
+
+async function guardarExamenPerfil(){
+try{
+const l=perfil.requisitos.examenes||[],r=$("exaRubrica").value.trim();
+await añadirExamen(perfil.codigo,{
+codigo_requisito:codigoReq("examenes",l),
+nombre:$("exaNombre").value,
+descripcion:$("exaDescripcion").value,
+tipo_prueba:$("exaTipo").value,
+nivel_llave:"EVALUACION",
+obligatoriedad:$("exaOblig").value,
+grupo_alternativa:$("exaOblig").value==="ALTERNATIVO"?$("exaGrupo").value.trim():"",
+metodo_comprobacion:$("exaMetodo").value,
+metrica:{tipo:"PUNTUACIÓN",maximo:Number($("exaMax").value),minimo_apto:Number($("exaMin").value)},
+rubrica:r?[r]:[]
+});
+["exaNombre","exaGrupo","exaDescripcion","exaMin","exaRubrica","exaMetodo"].forEach(x=>$(x).value="");
+pintarListasPerfil();
+mensaje("Prueba añadida.")
+}catch(e){alert(e.message)}
+}
+
+async function guardarRiesgoPerfilUI(){
+try{
+const p=Number($("prProb").value),g=Number($("prGravedad").value),n=p*g;
+perfil.riesgos=perfil.riesgos||[];
+perfil.riesgos.push({
+id:"RIE-"+String(perfil.riesgos.length+1).padStart(3,"0"),
+riesgo:$("prRiesgo").value.trim(),
+causa:$("prCausa").value.trim(),
+consecuencia:$("prConsecuencia").value.trim(),
+probabilidad:p,
+gravedad:g,
+nivel:n,
+aceptable:n<=9,
+controles:$("prControles").value.trim(),
+accion:$("prAccion").value.trim(),
+responsable:$("prResponsable").value.trim(),
+riesgo_residual:Number($("prResidual").value||0)
+});
+await guardarPerfilesCertificables();
+["prRiesgo","prCausa","prConsecuencia","prControles","prAccion","prResponsable","prResidual"].forEach(x=>$(x).value="");
+$("prProb").value=1;
+$("prGravedad").value=1;
+actualizarRiesgo("pr");
+pintarListasPerfil();
+mensaje("Riesgo añadido.")
+}catch(e){alert(e.message)}
+}
+
+async function guardarCertificacionPerfil(){
+perfil.certificacion_inicial={criterios:lineas($("pcertInicial").value),metodos_evaluacion:perfil.certificacion_inicial?.metodos_evaluacion||[]};
+perfil.vigilancia={aplica:$("pvigAplica").value==="true",criterios:lineas($("pvigCriterios").value)};
+perfil.recertificacion={...perfil.recertificacion,aplica:$("precAplica").value==="true",periodicidad_meses:Number($("precMeses").value||0),criterios:lineas($("precCriterios").value)};
+perfil.suspension_retirada={criterios:lineas($("psusCriterios").value)};
+perfil.codigo_conducta={aplica:$("pcodAplica").value==="true",contenido:$("pcodContenido").value};
+await guardarPerfilesCertificables();
+mensaje("Criterios del perfil guardados.")
+}
+
+function comprobarPerfil(){
+const r=validarPerfilCertificable(perfil);
+$("resultadoValidacionPerfil").innerHTML=r.valido?
+'<div class="bloque riesgo-verde"><h3>PERFIL VALIDABLE</h3>No se han detectado bloqueos.</div>':
+'<div class="bloque riesgo-rojo"><h3>PERFIL INCOMPLETO</h3>'+r.errores.map(x=>"• "+x).join("<br>")+"</div>"
+}
+
+async function aprobarPerfil(){
+try{
+await aprobarPerfilCertificable(perfil.codigo,$("pvalResponsable").value,$("pvalObservaciones").value);
+pintarPerfil();
+comprobarPerfil();
+mensaje("Perfil aprobado.")
+}catch(e){alert(e.message)}
+}
 
 /* ESQUEMA */
-function rellenarSelectorEsquemas(){$("selectorEsquema").innerHTML="";ESQUEMAS_CERTIFICACION.forEach(e=>{const o=document.createElement("option");o.value=e.codigo;o.textContent=e.codigo+" · "+e.nombre;$("selectorEsquema").appendChild(o)})}
+function rellenarSelectorEsquemas(){
+$("selectorEsquema").innerHTML="";
+ESQUEMAS_CERTIFICACION.forEach(e=>{
+const o=document.createElement("option");
+o.value=e.codigo;
+o.textContent=e.codigo+" · "+e.nombre;
+$("selectorEsquema").appendChild(o)
+})
+}
+
 function seleccionarEsquema(){esquema=buscarEsquemaCertificacion($("selectorEsquema").value);pintarEsquema()}
-function pintarEsquema(){if(!esquema)return;$("eCodigo").value=esquema.codigo||"";$("eNombre").value=esquema.nombre||"";$("eVersion").value=esquema.version||"01";$("eEstado").value=esquema.estado||"BORRADOR";$("ePerfil").value=esquema.perfil_codigo||"";$("eObjeto").value=esquema.objeto||"";$("eAlcance").value=esquema.alcance||"";$("estadoEsquema").innerHTML=esquema.estado==="APROBADO"?'<span class="estado-aprobado">APROBADO</span>':'<span class="estado-borrador">'+(esquema.estado||"BORRADOR")+"</span>";pintarListasEsquema()}
-function pintarListasEsquema(){pintarLista("listaRequisitosPrevios",esquema?.requisitos_previos,x=>`<h3>${x.titulo}</h3><div>${x.descripcion||""}</div><div class="meta"><b>Comprobación:</b> ${x.metodo_comprobacion||"—"}</div>`);pintarLista("listaMetodosEvaluacion",esquema?.evaluacion?.metodos,x=>`<h3>${x.nombre}</h3><div>${x.descripcion||""}</div><div class="meta"><b>Criterio:</b> ${x.criterio||"—"}</div>`);pintarLista("listaExamenesEsquema",esquema?.examenes,x=>`<h3>${x.nombre}</h3><div>${x.descripcion||""}</div>`);pintarLista("listaEvaluadores",esquema?.evaluadores?.requisitos,x=>`<h3>${x.titulo}</h3><div>${x.descripcion||""}</div>`);pintarRiesgos("listaRiesgosEsquema",esquema?.riesgos)}
-async function nuevoEsquema(){if(!PERFILES_CERTIFICABLES.length){alert("Debe existir al menos un perfil certificable.");return}const n=prompt("Denominación del nuevo esquema:");if(!n)return;const pc=$("ePerfil").value||PERFILES_CERTIFICABLES[0].codigo,p=buscarPerfilCertificable(pc);try{esquema=await altaEsquemaCertificacion({nombre:n,perfil_codigo:p.codigo,perfil_nombre:p.nombre});rellenarSelectorEsquemas();$("selectorEsquema").value=esquema.codigo;pintarEsquema();mensaje("Esquema creado.")}catch(e){alert(e.message)}}
-async function recargarEsquemas(){try{const c=esquema?.codigo;await cargarEsquemasCertificacion();rellenarSelectorEsquemas();esquema=buscarEsquemaCertificacion(c)||ESQUEMAS_CERTIFICACION[0]||null;if(esquema)$("selectorEsquema").value=esquema.codigo;pintarEsquema();mensaje("Esquemas recargados.")}catch(e){alert(e.message)}}
-async function guardarIdentificacionEsquema(){const p=buscarPerfilCertificable($("ePerfil").value);esquema.nombre=$("eNombre").value.trim();esquema.version=$("eVersion").value.trim();esquema.estado=$("eEstado").value;esquema.perfil_codigo=p?.codigo||"";esquema.perfil_nombre=p?.nombre||"";esquema.objeto=$("eObjeto").value.trim();esquema.alcance=$("eAlcance").value.trim();await guardarEsquemasCertificacion();rellenarSelectorEsquemas();$("selectorEsquema").value=esquema.codigo;mensaje("Esquema guardado.")}
-async function guardarRequisitoPrevio(){try{await añadirRequisitoPrevio(esquema.codigo,{titulo:$("erTitulo").value,descripcion:$("erDescripcion").value,metodo_comprobacion:$("erMetodo").value});["erTitulo","erDescripcion","erMetodo"].forEach(x=>$(x).value="");pintarListasEsquema();mensaje("Requisito añadido.")}catch(e){alert(e.message)}}
-async function guardarMetodoEvaluacion(){try{await añadirMetodoEvaluacion(esquema.codigo,{nombre:$("eeNombre").value,descripcion:$("eeDescripcion").value,criterio:$("eeCriterio").value});["eeNombre","eeDescripcion","eeCriterio"].forEach(x=>$(x).value="");pintarListasEsquema();mensaje("Método añadido.")}catch(e){alert(e.message)}}
-async function guardarExamenEsquema(){try{await añadirExamenEsquema(esquema.codigo,{nombre:$("exNombre").value,tipo:$("exTipo").value,descripcion:$("exDescripcion").value,duracion_minutos:$("exDuracion").value,numero_preguntas:$("exPreguntas").value,puntuacion_maxima:$("exMax").value,minimo_apto:$("exMin").value,rubrica:lineas($("exRubrica").value),seguridad:$("exSeguridad").value,metodo_comprobacion:$("exMetodo").value});pintarListasEsquema();mensaje("Prueba añadida.")}catch(e){alert(e.message)}}
-async function guardarRequisitoEvaluador(){try{await añadirRequisitoEvaluador(esquema.codigo,{titulo:$("evTitulo").value,descripcion:$("evDescripcion").value,metodo_comprobacion:$("evMetodo").value});pintarListasEsquema();mensaje("Requisito añadido.")}catch(e){alert(e.message)}}
-async function guardarDecision(){esquema.decision_certificacion={criterios:lineas($("edCriterios").value),responsable:$("edResponsable").value,independencia_evaluacion:$("edIndependencia").value==="true",documentos_requeridos:lineas($("edDocumentos").value)};await guardarEsquemasCertificacion();mensaje("Decisión guardada.")}
-async function guardarCertificado(){esquema.certificado={vigencia_meses:Number($("ecVigencia").value||0),contenido_minimo:lineas($("ecContenido").value),condiciones_uso:lineas($("ecCondiciones").value),marca_certificacion:$("ecMarca").value,numero_certificado_automatico:$("ecNumero").value==="true"};await guardarEsquemasCertificacion();mensaje("Certificado guardado.")}
-async function guardarVigilancia(){esquema.vigilancia={aplica:$("evigAplica").value==="true",periodicidad_meses:Number($("evigMeses").value||0),metodos:lineas($("evigMetodos").value),criterios:lineas($("evigCriterios").value),evidencias:lineas($("evigEvidencias").value)};await guardarEsquemasCertificacion();mensaje("Vigilancia guardada.")}
-async function guardarRecertificacion(){esquema.recertificacion={aplica:$("erecAplica").value==="true",periodicidad_meses:Number($("erecMeses").value||0),metodos:lineas($("erecMetodos").value),criterios:lineas($("erecCriterios").value),evidencias:lineas($("erecEvidencias").value),examen_requerido:$("erecExamen").value==="true"};await guardarEsquemasCertificacion();mensaje("Recertificación guardada.")}
-async function guardarSuspension(){esquema.suspension_retirada={criterios_suspension:lineas($("esSuspension").value),criterios_retirada:lineas($("esRetirada").value),reduccion_alcance:{aplica:$("esReduccion").value==="true",criterios:lineas($("esRedCriterios").value)},restablecimiento:{aplica:$("esRestablecimiento").value==="true",criterios:lineas($("esResCriterios").value)}};await guardarEsquemasCertificacion();mensaje("Criterios guardados.")}
-async function guardarImparcialidad(){esquema.imparcialidad={riesgos:lineas($("eiRiesgos").value),conflictos_interes:lineas($("eiConflictos").value),medidas_control:lineas($("eiMedidas").value),revision_periodica:$("eiRevision").value==="true"};await guardarEsquemasCertificacion();mensaje("Imparcialidad guardada.")}
-async function guardarRiesgoEsquemaUI(){const p=Number($("reProb").value),g=Number($("reGravedad").value),n=p*g;esquema.riesgos=esquema.riesgos||[];esquema.riesgos.push({id:"RIE-"+String(esquema.riesgos.length+1).padStart(3,"0"),riesgo:$("reRiesgo").value,causa:$("reCausa").value,consecuencia:$("reConsecuencia").value,probabilidad:p,gravedad:g,nivel:n,controles:$("reControles").value,accion:$("reAccion").value,responsable:$("reResponsable").value,riesgo_residual:Number($("reResidual").value||0)});await guardarEsquemasCertificacion();$("reProb").value=1;$("reGravedad").value=1;actualizarRiesgo("re");pintarListasEsquema();mensaje("Riesgo añadido.")}
-async function guardarSeguridadEsquema(){esquema.seguridad_confidencialidad={informacion_confidencial:lineas($("esegConfidencial").value),controles_acceso:lineas($("esegAccesos").value),integridad_datos:lineas($("esegIntegridad").value),seguridad_examenes:lineas($("esegExamenes").value),custodia_evidencias:lineas($("esegCustodia").value)};await guardarEsquemasCertificacion();mensaje("Seguridad guardada.")}
-function comprobarEsquema(){const r=validarEsquemaCertificacion(esquema);$("resultadoValidacionEsquema").innerHTML=r.valido?'<div class="bloque riesgo-verde"><h3>ESQUEMA VALIDABLE</h3>No se han detectado bloqueos.</div>':'<div class="bloque riesgo-rojo"><h3>ESQUEMA INCOMPLETO</h3>'+r.errores.map(x=>"• "+x).join("<br>")+"</div>"}
-async function aprobarEsquema(){try{await aprobarEsquemaCertificacion(esquema.codigo,$("evalResponsable").value,$("evalObservaciones").value);pintarEsquema();comprobarEsquema();mensaje("Esquema aprobado.")}catch(e){alert(e.message)}}
-function mensaje(t){$("mensaje").textContent=t;$("mensaje").classList.add("visible");setTimeout(()=>$("mensaje").classList.remove("visible"),2200)}
-async function iniciarA1(){try{await cargarPerfilesCertificables();await cargarEsquemasCertificacion();rellenarSelectorPerfiles();rellenarSelectorEsquemas();perfil=PERFILES_CERTIFICABLES[0]||null;esquema=ESQUEMAS_CERTIFICACION[0]||null;if(perfil){$("selectorPerfil").value=perfil.codigo;pintarPerfil()}if(esquema){$("selectorEsquema").value=esquema.codigo;pintarEsquema()}actualizarRiesgo("pr");actualizarRiesgo("re")}catch(e){console.error(e);alert("No se han podido cargar los Maestros de A1:\n\n"+e.message)}}
+
+function pintarEsquema(){
+if(!esquema)return;
+$("eCodigo").value=esquema.codigo||"";
+$("eNombre").value=esquema.nombre||"";
+$("eVersion").value=esquema.version||"01";
+$("eEstado").value=esquema.estado||"BORRADOR";
+$("ePerfil").value=esquema.perfil_codigo||"";
+$("eObjeto").value=esquema.objeto||"";
+$("eAlcance").value=esquema.alcance||"";
+$("estadoEsquema").innerHTML=esquema.estado==="APROBADO"?'<span class="estado-aprobado">APROBADO</span>':'<span class="estado-borrador">'+(esquema.estado||"BORRADOR")+"</span>";
+pintarListasEsquema()
+}
+
+function pintarListasEsquema(){
+pintarLista("listaRequisitosPrevios",esquema?.requisitos_previos,x=>`<h3>${x.titulo}</h3><div>${x.descripcion||""}</div><div class="meta"><b>Comprobación:</b> ${x.metodo_comprobacion||"—"}</div>`);
+pintarLista("listaMetodosEvaluacion",esquema?.evaluacion?.metodos,x=>`<h3>${x.nombre}</h3><div>${x.descripcion||""}</div><div class="meta"><b>Criterio:</b> ${x.criterio||"—"}</div>`);
+pintarLista("listaExamenesEsquema",esquema?.examenes,x=>`<h3>${x.nombre}</h3><div>${x.descripcion||""}</div>`);
+pintarLista("listaEvaluadores",esquema?.evaluadores?.requisitos,x=>`<h3>${x.titulo}</h3><div>${x.descripcion||""}</div>`);
+pintarRiesgos("listaRiesgosEsquema",esquema?.riesgos)
+}
+
+async function nuevoEsquema(){
+if(!PERFILES_CERTIFICABLES.length){alert("Debe existir al menos un perfil certificable.");return}
+const n=prompt("Denominación del nuevo esquema:");
+if(!n)return;
+const pc=$("ePerfil").value||PERFILES_CERTIFICABLES[0].codigo,p=buscarPerfilCertificable(pc);
+try{
+esquema=await altaEsquemaCertificacion({nombre:n,perfil_codigo:p.codigo,perfil_nombre:p.nombre});
+rellenarSelectorEsquemas();
+$("selectorEsquema").value=esquema.codigo;
+pintarEsquema();
+mensaje("Esquema creado.")
+}catch(e){alert(e.message)}
+}
+
+async function recargarEsquemas(){
+try{
+const c=esquema?.codigo;
+await cargarEsquemasCertificacion();
+rellenarSelectorEsquemas();
+esquema=buscarEsquemaCertificacion(c)||ESQUEMAS_CERTIFICACION[0]||null;
+if(esquema)$("selectorEsquema").value=esquema.codigo;
+pintarEsquema();
+mensaje("Esquemas recargados.")
+}catch(e){alert(e.message)}
+}
+
+async function guardarIdentificacionEsquema(){
+const p=buscarPerfilCertificable($("ePerfil").value);
+esquema.nombre=$("eNombre").value.trim();
+esquema.version=$("eVersion").value.trim();
+esquema.estado=$("eEstado").value;
+esquema.perfil_codigo=p?.codigo||"";
+esquema.perfil_nombre=p?.nombre||"";
+esquema.objeto=$("eObjeto").value.trim();
+esquema.alcance=$("eAlcance").value.trim();
+await guardarEsquemasCertificacion();
+rellenarSelectorEsquemas();
+$("selectorEsquema").value=esquema.codigo;
+mensaje("Esquema guardado.")
+}
+
+async function guardarRequisitoPrevio(){
+try{
+await añadirRequisitoPrevio(esquema.codigo,{titulo:$("erTitulo").value,descripcion:$("erDescripcion").value,metodo_comprobacion:$("erMetodo").value});
+["erTitulo","erDescripcion","erMetodo"].forEach(x=>$(x).value="");
+pintarListasEsquema();
+mensaje("Requisito añadido.")
+}catch(e){alert(e.message)}
+}
+
+async function guardarMetodoEvaluacion(){
+try{
+await añadirMetodoEvaluacion(esquema.codigo,{nombre:$("eeNombre").value,descripcion:$("eeDescripcion").value,criterio:$("eeCriterio").value});
+["eeNombre","eeDescripcion","eeCriterio"].forEach(x=>$(x).value="");
+pintarListasEsquema();
+mensaje("Método añadido.")
+}catch(e){alert(e.message)}
+}
+
+async function guardarExamenEsquema(){
+try{
+await añadirExamenEsquema(esquema.codigo,{
+nombre:$("exNombre").value,
+tipo:$("exTipo").value,
+descripcion:$("exDescripcion").value,
+duracion_minutos:$("exDuracion").value,
+numero_preguntas:$("exPreguntas").value,
+puntuacion_maxima:$("exMax").value,
+minimo_apto:$("exMin").value,
+rubrica:lineas($("exRubrica").value),
+seguridad:$("exSeguridad").value,
+metodo_comprobacion:$("exMetodo").value
+});
+pintarListasEsquema();
+mensaje("Prueba añadida.")
+}catch(e){alert(e.message)}
+}
+
+async function guardarRequisitoEvaluador(){
+try{
+await añadirRequisitoEvaluador(esquema.codigo,{titulo:$("evTitulo").value,descripcion:$("evDescripcion").value,metodo_comprobacion:$("evMetodo").value});
+pintarListasEsquema();
+mensaje("Requisito añadido.")
+}catch(e){alert(e.message)}
+}
+
+async function guardarDecision(){
+esquema.decision_certificacion={
+criterios:lineas($("edCriterios").value),
+responsable:$("edResponsable").value,
+independencia_evaluacion:$("edIndependencia").value==="true",
+documentos_requeridos:lineas($("edDocumentos").value)
+};
+await guardarEsquemasCertificacion();
+mensaje("Decisión guardada.")
+}
+
+async function guardarCertificado(){
+esquema.certificado={
+vigencia_meses:Number($("ecVigencia").value||0),
+contenido_minimo:lineas($("ecContenido").value),
+condiciones_uso:lineas($("ecCondiciones").value),
+marca_certificacion:$("ecMarca").value,
+numero_certificado_automatico:$("ecNumero").value==="true"
+};
+await guardarEsquemasCertificacion();
+mensaje("Certificado guardado.")
+}
+
+async function guardarVigilancia(){
+esquema.vigilancia={
+aplica:$("evigAplica").value==="true",
+periodicidad_meses:Number($("evigMeses").value||0),
+metodos:lineas($("evigMetodos").value),
+criterios:lineas($("evigCriterios").value),
+evidencias:lineas($("evigEvidencias").value)
+};
+await guardarEsquemasCertificacion();
+mensaje("Vigilancia guardada.")
+}
+
+async function guardarRecertificacion(){
+esquema.recertificacion={
+aplica:$("erecAplica").value==="true",
+periodicidad_meses:Number($("erecMeses").value||0),
+metodos:lineas($("erecMetodos").value),
+criterios:lineas($("erecCriterios").value),
+evidencias:lineas($("erecEvidencias").value),
+examen_requerido:$("erecExamen").value==="true"
+};
+await guardarEsquemasCertificacion();
+mensaje("Recertificación guardada.")
+}
+
+async function guardarSuspension(){
+esquema.suspension_retirada={
+criterios_suspension:lineas($("esSuspension").value),
+criterios_retirada:lineas($("esRetirada").value),
+reduccion_alcance:{
+aplica:$("esReduccion").value==="true",
+criterios:lineas($("esRedCriterios").value)
+},
+restablecimiento:{
+aplica:$("esRestablecimiento").value==="true",
+criterios:lineas($("esResCriterios").value)
+}
+};
+await guardarEsquemasCertificacion();
+mensaje("Criterios guardados.")
+}
+
+async function guardarImparcialidad(){
+esquema.imparcialidad={
+riesgos:lineas($("eiRiesgos").value),
+conflictos_interes:lineas($("eiConflictos").value),
+medidas_control:lineas($("eiMedidas").value),
+revision_periodica:$("eiRevision").value==="true"
+};
+await guardarEsquemasCertificacion();
+mensaje("Imparcialidad guardada.")
+}
+
+async function guardarRiesgoEsquemaUI(){
+const p=Number($("reProb").value),g=Number($("reGravedad").value),n=p*g;
+esquema.riesgos=esquema.riesgos||[];
+esquema.riesgos.push({
+id:"RIE-"+String(esquema.riesgos.length+1).padStart(3,"0"),
+riesgo:$("reRiesgo").value,
+causa:$("reCausa").value,
+consecuencia:$("reConsecuencia").value,
+probabilidad:p,
+gravedad:g,
+nivel:n,
+controles:$("reControles").value,
+accion:$("reAccion").value,
+responsable:$("reResponsable").value,
+riesgo_residual:Number($("reResidual").value||0)
+});
+await guardarEsquemasCertificacion();
+$("reProb").value=1;
+$("reGravedad").value=1;
+actualizarRiesgo("re");
+pintarListasEsquema();
+mensaje("Riesgo añadido.")
+}
+
+async function guardarSeguridadEsquema(){
+esquema.seguridad_confidencialidad={
+informacion_confidencial:lineas($("esegConfidencial").value),
+controles_acceso:lineas($("esegAccesos").value),
+integridad_datos:lineas($("esegIntegridad").value),
+seguridad_examenes:lineas($("esegExamenes").value),
+custodia_evidencias:lineas($("esegCustodia").value)
+};
+await guardarEsquemasCertificacion();
+mensaje("Seguridad guardada.")
+}
+
+function comprobarEsquema(){
+const r=validarEsquemaCertificacion(esquema);
+$("resultadoValidacionEsquema").innerHTML=r.valido?
+'<div class="bloque riesgo-verde"><h3>ESQUEMA VALIDABLE</h3>No se han detectado bloqueos.</div>':
+'<div class="bloque riesgo-rojo"><h3>ESQUEMA INCOMPLETO</h3>'+r.errores.map(x=>"• "+x).join("<br>")+"</div>"
+}
+
+async function aprobarEsquema(){
+try{
+await aprobarEsquemaCertificacion(esquema.codigo,$("evalResponsable").value,$("evalObservaciones").value);
+pintarEsquema();
+comprobarEsquema();
+mensaje("Esquema aprobado.")
+}catch(e){alert(e.message)}
+}
+
+function mensaje(t){
+$("mensaje").textContent=t;
+$("mensaje").classList.add("visible");
+setTimeout(()=>$("mensaje").classList.remove("visible"),2200)
+}
+
+async function iniciarA1(){
+try{
+await cargarPerfilesCertificables();
+await cargarEsquemasCertificacion();
+rellenarSelectorPerfiles();
+rellenarSelectorEsquemas();
+perfil=PERFILES_CERTIFICABLES[0]||null;
+esquema=ESQUEMAS_CERTIFICACION[0]||null;
+if(perfil){$("selectorPerfil").value=perfil.codigo;pintarPerfil()}
+if(esquema){$("selectorEsquema").value=esquema.codigo;pintarEsquema()}
+actualizarRiesgo("pr");
+actualizarRiesgo("re")
+}catch(e){
+console.error(e);
+alert("No se han podido cargar los Maestros de A1:\n\n"+e.message)
+}
+}
+
 iniciarA1();
 </script>
 </body>
